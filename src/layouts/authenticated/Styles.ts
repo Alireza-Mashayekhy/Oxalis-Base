@@ -6,14 +6,14 @@ export const Container = styled.div`
     height: 100vh;
     display: flex;
     flex-direction: column;
-    gap: 0.1rem;
+    gap: 0.2rem;
 `;
 
 export const Area = styled.div`
     width: 100%;
-    height: calc(100vh - 55px - 0.1rem);
+    height: calc(100vh - 55px - 0.2rem);
     display: flex;
-    gap: 0.1rem;
+    gap: 0.2rem;
 `;
 
 export const HambugerMenuContainer = styled.div`
@@ -26,7 +26,7 @@ export const HambugerMenuContainer = styled.div`
         height: 5vh;
         width: calc(100% - 0.2rem);
         padding: 0 5px 0 0;
-        margin: 0.1rem 0.1rem;
+        margin: 0.2rem 0.2rem;
         z-index: 1000;
     }
 `;

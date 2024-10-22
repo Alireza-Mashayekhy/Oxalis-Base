@@ -7,7 +7,7 @@ export const Container = styled.div`
     direction: rtl;
     display: flex;
     align-items: stretch;
-    gap: 0.3rem;
+    gap: 0.2rem;
     overflow: hidden;
     color: ${({ theme }) => theme.textColor};
     overflow-x: hidden;
@@ -19,7 +19,7 @@ export const Container = styled.div`
     overflow-y: auto;
     -webkit-overflow-scrolling: touch;
     flex-basis: calc(100%);
-    height: calc(100vh - 55px - 0.1rem);
+    height: calc(100vh - 55px - 0.2rem);
     background-color: ${({ theme }) => theme.secondary};
     color: ${({ theme }) => theme.textColor};
     overflow: auto;
