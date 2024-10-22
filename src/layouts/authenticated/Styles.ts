@@ -1,17 +1,23 @@
 import styled from 'styled-components';
 import { breakpoints } from '@/styles';
 
-export const Container = styled.div`
+export const Container = styled.div<{ $url: string }>`
     width: 100vw;
     height: 100vh;
     display: flex;
     flex-direction: column;
     gap: 0.2rem;
+    background: linear-gradient(to top, #00000050 50%, #00000050 100%),
+        ${({ $url }) => `url(${$url})`} no-repeat;
+    background-position: center;
+    background-size: cover;
+    background-repeat: no-repeat;
+    padding: 5px;
 `;
 
 export const Area = styled.div`
     width: 100%;
-    height: calc(100vh - 55px - 0.2rem);
+    height: calc(100vh - 70px - 0.2rem);
     display: flex;
     gap: 0.2rem;
 `;
