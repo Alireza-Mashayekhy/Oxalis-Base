@@ -38,7 +38,7 @@ const Nav: SFC = ({ className }) => {
     };
     return (
         <S.Container
-            $width="200px"
+            $width="180px"
             $status={isNavOpen}
             className={className}
             onMouseEnter={() => {
@@ -57,7 +57,7 @@ const Nav: SFC = ({ className }) => {
                 />
             </S.FlexItem>
             <S.FlexItem>
-                <MenuButton
+                {/* <MenuButton
                     icon={`${
                         theme === 'dark'
                             ? mdiWhiteBalanceSunny
@@ -65,7 +65,7 @@ const Nav: SFC = ({ className }) => {
                     } `}
                     onClick={handleThemeChange}
                     text="حالت تیره/روشن"
-                />
+                /> */}
                 <MenuButton
                     icon={mdiExitToApp}
                     onClick={handleLogout}

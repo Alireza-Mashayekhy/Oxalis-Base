@@ -3,6 +3,7 @@ import styled from 'styled-components';
 
 export const Container = styled.div`
     width: 100%;
+    height: 100%;
     direction: rtl;
     gap: 0.2rem;
     ${hiddenScroll};
@@ -12,11 +13,9 @@ export const Container = styled.div`
     overflow-y: auto;
     -webkit-overflow-scrolling: touch;
     flex-basis: calc(100%);
-    height: calc(100vh - 75px - 0.2rem);
     background-color: ${({ theme }) => theme.secondaryOpacity};
-    backdrop-filter: blur(20px);
+    backdrop-filter: blur(10px);
     border-radius: 10px;
     color: ${({ theme }) => theme.textColor};
     overflow: auto;
-    border: 1px solid #ffffff50;
 `;

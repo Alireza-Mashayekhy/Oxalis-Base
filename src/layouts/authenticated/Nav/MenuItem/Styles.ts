@@ -12,7 +12,7 @@ const menuItemStyle = css<{ $isActive: boolean }>`
         $isActive ? theme.hover : 'transparent'};
     border-radius: ${`${HEIGHT / 2}px`};
     color: ${({ $isActive, theme }) =>
-        $isActive ? colors.selectBlueColor : theme.textColorSecondary};
+        $isActive ? colors.selectBlueColor : theme.primary};
     display: flex;
     justify-content: center;
     font-weight: ${({ $isActive }) =>
@@ -21,7 +21,8 @@ const menuItemStyle = css<{ $isActive: boolean }>`
     transition: background 0.3s ease;
 
     &:hover {
-        background: rgba(144, 157, 171, 0.12);
+        background: rgba(144, 157, 171, 0.6);
+        color: ${({ theme }) => theme.primary};
         cursor: pointer;
         text-decoration: none;
     }
@@ -37,17 +38,8 @@ export const MenuButton = styled.div<{ $isActive: boolean }>`
 `;
 
 export const MenuLink = styled(ULink)<{ $isActive: boolean }>`
-    align-items: center;
-    background: ${({ $isActive, theme }) =>
-        $isActive ? theme.hover : 'transparent'};
-    border-radius: ${`${HEIGHT / 2}px`};
-    color: ${({ $isActive, theme }) =>
-        $isActive ? colors.selectBlueColor : theme.textColorSecondary};
-    display: flex;
-    font-weight: ${({ $isActive }) =>
-        $isActive ? fonts.weight.semiBold : fonts.weight.regular};
-    height: ${`${HEIGHT}px`};
-    transition: background 0.3s ease;
+    ${menuItemStyle}
+    justify-content: start;
     gap: 12px;
     min-width: 48px;
     overflow: hidden;
@@ -68,6 +60,7 @@ export const MenuLinkContainer = styled.div`
 
 export const MenuLinkText = styled.div`
     white-space: nowrap;
+    font-size: 14px;
 `;
 
 export const Text = styled.div`

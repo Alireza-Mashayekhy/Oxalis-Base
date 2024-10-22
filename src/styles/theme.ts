@@ -13,7 +13,7 @@ const darkTheme = {
 const lightTheme = {
     primary: '#FFFFFF', //white
     secondary: '#E9EBEA', //gray
-    secondaryOpacity: '#E9EBEAaa', //gray
+    secondaryOpacity: '#E9EBEA88', //gray
 
     strippedRow: '#F0F2F1',
     textColor: '#161415', //black gray

@@ -2,7 +2,7 @@ import React from 'react';
 import { Flip, ToastContainer } from 'react-toastify';
 import 'react-toastify/dist/ReactToastify.css';
 import { ThemeProvider } from 'styled-components';
-import { darkTheme, lightTheme } from './styles/theme';
+import { lightTheme } from './styles/theme';
 import 'primereact/resources/primereact.min.css';
 import 'primeicons/primeicons.css';
 import './styles/globals.css';
@@ -21,7 +21,7 @@ const App = () => {
 
     return (
         <PrimeReactProvider>
-            <ThemeProvider theme={theme === 'light' ? lightTheme : darkTheme}>
+            <ThemeProvider theme={lightTheme}>
                 {renderLayout()}
                 <ToastContainer
                     position="top-right"

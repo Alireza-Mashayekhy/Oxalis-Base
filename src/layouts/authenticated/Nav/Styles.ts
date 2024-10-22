@@ -13,6 +13,9 @@ export const Container = styled.div<{ $status: boolean; $width: string }>`
     overflow-y: auto;
     transition: all 0.5s;
     ${hiddenScroll};
+    background-color: ${({ theme }) => theme.secondaryOpacity};
+    backdrop-filter: blur(10px);
+    border-radius: 10px;
 `;
 
 export const FlexItem = styled.div`

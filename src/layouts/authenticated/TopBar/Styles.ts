@@ -2,12 +2,15 @@ import styled from 'styled-components';
 
 export const Container = styled.div`
     // background-color: ${({ theme }) => theme.secondary};
-    color: ${({ theme }) => theme.textColor};
+    color: ${({ theme }) => theme.primary};
     height: 55px;
     padding: 5px 10px;
     display: flex;
     align-items: center;
     gap: 2rem;
+    background-color: ${({ theme }) => theme.secondaryOpacity};
+    backdrop-filter: blur(10px);
+    border-radius: 10px;
 `;
 
 export const Gap = styled.div`
