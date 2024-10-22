@@ -20,8 +20,10 @@ import * as S from './Styles';
 import { setTheme } from '@/redux/slice/themeSlice';
 import { getTheme } from '@/redux/selectors';
 import { useNavigate } from 'react-router';
+import { useState } from 'react';
 
 const Nav: SFC = ({ className }) => {
+    const [isNavOpen, setNavOpen] = useState(false);
     const dispatch = useDispatch<AppDispatch>();
     const theme = useSelector(getTheme);
     const navigate = useNavigate();
@@ -35,7 +37,17 @@ const Nav: SFC = ({ className }) => {
         dispatch(setTheme());
     };
     return (
-        <S.Container className={className}>
+        <S.Container
+            $width="200px"
+            $status={isNavOpen}
+            className={className}
+            onMouseEnter={() => {
+                setNavOpen(true);
+            }}
+            onMouseLeave={() => {
+                setNavOpen(false);
+            }}
+        >
             <S.FlexItem>
                 <MenuLink
                     icon={mdiHomeAnalytics}

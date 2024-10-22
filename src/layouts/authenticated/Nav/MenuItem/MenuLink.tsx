@@ -20,15 +20,16 @@ const MenuLink: SFC<MenuLinkProps> = ({
     const location = useLocation();
 
     return (
-        <div>
+        <S.MenuLinkContainer>
             <S.MenuLink
                 $isActive={location.pathname.includes(rootPath)}
                 className={className}
                 to={to}
             >
-                <S.Icon path={icon} size="26px" />
+                <S.LinkIcon path={icon} size="26px" />
+                <S.MenuLinkText>{text}</S.MenuLinkText>
             </S.MenuLink>
-        </div>
+        </S.MenuLinkContainer>
     );
 };
 
