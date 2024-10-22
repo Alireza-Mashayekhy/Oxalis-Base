@@ -29,7 +29,7 @@ export const FlexItemLink = styled.div`
     flex-direction: column;
     justify-content: center;
     height: 100%;
-
+    gap: 5px;
     &:last-child {
         margin-top: auto; /* This will push the last item to the bottom */
     }
