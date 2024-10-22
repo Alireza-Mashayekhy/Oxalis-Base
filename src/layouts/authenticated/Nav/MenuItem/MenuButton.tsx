@@ -21,6 +21,7 @@ const MenuButton: SFC<MenuButtonProps> = ({
                 onClick={onClick}
             >
                 <S.Icon path={icon} size="26px" />
+                {text}
             </S.MenuButton>
         </div>
     );

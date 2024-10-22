@@ -19,7 +19,11 @@ export const Area = styled.div`
     width: 100%;
     height: calc(100vh - 70px - 0.2rem);
     display: flex;
+    position: relative;
     gap: 0.2rem;
+    padding: 20px;
+    padding-top: 5px;
+    padding-right: 80px;
 `;
 
 export const HambugerMenuContainer = styled.div`

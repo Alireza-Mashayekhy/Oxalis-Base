@@ -48,14 +48,14 @@ const Nav: SFC = ({ className }) => {
                 setNavOpen(false);
             }}
         >
-            <S.FlexItem>
+            <S.FlexItemLink>
                 <MenuLink
                     icon={mdiHomeAnalytics}
-                    rootPath="/home"
+                    rootPath="/proma/home"
                     text="صفحه اصلی"
-                    to="/home"
+                    to="/proma/home"
                 />
-            </S.FlexItem>
+            </S.FlexItemLink>
             <S.FlexItem>
                 {/* <MenuButton
                     icon={`${

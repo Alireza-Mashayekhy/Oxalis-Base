@@ -8,8 +8,10 @@ const HEIGHT = 48;
 
 const menuItemStyle = css<{ $isActive: boolean }>`
     align-items: center;
-    background: ${({ $isActive, theme }) =>
+    // background: ${({ $isActive, theme }) =>
         $isActive ? theme.hover : 'transparent'};
+    background-color: ${({ theme }) => theme.secondaryOpacity};
+    backdrop-filter: blur(10px);
     border-radius: ${`${HEIGHT / 2}px`};
     color: ${({ $isActive, theme }) =>
         $isActive ? colors.selectBlueColor : theme.primary};
@@ -20,25 +22,6 @@ const menuItemStyle = css<{ $isActive: boolean }>`
     height: ${`${HEIGHT}px`};
     transition: background 0.3s ease;
 
-    &:hover {
-        background: rgba(144, 157, 171, 0.6);
-        color: ${({ theme }) => theme.primary};
-        cursor: pointer;
-        text-decoration: none;
-    }
-`;
-
-export const Icon = styled(UIcon)``;
-export const LinkIcon = styled(UIcon)`
-    min-width: 26px;
-`;
-
-export const MenuButton = styled.div<{ $isActive: boolean }>`
-    ${menuItemStyle}
-`;
-
-export const MenuLink = styled(ULink)<{ $isActive: boolean }>`
-    ${menuItemStyle}
     justify-content: start;
     gap: 12px;
     min-width: 48px;
@@ -50,6 +33,28 @@ export const MenuLink = styled(ULink)<{ $isActive: boolean }>`
         cursor: pointer;
         text-decoration: none;
     }
+
+    // &:hover {
+    //     background: rgba(144, 157, 171, 0.6);
+    //     color: ${({ theme }) => theme.primary};
+    //     cursor: pointer;
+    //     text-decoration: none;
+    // }
+`;
+
+export const Icon = styled(UIcon)`
+    min-width: 26px;
+`;
+export const LinkIcon = styled(UIcon)`
+    min-width: 26px;
+`;
+
+export const MenuButton = styled.div<{ $isActive: boolean }>`
+    ${menuItemStyle}
+`;
+
+export const MenuLink = styled(ULink)<{ $isActive: boolean }>`
+    ${menuItemStyle}
 `;
 
 export const MenuLinkContainer = styled.div`
