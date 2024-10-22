@@ -13,30 +13,7 @@ interface PageTemplateProps {
 }
 
 const PageTemplate: SFC<PageTemplateProps> = ({ TopBar, MainContent }) => {
-    const [isSecondColumnVisible, setIsSecondColumnVisible] = useState(true);
-
-    const toggleSecondColumn = () => {
-        setIsSecondColumnVisible(!isSecondColumnVisible);
-    };
-    return (
-        <>
-            <S.Container>
-                <S.FirstColumn>
-                    <S.TopRow>
-                        {TopBar && (
-                            <TopBar
-                                isSecondColumnVisible={isSecondColumnVisible}
-                                toggleSecondColumn={toggleSecondColumn}
-                            />
-                        )}
-                    </S.TopRow>
-                    <S.FlexContainerSecondRow>
-                        <div>{MainContent && <MainContent />}</div>
-                    </S.FlexContainerSecondRow>
-                </S.FirstColumn>
-            </S.Container>
-        </>
-    );
+    return <S.Container>{MainContent && <MainContent />}</S.Container>;
 };
 
 export default PageTemplate;

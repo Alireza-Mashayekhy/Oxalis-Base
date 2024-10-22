@@ -12,7 +12,6 @@ export const Container = styled.div`
 export const Area = styled.div`
     width: 100%;
     height: calc(100vh - 55px - 0.1rem);
-
     display: flex;
     gap: 0.1rem;
 `;

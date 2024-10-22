@@ -1,6 +1,7 @@
-import { hiddenScroll } from "@/styles";
-import styled from "styled-components";
+import { hiddenScroll } from '@/styles';
+import styled from 'styled-components';
 
 export const Container = styled.div`
-  ${hiddenScroll};
+    width: 100%;
+    ${hiddenScroll};
 `;
