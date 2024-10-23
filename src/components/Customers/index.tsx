@@ -20,7 +20,6 @@ import loanDark from '@/assets/loanDark.png';
 import loanLight from '@/assets/loanLight.png';
 import calendarDark from '@/assets/calendarDark.png';
 import calendarLight from '@/assets/calendarLight.png';
-import background from '@/assets/customersBack.jpg';
 
 export default function Customers() {
     const [infoModalVisible, setInfoModalVisible] = useState(false);
@@ -140,8 +139,6 @@ export default function Customers() {
 
     return (
         <div className="relative p-5 pt-12">
-            <S.Background $url={background} />
-
             <h1 className="text-right mb-10 px-10 relative text-4xl">
                 سرمایه‌گذاران همراه
             </h1>

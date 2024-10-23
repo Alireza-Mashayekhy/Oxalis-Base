@@ -11,6 +11,8 @@ import 'primereact/resources/themes/mdc-dark-indigo/theme.css';
 import { useSelector } from 'react-redux';
 import { getTheme } from './redux/selectors';
 import Authenticated from './layouts/authenticated';
+import GlobalStyle from '@/styles/components/GlobalStyle';
+import PrimeReactStyle from '@/styles/components/PrimeReactStyle';
 
 const App = () => {
     const theme = useSelector(getTheme);
@@ -23,6 +25,9 @@ const App = () => {
         <PrimeReactProvider>
             <ThemeProvider theme={lightTheme}>
                 {renderLayout()}
+                <GlobalStyle />
+                <PrimeReactStyle />
+
                 <ToastContainer
                     position="top-right"
                     autoClose={5000}

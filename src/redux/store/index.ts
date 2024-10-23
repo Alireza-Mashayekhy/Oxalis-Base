@@ -11,10 +11,24 @@ import {
 } from 'redux-persist';
 import storage from 'redux-persist/lib/storage';
 import themeSlice from '../slice/themeSlice';
+import uploadReducer from '@/redux/store/uploadData';
+import stockReducer from '@/redux/store/stockData';
+import customersReducer from '@/redux/store/customersData';
+import feeReducer from '@/redux/store/feeData';
+import investmentReducer from '@/redux/store/investmentData';
+import authentication from './authentication';
+import usersReducer from './users';
 import { LOGOUT_USER } from './actions';
 
 const rootReducer = combineReducers({
     theme: themeSlice,
+    uploadData: uploadReducer,
+    stockData: stockReducer,
+    customersData: customersReducer,
+    feeData: feeReducer,
+    authentication: authentication,
+    users: usersReducer,
+    investment: investmentReducer,
 });
 const appReducer = (
     state: any,
