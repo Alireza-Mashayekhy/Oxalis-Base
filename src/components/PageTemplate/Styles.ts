@@ -13,7 +13,7 @@ export const Container = styled.div`
     overflow-y: auto;
     -webkit-overflow-scrolling: touch;
     flex-basis: calc(100%);
-    background-color: ${({ theme }) => theme.secondaryOpacity};
+    background-color: #e9ebea50;
     backdrop-filter: blur(10px);
     border-radius: 10px;
     color: ${({ theme }) => theme.textColor};

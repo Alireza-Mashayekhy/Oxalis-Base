@@ -46,53 +46,53 @@ const Nav: SFC = ({ className }) => {
                     width="150px"
                 />
                 <MenuLink
-                    icon={mdiHomeAnalytics}
-                    rootPath="/proma/test-1"
-                    text="test 1"
-                    to="/proma/test-1"
+                    icon={mdiUpload}
+                    rootPath="/upload"
+                    text="بارگذاری"
+                    to="/upload"
+                    width="120px"
+                />
+                <MenuLink
+                    icon={mdiClipboardTextClock}
+                    rootPath="/records"
+                    text="سوابق دارندگان واحدهای صندوق"
+                    to="/records"
+                    width="250px"
+                />
+                <MenuLink
+                    icon={mdiChartBar}
+                    rootPath="/statistics"
+                    text="آمار تغییرات"
+                    to="/statistics"
+                    width="130px"
+                />
+                <MenuLink
+                    icon={mdiCalculator}
+                    rootPath="/fee"
+                    text="محاسبه کارمزد مدیر"
+                    to="/fee"
+                    width="180px"
+                />
+                <MenuLink
+                    icon={mdiAccountGroup}
+                    rootPath="/users"
+                    text="کاربران"
+                    to="/users"
+                    width="1110px"
+                />
+                <MenuLink
+                    icon={mdiTreasureChest}
+                    rootPath="/investment"
+                    text="سرمایه گذاری"
+                    to="/investment"
                     width="150px"
                 />
                 <MenuLink
-                    icon={mdiHomeAnalytics}
-                    rootPath="/proma/test-2"
-                    text="test 2"
-                    to="/proma/test-2"
-                    width="150px"
-                />
-                <MenuLink
-                    icon={mdiHomeAnalytics}
-                    rootPath="/proma/test-3"
-                    text="test 3"
-                    to="/proma/test-3"
-                    width="150px"
-                />
-                <MenuLink
-                    icon={mdiHomeAnalytics}
-                    rootPath="/proma/test-4"
-                    text="test 4"
-                    to="/proma/test-4"
-                    width="150px"
-                />
-                <MenuLink
-                    icon={mdiHomeAnalytics}
-                    rootPath="/proma/test-5"
-                    text="test 5"
-                    to="/proma/test-5"
-                    width="150px"
-                />
-                <MenuLink
-                    icon={mdiHomeAnalytics}
-                    rootPath="/proma/test-6"
-                    text="test 6"
-                    to="/proma/test-6"
-                    width="150px"
-                />
-                <MenuLink
-                    icon={mdiHomeAnalytics}
-                    rootPath="/proma/test-7"
-                    text="test 7"
-                    to="/proma/test-7"
-                    width="150px"
+                    icon={mdiChartLine}
+                    rootPath="/Indv-Inst-History"
+                    text="آمار حقوقی/حقیقی"
+                    to="/Indv-Inst-History"
+                    width="170px"
                 />
             </S.FlexItemLink>
             <S.FlexItem>
@@ -109,7 +109,7 @@ const Nav: SFC = ({ className }) => {
                     icon={mdiExitToApp}
                     onClick={handleLogout}
                     text="خروج"
-                    width="150px"
+                    width="110px"
                 />
             </S.FlexItem>
         </S.Container>
