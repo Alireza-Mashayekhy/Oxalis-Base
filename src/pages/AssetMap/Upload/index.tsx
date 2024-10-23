@@ -1,5 +1,5 @@
 import { useEffect, useRef } from 'react';
-import { SFC } from '@/types';
+import { AppDispatch, SFC } from '@/types';
 import * as S from './Styles';
 import React, { useState } from 'react';
 import { useDispatch, useSelector } from 'react-redux';
@@ -61,7 +61,8 @@ const Upload: SFC = () => {
         }
     }, [historyData]);
 
-    const dispatch = useDispatch();
+    const dispatch = useDispatch<AppDispatch>();
+
     const { loading, error } = useFileUpload();
     const fileInputRef = useRef<HTMLInputElement>(null);
 
