@@ -11,11 +11,11 @@ const menuItemStyle = css<{
     $width: string;
 }>`
     align-items: center;
-    background-color: ${({ theme }) => theme.secondaryOpacity};
+    background-color: ${({ $isActive, theme }) =>
+        $isActive ? theme.secondaryOpacity : 'rgba(144, 157, 171, 0.12)'};
     backdrop-filter: blur(10px);
     border-radius: ${`${HEIGHT / 2}px`};
-    color: ${({ $isActive, theme }) =>
-        $isActive ? colors.selectBlueColor : theme.primary};
+    color: ${({ theme }) => theme.primary};
     display: flex;
     justify-content: center;
     font-weight: ${({ $isActive }) =>
@@ -28,9 +28,8 @@ const menuItemStyle = css<{
     gap: 12px;
     overflow: hidden;
     padding: 0px 11px;
+    cursor: pointer;
     &:hover {
-        background: rgba(144, 157, 171, 0.12);
-        cursor: pointer;
         text-decoration: none;
         min-width: ${({ $width }) => $width};
         width: ${({ $width }) => $width};
