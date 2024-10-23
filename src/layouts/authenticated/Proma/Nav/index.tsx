@@ -47,51 +47,51 @@ const Nav: SFC = ({ className }) => {
                 />
                 <MenuLink
                     icon={mdiUpload}
-                    rootPath="/upload"
+                    rootPath="/proma/upload"
                     text="بارگذاری"
-                    to="/upload"
+                    to="/proma/upload"
                     width="120px"
                 />
                 <MenuLink
                     icon={mdiClipboardTextClock}
-                    rootPath="/records"
+                    rootPath="/proma/records"
                     text="سوابق دارندگان واحدهای صندوق"
-                    to="/records"
+                    to="/proma/records"
                     width="250px"
                 />
                 <MenuLink
                     icon={mdiChartBar}
-                    rootPath="/statistics"
+                    rootPath="/proma/statistics"
                     text="آمار تغییرات"
-                    to="/statistics"
+                    to="/proma/statistics"
                     width="130px"
                 />
                 <MenuLink
                     icon={mdiCalculator}
-                    rootPath="/fee"
+                    rootPath="/proma/fee"
                     text="محاسبه کارمزد مدیر"
-                    to="/fee"
+                    to="/proma/fee"
                     width="180px"
                 />
                 <MenuLink
                     icon={mdiAccountGroup}
-                    rootPath="/users"
+                    rootPath="/proma/users"
                     text="کاربران"
-                    to="/users"
-                    width="1110px"
+                    to="/proma/users"
+                    width="110px"
                 />
                 <MenuLink
                     icon={mdiTreasureChest}
-                    rootPath="/investment"
+                    rootPath="/proma/investment"
                     text="سرمایه گذاری"
-                    to="/investment"
+                    to="/proma/investment"
                     width="150px"
                 />
                 <MenuLink
                     icon={mdiChartLine}
-                    rootPath="/Indv-Inst-History"
+                    rootPath="/proma/Indv-Inst-History"
                     text="آمار حقوقی/حقیقی"
-                    to="/Indv-Inst-History"
+                    to="/proma/Indv-Inst-History"
                     width="170px"
                 />
             </S.FlexItemLink>
