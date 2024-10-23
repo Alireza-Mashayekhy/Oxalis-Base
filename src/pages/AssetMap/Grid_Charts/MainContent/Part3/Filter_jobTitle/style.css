@@ -1,0 +1,16 @@
+.filter{
+margin-top: 25px;
+}
+.filter button{
+    border: none !important;
+    background: #dbdbdd !important;
+    color: #333;
+    font-family: 'IRANSans';
+    border-radius: 4px;
+    width: 65px;
+    cursor: pointer;
+}
+.filter span{
+    color: #dbdbdd;
+    font-size: 12px;
+}

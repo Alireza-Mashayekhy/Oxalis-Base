@@ -1,0 +1,14 @@
+.yaxis{
+    margin-right: 50px !important;
+}
+.custom-tooltip{
+    background-color: rgb(54, 54, 54) !important;
+    color: #fff !important;
+    font-size: 12px !important;
+    padding: 5px !important;
+}
+@media only screen and (max-width: 600px) {
+    .apexcharts-tooltip {
+        width: 165px !important;
+    }
+}

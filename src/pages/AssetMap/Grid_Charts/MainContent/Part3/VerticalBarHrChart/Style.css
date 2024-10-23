@@ -1,0 +1,18 @@
+.tooltip {
+  background-color: #fdfdfd; 
+  color:#2b2b2b;
+  padding: 5px; 
+  border-radius: 5px; 
+  box-shadow: 1px 1px 5px rgba(8, 47, 177, 0.863);
+  font-size: 14px; 
+   display: flex;
+   flex-direction: column;
+}
+.tooltip span{
+  border-bottom:1px solid #ccc;
+  font-size: 12px;
+  text-align: center;
+}
+.xaxis{
+  font-family: IRANSans !important;
+}

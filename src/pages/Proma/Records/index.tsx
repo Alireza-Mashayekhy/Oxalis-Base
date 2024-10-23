@@ -1,9 +1,9 @@
 import { SFC } from '@/types';
 import MainContent from './MainContent/index';
-import PageTemplate from '@/components/PageTemplate';
+import SimplePageTemplate from '@/components/SimplePageTemplate';
 
 const RecordsPage: SFC = () => {
-    return <PageTemplate MainContent={MainContent} />;
+    return <SimplePageTemplate MainContent={MainContent} />;
 };
 
 export default RecordsPage;

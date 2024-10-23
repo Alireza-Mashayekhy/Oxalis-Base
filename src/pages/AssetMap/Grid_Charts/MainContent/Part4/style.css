@@ -1,0 +1,17 @@
+
+@media only screen and (max-width: 600px) {
+    .containerCharts{
+        flex-direction: column !important;
+    }
+    .containerCharts div{
+        width: 100% !important;
+    }
+    .recharts-tooltip-wrapper , .apexcharts-tooltip{
+        max-width: 160px !important;
+    }
+}
+.piechart svg{
+    overflow: visible;
+    position: absolute;
+    top: -100px;
+}

@@ -12,10 +12,11 @@ export interface InputProps {
   touched: { [field: string]: boolean };
   type?: 'text' | 'number' | 'password';
   icon?: React.ReactNode;
+
 }
 
 
-const Input: SFC<InputProps> = ({className, errors, label, name, onChange, touched, type = 'text' , icon}) => {
+const Input: SFC<InputProps> = ({className, errors, label, name, onChange, touched, type = 'text' , icon }) => {
   const [isFocused, setIsFocused] = useState(false);
   return (
     <>
@@ -28,7 +29,7 @@ const Input: SFC<InputProps> = ({className, errors, label, name, onChange, touch
         onChange={onChange}
         onFocus={() => setIsFocused(true)} 
         type={type}
-        placeholder=" "
+        placeholder=''
       />
       <S.SecondaryContainer>
         {errors[name] && touched[name] ? <S.ErrorMessage>{errors[name]}</S.ErrorMessage> : null}

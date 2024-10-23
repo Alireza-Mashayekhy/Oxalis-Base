@@ -1,0 +1,31 @@
+.filter{
+    margin-top: 5px;
+    }
+    .filter button{
+        border: none ;
+        background: #dbdbdd ;
+        color: #333;
+        font-family: 'IRANSans';
+        border-radius: 3px;
+        width: 65px;
+        margin: 2px;
+        padding: 3px;
+        cursor: pointer;
+    }
+    .filter span{
+        color: #dbdbdd;
+        font-size: 12px;
+    }
+    .filter .reset{
+        font-size: 11px;
+        white-space: nowrap;
+        width: 90px !important;
+        padding: 5px 0;
+        color: #dbdbdb;
+        background: #ff5842 !important;
+    }
+    @media only screen and (max-width: 600px) {
+       .filterButton{
+        width: 89px !important;
+       } 
+    }

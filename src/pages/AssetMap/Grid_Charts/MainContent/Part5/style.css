@@ -1,0 +1,9 @@
+
+@media only screen and (max-width: 600px) {
+    .containerCharts{
+        flex-direction: column !important;
+    }
+    .containerCharts div{
+        width: 100% !important;
+    }
+}
