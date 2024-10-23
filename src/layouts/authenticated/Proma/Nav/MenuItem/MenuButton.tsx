@@ -5,6 +5,7 @@ export interface MenuButtonProps {
     icon: string;
     onClick?: () => void;
     text: string;
+    width: string;
 }
 
 const MenuButton: SFC<MenuButtonProps> = ({
@@ -12,6 +13,7 @@ const MenuButton: SFC<MenuButtonProps> = ({
     icon,
     onClick,
     text,
+    width,
 }) => {
     return (
         <div>
@@ -19,6 +21,7 @@ const MenuButton: SFC<MenuButtonProps> = ({
                 $isActive={false}
                 className={className}
                 onClick={onClick}
+                $width={width}
             >
                 <S.Icon path={icon} size="26px" />
                 {text}

@@ -1,10 +1,8 @@
 import { hiddenScroll } from '@/styles';
 import styled from 'styled-components';
 
-export const Container = styled.div<{ $status: boolean; $width: string }>`
+export const Container = styled.div`
     height: calc(100% - 20px);
-    min-width: ${({ $status, $width }) => ($status ? $width : '68px')};
-    width: ${({ $status, $width }) => ($status ? $width : '68px')};
     padding: 0px 10px;
     // background-color: ${({ theme }) => theme.secondary};
     display: flex;

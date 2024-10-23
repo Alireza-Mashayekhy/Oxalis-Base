@@ -6,10 +6,11 @@ import { breakpoints, colors, fonts } from '@/styles';
 
 const HEIGHT = 48;
 
-const menuItemStyle = css<{ $isActive: boolean }>`
+const menuItemStyle = css<{
+    $isActive: boolean;
+    $width: string;
+}>`
     align-items: center;
-    // background: ${({ $isActive, theme }) =>
-        $isActive ? theme.hover : 'transparent'};
     background-color: ${({ theme }) => theme.secondaryOpacity};
     backdrop-filter: blur(10px);
     border-radius: ${`${HEIGHT / 2}px`};
@@ -20,26 +21,20 @@ const menuItemStyle = css<{ $isActive: boolean }>`
     font-weight: ${({ $isActive }) =>
         $isActive ? fonts.weight.semiBold : fonts.weight.regular};
     height: ${`${HEIGHT}px`};
-    transition: background 0.3s ease;
-
+    min-width: 48px;
+    width: 48px;
+    transition: all 0.3s ease;
     justify-content: start;
     gap: 12px;
-    min-width: 48px;
     overflow: hidden;
-    width: 100%;
     padding: 0px 11px;
     &:hover {
         background: rgba(144, 157, 171, 0.12);
         cursor: pointer;
         text-decoration: none;
+        min-width: ${({ $width }) => $width};
+        width: ${({ $width }) => $width};
     }
-
-    // &:hover {
-    //     background: rgba(144, 157, 171, 0.6);
-    //     color: ${({ theme }) => theme.primary};
-    //     cursor: pointer;
-    //     text-decoration: none;
-    // }
 `;
 
 export const Icon = styled(UIcon)`
@@ -49,11 +44,17 @@ export const LinkIcon = styled(UIcon)`
     min-width: 26px;
 `;
 
-export const MenuButton = styled.div<{ $isActive: boolean }>`
+export const MenuButton = styled.div<{
+    $isActive: boolean;
+    $width: string;
+}>`
     ${menuItemStyle}
 `;
 
-export const MenuLink = styled(ULink)<{ $isActive: boolean }>`
+export const MenuLink = styled(ULink)<{
+    $isActive: boolean;
+    $width: string;
+}>`
     ${menuItemStyle}
 `;
 
