@@ -50,29 +50,8 @@ export const SecondColumn = styled.div.withConfig({
             isSecondColumnVisible ? '30rem' : '0'};
     }
 `;
-// const breakpoints = {
-//   mobile: '320px',
-//   tablet: '768px',
-//   desktop: '1024px',
-//   largeDesktop: '1440px',
-//   xlDesktop: '1920px'
-// };
 
-// Utility for narrow scrollbar styling
-// const narrowScroll = `
-//   &::-webkit-scrollbar {
-//     width: 6px;
-//   }
-//   &::-webkit-scrollbar-track {
-//     background: transparent;
-//   }
-//   &::-webkit-scrollbar-thumb {
-//     background: rgba(0, 0, 0, 0.2);
-//     border-radius: 3px;
-//   }
-// `;
 export const ColumnHeader = styled.div`
-    background-color: ${({ theme }) => theme.secondary};
     min-height: 2.5vh;
     padding: 2px 5px;
     margin: 0;
@@ -117,6 +96,9 @@ export const FilterColumn = styled.div.withConfig({
     shouldForwardProp: (prop) => !['isFilterColumnVisible'].includes(prop),
 })<{ isFilterColumnVisible: boolean }>`
     position: relative;
+    background-color: #e9ebea50;
+    backdrop-filter: blur(10px);
+    border-radius: 10px;
     width: ${({ isFilterColumnVisible }) =>
         isFilterColumnVisible ? '270px' : '0'};
     flex: 0 0 auto;
@@ -127,7 +109,6 @@ export const FilterColumn = styled.div.withConfig({
     visibility: ${({ isFilterColumnVisible }) =>
         isFilterColumnVisible ? 'visible' : 'hidden'};
     isolation: isolate;
-    background-color: ${({ theme }) => theme.secondary};
     color: ${({ theme }) => theme.textColor};
 
     @media (max-width: ${breakpoints.tablet}) {
@@ -161,11 +142,13 @@ export const MainColumn = styled.div.withConfig({
     shouldForwardProp: (prop) => !['isFilterColumnVisible'].includes(prop),
 })<{ isFilterColumnVisible: boolean }>`
     position: relative;
+    background-color: #e9ebea50;
+    backdrop-filter: blur(10px);
+    border-radius: 10px;
     flex: 1;
     transition: all 0.5s ease;
     overflow: hidden;
     isolation: isolate;
-    background-color: ${({ theme }) => theme.secondary};
     color: ${({ theme }) => theme.textColor};
     margin: 0 0.1rem;
     overflow-y: auto;
@@ -234,9 +217,11 @@ export const FlexContainerFirstRow = styled.div`
     }
 
     > div:nth-child(1) {
+        background-color: #e9ebea50;
+        backdrop-filter: blur(10px);
+        border-radius: 10px;
         flex-basis: 100%;
         margin: 0 0.1rem 0.1rem 0.1rem;
-        background-color: ${({ theme }) => theme.secondary};
         color: ${({ theme }) => theme.textColor};
         min-height: 5rem;
         // overflow:auto;
@@ -259,13 +244,23 @@ export const FlexContainerFirstRow = styled.div`
         }
     }
 
+    > div:nth-child(2) {
+        border-radius: 0px 10px 10px 0px;
+    }
+
+    > div:nth-child(4) {
+        border-radius: 10px 0px 0px 10px;
+    }
+
     > div:not(:first-child) {
+        background-color: #e9ebea50;
+        backdrop-filter: blur(10px);
         flex-basis: 100%;
         margin: 0 0.1rem 0.1rem 0.1rem;
         min-height: 5rem;
         flex-grow: 1;
-        background-color: ${({ theme }) => theme.secondary};
         color: ${({ theme }) => theme.textColor};
+
         @media (min-width: ${breakpoints.mini}) and (max-width: ${breakpoints.mobile}) {
             flex-basis: calc(50% - 0.2rem);
             min-height: 10rem;
@@ -283,63 +278,6 @@ export const FlexContainerFirstRow = styled.div`
         }
     }
 `;
-
-// export const FlexContainerSecondRow = styled.div`
-//     display: flex;
-//     margin-top: 0.1rem;
-//     align-items: stretch;
-//     justify-content: center;
-//     overflow-y: auto;
-//     -webkit-overflow-scrolling: touch;
-
-//     @media (min-width: ${breakpoints.tablet}) {
-//         margin-top: 0.3rem;
-//     }
-
-//     > div:nth-child(1) {
-//         // flex-shrink: 0;
-//         display: none;
-//         background-color: ${({ theme }) => theme.secondary};
-//         color: ${({ theme }) => theme.textColor};
-
-//         @media (min-width: ${breakpoints.mobile}) and (max-width: ${breakpoints.tablet}) {
-//             display: block;
-//             flex-basis: calc(33% - 0.1rem);
-//             margin: 0 0.1rem;
-//             min-height: calc(100vh - 20vh);
-//         }
-
-//         @media (min-width: ${breakpoints.tablet}) {
-//             display: block;
-//             flex-basis: calc(25% - 0.1rem);
-//             margin-left: 0.3rem;
-//             // position: relative;
-//             height: calc(100vh - 30vh);
-//         }
-//     }
-//     > div:nth-child(2) {
-//         background-color: ${({ theme }) => theme.secondary};
-//         color: ${({ theme }) => theme.textColor};
-//         flex-basis: 100%;
-//         margin: 0 0.1rem;
-//         overflow-y: auto;
-//         // overflow-x: auto;
-//         ${narrowScroll};
-//         @media (max-width: ${breakpoints.tablet}) {
-//             min-height: 300vh;
-//         }
-//         @media (min-width: ${breakpoints.mobile}) and (max-width: ${breakpoints.tablet}) {
-//             flex-basis: calc(66%);
-//             margin: 0 0.1rem;
-//         }
-
-//         @media (min-width: ${breakpoints.tablet}) {
-//             flex-basis: 75%;
-//             margin: 0;
-//             max-height: 70vh;
-//         }
-//     }
-// `;
 
 export const OperationalRightColumnContainer = styled.div`
     width: 100%;

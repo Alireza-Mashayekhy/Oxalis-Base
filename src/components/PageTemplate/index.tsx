@@ -20,7 +20,6 @@ interface PageTemplateProps {
     FilterPannel?: SFC;
     ResponsiveFilterPannel?: SFC;
     MainContent?: SFC;
-    // NewsFeedColumn?: SFC;
 }
 
 const PageTemplate: SFC<PageTemplateProps> = ({
@@ -29,12 +28,9 @@ const PageTemplate: SFC<PageTemplateProps> = ({
     InformativeHeader2,
     InformativeHeader3,
     InformativeHeader4,
-    // InformativeHeader5,
-    // InformativeHeader6,
     FilterPannel,
     ResponsiveFilterPannel,
     MainContent,
-    // NewsFeedColumn,
 }) => {
     const [isSecondColumnVisible, setIsSecondColumnVisible] = useState(false);
     const [isFilterColumnVisible, setIsFilterColumnVisible] = useState(true);
@@ -48,16 +44,6 @@ const PageTemplate: SFC<PageTemplateProps> = ({
     return (
         <S.Container>
             <S.FirstColumn>
-                <S.TopRow>
-                    {/* HEADER */}
-                    {TopBar && (
-                        <TopBar
-                            isSecondColumnVisible={isSecondColumnVisible}
-                            toggleSecondColumn={toggleSecondColumn}
-                        />
-                    )}
-                    {/* HEADER */}
-                </S.TopRow>
                 <S.FlexContainerFirstRow>
                     <div>{InformativeHeader1 && <InformativeHeader1 />}</div>
                     <div>{InformativeHeader2 && <InformativeHeader2 />}</div>

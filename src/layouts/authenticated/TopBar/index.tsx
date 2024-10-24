@@ -21,7 +21,7 @@ const TopBar = () => {
                 },
                 {
                     label: 'Asset-Map',
-                    command: () => navigate('/asset-map'),
+                    command: () => navigate('/asset-map/home'),
                 },
                 {
                     label: 'Vigilio',

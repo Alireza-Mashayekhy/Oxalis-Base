@@ -1,8 +1,5 @@
-import { useDispatch, useSelector } from 'react-redux';
 import {
     mdiHomeAnalytics,
-    mdiWhiteBalanceSunny,
-    mdiWeatherNight,
     mdiUpload,
     mdiClipboardTextClock,
     mdiChartBar,
@@ -12,29 +9,20 @@ import {
     mdiTreasureChest,
     mdiChartLine,
 } from '@mdi/js';
-import { AppDispatch, SFC } from '@/types';
-import MenuButton from './MenuItem/MenuButton';
-import MenuLink from './MenuItem/MenuLink';
+import { SFC } from '@/types';
+import MenuButton from '@/components/MenuItem/MenuButton';
+import MenuLink from '@/components/MenuItem/MenuLink';
 
 import * as S from './Styles';
-import { setTheme } from '@/redux/slice/themeSlice';
-import { getTheme } from '@/redux/selectors';
 import { useNavigate } from 'react-router';
-import { useState } from 'react';
 
 const Nav: SFC = ({ className }) => {
-    const dispatch = useDispatch<AppDispatch>();
-    const theme = useSelector(getTheme);
     const navigate = useNavigate();
 
     const handleLogout = () => {
-        // dispatch(logout());
         navigate('/signIn');
     };
 
-    const handleThemeChange = () => {
-        dispatch(setTheme());
-    };
     return (
         <S.Container className={className}>
             <S.FlexItemLink>
@@ -96,15 +84,6 @@ const Nav: SFC = ({ className }) => {
                 />
             </S.FlexItemLink>
             <S.FlexItem>
-                {/* <MenuButton
-                    icon={`${
-                        theme === 'dark'
-                            ? mdiWhiteBalanceSunny
-                            : mdiWeatherNight
-                    } `}
-                    onClick={handleThemeChange}
-                    text="حالت تیره/روشن"
-                /> */}
                 <MenuButton
                     icon={mdiExitToApp}
                     onClick={handleLogout}
