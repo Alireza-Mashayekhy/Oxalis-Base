@@ -7,6 +7,7 @@ import * as S from './Styles';
 import TopBar from './TopBar';
 import background from '@/assets/background.jpg';
 import { useLocation } from 'react-router-dom';
+import LeftNav from './AssetMap/LeftNav';
 
 const Authenticated: SFC = () => {
     const location = useLocation();
@@ -24,6 +25,7 @@ const Authenticated: SFC = () => {
                 <S.Area>
                     <AssetMapNav />
                     <AssetMapMainArea />
+                    <LeftNav />
                 </S.Area>
             );
         }

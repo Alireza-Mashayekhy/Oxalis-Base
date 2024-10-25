@@ -33,7 +33,7 @@ const PageTemplate: SFC<PageTemplateProps> = ({
     MainContent,
 }) => {
     const [isSecondColumnVisible, setIsSecondColumnVisible] = useState(false);
-    const [isFilterColumnVisible, setIsFilterColumnVisible] = useState(true);
+    const [isFilterColumnVisible, setIsFilterColumnVisible] = useState(false);
     const toggleSecondColumn = () => {
         setIsSecondColumnVisible(!isSecondColumnVisible);
     };

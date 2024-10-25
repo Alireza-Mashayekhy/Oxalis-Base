@@ -95,33 +95,31 @@ export const MainColumnContent = styled.div`
 export const FilterColumn = styled.div.withConfig({
     shouldForwardProp: (prop) => !['isFilterColumnVisible'].includes(prop),
 })<{ isFilterColumnVisible: boolean }>`
-    position: relative;
+    position: absolute;
+    right: 0;
+    top: 0;
+    z-index: 1;
     background-color: #e9ebea50;
     backdrop-filter: blur(10px);
     border-radius: 10px;
     width: ${({ isFilterColumnVisible }) =>
-        isFilterColumnVisible ? '270px' : '0'};
+        isFilterColumnVisible ? '270px' : '0px'};
+    min-width: ${({ isFilterColumnVisible }) =>
+        isFilterColumnVisible ? '270px' : '0px'};
     flex: 0 0 auto;
     transition: all 0.5s ease;
     overflow: hidden;
-    opacity: ${({ isFilterColumnVisible }) =>
-        isFilterColumnVisible ? '1' : '0'};
-    visibility: ${({ isFilterColumnVisible }) =>
-        isFilterColumnVisible ? 'visible' : 'hidden'};
-    isolation: isolate;
     color: ${({ theme }) => theme.textColor};
 
     @media (max-width: ${breakpoints.tablet}) {
-        display: ${({ isFilterColumnVisible }) =>
-            isFilterColumnVisible ? 'block' : 'none'};
         width: ${({ isFilterColumnVisible }) =>
+            isFilterColumnVisible ? 'calc(33% - 0.1rem)' : '0'};
+        min-width: ${({ isFilterColumnVisible }) =>
             isFilterColumnVisible ? 'calc(33% - 0.1rem)' : '0'};
         min-height: calc(100vh - 20vh);
     }
 
     @media (min-width: ${breakpoints.mobile}) and (max-width: ${breakpoints.tablet}) {
-        display: ${({ isFilterColumnVisible }) =>
-            isFilterColumnVisible ? 'block' : 'none'};
         flex-basis: ${({ isFilterColumnVisible }) =>
             isFilterColumnVisible ? 'calc(33% - 0.1rem)' : '0'};
         margin: 0 0.1rem;
@@ -129,9 +127,9 @@ export const FilterColumn = styled.div.withConfig({
     }
 
     @media (min-width: ${breakpoints.tablet}) {
-        display: ${({ isFilterColumnVisible }) =>
-            isFilterColumnVisible ? 'block' : 'none'};
-        flex-basis: ${({ isFilterColumnVisible }) =>
+        width: ${({ isFilterColumnVisible }) =>
+            isFilterColumnVisible ? 'calc(25% - 0.1rem)' : '0'};
+        min-width: ${({ isFilterColumnVisible }) =>
             isFilterColumnVisible ? 'calc(25% - 0.1rem)' : '0'};
         margin-left: 0 0.1rem;
         min-height: calc(100vh - 30vh);
@@ -221,7 +219,7 @@ export const FlexContainerFirstRow = styled.div`
         backdrop-filter: blur(10px);
         border-radius: 10px;
         flex-basis: 100%;
-        margin: 0 0.1rem 0.1rem 0.1rem;
+        margin: 0 0.1rem 0 0.1em;
         color: ${({ theme }) => theme.textColor};
         min-height: 5rem;
         // overflow:auto;
