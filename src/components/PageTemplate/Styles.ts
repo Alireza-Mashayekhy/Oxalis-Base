@@ -81,6 +81,9 @@ export const FilterColumnContent = styled.div`
     position: relative;
     z-index: 1;
     ${narrowScroll}
+    * {
+        white-space: nowrap !important;
+    }
 `;
 
 export const MainColumnContent = styled.div`
@@ -89,6 +92,7 @@ export const MainColumnContent = styled.div`
     overflow-y: auto;
     position: relative;
     z-index: 1;
+    padding-top: 20px;
     ${narrowScroll}
 `;
 
@@ -96,19 +100,18 @@ export const FilterColumn = styled.div.withConfig({
     shouldForwardProp: (prop) => !['isFilterColumnVisible'].includes(prop),
 })<{ isFilterColumnVisible: boolean }>`
     position: absolute;
-    right: 0;
-    top: 0;
-    z-index: 1;
+    right: 0px;
+    top: 0px;
+    z-index: 10;
     background-color: #e9ebea50;
     backdrop-filter: blur(10px);
-    border-radius: 10px;
+    border-radius: 0px 10px 10px 10px;
     width: ${({ isFilterColumnVisible }) =>
         isFilterColumnVisible ? '270px' : '0px'};
     min-width: ${({ isFilterColumnVisible }) =>
         isFilterColumnVisible ? '270px' : '0px'};
     flex: 0 0 auto;
     transition: all 0.5s ease;
-    overflow: hidden;
     color: ${({ theme }) => theme.textColor};
 
     @media (max-width: ${breakpoints.tablet}) {
@@ -116,14 +119,13 @@ export const FilterColumn = styled.div.withConfig({
             isFilterColumnVisible ? 'calc(33% - 0.1rem)' : '0'};
         min-width: ${({ isFilterColumnVisible }) =>
             isFilterColumnVisible ? 'calc(33% - 0.1rem)' : '0'};
-        min-height: calc(100vh - 20vh);
+        // min-height: calc(100vh - 20vh);
     }
 
     @media (min-width: ${breakpoints.mobile}) and (max-width: ${breakpoints.tablet}) {
         flex-basis: ${({ isFilterColumnVisible }) =>
             isFilterColumnVisible ? 'calc(33% - 0.1rem)' : '0'};
-        margin: 0 0.1rem;
-        min-height: calc(100vh - 20vh);
+        // min-height: calc(100vh - 20vh);
     }
 
     @media (min-width: ${breakpoints.tablet}) {
@@ -131,8 +133,17 @@ export const FilterColumn = styled.div.withConfig({
             isFilterColumnVisible ? 'calc(25% - 0.1rem)' : '0'};
         min-width: ${({ isFilterColumnVisible }) =>
             isFilterColumnVisible ? 'calc(25% - 0.1rem)' : '0'};
-        margin-left: 0 0.1rem;
-        min-height: calc(100vh - 30vh);
+        // min-height: calc(100vh - 30vh);
+    }
+    .toggleIcon {
+        background-color: #e9ebea85;
+        backdrop-filter: blur(10px);
+        border-radius: 10px 0px 0px 10px;
+        position: absolute;
+        left: 0;
+        transform: translateX(-100%);
+        padding: 3px;
+        cursor: pointer;
     }
 `;
 

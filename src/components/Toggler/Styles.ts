@@ -11,7 +11,6 @@ export const IconContainer = styled.div`
     justify-content: center;
     background-color: transparent;
     color: ${({ theme }) => theme.textColor};
-    padding-top: 10px;
     @media (max-width: ${breakpoints.tablet}) {
         display: none;
     }

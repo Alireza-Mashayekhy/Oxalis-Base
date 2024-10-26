@@ -143,7 +143,7 @@ export const IconContainer = styled.div`
     top: 50%;
     transform: translate(100%, -50%);
     backdrop-filter: blur(10px);
-    border-radius: 0px 20px 20px 0px;
+    border-radius: 0px 10px 10px 0px;
     cursor: pointer;
     height: 50%;
     display: flex;

@@ -56,38 +56,24 @@ const PageTemplate: SFC<PageTemplateProps> = ({
                     {ResponsiveFilterPannel && <ResponsiveFilterPannel />}
                 </S.OperationalRightColumnContainer>
                 <S.FlexContainerSecondRow>
-                    <S.FilterColumn
-                        isFilterColumnVisible={isFilterColumnVisible}
-                    >
-                        <S.ColumnHeader>
-                            <S.TogglerWrapper>
-                                <Toggler
-                                    isSecondColumnVisible={
-                                        isFilterColumnVisible
-                                    }
-                                    toggleSecondColumn={toggleFilterColumn}
-                                />
-                            </S.TogglerWrapper>
-                        </S.ColumnHeader>
-                        <S.FilterColumnContent>
-                            {FilterPannel && <FilterPannel />}
-                        </S.FilterColumnContent>
-                    </S.FilterColumn>
-
                     <S.MainColumn isFilterColumnVisible={isFilterColumnVisible}>
-                        {!isFilterColumnVisible && (
-                            <S.ColumnHeader>
-                                <S.TogglerWrapper>
+                        <S.MainColumnContent>
+                            <S.FilterColumn
+                                isFilterColumnVisible={isFilterColumnVisible}
+                            >
+                                <div className="toggleIcon">
                                     <Toggler
                                         isSecondColumnVisible={
                                             isFilterColumnVisible
                                         }
                                         toggleSecondColumn={toggleFilterColumn}
                                     />
-                                </S.TogglerWrapper>
-                            </S.ColumnHeader>
-                        )}
-                        <S.MainColumnContent>
+                                </div>
+                                <S.FilterColumnContent>
+                                    {FilterPannel && <FilterPannel />}
+                                </S.FilterColumnContent>
+                            </S.FilterColumn>
+
                             {MainContent && <MainContent />}
                         </S.MainColumnContent>
                     </S.MainColumn>
