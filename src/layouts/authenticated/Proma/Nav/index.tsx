@@ -9,17 +9,21 @@ import {
     mdiTreasureChest,
     mdiChartLine,
 } from '@mdi/js';
-import { SFC } from '@/types';
+import { AppDispatch, SFC } from '@/types';
 import MenuButton from '@/components/MenuItem/MenuButton';
 import MenuLink from '@/components/MenuItem/MenuLink';
 
 import * as S from './Styles';
 import { useNavigate } from 'react-router';
+import { logout } from '@/dispatchers/authentication';
+import { useDispatch } from 'react-redux';
 
 const Nav: SFC = ({ className }) => {
     const navigate = useNavigate();
+    const dispatch = useDispatch<AppDispatch>();
 
     const handleLogout = () => {
+        dispatch(logout());
         navigate('/signIn');
     };
 

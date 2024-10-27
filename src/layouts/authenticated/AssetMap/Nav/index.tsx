@@ -1,4 +1,4 @@
-import { useDispatch, useSelector } from 'react-redux';
+import { useDispatch } from 'react-redux';
 import { useNavigate } from 'react-router-dom';
 import {
     mdiHomeAnalytics,
@@ -9,8 +9,6 @@ import {
     mdiButtonPointer,
     mdiCounter,
     mdiAlphabeticalVariantOff,
-    mdiWhiteBalanceSunny,
-    mdiWeatherNight,
     mdiStairsUp,
     mdiKeyboardSettingsOutline,
     mdiChartBellCurveCumulative,
@@ -18,28 +16,20 @@ import {
 } from '@mdi/js';
 
 import { AppDispatch, SFC } from '@/types';
-// import {PATH_COURSES} from 'constants/paths';
-import { getSelf, getTheme } from '@/selectors/state';
 import { logout } from '@/dispatchers/authentication';
-// import CreatePostButton from './CreatePostButton';
 import MenuButton from '@/components/MenuItem/MenuButton';
 import MenuLink from '@/components/MenuItem/MenuLink';
-import logoblack from '@/assets/logoblack.png';
-import logoWhite from '@/assets/logoWhite.png';
 import * as S from './Styles';
 
 const Nav: SFC = ({ className }) => {
     const dispatch = useDispatch<AppDispatch>();
-    const theme = useSelector(getTheme);
     const navigate = useNavigate();
-    const self = useSelector(getSelf);
 
     const handleLogout = () => {
         dispatch(logout());
         navigate('/signIn');
     };
 
-    const handleThemeChange = () => {};
     return (
         <S.Container className={className}>
             <S.FlexItemLink>

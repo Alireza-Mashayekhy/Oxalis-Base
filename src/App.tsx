@@ -13,12 +13,17 @@ import { getTheme } from './redux/selectors';
 import Authenticated from './layouts/authenticated';
 import GlobalStyle from '@/styles/components/GlobalStyle';
 import PrimeReactStyle from '@/styles/components/PrimeReactStyle';
+import { useIsAuthenticated } from './hooks';
+import Unauthenticated from './layouts/unauthenticated';
 
 const App = () => {
-    const theme = useSelector(getTheme);
+    const isAuthenticated = useIsAuthenticated();
 
     const renderLayout = () => {
-        return <Authenticated />;
+        if (isAuthenticated) {
+            return <Authenticated />;
+        }
+        return <Unauthenticated />;
     };
 
     return (
