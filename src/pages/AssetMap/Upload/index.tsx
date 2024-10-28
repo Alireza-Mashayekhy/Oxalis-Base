@@ -1,7 +1,7 @@
 import { useEffect, useRef } from 'react';
 import { AppDispatch, SFC } from '@/types';
 import * as S from './Styles';
-import React, { useState } from 'react';
+import { useState } from 'react';
 import { useDispatch, useSelector } from 'react-redux';
 import { uploadFiles } from '@/dispatchers/assetUpload';
 import { useFileUpload } from '@/hooks';

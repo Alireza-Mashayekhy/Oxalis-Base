@@ -1,4 +1,4 @@
-import React, { useState, useEffect } from 'react';
+import { useState, useEffect } from 'react';
 import ReactApexChart from 'react-apexcharts';
 import { ApexOptions } from 'apexcharts';
 import { useSelector } from 'react-redux';
@@ -128,7 +128,7 @@ const ApexBarChart1403 = () => {
                     colors: 'rgb(102, 102, 102)',
                 },
                 formatter: function (val) {
-                    return (val / 1000000).toFixed(1).toLocaleString();
+                    return (Number(val) / 1000000).toFixed(1).toLocaleString();
                 },
             },
             title: {

@@ -160,7 +160,7 @@ const Chart1: SFC<Chart1Props> = ({
               barSize={30}
             >
               {/* <CartesianGrid strokeDasharray="3 3" /> */}
-              <XAxis
+              {/* <XAxis
                 type="number"
                 tickCount={10}
                 interval={0}
@@ -190,7 +190,7 @@ const Chart1: SFC<Chart1Props> = ({
                   fontFamily: "IRANSans",
                 }}
                 strokeWidth={2}
-              />
+              /> */}
               <Tooltip
                 cursor={{ fill: "transparent" }}
                 content={barchartCustomTooltip}

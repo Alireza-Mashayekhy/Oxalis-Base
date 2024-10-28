@@ -1,15 +1,15 @@
-import React from 'react';
 import { useDispatch, useSelector } from 'react-redux';
 import { toggleCity, clearCitiesFilter } from '@/redux/store/citiesFilterMan';
 import { getManData } from '@/selectors/state';
 import './style.css';
+import { RootState } from '@/types';
 const CityFilter: React.FC = () => {
     const dispatch = useDispatch();
     const data = useSelector(getManData);
     const cities = Array.from(new Set(data.map((item) => item.city)));
 
     const selectedCities = useSelector(
-        (state) => state.citiesFilterMan.selectedCities
+        (state: RootState) => state.citiesFilterMan.selectedCities
     );
 
     const handleToggle = (city: string) => {
@@ -20,7 +20,7 @@ const CityFilter: React.FC = () => {
     };
     return (
         <div className="filter">
-            {cities.map((city) => (
+            {cities.map((city: string) => (
                 <button
                     className="filterButton"
                     key={city}

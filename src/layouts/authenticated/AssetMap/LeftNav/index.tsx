@@ -151,10 +151,7 @@ const CalendarComponent = ({
     );
 };
 
-const LeftNav: SFC<{
-    isSecondColumnVisible: boolean;
-    toggleSecondColumn: () => void;
-}> = ({ isSecondColumnVisible, toggleSecondColumn }) => {
+const LeftNav: SFC = () => {
     const theme = useSelector(getTheme);
     const [calendarModal, setCalendarModal] = useState(false);
     const [selectedDate, setDate] = useState<string | Date>(new Date());

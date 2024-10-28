@@ -20,7 +20,7 @@ interface filterData {
     label: string;
 }
 import { Label } from '@/components/Label';
-import { SFC } from '@/types';
+import { AppDispatch, SFC } from '@/types';
 
 interface FilterPannelInterface {
     isResponsive?: boolean;
@@ -31,7 +31,7 @@ const DepositeFilterPannel: SFC<FilterPannelInterface> = ({
     isResponsive,
     handleAccordionCloseInResponsiveMode,
 }) => {
-    const dispatch = useDispatch();
+    const dispatch = useDispatch<AppDispatch>();
     const data = useSelector(getDepositeFrame);
 
     // const ventureType = createDataForVentureTypeFilter(data);

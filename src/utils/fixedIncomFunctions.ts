@@ -1,10 +1,9 @@
-import { BondData } from "@/types";
+import { BondData } from '@/types';
 
 export const getSymbols = (data: BondData[]) => {
-  const result = data.map((item: BondData) => ({
-    label: item.SYMBOL,
-    value: item.SYMBOL,
-  }));
-  return result;
+    const result = data.map((item: BondData) => ({
+        label: item.symbol,
+        value: item.symbol,
+    }));
+    return result;
 };
-

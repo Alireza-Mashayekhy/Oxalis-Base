@@ -1,8 +1,8 @@
-import React from 'react';
 import { useDispatch, useSelector } from 'react-redux';
 import { toggleCity, clearCitiesFilter } from '@/redux/store/citiesFilterSales';
 import { getSalesData } from '@/selectors/state';
 import '../style.css';
+import { RootState } from '@/types';
 
 const CityFilter: React.FC = () => {
     const dispatch = useDispatch();
@@ -10,7 +10,7 @@ const CityFilter: React.FC = () => {
     const cities = Array.from(new Set(data.map((item) => item.city)));
 
     const selectedCities = useSelector(
-        (state) => state.citiesFilter.selectedCities
+        (state: RootState) => state.citiesFilter.selectedCities
     );
 
     const handleToggle = (city: string) => {
@@ -23,7 +23,7 @@ const CityFilter: React.FC = () => {
 
     return (
         <div className="filter">
-            {cities.map((city) => (
+            {cities.map((city: string) => (
                 <button
                     className="filterButton"
                     key={city}

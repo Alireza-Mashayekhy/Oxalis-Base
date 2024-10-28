@@ -7,11 +7,8 @@ import { useDispatch, useSelector } from 'react-redux';
 import { fetchDepositeFrame } from '@/dispatchers/depositeFrame';
 import { getDepositeFrame } from '@/selectors/state';
 import {
-    createDataForAssetTypeFilter,
     createDataForBankNamesFilter,
-    createDataForVentureNameFilter,
     createDataForVentureNameFilterBasedOnventureType,
-    createDataForVentureTypeFilter,
     createDataForVentureTypeFilterBasedOnBanks,
 } from '@/utils/FrameFunctions/depositeFrame';
 
@@ -20,7 +17,7 @@ interface filterData {
     label: string;
 }
 import { Label } from '@/components/Label';
-import { SFC } from '@/types';
+import { AppDispatch, SFC } from '@/types';
 
 interface FilterPannelInterface {
     isResponsive?: boolean;
@@ -31,7 +28,7 @@ const DepositeFilterPannel: SFC<FilterPannelInterface> = ({
     isResponsive,
     handleAccordionCloseInResponsiveMode,
 }) => {
-    const dispatch = useDispatch();
+    const dispatch = useDispatch<AppDispatch>();
     const data = useSelector(getDepositeFrame);
 
     // const ventureType = createDataForVentureTypeFilter(data);

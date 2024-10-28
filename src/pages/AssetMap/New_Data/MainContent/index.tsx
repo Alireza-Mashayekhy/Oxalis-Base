@@ -1,4 +1,4 @@
-import { SFC } from '@/types';
+import { AppDispatch, SFC } from '@/types';
 import { useEffect } from 'react';
 import * as S from './Styles';
 import GeneralStatus from './Part1';
@@ -20,7 +20,7 @@ import FilterPannel from '@/pages/AssetMap/New_Data/FiltersColumn/FilterPannel';
 
 const MainContent: SFC = () => {
     const loading = useSelector(getAllAssets).loading;
-    const dispatch = useDispatch();
+    const dispatch = useDispatch<AppDispatch>();
 
     useEffect(() => {
         dispatch(fetchHrData());

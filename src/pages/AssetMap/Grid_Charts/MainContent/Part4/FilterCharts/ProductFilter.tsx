@@ -1,8 +1,8 @@
-import React from 'react';
 import { useDispatch, useSelector } from 'react-redux';
 import { toggleproduct, resetFilters } from '@/redux/store/productsFilterSales';
 import { getSalesData } from '@/selectors/state';
 import './style.css';
+import { RootState } from '@/types';
 
 const ProductFilter: React.FC = () => {
     const dispatch = useDispatch();
@@ -10,7 +10,7 @@ const ProductFilter: React.FC = () => {
     const products = Array.from(new Set(data.map((item) => item.product)));
 
     const selectedproducts = useSelector(
-        (state) => state.productsFilter.selectedProducts
+        (state: RootState) => state.productsFilter.selectedProducts
     );
 
     const handleToggle = (product: string) => {
@@ -21,7 +21,7 @@ const ProductFilter: React.FC = () => {
     };
     return (
         <div className="filter">
-            {products.map((product) => (
+            {products.map((product: string) => (
                 <button
                     className="filterButton"
                     key={product}

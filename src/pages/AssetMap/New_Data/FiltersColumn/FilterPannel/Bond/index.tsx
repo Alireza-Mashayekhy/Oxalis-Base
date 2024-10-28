@@ -50,16 +50,12 @@ const BondFilterPannel: SFC<FilterPannelInterface> = ({
         });
     }, [copyData, dateRange]);
 
-    const handleApplyFilters = (event: React.MouseEvent<HTMLButtonElement>) => {
-        event.preventDefault();
+    const handleApplyFilters = () => {
         const currentFilteredData = filteredData;
         dispatch(setSalesFilteredData(currentFilteredData));
     };
 
-    const handleRemoveFilters = (
-        event: React.MouseEvent<HTMLButtonElement>
-    ) => {
-        event.preventDefault();
+    const handleRemoveFilters = () => {
         setDateRange(['', '']);
         dispatch(setSalesFilteredData(copyData));
     };
@@ -102,8 +98,7 @@ const BondFilterPannel: SFC<FilterPannelInterface> = ({
                                 fullWidth={true}
                                 fontSize="12px"
                                 marginBottom="10px"
-                                type="submit"
-                                onClick={handleApplyFilters}
+                                onClick={() => handleApplyFilters()}
                             >
                                 <Typography
                                     component="span"
@@ -126,7 +121,7 @@ const BondFilterPannel: SFC<FilterPannelInterface> = ({
                                 fullWidth={true}
                                 fontSize="12px"
                                 marginBottom="10px"
-                                onClick={handleRemoveFilters}
+                                onClick={() => handleRemoveFilters()}
                             >
                                 <Typography
                                     component="span"

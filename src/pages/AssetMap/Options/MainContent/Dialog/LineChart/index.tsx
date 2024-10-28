@@ -1,36 +1,36 @@
-import { SFC } from "@/types";
-import { optionsData } from "../../Table/OptionData";
+import { SFC } from '@/types';
+import { optionsData } from '../../Table/OptionData';
 import {
-  CartesianGrid,
-  Line,
-  LineChart,
-  ResponsiveContainer,
-  Tooltip,
-  XAxis,
-  YAxis,
-} from "recharts";
-import ChartsTooltip from "@/components/ChartsTooltip";
+    CartesianGrid,
+    Line,
+    LineChart,
+    ResponsiveContainer,
+    Tooltip,
+    XAxis,
+    YAxis,
+} from 'recharts';
+import ChartsTooltip from '@/components/ChartsTooltip';
 
 const LineChartDisplay: SFC = ({ selectedRow }) => {
-  return (
-    <>
-      <ResponsiveContainer height={300} width={"100%"}>
-        <LineChart
-          data={optionsData}
-          margin={{
-            top: 20,
-            right: 20,
-            left: 10,
-            bottom: 20,
-          }}
-        >
-          <CartesianGrid
-            strokeDasharray="1 0"
-            stroke="#656364"
-            opacity={0.5}
-            vertical={false}
-          />
-          <XAxis
+    return (
+        <>
+            <ResponsiveContainer height={300} width={'100%'}>
+                <LineChart
+                    data={optionsData}
+                    margin={{
+                        top: 20,
+                        right: 20,
+                        left: 10,
+                        bottom: 20,
+                    }}
+                >
+                    <CartesianGrid
+                        strokeDasharray="1 0"
+                        stroke="#656364"
+                        opacity={0.5}
+                        vertical={false}
+                    />
+                    {/* <XAxis
             dataKey="UAsellprice"
             interval={0}
             type="category"
@@ -65,29 +65,29 @@ const LineChartDisplay: SFC = ({ selectedRow }) => {
             }}
             tickCount={10}
             interval={0}
-          />
-          <Tooltip content={customTooltip} />
-          <Line
-            type="monotone"
-            dataKey="AYield"
-            stroke="#8884d8"
-            strokeWidth={2}
-          />
-        </LineChart>
-      </ResponsiveContainer>
-    </>
-  );
+          /> */}
+                    <Tooltip content={customTooltip} />
+                    <Line
+                        type="monotone"
+                        dataKey="AYield"
+                        stroke="#8884d8"
+                        strokeWidth={2}
+                    />
+                </LineChart>
+            </ResponsiveContainer>
+        </>
+    );
 };
 export default LineChartDisplay;
 
 const customTooltip = ({ active, payload }) => {
-  if (active && payload && payload.length) {
-    return (
-      <ChartsTooltip
-        tooltipType={1}
-        label="بازه تا سررسید"
-        value={payload[0].value.toLocaleString()}
-      />
-    );
-  }
+    if (active && payload && payload.length) {
+        return (
+            <ChartsTooltip
+                tooltipType={1}
+                label="بازه تا سررسید"
+                value={payload[0].value.toLocaleString()}
+            />
+        );
+    }
 };

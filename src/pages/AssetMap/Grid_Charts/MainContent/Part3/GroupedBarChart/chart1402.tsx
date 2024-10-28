@@ -1,4 +1,3 @@
-import React from 'react';
 import ReactApexChart from 'react-apexcharts';
 import { ApexOptions } from 'apexcharts';
 import { useSelector } from 'react-redux';
@@ -61,7 +60,10 @@ const ApexGoupedBarChart1402: React.FC = () => {
     );
 
     const options: ApexOptions = {
-        colors: jobTitles.map((jobTitle) => jobTitleColors[jobTitle]),
+        colors: jobTitles.map(
+            (jobTitle) =>
+                jobTitleColors[jobTitle as keyof typeof jobTitleColors]
+        ),
         chart: {
             type: 'bar',
             height: 350,

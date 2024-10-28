@@ -5,8 +5,8 @@ import { Authentication } from '@/types';
 
 const initialState: Authentication = {
     accessToken: null,
-    refreshToken: null,
-    userData: null,
+    // refreshToken: null,
+    // userData: null,
 };
 
 const authentication = createSlice({
@@ -19,14 +19,14 @@ const authentication = createSlice({
         ) => {
             return payload;
         },
-        setUserData: (
-            state: Authentication,
-            { payload }: PayloadAction<Authentication['userData']>
-        ) => {
-            state.userData = payload;
-        },
+        // setUserData: (
+        //     state: Authentication,
+        //     { payload }: PayloadAction<Authentication['userData']>
+        // ) => {
+        //     state.userData = payload;
+        // },
     },
 });
 
-export const { setAuthentication, setUserData } = authentication.actions;
+export const { setAuthentication } = authentication.actions;
 export default authentication.reducer;

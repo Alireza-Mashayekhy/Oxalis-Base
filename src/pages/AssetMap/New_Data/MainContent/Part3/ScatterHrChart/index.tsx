@@ -91,7 +91,7 @@ const getFillColor = (job_title: string) => {
         }}
       >
         <CartesianGrid />
-        <XAxis 
+        {/* <XAxis 
           type="number"
           dataKey="performance_score"
           name="امتیاز عملکرد"
@@ -118,7 +118,7 @@ const getFillColor = (job_title: string) => {
               dy={-70} 
               dx={-35}
             />
-        </YAxis>
+        </YAxis> */}
 
         <Tooltip cursor={{ strokeDasharray: '3 3' }}  content={CustomTooltip }/>
         {hrData.map((entry, index) => (

@@ -1,11 +1,12 @@
 import { useSelector } from 'react-redux';
-import { RootState } from '@/store';
 import { getFileUploadStatus } from '@/selectors/state';
-import { UploadStatus } from '@/types';
+import { RootState, UploadStatus } from '@/types';
 const useFileUpload = (): UploadStatus => {
-  const uploadStatus = useSelector((state: RootState) => getFileUploadStatus(state));
+    const uploadStatus = useSelector((state: RootState) =>
+        getFileUploadStatus(state)
+    );
 
-  return uploadStatus;
+    return uploadStatus;
 };
 
 export default useFileUpload;

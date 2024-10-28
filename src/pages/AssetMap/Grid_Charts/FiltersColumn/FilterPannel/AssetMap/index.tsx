@@ -49,16 +49,12 @@ const AssetMapFilterPannel: SFC<FilterPannelInterface> = ({
         });
     }, [copyData, dateRange]);
 
-    const handleApplyFilters = (event: React.MouseEvent<HTMLButtonElement>) => {
-        event.preventDefault();
+    const handleApplyFilters = () => {
         const currentFilteredData = filteredData;
         const x = dispatch(setFilteredData(currentFilteredData));
     };
 
-    const handleRemoveFilters = (
-        event: React.MouseEvent<HTMLButtonElement>
-    ) => {
-        event.preventDefault();
+    const handleRemoveFilters = () => {
         setDateRange(['', '']);
         dispatch(setFilteredData(copyData));
     };

@@ -1,4 +1,4 @@
-import React, { useState, useEffect } from 'react';
+import { useState, useEffect } from 'react';
 import * as S from './Styles';
 import defaultAvatar from '@/assets/default-avatar-square.png';
 import InfoModal from '@/components/Customers/InfoModal';

@@ -1,5 +1,5 @@
 import { AppDispatch, SFC } from '@/types';
-import * as S from './Styles';
+import * as S from './Styles.js';
 import { AutoComplete } from 'primereact/autocomplete';
 import { InputNumber } from 'primereact/inputnumber';
 import { DatePicker } from 'zaman';

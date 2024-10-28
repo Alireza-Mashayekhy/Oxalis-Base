@@ -29,12 +29,19 @@ export const updateTaskStatus =
     (taskId: number, userId: number, status: TaskStatus) =>
     async (dispatch: Dispatch) => {
         try {
-            const updatedTask = await apiUpdateTaskStatus(
+            const updatedTask: Task = await apiUpdateTaskStatus(
                 taskId,
                 userId,
                 status
             );
-            dispatch(updateTaskStatusAction(updatedTask)); // Dispatch action to update the task status in the store
+
+            const taskUpdatePayload = {
+                taskId: updatedTask.id, // فرض بر این است که taskId در updatedTask وجود دارد
+                userId: userId, // userId ورودی
+                status: status, // status ورودی
+            };
+
+            dispatch(updateTaskStatusAction(taskUpdatePayload)); // Dispatch action to update the task status in the store
             return updatedTask;
         } catch (error) {
             console.error('Error updating task status:', error);

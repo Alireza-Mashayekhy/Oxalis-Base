@@ -26,14 +26,7 @@ export const createUser =
                 user,
             } = responseData;
 
-            dispatch(
-                setAuthentication({
-                    accessToken: access_token,
-                    refreshToken: refresh_token,
-                })
-            );
-
-            dispatch(setSelf(user));
+            // dispatch(setSelf(user));
 
             return user;
         } catch (error) {
@@ -54,17 +47,17 @@ export const getUser = (id: number) => async (dispatch: AppDispatch) => {
 };
 
 // Action to update user by ID
-export const updateUser =
-    (id: number, data: FormData) => async (dispatch: AppDispatch) => {
-        try {
-            console.log(typeof data);
-            const responseData = await _updateUser(id, data);
-            dispatch(setSelf(responseData));
-        } catch (error) {
-            console.error(error);
-            throw error;
-        }
-    };
+// export const updateUser =
+//     (id: number, data: FormData) => async (dispatch: AppDispatch) => {
+//         try {
+//             console.log(typeof data);
+//             const responseData = await _updateUser(id, data);
+//             dispatch(setSelf(responseData));
+//         } catch (error) {
+//             console.error(error);
+//             throw error;
+//         }
+//     };
 export const getAllUsers = () => async (dispatch: AppDispatch) => {
     try {
         dispatch(getAllUsersRequest());

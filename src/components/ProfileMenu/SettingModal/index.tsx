@@ -1,15 +1,15 @@
 import { SFC } from '@/types';
-import * as S from './Styles.ts';
+import * as S from './Styles';
 import defaultAvatar from '@/assets/default-avatar-square.png';
 import { useEffect, useRef, useState } from 'react';
-import { updateProfile } from '@/api/customerData.ts';
+import { updateProfile } from '@/api/customerData';
 import { useNavigate } from 'react-router-dom';
 import { toast } from 'react-toastify';
 import { FileUpload } from 'primereact/fileupload'; // Import FileUpload type
-import { getUserData } from '@/utils/authentication.ts';
-import { updateUserData } from '@/dispatchers/authentication.ts';
+import { getUserData } from '@/utils/authentication';
+import { updateUserData } from '@/dispatchers/authentication';
 import { useDispatch } from 'react-redux';
-import { setUserData } from '@/redux/store/authentication.ts';
+// import { setUserData } from '@/redux/store/authentication.ts';
 
 export interface SettingModalProps {
     visible: boolean;
@@ -70,7 +70,7 @@ const SettingModal: SFC<SettingModalProps> = ({ visible, setVisibleProp }) => {
                 };
                 console.log(updatedUserData);
 
-                dispatch(setUserData(updatedUserData));
+                // dispatch(setUserData(updatedUserData));
                 setProfile(updatedUserData);
                 navigate('/');
                 setVisibleProp(false);

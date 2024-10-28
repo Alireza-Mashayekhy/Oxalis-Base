@@ -1,8 +1,9 @@
 export interface Event {
-    id: string;
+    id?: string;
     counterId: string;
     counter_name: string;
     type: 'increment' | 'decrement';
-    user: string;
+    user?: string;
     datetime: string;
-  }
+    user_name?: string;
+}

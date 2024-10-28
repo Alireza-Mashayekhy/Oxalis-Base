@@ -22,7 +22,8 @@ interface AccordionTypes {
     tabs: { label: string; value: number; id: number }[];
     children: React.ReactNode[] | string[];
     defaultExpanded?: boolean;
-    title: string;
+    title?: string;
+    onChange?: (event: SyntheticEvent, expanded: boolean) => void; // اضافه کردن onChange
 }
 
 const AccodionWrapper: SFC<AccordionTypes> = ({
@@ -32,16 +33,21 @@ const AccodionWrapper: SFC<AccordionTypes> = ({
     children,
     defaultExpanded,
     title,
+    onChange, // دریافت onChange
 }) => {
     const dispatch = useDispatch();
     const [isExpanded, setIsExpanded] = useState(defaultExpanded || false);
 
     const handleAccordionChange = (
         event: SyntheticEvent,
-        isExpanded: boolean
+        expanded: boolean
     ) => {
-        setIsExpanded(isExpanded);
-        dispatch(setAccordionState({ title, isOpen: isExpanded }));
+        setIsExpanded(expanded);
+        dispatch(setAccordionState({ title, isOpen: expanded }));
+        if (onChange) {
+            // فراخوانی onChange اگر وجود داشته باشد
+            onChange(event, expanded);
+        }
     };
 
     const handleTabChange = (event: SyntheticEvent, newValue: number) => {

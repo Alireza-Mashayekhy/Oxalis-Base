@@ -43,6 +43,10 @@ import {
     FinancialData,
     ManufacturingData,
 } from './new_data';
+import { Stock } from '@/types/stock';
+import { Fee } from '@/types/fee';
+import { Customers } from '@/types/customers';
+
 export {
     AllAssets,
     AppDispatch,
@@ -85,4 +89,7 @@ export {
     FinancialData,
     SelectOption,
     SelectProps,
+    Stock,
+    Fee,
+    Customers,
 };

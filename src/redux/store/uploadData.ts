@@ -1,8 +1,8 @@
 import { createSlice, PayloadAction } from '@reduxjs/toolkit';
-import { Upload } from '@/types';
+import { UploadStatus } from '@/types';
 
 interface UploadState {
-    data: Upload[];
+    data: UploadStatus[];
     loading: boolean;
     error: string | null;
 }
@@ -17,7 +17,7 @@ const UploadDataSlice = createSlice({
     name: 'uploadData',
     initialState,
     reducers: {
-        setUploadData: (state, action: PayloadAction<Upload[]>) => {
+        setUploadData: (state, action: PayloadAction<UploadStatus[]>) => {
             return {
                 ...state,
                 data: action.payload,

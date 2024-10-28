@@ -1,5 +1,5 @@
 import { getTheme } from '@/redux/selectors';
-import React from 'react';
+
 import { useSelector } from 'react-redux';
 import * as S from './Style';
 interface Dataset {

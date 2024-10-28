@@ -6,13 +6,13 @@ import {
     uploadSuccess,
 } from '@/redux/store/uploadData';
 import * as api from '@/api/upload';
-import { Upload } from '@/types';
+import { UploadStatus } from '@/types';
 import { toast } from 'react-toastify';
 
 export const fetchUploadData = () => async (dispatch: AppDispatch) => {
     dispatch(uploadRequest());
     try {
-        const data: Upload[] = await api.getUploadData();
+        const data: UploadStatus[] = await api.getUploadData();
         dispatch(setUploadData(data));
         dispatch(uploadSuccess());
     } catch (error) {

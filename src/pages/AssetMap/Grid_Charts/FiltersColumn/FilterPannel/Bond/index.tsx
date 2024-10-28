@@ -51,16 +51,12 @@ const BondFilterPannel: SFC<FilterPannelInterface> = ({
         });
     }, [copyData, dateRange]);
 
-    const handleApplyFilters = (event: React.MouseEvent<HTMLButtonElement>) => {
-        event.preventDefault();
+    const handleApplyFilters = () => {
         const currentFilteredData = filteredData;
         dispatch(setSalesFilteredData(currentFilteredData));
     };
 
-    const handleRemoveFilters = (
-        event: React.MouseEvent<HTMLButtonElement>
-    ) => {
-        event.preventDefault();
+    const handleRemoveFilters = () => {
         setDateRange(['', '']);
         dispatch(setSalesFilteredData(copyData));
     };

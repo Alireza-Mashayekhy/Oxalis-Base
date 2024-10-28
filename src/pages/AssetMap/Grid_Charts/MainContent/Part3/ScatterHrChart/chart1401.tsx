@@ -1,4 +1,4 @@
-import React, { useState, useEffect } from 'react';
+import { useState, useEffect } from 'react';
 import ReactApexChart from 'react-apexcharts';
 import { useSelector } from 'react-redux';
 import { getHrData } from '@/selectors/state';
@@ -24,11 +24,16 @@ const getFillColor = (job_title) => {
     }
 };
 
+type SeriesData = {
+    name: string;
+    data: { x: number; y: number; z: number }[];
+};
+
 const ApexChart = () => {
     const data = useSelector(getHrData);
     const filteredJobTitles = useSelector(selectFilteredJobTitles);
-    const [series, setSeries] = useState<HRData[]>([]);
-    const [filteredData, setFilteredData] = useState([]);
+    const [series, setSeries] = useState<SeriesData[]>([]);
+    const [filteredData, setFilteredData] = useState<HRData[]>([]);
 
     useEffect(() => {
         if (data.length > 0) {
@@ -62,7 +67,7 @@ const ApexChart = () => {
                 return acc;
             }, {});
 
-            const unsortedSeries = Object.values(groupedData);
+            const unsortedSeries = Object.values(groupedData) as SeriesData[];
             const orderedSeries = fixedJobTitles
                 .map((jobTitle) =>
                     unsortedSeries.find((series) => series.name === jobTitle)
@@ -75,7 +80,7 @@ const ApexChart = () => {
     const options = {
         chart: {
             height: 450,
-            type: 'bubble',
+            type: 'bubble' as const,
             toolbar: {
                 show: false,
             },
@@ -151,7 +156,7 @@ const ApexChart = () => {
                 maxBubbleSize: 5,
             },
             labels: {
-                align: 'center',
+                align: 'center' as const,
                 padding: 0,
                 style: {
                     fontFamily: 'IRANSans',
@@ -169,8 +174,8 @@ const ApexChart = () => {
                     : 0,
         },
         legend: {
-            position: 'bottom',
-            horizontalAlign: 'center',
+            position: 'bottom' as const,
+            horizontalAlign: 'center' as const,
             floating: false,
             fontSize: '11px',
             fontFamily: 'IRANSans',

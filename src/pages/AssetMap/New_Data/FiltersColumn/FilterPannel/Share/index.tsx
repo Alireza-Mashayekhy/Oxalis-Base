@@ -7,7 +7,6 @@ import { useDispatch, useSelector } from 'react-redux';
 import { fetchShareFrame } from '@/dispatchers/shareFrame';
 import { getShareFrame } from '@/selectors/state';
 import {
-    createDataForAssetTypeFilter,
     createDataForShareFilter,
     createDataForVentureNameFilter,
     createDataForVentureTypeFilter,
@@ -18,7 +17,7 @@ interface filterData {
     label: string;
 }
 import { Label } from '@/components/Label';
-import { SFC } from '@/types';
+import { AppDispatch, SFC } from '@/types';
 
 interface FilterPannelInterface {
     isResponsive?: boolean;
@@ -29,7 +28,7 @@ const ShareFilterPannel: SFC<FilterPannelInterface> = ({
     isResponsive,
     handleAccordionCloseInResponsiveMode,
 }) => {
-    const dispatch = useDispatch();
+    const dispatch = useDispatch<AppDispatch>();
     const data = useSelector(getShareFrame);
 
     const shareOptions = createDataForShareFilter(data);
