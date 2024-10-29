@@ -124,6 +124,7 @@ const GeneralStatusTrendReview: React.FC = () => {
         <LineChart
             labels={['test']}
             datasets={[{ name: 'test', data: [2, 3] }]}
+            selectedHeight="100%"
         />
     );
 };

@@ -19,7 +19,7 @@ const PieChart: React.FC<PieChartProps> = ({ datasets, selectedHeight }) => {
     const chartOptions = {
         chart: {
             type: 'pie' as 'pie',
-            background: '#F0F2F1',
+            background: 'transparent',
         },
         colors: datasets.map((dataset) => dataset.color || '#00E396'), // رنگ‌ها برای هر داده
         labels: datasets.map((dataset) => dataset.name), // نام هر بخش از نمودار دایره‌ای

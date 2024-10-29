@@ -24,7 +24,7 @@ const AreaChart: React.FC<AreaChartProps> = ({
     const chartOptions = {
         chart: {
             type: 'area' as 'area',
-            background: '#F0F2F1',
+            background: 'transparent',
             toolbar: {
                 show: true,
                 tools: {

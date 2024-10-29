@@ -24,7 +24,7 @@ const BarChart: React.FC<BarChartProps> = ({
     const chartOptions = {
         chart: {
             type: 'bar' as 'bar',
-            background: '#F0F2F1',
+            background: 'transparent',
             toolbar: {
                 show: true,
                 tools: {

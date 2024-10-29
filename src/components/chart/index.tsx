@@ -24,7 +24,7 @@ const LineChart: React.FC<LineChartProps> = ({
         chart: {
             type: 'line' as 'line',
             height: 400,
-            background: '#F0F2F1',
+            background: 'transparent',
             zoom: {
                 enabled: false,
             },
@@ -106,7 +106,7 @@ const LineChart: React.FC<LineChartProps> = ({
                 style={{
                     position: 'relative',
                     width: '100%',
-                    height: selectedHeight || '400px',
+                    height: selectedHeight || 'auto',
                 }}
             >
                 <S.ChartStyle

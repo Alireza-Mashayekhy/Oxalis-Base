@@ -5,6 +5,7 @@ import './Style.css';
 import { useSelector } from 'react-redux';
 import { getSalesData } from '@/selectors/state';
 import { RootState } from '@/types';
+import LineChart from '@/components/chart';
 
 const PRODUCT_COLORS = {
     محصول_1: '#00c49f',
@@ -70,108 +71,6 @@ const ApexChart: React.FC = () => {
         fillColor: item.fillColor,
     }));
 
-    const options: ApexOptions = {
-        chart: {
-            height: 350,
-            width: '100%',
-            type: 'bubble',
-            toolbar: {
-                show: false,
-            },
-            zoom: {
-                enabled: false,
-            },
-        },
-        dataLabels: {
-            enabled: false,
-        },
-        fill: {
-            opacity: 0.8,
-        },
-        xaxis: {
-            type: 'numeric',
-            labels: {
-                style: {
-                    cssClass: 'xaxis',
-                    colors: 'rgb(102, 102, 102)',
-                    fontSize: '12px',
-                    fontWeight: 'bold',
-                    fontFamily: 'IRANSans',
-                },
-                rotate: 0,
-                formatter: function (val) {
-                    return new Intl.NumberFormat('fa-IR').format(
-                        Number(val) / 1000000
-                    );
-                },
-            },
-            title: {
-                text: 'مجموع درآمد (میلیون تومان)',
-                style: {
-                    fontSize: '12px',
-                    color: 'rgb(102, 102, 102)',
-                    fontFamily: 'IRANSans',
-                    fontWeight: 'normal',
-                },
-            },
-        },
-        yaxis: {
-            max: 50,
-            title: {
-                text: 'حاشیه سود (%)',
-                style: {
-                    fontSize: '12px',
-                    fontFamily: 'IRANSans',
-                    color: 'rgb(102, 102, 102)',
-                    fontWeight: 'normal',
-                },
-                offsetY: 0,
-                offsetX: 0,
-            },
-            labels: {
-                align: 'center',
-                style: {
-                    fontSize: '12px',
-                    fontFamily: 'IRANSans',
-                    colors: 'rgb(102, 102, 102)',
-                    fontWeight: 'bold',
-                },
-                formatter: (value) => {
-                    return Math.floor(value).toString();
-                },
-            },
-        },
-        legend: {
-            show: true,
-        },
-        tooltip: {
-            enabled: true,
-            style: {
-                fontSize: '12px',
-                fontFamily: 'IRANSans',
-            },
-            custom: ({ dataPointIndex }) => {
-                const product = filteredData[dataPointIndex].product;
-                const quantity =
-                    filteredData[dataPointIndex].quantity_sold.toLocaleString();
-                const revenue = Math.floor(
-                    filteredData[dataPointIndex].revenue
-                ).toLocaleString();
-                const marginProfit =
-                    filteredData[dataPointIndex].marginProfit.toFixed(2);
-
-                return `
-          <div class="custom-tooltip">
-            <strong>محصول:</strong> ${product}<br/>
-            <strong>تعداد فروش:</strong> ${quantity}<br/>
-            <strong>مجموع درآمد:</strong> ${revenue} تومان<br/>
-            <strong>حاشیه سود:</strong> ${marginProfit}%
-          </div>
-        `;
-            },
-        },
-    };
-
     return (
         <div id="chart">
             <h5
@@ -181,13 +80,11 @@ const ApexChart: React.FC = () => {
                     marginTop: '20px',
                 }}
             >
-                عملکرد محصول{' '}
+                عملکرد محصول
             </h5>
-            <ReactApexChart
-                options={options}
-                series={[{ name: 'Sales Data', data: series }]}
-                type="bubble"
-                height={350}
+            <LineChart
+                labels={['test']}
+                datasets={[{ name: 'test', data: [2, 3] }]}
             />
         </div>
     );

@@ -1,8 +1,6 @@
 import { AppDispatch, SFC } from '@/types';
 import { useEffect } from 'react';
 import * as S from './Styles';
-import GeneralStatus from './Part1';
-import OrderStatus from './Part2';
 import EnvironmentLawsAndIssues from './Part3';
 import EnvironmentLawsAndIssuespart4 from './Part4';
 import EnvironmentLawsAndIssuespart5 from './Part5';
@@ -16,7 +14,6 @@ import {
     fetchSalesData,
     fetchManData,
 } from '@/dispatchers/chartsData';
-import FilterPannel from '@/pages/AssetMap/New_Data/FiltersColumn/FilterPannel';
 
 const MainContent: SFC = () => {
     const loading = useSelector(getAllAssets).loading;
