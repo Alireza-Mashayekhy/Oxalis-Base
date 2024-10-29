@@ -6,18 +6,8 @@ import {
     getManFilterData,
     getSelectedProducts,
 } from '@/selectors/state';
-import {
-    LineChart,
-    Line,
-    XAxis,
-    YAxis,
-    CartesianGrid,
-    Tooltip,
-    Legend,
-    ResponsiveContainer,
-    Label,
-} from 'recharts';
 import { RootState } from '@/types';
+import LineChart from '@/components/chart';
 
 interface DataPoint {
     date: string;
@@ -169,36 +159,10 @@ const GeneralStatusTrendReview: React.FC = () => {
             >
                 میزان تولید در سال
             </h5>
-            <ResponsiveContainer height={350} width="100%">
-                <LineChart
-                    data={salesData}
-                    margin={{ top: 5, right: 30, left: 0, bottom: 5 }}
-                >
-                    <CartesianGrid stroke="#ccc" vertical={false} />
-                    {/* <XAxis dataKey="date" angle={-20} dy={7} />
-                    <YAxis
-                        tickFormatter={(value) => value.toLocaleString()}
-                        tick={{ direction: 'ltr' }}
-                    >
-                        <Label
-                            value="تعداد"
-                            angle={-90}
-                            position="insideLeft"
-                        />
-                    </YAxis> */}
-                    <Tooltip content={CustomTooltip} />
-                    <Legend content={CustomLegend} />
-                    {cities.map((product, index) => (
-                        <Line
-                            key={product}
-                            type="monotone"
-                            dataKey={product}
-                            dot={false}
-                            stroke={PRODUCT_COLORS[product]}
-                        />
-                    ))}
-                </LineChart>
-            </ResponsiveContainer>
+            <LineChart
+                labels={['test']}
+                datasets={[{ name: 'test', data: [2, 3] }]}
+            />
         </>
     );
 };

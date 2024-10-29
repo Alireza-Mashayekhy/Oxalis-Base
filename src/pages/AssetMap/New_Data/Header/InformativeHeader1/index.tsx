@@ -4,8 +4,6 @@ import { colors, fonts } from '@/styles';
 import { Label } from '@/components/Label';
 import MoreVertOutlinedIcon from '@mui/icons-material/MoreVertOutlined';
 import StraightOutlinedIcon from '@mui/icons-material/StraightOutlined';
-import ArrowDownwardIcon from '@mui/icons-material/ArrowDownward';
-import { LineChart, Line, ResponsiveContainer } from 'recharts';
 import { useDispatch, useSelector } from 'react-redux';
 import { getAllAssets, getData, getTheme } from '@/selectors/state';
 import { useState } from 'react';
@@ -16,6 +14,7 @@ import {
     getSelectedFundNameData,
 } from '@/utils/headersFunctions';
 import { setSelectedAssets } from '@/redux/store/allassets';
+import LineChart from '@/components/chart';
 
 const options: string[] = [
     'سهامی',
@@ -97,16 +96,11 @@ const InformativeHeader1: SFC = () => {
                 </div>
 
                 <S.ChartContainer>
-                    <ResponsiveContainer>
-                        <LineChart data={chartsData}>
-                            <Line
-                                type="linear"
-                                dataKey="DAY_VALUE"
-                                stroke={theme === 'dark' ? 'white' : 'darkGray'}
-                                dot={false}
-                            />
-                        </LineChart>
-                    </ResponsiveContainer>
+                    <LineChart
+                        selectedHeight="auto"
+                        labels={['test']}
+                        datasets={[{ name: 'test', data: [2, 3] }]}
+                    />
                 </S.ChartContainer>
             </S.BodyContainer>
         </S.Container>

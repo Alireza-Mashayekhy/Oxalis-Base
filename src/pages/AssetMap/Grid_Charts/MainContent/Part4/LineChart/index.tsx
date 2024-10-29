@@ -6,18 +6,8 @@ import {
     getSalesFilterData,
     getSelectedCitiesSales,
 } from '@/selectors/state';
-import {
-    LineChart,
-    Line,
-    XAxis,
-    YAxis,
-    CartesianGrid,
-    Tooltip,
-    Legend,
-    ResponsiveContainer,
-    Label,
-} from 'recharts';
 import { RootState } from '@/types';
+import LineChart from '@/components/chart';
 
 const GeneralStatusTrendReview: React.FC = () => {
     const data: SalesData[] = useSelector(getSalesData);
@@ -127,6 +117,10 @@ const GeneralStatusTrendReview: React.FC = () => {
         return acc;
     }, []);
 
+    const chartData = {
+        labels: [],
+        datasets: [],
+    };
     const renderTooltip = ({ active, payload, label }) => {
         if (active && payload && payload.length) {
             return (
@@ -164,45 +158,10 @@ const GeneralStatusTrendReview: React.FC = () => {
             >
                 فروش محصول در هر شهر
             </h5>
-            <ResponsiveContainer height={350} width="100%">
-                <LineChart
-                    data={filteredData}
-                    margin={{ top: 5, right: 40, left: 10, bottom: 5 }}
-                >
-                    <CartesianGrid stroke="#ccc" vertical={false} />
-                    {/* <XAxis dataKey="date" angle={-20} dy={10} />
-                    <YAxis
-                        tick={{
-                            direction: 'ltr',
-                        }}
-                        tickFormatter={(value) => {
-                            const formattedValue = value / 1000000;
-                            return formattedValue.toLocaleString('fa-IR');
-                        }}
-                    >
-                        <Label
-                            value="درآمد (میلیون  تومان)"
-                            angle={-90}
-                            position="insideLeft"
-                            style={{ fontSize: '12px' }}
-                            dx={0}
-                            dy={-50}
-                        />
-                    </YAxis> */}
-                    <Tooltip content={renderTooltip} />
-                    <Legend content={renderCustomizedLegend} />
-
-                    {cities.map((city) => (
-                        <Line
-                            key={city}
-                            type="monotone"
-                            dataKey={city}
-                            dot={false}
-                            stroke={colorMap[city]}
-                        />
-                    ))}
-                </LineChart>
-            </ResponsiveContainer>
+            <LineChart
+                datasets={chartData.datasets}
+                labels={chartData.labels}
+            />
         </>
     );
 };

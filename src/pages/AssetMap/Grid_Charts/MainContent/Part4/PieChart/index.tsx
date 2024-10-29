@@ -1,11 +1,3 @@
-import {
-    PieChart,
-    Pie,
-    Cell,
-    ResponsiveContainer,
-    Legend,
-    Tooltip,
-} from 'recharts';
 import { SalesData } from '@/types/new_data';
 import { useSelector } from 'react-redux';
 import { getSalesData, getSalesFilterData } from '@/selectors/state';
@@ -13,6 +5,7 @@ import { darkTheme, lightTheme } from '@/styles/theme';
 import { getTheme } from '@/selectors/state';
 import '../style.css';
 import { RootState } from '@/types';
+import PieChart from '@/components/PieChart';
 const PRODUCT_COLORS = {
     محصول_1: '#00c49f',
     محصول_2: '#f44f73',
@@ -135,6 +128,18 @@ const Example = () => {
         );
     };
 
+    const datasets = [
+        {
+            name: 'test',
+            data: 3,
+        },
+        {
+            name: 'test2',
+            data: 5,
+            color: 'red',
+        },
+    ];
+
     return (
         <>
             <h5
@@ -147,7 +152,8 @@ const Example = () => {
                 توزیع درآمد محصول
             </h5>
 
-            <ResponsiveContainer width="100%" height={350}>
+            <PieChart datasets={datasets} />
+            {/* <ResponsiveContainer width="100%" height={350}>
                 <PieChart>
                     <Pie
                         data={data}
@@ -182,7 +188,7 @@ const Example = () => {
                         }}
                     />
                 </PieChart>
-            </ResponsiveContainer>
+            </ResponsiveContainer> */}
         </>
     );
 };

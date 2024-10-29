@@ -1,16 +1,7 @@
 import { useEffect, useState } from 'react';
 import { ManufacturingData } from '@/types/new_data';
 import { getManData } from '@/api/new_data';
-import {
-    AreaChart,
-    Area,
-    XAxis,
-    YAxis,
-    CartesianGrid,
-    Tooltip,
-    ResponsiveContainer,
-    Legend,
-} from 'recharts';
+import AreaChart from '@/components/AreaChart';
 
 const StackedAreaChart: React.FC = () => {
     const [loading, setLoading] = useState<boolean>(true);
@@ -79,32 +70,10 @@ const StackedAreaChart: React.FC = () => {
     );
 
     return (
-        <ResponsiveContainer height={300} width={'100%'}>
-            <AreaChart
-                data={chartData}
-                margin={{ top: 10, right: 30, left: 0, bottom: 0 }}
-            >
-                <CartesianGrid strokeDasharray="3 3" />
-                {/* <XAxis dataKey="jalali_date" />
-                <YAxis
-                    tick={{
-                        direction: 'ltr',
-                    }}
-                /> */}
-                <Tooltip />
-                <Legend />
-                {cityKeys.map((city, index) => (
-                    <Area
-                        key={city}
-                        type="monotone"
-                        dataKey={city}
-                        stackId="1"
-                        stroke={colors[index % colors.length]}
-                        fill={colors[index % colors.length]}
-                    />
-                ))}
-            </AreaChart>
-        </ResponsiveContainer>
+        <AreaChart
+            labels={['test']}
+            datasets={[{ name: 'test', data: [2, 3] }]}
+        />
     );
 };
 

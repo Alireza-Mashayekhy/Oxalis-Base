@@ -1,17 +1,7 @@
 import { SalesData } from '@/types/new_data';
 import { useSelector } from 'react-redux';
 import { getSalesData, getSalesFilterData } from '@/selectors/state';
-import {
-    LineChart,
-    Line,
-    XAxis,
-    YAxis,
-    CartesianGrid,
-    Tooltip,
-    Legend,
-    ResponsiveContainer,
-    Label,
-} from 'recharts';
+import LineChart from '@/components/chart';
 
 interface DataPoint {
     date: string;
@@ -131,44 +121,10 @@ const GeneralStatusTrendReview: React.FC = () => {
     };
 
     return (
-        <ResponsiveContainer height={400} width="100%">
-            <LineChart
-                data={customData}
-                margin={{ top: 5, right: 40, left: 45, bottom: 5 }}
-            >
-                <CartesianGrid stroke="#ccc" vertical={false} />
-                {/* <XAxis dataKey="date" angle={-20} dy={10} />
-                <YAxis
-                    tick={{
-                        direction: 'ltr',
-                    }}
-                    tickFormatter={(value) => {
-                        const formattedValue = value / 1000000;
-                        return formattedValue.toLocaleString('fa-IR');
-                    }}
-                >
-                    <Label
-                        value="درآمد (میلیون  تومان)"
-                        angle={-90}
-                        position="insideLeft"
-                        style={{ fontSize: '12px' }}
-                        dx={0}
-                        dy={-50}
-                    />
-                </YAxis> */}
-                <Tooltip content={renderTooltip} />
-                <Legend content={renderCustomizedLegend} />
-                {cities.map((city, index) => (
-                    <Line
-                        key={city}
-                        type="monotone"
-                        dataKey={city}
-                        dot={false}
-                        stroke={colors[index % colors.length]}
-                    />
-                ))}
-            </LineChart>
-        </ResponsiveContainer>
+        <LineChart
+            labels={['test']}
+            datasets={[{ name: 'test', data: [2, 3] }]}
+        />
     );
 };
 

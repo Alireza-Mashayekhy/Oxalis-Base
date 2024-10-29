@@ -1,18 +1,7 @@
 import { FinancialData } from '@/types/new_data';
 import { useSelector } from 'react-redux';
 import { getFinanceData, getFilterData } from '@/selectors/state';
-
-import {
-    LineChart,
-    Line,
-    XAxis,
-    YAxis,
-    CartesianGrid,
-    Tooltip,
-    Legend,
-    ResponsiveContainer,
-    Label,
-} from 'recharts';
+import LineChart from '@/components/chart';
 
 interface DataPoint {
     date: string;
@@ -77,57 +66,10 @@ const ProfitLinChart: React.FC = () => {
 
     return (
         <>
-            <ResponsiveContainer height={350} width="100%">
-                <LineChart
-                    data={chartData}
-                    margin={{ top: 5, right: 40, left: 20, bottom: 5 }}
-                >
-                    <CartesianGrid stroke="#ccc" vertical={false} />
-                    {/* <XAxis dataKey="date" angle={-20} dy={8} />
-                    <YAxis
-                        tick={{ direction: 'ltr' }}
-                        tickFormatter={(value) =>
-                            (value / 1000000).toLocaleString('fa-IR')
-                        }
-                    >
-                        <Label
-                            value="مقدار (میلیون تومان)"
-                            angle={-90}
-                            position="insideLeft"
-                            dy={-50}
-                            dx={-5}
-                        />
-                    </YAxis> */}
-
-                    <Tooltip content={CustomTooltip} />
-                    <Legend
-                        formatter={(value) => {
-                            const index = Lines.findIndex(
-                                (line) => line.key === value
-                            );
-                            return index !== -1 ? Lines[index].name : value;
-                        }}
-                        iconType="circle"
-                        iconSize={10}
-                        margin={{ left: 10, right: 10 }}
-                        wrapperStyle={{
-                            display: 'flex',
-                            justifyContent: 'center',
-                            alignItems: 'center',
-                            padding: '5px',
-                        }}
-                    />
-                    {Lines.map((line, index) => (
-                        <Line
-                            key={line.key}
-                            type="monotone"
-                            dataKey={line.key}
-                            dot={false}
-                            stroke={colors[index % colors.length]}
-                        />
-                    ))}
-                </LineChart>
-            </ResponsiveContainer>
+            <LineChart
+                labels={['test']}
+                datasets={[{ name: 'test', data: [2, 3] }]}
+            />
         </>
     );
 };

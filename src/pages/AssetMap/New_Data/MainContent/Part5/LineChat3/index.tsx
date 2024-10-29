@@ -2,17 +2,7 @@ import { useEffect, useState } from 'react';
 import { ManufacturingData } from '@/types/new_data';
 import { useSelector } from 'react-redux';
 import { getManData, getManFilterData } from '@/selectors/state';
-import {
-    AreaChart,
-    Area,
-    XAxis,
-    YAxis,
-    CartesianGrid,
-    Tooltip,
-    ResponsiveContainer,
-    Legend,
-    Label,
-} from 'recharts';
+import LineChart from '@/components/chart';
 
 const StackedAreaChart: React.FC = () => {
     const data: ManufacturingData[] = useSelector(getManData);
@@ -149,35 +139,10 @@ const StackedAreaChart: React.FC = () => {
     };
 
     return (
-        <ResponsiveContainer height={350} width={'100%'}>
-            <AreaChart
-                data={chartData}
-                margin={{ top: 10, right: 30, left: 20, bottom: 0 }}
-            >
-                <CartesianGrid stroke="#ccc" vertical={false} />
-                {/* <XAxis dataKey="jalali_date" angle={-20} dy={8} />
-                <YAxis tickFormatter={formatTooltipValue} dx={-50}>
-                    <Label
-                        value="تعداد"
-                        angle={-90}
-                        position="insideLeft"
-                        dx={-13}
-                    />
-                </YAxis> */}
-                <Tooltip content={CustomTooltip} />
-                <Legend content={CustomLegend} />
-                {cityKeys.map((city, index) => (
-                    <Area
-                        key={city}
-                        type="monotone"
-                        dataKey={city}
-                        stackId="1"
-                        stroke={colors[index % colors.length]}
-                        fill={colors[index % colors.length]}
-                    />
-                ))}
-            </AreaChart>
-        </ResponsiveContainer>
+        <LineChart
+            labels={['test']}
+            datasets={[{ name: 'test', data: [2, 3] }]}
+        />
     );
 };
 

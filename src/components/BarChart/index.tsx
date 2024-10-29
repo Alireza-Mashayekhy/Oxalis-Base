@@ -1,33 +1,30 @@
 import { getTheme } from '@/redux/selectors';
-
 import { useSelector } from 'react-redux';
 import * as S from './Style';
+
 interface Dataset {
     name: string;
     data: number[];
     color?: string;
 }
 
-interface LineChartProps {
+interface BarChartProps {
     datasets: Dataset[];
     labels: string[];
     selectedHeight?: string;
 }
 
-const LineChart: React.FC<LineChartProps> = ({
+const BarChart: React.FC<BarChartProps> = ({
     datasets,
     labels,
     selectedHeight,
 }) => {
     const theme = useSelector(getTheme);
+
     const chartOptions = {
         chart: {
-            type: 'line' as 'line',
-            height: 400,
+            type: 'bar' as 'bar',
             background: '#F0F2F1',
-            zoom: {
-                enabled: false,
-            },
             toolbar: {
                 show: true,
                 tools: {
@@ -35,7 +32,7 @@ const LineChart: React.FC<LineChartProps> = ({
                 },
             },
         },
-        colors: datasets.map((dataset) => dataset.color || '#00E396'), // اختصاص رنگ‌ها به داده‌ها
+        colors: datasets.map((dataset) => dataset.color || '#00E396'), // رنگ‌ها برای هر داده
         xaxis: {
             categories: labels,
             labels: {
@@ -66,10 +63,12 @@ const LineChart: React.FC<LineChartProps> = ({
             borderColor: '#444444',
         },
         legend: {
-            show: false,
-        },
-        stroke: {
-            curve: 'straight' as 'straight', // اصلاح مقدار تایپ شده
+            show: true,
+            position: 'bottom',
+            fontFamily: 'IranSans',
+            labels: {
+                colors: '#000000',
+            },
         },
         tooltip: {
             theme: theme,
@@ -82,17 +81,21 @@ const LineChart: React.FC<LineChartProps> = ({
                 show: true,
             },
         },
-        toolbar: {
-            show: true,
-            tools: {
-                download: true,
-            },
-            style: {
-                backgroundColor: '#ffffff',
-                color: '#000000',
+        plotOptions: {
+            bar: {
+                horizontal: false,
+                columnWidth: '50%',
+                dataLabels: {
+                    position: 'top',
+                },
             },
         },
     };
+
+    const series = datasets.map((dataset) => ({
+        name: dataset.name,
+        data: dataset.data,
+    }));
 
     return (
         <div
@@ -111,12 +114,12 @@ const LineChart: React.FC<LineChartProps> = ({
             >
                 <S.ChartStyle
                     options={chartOptions}
-                    series={datasets}
-                    type="line"
+                    series={series}
+                    type="bar"
                 />
             </div>
         </div>
     );
 };
 
-export default LineChart;
+export default BarChart;

@@ -1,33 +1,30 @@
 import { getTheme } from '@/redux/selectors';
-
 import { useSelector } from 'react-redux';
 import * as S from './Style';
+
 interface Dataset {
     name: string;
     data: number[];
     color?: string;
 }
 
-interface LineChartProps {
+interface AreaChartProps {
     datasets: Dataset[];
     labels: string[];
     selectedHeight?: string;
 }
 
-const LineChart: React.FC<LineChartProps> = ({
+const AreaChart: React.FC<AreaChartProps> = ({
     datasets,
     labels,
     selectedHeight,
 }) => {
     const theme = useSelector(getTheme);
+
     const chartOptions = {
         chart: {
-            type: 'line' as 'line',
-            height: 400,
+            type: 'area' as 'area',
             background: '#F0F2F1',
-            zoom: {
-                enabled: false,
-            },
             toolbar: {
                 show: true,
                 tools: {
@@ -35,7 +32,7 @@ const LineChart: React.FC<LineChartProps> = ({
                 },
             },
         },
-        colors: datasets.map((dataset) => dataset.color || '#00E396'), // اختصاص رنگ‌ها به داده‌ها
+        colors: datasets.map((dataset) => dataset.color || '#00E396'), // رنگ‌ها برای هر داده
         xaxis: {
             categories: labels,
             labels: {
@@ -66,10 +63,12 @@ const LineChart: React.FC<LineChartProps> = ({
             borderColor: '#444444',
         },
         legend: {
-            show: false,
-        },
-        stroke: {
-            curve: 'straight' as 'straight', // اصلاح مقدار تایپ شده
+            show: true,
+            position: 'bottom',
+            fontFamily: 'IranSans',
+            labels: {
+                colors: '#000000',
+            },
         },
         tooltip: {
             theme: theme,
@@ -82,17 +81,24 @@ const LineChart: React.FC<LineChartProps> = ({
                 show: true,
             },
         },
-        toolbar: {
-            show: true,
-            tools: {
-                download: true,
-            },
-            style: {
-                backgroundColor: '#ffffff',
-                color: '#000000',
+        stroke: {
+            curve: 'smooth' as 'smooth', // اصلاح مقدار تایپ شده برای نمای مساحتی نرم‌تر
+        },
+        fill: {
+            type: 'gradient',
+            gradient: {
+                shadeIntensity: 1,
+                opacityFrom: 0.7,
+                opacityTo: 0.2,
+                stops: [0, 90, 100],
             },
         },
     };
+
+    const series = datasets.map((dataset) => ({
+        name: dataset.name,
+        data: dataset.data,
+    }));
 
     return (
         <div
@@ -111,12 +117,12 @@ const LineChart: React.FC<LineChartProps> = ({
             >
                 <S.ChartStyle
                     options={chartOptions}
-                    series={datasets}
-                    type="line"
+                    series={series}
+                    type="area"
                 />
             </div>
         </div>
     );
 };
 
-export default LineChart;
+export default AreaChart;

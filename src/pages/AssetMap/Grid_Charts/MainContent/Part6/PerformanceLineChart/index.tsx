@@ -1,18 +1,8 @@
+import React from 'react';
 import { useSelector } from 'react-redux';
 import { getFinanceData, getFilterData } from '@/selectors/state';
 import { FinancialData } from '@/types/new_data';
-import {
-    LineChart,
-    Line,
-    XAxis,
-    YAxis,
-    CartesianGrid,
-    Tooltip,
-    Legend,
-    ResponsiveContainer,
-    Label,
-} from 'recharts';
-
+import LineChart from '@/components/chart';
 interface DataPoint {
     date: string;
     income: number;
@@ -131,46 +121,12 @@ const GeneralStatusTrendReview: React.FC = () => {
     return (
         <>
             <h5 style={{ textAlign: 'center', color: '#808080' }}>
-                {' '}
-                عملکرد مالی{' '}
+                عملکرد مالی
             </h5>
-            <ResponsiveContainer height={370} width="100%">
-                <LineChart
-                    data={FinancialData}
-                    margin={{ top: 5, right: 40, left: 20, bottom: 5 }}
-                >
-                    <CartesianGrid stroke="#ccc" vertical={false} />
-                    {/* <XAxis dataKey="date" angle={-20} dy={8} />
-                    <YAxis
-                        tick={{ direction: 'ltr' }}
-                        tickFormatter={(value) =>
-                            (value / 1000000).toLocaleString('fa-IR')
-                        }
-                    >
-                        <Label
-                            value="مقدار (میلیون تومان)"
-                            angle={-90}
-                            position="insideLeft"
-                            dy={-50}
-                            dx={-5}
-                        />
-                    </YAxis> */}
-                    <Tooltip content={<CustomizedTooltip />} />
-                    <Legend
-                        formatter={renderLegend}
-                        content={<CustomLegend />}
-                    />
-                    {Lines.map((city, index) => (
-                        <Line
-                            key={city}
-                            type="monotone"
-                            dataKey={city}
-                            dot={false}
-                            stroke={colors[index % colors.length]}
-                        />
-                    ))}
-                </LineChart>
-            </ResponsiveContainer>
+            <LineChart
+                labels={['test']}
+                datasets={[{ name: 'test', data: [2, 3] }]}
+            />
         </>
     );
 };

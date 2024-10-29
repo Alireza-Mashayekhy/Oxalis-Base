@@ -1,16 +1,9 @@
-import {
-    PieChart,
-    Pie,
-    Cell,
-    ResponsiveContainer,
-    Legend,
-    Tooltip,
-} from 'recharts';
 import { SalesData } from '@/types/new_data';
 import { useSelector } from 'react-redux';
 import { getSalesData } from '@/selectors/state';
 import { darkTheme, lightTheme } from '@/styles/theme';
 import { getTheme } from '@/selectors/state';
+import PieChart from '@/components/PieChart';
 
 const PRODUCT_COLORS = {
     محصول_1: '#00c49f',
@@ -118,46 +111,7 @@ const Example = () => {
         );
     };
 
-    return (
-        <ResponsiveContainer width="100%" height={400}>
-            <PieChart>
-                <Pie
-                    data={data}
-                    cx="50%"
-                    cy="50%"
-                    labelLine={true}
-                    innerRadius={68}
-                    outerRadius={115}
-                    fill="#8884d8"
-                    cornerRadius={5}
-                    paddingAngle={2}
-                    stroke="none"
-                    dataKey="value"
-                >
-                    {data.map((entry, index) => (
-                        <Cell
-                            key={`cell-${index}`}
-                            fill={PRODUCT_COLORS[entry.name] || '#ccc'}
-                        />
-                    ))}
-                </Pie>
-                <Tooltip content={CustomTooltip} />
-                <Legend
-                    payload={data}
-                    content={CustomLegend}
-                    layout="vertical"
-                    verticalAlign="top"
-                    align="left"
-                    wrapperStyle={{
-                        padding: '20px',
-                        position: 'absolute',
-                        top: 0,
-                        left: 0,
-                    }}
-                />
-            </PieChart>
-        </ResponsiveContainer>
-    );
+    return <PieChart datasets={[{ name: 'test', data: 2 }]} />;
 };
 
 export default Example;

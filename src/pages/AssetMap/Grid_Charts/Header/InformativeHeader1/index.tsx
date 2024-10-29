@@ -4,8 +4,6 @@ import { colors, fonts } from '@/styles';
 import { Label } from '@/components/Label';
 import MoreVertOutlinedIcon from '@mui/icons-material/MoreVertOutlined';
 import StraightOutlinedIcon from '@mui/icons-material/StraightOutlined';
-import ArrowDownwardIcon from '@mui/icons-material/ArrowDownward';
-import { LineChart, Line, ResponsiveContainer } from 'recharts';
 import { useDispatch, useSelector } from 'react-redux';
 import { getAllAssets, getData, getTheme } from '@/selectors/state';
 import { useState } from 'react';
@@ -16,6 +14,7 @@ import {
     getSelectedFundNameData,
 } from '@/utils/headersFunctions';
 import { setSelectedAssets } from '@/redux/store/allassets';
+import LineChart from '@/components/chart';
 
 const options: string[] = [
     'سهامی',
@@ -53,12 +52,20 @@ const InformativeHeader1: SFC = () => {
         setAnchorEl(event.currentTarget);
     };
 
-    const chartsData = data
-        .filter((item: Data) => item.VENTURE_TYPE === options[selectedIndex])
-        .map((item) => ({
-            ...item,
-            DAY_VALUE: Number(item.DAY_VALUE), // Convert DAY_PRICE from string to number as need for chart
-        }));
+    const sortedData = data.filter(
+        (item: Data) => item.VENTURE_TYPE === options[selectedIndex]
+    );
+
+    const chartData = {
+        labels: sortedData.map((item) => item.TITLE),
+        datasets: [
+            {
+                name: 'Final Price',
+                data: sortedData.map((item) => parseFloat(item.DAY_VALUE)),
+            },
+        ],
+    };
+
     return (
         <S.Container>
             <S.HeaderContainer>
@@ -96,18 +103,15 @@ const InformativeHeader1: SFC = () => {
                     </Label>
                 </div>
 
-                <S.ChartContainer>
-                    <ResponsiveContainer>
-                        <LineChart data={chartsData}>
-                            <Line
-                                type="linear"
-                                dataKey="DAY_VALUE"
-                                stroke={theme === 'dark' ? 'white' : 'darkGray'}
-                                dot={false}
-                            />
-                        </LineChart>
-                    </ResponsiveContainer>
-                </S.ChartContainer>
+                {data.length && (
+                    <S.ChartContainer>
+                        <LineChart
+                            datasets={chartData.datasets}
+                            labels={chartData.labels}
+                            selectedHeight="auto"
+                        />
+                    </S.ChartContainer>
+                )}
             </S.BodyContainer>
         </S.Container>
     );

@@ -2,17 +2,7 @@ import { useEffect, useState } from 'react';
 import { ManufacturingData } from '@/types/new_data';
 import { useSelector } from 'react-redux';
 import { getManData, getManFilterData } from '@/selectors/state';
-import {
-    LineChart,
-    Line,
-    XAxis,
-    YAxis,
-    CartesianGrid,
-    Tooltip,
-    Legend,
-    ResponsiveContainer,
-    Label,
-} from 'recharts';
+import LineChart from '@/components/chart';
 
 interface DataPoint {
     date: string;
@@ -149,35 +139,10 @@ const GeneralStatusTrendReview: React.FC = () => {
     }, []);
 
     return (
-        <ResponsiveContainer height={400} width="100%">
-            <LineChart
-                data={salesData}
-                margin={{ top: 5, right: 30, left: 40, bottom: 5 }}
-            >
-                <CartesianGrid stroke="#ccc" vertical={false} />
-                {/* <XAxis dataKey="date" angle={-20} dy={7} />
-                <YAxis
-                    label={
-                        <Label
-                            value="تعداد"
-                            angle={-90}
-                            position="insideLeft"
-                        />
-                    }
-                /> */}
-                <Tooltip content={CustomTooltip} />
-                <Legend content={CustomLegend} />
-                {cities.map((product, index) => (
-                    <Line
-                        key={product}
-                        type="monotone"
-                        dataKey={product}
-                        dot={false}
-                        stroke={colors[index % colors.length]}
-                    />
-                ))}
-            </LineChart>
-        </ResponsiveContainer>
+        <LineChart
+            labels={['test']}
+            datasets={[{ name: 'test', data: [2, 3] }]}
+        />
     );
 };
 

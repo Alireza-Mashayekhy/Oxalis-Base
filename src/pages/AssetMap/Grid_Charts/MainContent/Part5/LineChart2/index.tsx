@@ -6,18 +6,8 @@ import {
     getManFilterData,
     getSelectedProducts,
 } from '@/selectors/state';
-import {
-    LineChart,
-    Line,
-    XAxis,
-    YAxis,
-    CartesianGrid,
-    Tooltip,
-    Legend,
-    ResponsiveContainer,
-    Label,
-} from 'recharts';
 import { RootState } from '@/types';
+import LineChart from '@/components/chart';
 
 interface DataPoint {
     date: string;
@@ -174,40 +164,10 @@ const GeneralStatusTrendReview: React.FC = () => {
             >
                 موجودی محصول
             </h5>
-            <ResponsiveContainer height={350} width="100%">
-                <LineChart
-                    data={manufacturingData}
-                    margin={{ top: 5, right: 30, left: 20, bottom: 5 }}
-                >
-                    <CartesianGrid stroke="#ccc" vertical={false} />
-                    {/* <XAxis dataKey="date" angle={-20} dy={7} />
-                    <YAxis
-                        tickFormatter={(value) => value.toLocaleString('fa-IR')}
-                        dx={-50}
-                    >
-                        <Label
-                            value="موجودی"
-                            angle={-90}
-                            position="insideLeft"
-                            dx={-20}
-                        />
-                    </YAxis> */}
-                    <Tooltip content={CustomTooltip} />
-                    <Legend content={CustomLegend} />
-                    {products.map((product, index) => (
-                        <Line
-                            key={product}
-                            type="monotone"
-                            dataKey={product}
-                            dot={false}
-                            stroke={
-                                PRODUCT_COLORS[product] ||
-                                colors[index % colors.length]
-                            }
-                        />
-                    ))}
-                </LineChart>
-            </ResponsiveContainer>
+            <LineChart
+                labels={['test']}
+                datasets={[{ name: 'test', data: [2, 3] }]}
+            />
         </>
     );
 };

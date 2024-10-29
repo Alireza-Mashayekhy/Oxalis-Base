@@ -2,19 +2,8 @@ import { useEffect, useState } from 'react';
 import { ManufacturingData } from '@/types/new_data';
 import { useSelector } from 'react-redux';
 import { getManData, getManFilterData } from '@/selectors/state';
-import CityFilter from '../FilterCharts/CityFilter';
-import {
-    AreaChart,
-    Area,
-    XAxis,
-    YAxis,
-    CartesianGrid,
-    Tooltip,
-    ResponsiveContainer,
-    Legend,
-    Label,
-} from 'recharts';
 import { RootState } from '@/types';
+import AreaChart from '@/components/AreaChart';
 
 const StackedAreaChart: React.FC = () => {
     const data: ManufacturingData[] = useSelector(getManData);
@@ -178,35 +167,10 @@ const StackedAreaChart: React.FC = () => {
             >
                 تولیدات روزانه هر شهر
             </h5>
-            <ResponsiveContainer height={300} width={'100%'}>
-                <AreaChart
-                    data={chartData}
-                    margin={{ top: 10, right: 30, left: 20, bottom: -30 }}
-                >
-                    <CartesianGrid stroke="#ccc" vertical={false} />
-                    {/* <XAxis dataKey="jalali_date" angle={-20} dy={8} />
-                    <YAxis tickFormatter={formatTooltipValue} dx={-50}>
-                        <Label
-                            value="تعداد"
-                            angle={-90}
-                            position="insideLeft"
-                            dx={-13}
-                        />
-                    </YAxis> */}
-                    <Tooltip content={CustomTooltip} />
-                    <Legend content={CustomLegend} />
-                    {cityKeys.map((city, index) => (
-                        <Area
-                            key={city}
-                            type="monotone"
-                            dataKey={city}
-                            stackId="1"
-                            stroke={cityColors[city] || '#000'}
-                            fill={cityColors[city] || '#000'}
-                        />
-                    ))}
-                </AreaChart>
-            </ResponsiveContainer>
+            <AreaChart
+                labels={['test']}
+                datasets={[{ name: 'test', data: [2, 3] }]}
+            />
         </>
     );
 };
