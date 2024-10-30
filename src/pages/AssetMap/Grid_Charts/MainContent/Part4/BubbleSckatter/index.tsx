@@ -1,6 +1,4 @@
-import ReactApexChart from 'react-apexcharts';
 import { SalesData } from '@/types/new_data';
-import { ApexOptions } from 'apexcharts';
 import './Style.css';
 import { useSelector } from 'react-redux';
 import { getSalesData } from '@/selectors/state';

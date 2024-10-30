@@ -1,10 +1,8 @@
-import { useState } from 'react';
-import ReactApexChart from 'react-apexcharts';
 import { SalesData } from '@/types/new_data';
-import { ApexOptions } from 'apexcharts';
 import './Style.css';
 import { useSelector } from 'react-redux';
 import { getSalesData } from '@/selectors/state';
+import BubbleChart from '@/components/BubbleChart';
 
 const ApexChart: React.FC = () => {
     const data: SalesData[] = useSelector(getSalesData);
@@ -56,111 +54,12 @@ const ApexChart: React.FC = () => {
         z: item.quantity_sold,
         fillColor: colors[index % colors.length],
     }));
-    const options: ApexOptions = {
-        chart: {
-            height: 350,
-            width: '100%',
-            type: 'bubble',
-            toolbar: {
-                show: false,
-            },
-        },
-        dataLabels: {
-            enabled: false,
-        },
-        fill: {
-            opacity: 0.8,
-        },
-        xaxis: {
-            type: 'numeric',
-            labels: {
-                style: {
-                    cssClass: 'xaxis',
-                    colors: 'rgb(102, 102, 102)',
-                    fontSize: '12px',
-                    fontWeight: 'bold',
-                    fontFamily: 'IRANSans',
-                },
-                rotate: 0,
-                formatter: function (value: string) {
-                    const numericValue = Number(value); // تبدیل به عدد
-                    return new Intl.NumberFormat('fa-IR').format(
-                        numericValue / 1000000
-                    );
-                },
-            },
-
-            title: {
-                text: 'مجموع درآمد (میلیون تومان)',
-                style: {
-                    fontSize: '12px',
-                    color: 'rgb(102, 102, 102)',
-                    fontFamily: 'IRANSans',
-                    fontWeight: 'normal',
-                },
-            },
-        },
-        yaxis: {
-            max: 50,
-            labels: {
-                align: 'center',
-                style: {
-                    fontSize: '12px',
-                    fontFamily: 'IRANSans',
-                },
-                formatter: (value) => {
-                    return Math.floor(value).toString(); // تبدیل به رشته
-                },
-            },
-            title: {
-                text: '  حاشیه سود (%)',
-                style: {
-                    fontSize: '12px',
-                    fontFamily: 'IRANSans',
-                },
-                offsetY: 0,
-                offsetX: -80,
-            },
-        },
-        legend: {
-            show: true,
-        },
-        tooltip: {
-            enabled: true,
-            style: {
-                fontSize: '12px',
-                fontFamily: 'IRANSans',
-            },
-            custom: ({ dataPointIndex }) => {
-                const product = filteredData[dataPointIndex].product;
-                const quantity =
-                    filteredData[dataPointIndex].quantity_sold.toLocaleString();
-                const revenue = Math.floor(
-                    filteredData[dataPointIndex].revenue
-                ).toLocaleString();
-                const marginProfit =
-                    filteredData[dataPointIndex].marginProfit.toFixed(2);
-
-                return `
-          <div class="custom-tooltip">
-            <strong>محصول:</strong> ${product}<br/>
-            <strong>تعداد فروش:</strong> ${quantity}<br/>
-            <strong>مجموع درآمد:</strong> ${revenue} تومان<br/>
-            <strong>حاشیه سود:</strong> ${marginProfit}%
-          </div>
-        `;
-            },
-        },
-    };
 
     return (
         <div>
             <div id="chart">
-                <ReactApexChart
-                    options={options}
-                    series={[{ name: 'Sales Data', data: series }]}
-                    type="bubble"
-                    height={350}
+                <BubbleChart
+                    datasets={[{ name: 'Sales Data', data: series }]}
                 />
             </div>
         </div>

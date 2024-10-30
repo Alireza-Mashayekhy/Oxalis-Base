@@ -2,28 +2,36 @@ import { getTheme } from '@/redux/selectors';
 import { useSelector } from 'react-redux';
 import * as S from './Style';
 
+interface HeatmapDataPoint {
+    x: string | number; // محور X می‌تواند نام یا عدد باشد
+    y: string | number; // محور Y می‌تواند نام یا عدد باشد
+    value: number; // مقدار شدت رنگ
+}
+
 interface Dataset {
     name: string;
-    data: number[];
+    data: HeatmapDataPoint[];
     color?: string;
 }
 
-interface BarChartProps {
+interface HeatmapChartProps {
     datasets: Dataset[];
-    labels: string[];
+    labelsX: string[]; // برچسب‌های محور X
+    labelsY: string[]; // برچسب‌های محور Y
     selectedHeight?: string;
 }
 
-const BarChart: React.FC<BarChartProps> = ({
+const HeatmapChart: React.FC<HeatmapChartProps> = ({
     datasets,
-    labels,
+    labelsX,
+    labelsY,
     selectedHeight,
 }) => {
     const theme = useSelector(getTheme);
 
     const chartOptions = {
         chart: {
-            type: 'bar' as 'bar',
+            type: 'heatmap' as 'heatmap',
             background: 'transparent',
             toolbar: {
                 show: true,
@@ -32,34 +40,46 @@ const BarChart: React.FC<BarChartProps> = ({
                 },
             },
         },
-        colors: datasets.map((dataset) => dataset.color || '#00E396'), // رنگ‌ها برای هر داده
+        colors: ['#008FFB'], // رنگ پایه برای شدت رنگ‌ها
         xaxis: {
-            categories: labels,
+            categories: labelsX,
             labels: {
                 style: {
                     colors: '#000000',
                     fontFamily: 'IranSans',
                 },
             },
-            axisBorder: {
-                color: '#444444',
-            },
-            axisTicks: {
-                color: '#444444',
+            title: {
+                text: 'محور X',
+                style: {
+                    color: '#000000',
+                    fontFamily: 'IranSans',
+                },
             },
         },
         yaxis: {
+            categories: labelsY,
             labels: {
-                formatter: (value) => {
-                    return value.toLocaleString('fa-IR');
-                },
                 style: {
                     colors: '#000000',
                     fontFamily: 'IranSans',
                 },
             },
+            title: {
+                text: 'محور Y',
+                style: {
+                    color: '#000000',
+                    fontFamily: 'IranSans',
+                },
+            },
+        },
+        dataLabels: {
+            enabled: false, // عدم نمایش مقادیر داخل سلول‌ها
         },
         grid: {
+            padding: {
+                right: 20,
+            },
             borderColor: '#444444',
         },
         legend: {
@@ -77,16 +97,20 @@ const BarChart: React.FC<BarChartProps> = ({
                 fontFamily: 'IranSans',
                 colors: ['#f0f0f0'], // رنگ متون داخل tooltip
             },
-            marker: {
-                show: true,
+            y: {
+                formatter: (value) => `مقدار: ${value.toLocaleString('fa-IR')}`,
             },
         },
         plotOptions: {
-            bar: {
-                horizontal: false,
-                columnWidth: '50%',
-                dataLabels: {
-                    position: 'top',
+            heatmap: {
+                shadeIntensity: 0.5,
+                colorScale: {
+                    ranges: [
+                        { from: 0, to: 20, color: '#00A100' },
+                        { from: 21, to: 50, color: '#128FD9' },
+                        { from: 51, to: 80, color: '#FFB200' },
+                        { from: 81, to: 100, color: '#FF0000' },
+                    ],
                 },
             },
         },
@@ -115,11 +139,11 @@ const BarChart: React.FC<BarChartProps> = ({
                 <S.ChartStyle
                     options={chartOptions}
                     series={series}
-                    type="bar"
+                    type="heatmap"
                 />
             </div>
         </div>
     );
 };
 
-export default BarChart;
+export default HeatmapChart;

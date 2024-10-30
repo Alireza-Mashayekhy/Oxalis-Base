@@ -1,13 +1,10 @@
 import { useState, useEffect } from 'react';
-import ReactApexChart from 'react-apexcharts';
 import { useSelector } from 'react-redux';
 import { getHrData } from '@/selectors/state';
 import { HRData } from '@/types/new_data';
 import { selectFilteredJobTitles } from '@/redux/store/jobTitleFilterHr';
-import {
-    fixedDepartments,
-    fixedJobTitles,
-} from '../Filter_jobTitle/FilterConstants';
+import { fixedJobTitles } from '../Filter_jobTitle/FilterConstants';
+import BubbleChart from '@/components/BubbleChart';
 
 type SeriesData = {
     name: string;
@@ -82,89 +79,10 @@ const ApexChart = () => {
         }
     }, [data, filteredJobTitles]);
 
-    const options = {
-        chart: {
-            height: 450,
-            type: 'bubble' as const,
-            toolbar: {
-                show: false,
-            },
-        },
-        plotOptions: {
-            bubble: {
-                zScaling: true,
-                minBubbleRadius: 1,
-                maxBubbleRadius: 13,
-            },
-        },
-        dataLabels: {
-            enabled: false,
-        },
-        fill: {
-            opacity: 0.9,
-            colors: series.map((item: SeriesData) => getFillColor(item.name)),
-        },
-        tooltip: {
-            custom: ({
-                series,
-                seriesIndex,
-                dataPointIndex,
-                w,
-            }: {
-                series: SeriesData[][];
-                seriesIndex: number;
-                dataPointIndex: number;
-                w: any;
-            }) => {
-                const jobTitle = w.globals.seriesNames[seriesIndex];
-                const value =
-                    series[seriesIndex][dataPointIndex].toLocaleString();
-                return `
-                    <div class="custom-tooltip">
-                        <strong>عنوان شغل: ${jobTitle}</strong><br />
-                        <strong>حقوق: ${value} تومان</strong>
-                    </div>
-                `;
-            },
-        },
-        xaxis: {
-            title: {
-                text: 'امتیاز عملکرد',
-                style: {
-                    fontFamily: 'IRANSans',
-                },
-            },
-            labels: {
-                formatter: (val) => val.toFixed(1),
-            },
-        },
-        yaxis: {
-            title: {
-                text: 'مجموع پرداختی (میلیون تومان)',
-                style: {
-                    fontFamily: 'IRANSans',
-                },
-            },
-            labels: {
-                formatter: (val) => (val / 1000000).toFixed(1),
-            },
-            max: Math.max(...filteredData.map((item) => item.total_payment), 0),
-        },
-        legend: {
-            position: 'bottom' as const,
-            horizontalAlign: 'center' as const,
-        },
-    };
-
     return (
         <div>
             <h5 style={{ textAlign: 'center', color: '#808080' }}>سال 1402</h5>
-            <ReactApexChart
-                options={options}
-                series={series}
-                type="bubble"
-                height={450}
-            />
+            <BubbleChart datasets={series} />
         </div>
     );
 };

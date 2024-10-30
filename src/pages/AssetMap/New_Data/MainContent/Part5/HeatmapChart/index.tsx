@@ -1,9 +1,9 @@
 import { useEffect, useState } from 'react';
-import ReactApexChart from 'react-apexcharts';
 import { useSelector } from 'react-redux';
 import { getManData, getManFilterData } from '@/selectors/state';
 import { ManufacturingData } from '@/types/new_data';
 import { RootState } from '@/types';
+import HeatmapChart from '@/components/HeatmapChart';
 
 const ApexChart = () => {
     const data: ManufacturingData[] = useSelector(getManData);
@@ -12,68 +12,8 @@ const ApexChart = () => {
         (state: RootState) => state.productsFilterMan.selectedProducts
     );
     const [series, setSeries] = useState([]);
-
-    const options = {
-        chart: {
-            height: 350,
-            width: '100%',
-            type: 'heatmap' as const,
-            toolbar: { show: false },
-        },
-        dataLabels: {
-            enabled: false,
-        },
-        colors: ['#00c49f'],
-        xaxis: {
-            type: 'category', // تغییر به 'category'
-            categories: [],
-            labels: {
-                style: {
-                    fontFamily: 'IRANSans',
-                    colors: 'rgb(102, 102, 102)',
-                },
-            },
-            title: {
-                text: 'ماه',
-                style: {
-                    fontFamily: 'IRANSans',
-                    color: 'rgb(102, 102, 102)',
-                },
-            },
-        },
-        yaxis: {
-            type: 'category',
-            categories: [],
-            labels: {
-                align: 'center',
-                padding: 5,
-                style: {
-                    fontFamily: 'IRANSans',
-                    colors: 'rgb(102, 102, 102)',
-                },
-            },
-            title: {
-                text: 'سال ',
-                style: {
-                    fontFamily: 'IRANSans',
-                    color: 'rgb(102, 102, 102)',
-                },
-            },
-        },
-        tooltip: {
-            enabled: true,
-            custom: function ({ series, seriesIndex, dataPointIndex }) {
-                const value = series[seriesIndex][dataPointIndex];
-                const formattedValue = value.toLocaleString('fa-IR');
-                return `
-            <div class="custom-tooltip">
-              <strong>تعداد: ${formattedValue}</strong>
-            </div>
-          `;
-            },
-        },
-    };
-
+    const [xaxis, setxaxis] = useState([]);
+    const [yaxis, setyaxis] = useState([]);
     useEffect(() => {
         const dataToUse = filterData.length > 0 ? filterData : data;
 
@@ -108,8 +48,8 @@ const ApexChart = () => {
             const monthsArray = Array.from(uniqueMonths).sort();
             const yearsArray = Array.from(uniqueYears).sort();
 
-            options.xaxis.categories = monthsArray;
-            options.yaxis.categories = yearsArray;
+            setxaxis(monthsArray);
+            setyaxis(yearsArray);
 
             const seriesData = yearsArray.map((year) => {
                 return {
@@ -139,12 +79,7 @@ const ApexChart = () => {
                 الگو فصلی تولید
             </h5>
 
-            <ReactApexChart
-                // options={options}
-                series={series}
-                type="heatmap"
-                height={320}
-            />
+            <HeatmapChart datasets={series} labelsY={yaxis} labelsX={xaxis} />
         </div>
     );
 };

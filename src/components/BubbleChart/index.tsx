@@ -2,28 +2,32 @@ import { getTheme } from '@/redux/selectors';
 import { useSelector } from 'react-redux';
 import * as S from './Style';
 
+interface BubbleDataPoint {
+    x: number;
+    y: number;
+    z: number; // اندازه حباب
+}
+
 interface Dataset {
     name: string;
-    data: number[];
+    data: BubbleDataPoint[];
     color?: string;
 }
 
-interface BarChartProps {
+interface BubbleChartProps {
     datasets: Dataset[];
-    labels: string[];
     selectedHeight?: string;
 }
 
-const BarChart: React.FC<BarChartProps> = ({
+const BubbleChart: React.FC<BubbleChartProps> = ({
     datasets,
-    labels,
     selectedHeight,
 }) => {
     const theme = useSelector(getTheme);
 
     const chartOptions = {
         chart: {
-            type: 'bar' as 'bar',
+            type: 'bubble' as 'bubble',
             background: 'transparent',
             toolbar: {
                 show: true,
@@ -34,7 +38,6 @@ const BarChart: React.FC<BarChartProps> = ({
         },
         colors: datasets.map((dataset) => dataset.color || '#00E396'), // رنگ‌ها برای هر داده
         xaxis: {
-            categories: labels,
             labels: {
                 style: {
                     colors: '#000000',
@@ -47,6 +50,13 @@ const BarChart: React.FC<BarChartProps> = ({
             axisTicks: {
                 color: '#444444',
             },
+            title: {
+                text: 'محور X',
+                style: {
+                    color: '#000000',
+                    fontFamily: 'IranSans',
+                },
+            },
         },
         yaxis: {
             labels: {
@@ -55,6 +65,13 @@ const BarChart: React.FC<BarChartProps> = ({
                 },
                 style: {
                     colors: '#000000',
+                    fontFamily: 'IranSans',
+                },
+            },
+            title: {
+                text: 'محور Y',
+                style: {
+                    color: '#000000',
                     fontFamily: 'IranSans',
                 },
             },
@@ -80,14 +97,17 @@ const BarChart: React.FC<BarChartProps> = ({
             marker: {
                 show: true,
             },
-        },
-        plotOptions: {
-            bar: {
-                horizontal: false,
-                columnWidth: '50%',
-                dataLabels: {
-                    position: 'top',
-                },
+            x: {
+                show: true,
+                formatter: (val) => `X: ${val.toLocaleString('fa-IR')}`,
+            },
+            y: {
+                show: true,
+                formatter: (val) => `Y: ${val.toLocaleString('fa-IR')}`,
+            },
+            z: {
+                show: true,
+                formatter: (val) => `اندازه: ${val.toLocaleString('fa-IR')}`,
             },
         },
     };
@@ -115,11 +135,11 @@ const BarChart: React.FC<BarChartProps> = ({
                 <S.ChartStyle
                     options={chartOptions}
                     series={series}
-                    type="bar"
+                    type="bubble"
                 />
             </div>
         </div>
     );
 };
 
-export default BarChart;
+export default BubbleChart;

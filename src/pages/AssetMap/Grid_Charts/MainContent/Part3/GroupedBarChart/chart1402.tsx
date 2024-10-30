@@ -1,5 +1,3 @@
-import ReactApexChart from 'react-apexcharts';
-import { ApexOptions } from 'apexcharts';
 import { useSelector } from 'react-redux';
 import { getHrData } from '@/selectors/state';
 import { selectFilteredJobTitles } from '@/redux/store/jobTitleFilterHr';
@@ -8,6 +6,7 @@ import {
     fixedJobTitles,
 } from '../Filter_jobTitle/FilterConstants';
 import './Style.css';
+import BarChart from '@/components/BarChart';
 
 const ApexGoupedBarChart1402: React.FC = () => {
     const hrData = useSelector(getHrData);
@@ -59,83 +58,6 @@ const ApexGoupedBarChart1402: React.FC = () => {
         }
     );
 
-    const options: ApexOptions = {
-        colors: jobTitles.map(
-            (jobTitle) =>
-                jobTitleColors[jobTitle as keyof typeof jobTitleColors]
-        ),
-        chart: {
-            type: 'bar',
-            height: 350,
-            toolbar: {
-                show: false,
-            },
-        },
-        plotOptions: {
-            bar: {
-                horizontal: false,
-                columnWidth: '55%',
-                borderRadius: 3,
-            },
-        },
-        dataLabels: {
-            enabled: false,
-        },
-        stroke: {
-            show: true,
-            width: 1,
-            colors: ['transparent'],
-        },
-        xaxis: {
-            categories: fixedDepartments,
-            labels: {
-                style: {
-                    fontFamily: 'IRANSans',
-                    colors: 'rgb(102, 102, 102)',
-                },
-            },
-        },
-        yaxis: {
-            title: {
-                text: 'حقوق (میلیون تومان)',
-                style: {
-                    fontFamily: 'IRANSans',
-                    color: 'rgb(102, 102, 102)',
-                },
-                offsetX: -5,
-            },
-            labels: {
-                align: 'center',
-                padding: 0,
-                style: {
-                    fontFamily: 'IRANSans',
-                    colors: 'rgb(102, 102, 102)',
-                },
-                formatter: function (val) {
-                    return (val / 1000000).toFixed(1).toLocaleString();
-                },
-            },
-        },
-        fill: {
-            opacity: 1,
-        },
-        tooltip: {
-            custom: ({ series, seriesIndex, dataPointIndex, w }) => {
-                const value = series[seriesIndex][dataPointIndex];
-                const formattedValue = value.toLocaleString();
-                const jobTitle = w.globals.seriesNames[seriesIndex];
-                const department = w.globals.labels[dataPointIndex];
-                return `  
-                    <div class="custom-tooltip">
-                        <strong>عنوان شغل: ${jobTitle}</strong><br />
-                        <strong>بخش: ${department}</strong><br />
-                        <strong>حقوق:  ${formattedValue} تومان</strong>
-                    </div>
-                `;
-            },
-        },
-    };
-
     if (error) {
         return <div>{error}</div>;
     }
@@ -146,12 +68,7 @@ const ApexGoupedBarChart1402: React.FC = () => {
                 <h5 style={{ textAlign: 'center', color: '#808080' }}>
                     سال 1402
                 </h5>
-                <ReactApexChart
-                    options={options}
-                    series={seriesData}
-                    type="bar"
-                    height={350}
-                />
+                <BarChart labels={[]} datasets={seriesData} />
             </div>
             <div id="html-dist"></div>
         </div>

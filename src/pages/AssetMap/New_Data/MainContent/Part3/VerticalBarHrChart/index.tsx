@@ -1,9 +1,8 @@
 import { useState, useEffect } from 'react';
-import ReactApexChart from 'react-apexcharts';
-import { ApexOptions } from 'apexcharts';
 import { useSelector } from 'react-redux';
 import { getHrData } from '@/selectors/state';
 import './Style.css';
+import BarChart from '@/components/BarChart';
 
 interface DepartmentSalary {
     department: string;
@@ -61,89 +60,19 @@ const ApexBarChart = () => {
 
     const series = [
         {
+            name: '',
             data: departmentSalaries.map((department) =>
                 Math.floor(department.averageSalary)
             ), // حذف قسمت اعشاری
         },
     ];
 
-    const options: ApexOptions = {
-        chart: {
-            type: 'bar',
-            height: 350,
-            toolbar: {
-                show: false,
-            },
-        },
-        plotOptions: {
-            bar: {
-                borderRadius: 4,
-                borderRadiusApplication: 'end',
-                horizontal: true,
-            },
-        },
-        dataLabels: {
-            enabled: false,
-        },
-        tooltip: {
-            custom: ({ series, seriesIndex, dataPointIndex, w }) => {
-                const averageSalary = Math.floor(
-                    series[seriesIndex][dataPointIndex]
-                );
-                return `<div class="tooltip">
-                  <span>میانگین حقوق</span>
-                   ${averageSalary.toLocaleString() + ' تومان'} 
-                </div>`;
-            },
-            fillSeriesColor: true,
-        },
-        xaxis: {
-            categories: departmentSalaries.map(
-                (department) => department.department
-            ),
-            labels: {
-                style: {
-                    cssClass: 'xaxis',
-                    fontFamily: 'IRANSans',
-                    colors: 'rgb(102, 102, 102)',
-                },
-                formatter: function (value: string) {
-                    const numericValue = Number(value); // تبدیل به عدد
-                    return (numericValue / 1000000).toFixed(1).toLocaleString();
-                },
-            },
-            title: {
-                text: 'میانگین حقوق (میلیون تومان)',
-                style: {
-                    fontFamily: 'IRANSans',
-                    color: 'rgb(102, 102, 102)',
-                },
-            },
-        },
-
-        yaxis: {
-            labels: {
-                align: 'left',
-                padding: 0,
-                style: {
-                    fontFamily: 'IRANSans',
-                },
-            },
-        },
-        colors: ['#0088fe', '#00c49f'],
-    };
-
     return (
         <div>
             {loading && <p>در حال بارگذاری داده‌ها...</p>}
             {error && <p>{error}</p>}
             <div id="chart">
-                <ReactApexChart
-                    options={options}
-                    series={series}
-                    type="bar"
-                    height={350}
-                />
+                <BarChart labels={[]} datasets={series} />
             </div>
             <div id="html-dist"></div>
         </div>

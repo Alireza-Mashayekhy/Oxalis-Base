@@ -17,7 +17,6 @@ import {
     fetchSales3monthsData,
     fetchMan3monthsData,
 } from '@/dispatchers/chartsData';
-import FilterPannel from '@/pages/AssetMap/New_Data/FiltersColumn/FilterPannel';
 
 const MainContent: SFC = () => {
     const loading = useSelector(getAllAssets).loading;

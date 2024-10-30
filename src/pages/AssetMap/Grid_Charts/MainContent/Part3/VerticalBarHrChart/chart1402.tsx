@@ -1,14 +1,11 @@
 import { useState, useEffect } from 'react';
 import ReactApexChart from 'react-apexcharts';
-import { ApexOptions } from 'apexcharts';
 import { useSelector } from 'react-redux';
 import { getHrData } from '@/selectors/state';
 import { selectFilteredJobTitles } from '@/redux/store/jobTitleFilterHr';
-import {
-    fixedDepartments,
-    fixedJobTitles,
-} from '../Filter_jobTitle/FilterConstants';
+import { fixedDepartments } from '../Filter_jobTitle/FilterConstants';
 import './Style.css';
+import BarChart from '@/components/BarChart';
 
 interface DepartmentSalary {
     department: string;
@@ -82,76 +79,12 @@ const ApexBarChart1402 = () => {
 
     const series = [
         {
+            name: '',
             data: sortedDepartmentSalaries.map((avgSalary) =>
                 Math.floor(avgSalary)
             ),
         },
     ];
-
-    const options: ApexOptions = {
-        chart: {
-            type: 'bar',
-            height: 350,
-            toolbar: {
-                show: false,
-            },
-        },
-        plotOptions: {
-            bar: {
-                borderRadius: 4,
-                borderRadiusApplication: 'end',
-                horizontal: true,
-            },
-        },
-        dataLabels: {
-            enabled: false,
-        },
-        tooltip: {
-            custom: ({ series, seriesIndex, dataPointIndex, w }) => {
-                const averageSalary = Math.floor(
-                    series[seriesIndex][dataPointIndex]
-                );
-                return `<div class="tooltip">
-                  <span>میانگین حقوق</span>
-                   ${averageSalary.toLocaleString() + ' تومان'} 
-                </div>`;
-            },
-            fillSeriesColor: true,
-        },
-        xaxis: {
-            tickAmount: 2,
-            categories: fixedDepartments,
-            labels: {
-                style: {
-                    cssClass: 'xaxis',
-                    fontFamily: 'IRANSans',
-                    colors: 'rgb(102, 102, 102)',
-                },
-                formatter: function (val) {
-                    return (Number(val) / 1000000).toFixed(1).toLocaleString();
-                },
-            },
-            title: {
-                text: 'میانگین حقوق (میلیون تومان)',
-                style: {
-                    fontFamily: 'IRANSans',
-                    color: 'rgb(102, 102, 102)',
-                },
-            },
-        },
-
-        yaxis: {
-            labels: {
-                align: 'left',
-                padding: 0,
-                style: {
-                    fontFamily: 'IRANSans',
-                    colors: 'rgb(102, 102, 102)',
-                },
-            },
-        },
-        colors: ['#0088fe', '#00c49f'],
-    };
 
     return (
         <div>
@@ -160,12 +93,7 @@ const ApexBarChart1402 = () => {
                 <h5 style={{ textAlign: 'center', color: '#808080' }}>
                     سال 1402
                 </h5>
-                <ReactApexChart
-                    options={options}
-                    series={series}
-                    type="bar"
-                    height={350}
-                />
+                <BarChart labels={[]} datasets={series} />
             </div>
             <div id="html-dist"></div>
         </div>

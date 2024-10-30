@@ -59,7 +59,7 @@ const PieChart: React.FC<PieChartProps> = ({ datasets, selectedHeight }) => {
                 style={{
                     position: 'relative',
                     width: '100%',
-                    height: selectedHeight || '400px',
+                    height: selectedHeight || 'auto',
                 }}
             >
                 <S.ChartStyle
