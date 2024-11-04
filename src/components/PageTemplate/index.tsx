@@ -46,9 +46,17 @@ const PageTemplate: SFC<PageTemplateProps> = ({
             <S.FirstColumn>
                 <S.FlexContainerFirstRow>
                     <div>{InformativeHeader1 && <InformativeHeader1 />}</div>
-                    <div>{InformativeHeader2 && <InformativeHeader2 />}</div>
-                    <div>{InformativeHeader3 && <InformativeHeader3 />}</div>
-                    <div>{InformativeHeader4 && <InformativeHeader4 />}</div>
+                    <div className="other">
+                        <div>
+                            {InformativeHeader2 && <InformativeHeader2 />}
+                        </div>
+                        <div>
+                            {InformativeHeader3 && <InformativeHeader3 />}
+                        </div>
+                        <div>
+                            {InformativeHeader4 && <InformativeHeader4 />}
+                        </div>
+                    </div>
                     {/* <div>{InformativeHeader5 && <InformativeHeader5 />}</div>
             <div>{InformativeHeader6 && <InformativeHeader6 />}</div> */}
                 </S.FlexContainerFirstRow>
@@ -58,21 +66,27 @@ const PageTemplate: SFC<PageTemplateProps> = ({
                 <S.FlexContainerSecondRow>
                     <S.MainColumn isFilterColumnVisible={isFilterColumnVisible}>
                         <S.MainColumnContent>
-                            <S.FilterColumn
-                                isFilterColumnVisible={isFilterColumnVisible}
-                            >
-                                <div className="toggleIcon">
-                                    <Toggler
-                                        isSecondColumnVisible={
-                                            isFilterColumnVisible
-                                        }
-                                        toggleSecondColumn={toggleFilterColumn}
-                                    />
-                                </div>
-                                <S.FilterColumnContent>
-                                    {FilterPannel && <FilterPannel />}
-                                </S.FilterColumnContent>
-                            </S.FilterColumn>
+                            {FilterPannel && (
+                                <S.FilterColumn
+                                    isFilterColumnVisible={
+                                        isFilterColumnVisible
+                                    }
+                                >
+                                    <div className="toggleIcon">
+                                        <Toggler
+                                            isSecondColumnVisible={
+                                                isFilterColumnVisible
+                                            }
+                                            toggleSecondColumn={
+                                                toggleFilterColumn
+                                            }
+                                        />
+                                    </div>
+                                    <S.FilterColumnContent>
+                                        {FilterPannel && <FilterPannel />}
+                                    </S.FilterColumnContent>
+                                </S.FilterColumn>
+                            )}
 
                             {MainContent && <MainContent />}
                         </S.MainColumnContent>

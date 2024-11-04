@@ -253,37 +253,38 @@ export const FlexContainerFirstRow = styled.div`
         }
     }
 
-    > div:nth-child(2) {
-        border-radius: 0px 10px 10px 0px;
-    }
-
-    > div:nth-child(4) {
-        border-radius: 10px 0px 0px 10px;
-    }
-
-    > div:not(:first-child) {
+    .other {
+        display: flex;
+        width: 100%;
+        justify-content: center;
+        border-radius: 10px;
         background-color: #e9ebea50;
         backdrop-filter: blur(10px);
-        flex-basis: 100%;
-        margin: 0 0.1rem 0.1rem 0.1rem;
-        min-height: 5rem;
-        flex-grow: 1;
-        color: ${({ theme }) => theme.textColor};
-
-        @media (min-width: ${breakpoints.mini}) and (max-width: ${breakpoints.mobile}) {
-            flex-basis: calc(50% - 0.2rem);
-            min-height: 10rem;
-        }
 
         @media (min-width: ${breakpoints.mobile}) and (max-width: ${breakpoints.tablet}) {
-            flex-basis: calc(33% - 0.1rem);
-            min-height: 7rem;
+            justify-content: start;
         }
+        @media (max-width: ${breakpoints.tablet}) {
+            flex-wrap: wrap;
+        }
+        div {
+            flex-basis: 100%;
+            margin: 0 0.1rem 0.1rem 0.1rem;
+            flex-grow: 1;
+            color: ${({ theme }) => theme.textColor};
 
-        @media (min-width: ${breakpoints.tablet}) {
-            flex-basis: 25%;
-            margin: 0;
-            min-height: 10rem;
+            @media (min-width: ${breakpoints.mini}) and (max-width: ${breakpoints.mobile}) {
+                flex-basis: calc(50% - 0.2rem);
+            }
+
+            @media (min-width: ${breakpoints.mobile}) and (max-width: ${breakpoints.tablet}) {
+                flex-basis: calc(33% - 0.1rem);
+            }
+
+            @media (min-width: ${breakpoints.tablet}) {
+                flex-basis: 25%;
+                margin: 0;
+            }
         }
     }
 `;

@@ -97,7 +97,6 @@ const InformativeHeader1: SFC = () => {
 
                 <S.ChartContainer>
                     <LineChart
-                        selectedHeight="auto"
                         labels={['test']}
                         datasets={[{ name: 'test', data: [2, 3] }]}
                     />
