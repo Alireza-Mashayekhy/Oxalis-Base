@@ -3,10 +3,17 @@ import { SFC } from '@/types';
 import * as S from './Styles';
 import Toggler from '@/components/Toggler';
 import NewsFeedColumn from '../LeftPannel';
+import { Accordion, AccordionDetails, AccordionSummary } from '@mui/material';
 
 interface TopBarProps {
     isSecondColumnVisible: boolean;
     toggleSecondColumn: () => void;
+}
+
+interface ContentType {
+    Title: string;
+    FilterPannel?: SFC;
+    Content?: JSX.Element | SFC;
 }
 
 interface PageTemplateProps {
@@ -19,7 +26,7 @@ interface PageTemplateProps {
     InformativeHeader6?: SFC;
     FilterPannel?: SFC;
     ResponsiveFilterPannel?: SFC;
-    MainContent?: SFC;
+    MainContent?: ContentType[];
 }
 
 const PageTemplate: SFC<PageTemplateProps> = ({
@@ -40,6 +47,21 @@ const PageTemplate: SFC<PageTemplateProps> = ({
     const toggleFilterColumn = () => {
         setIsFilterColumnVisible(!isFilterColumnVisible);
     };
+    const [expanded, setExpanded] = useState<string | false>('panel0');
+
+    const handleChange =
+        (panel: string) =>
+        (event: React.SyntheticEvent, isExpanded: boolean) => {
+            setExpanded(panel);
+        };
+
+    const renderContent = (content: JSX.Element | SFC | undefined) => {
+        if (typeof content === 'function') {
+            const ContentComponent = content;
+            return <ContentComponent />;
+        }
+        return content;
+    };
 
     return (
         <S.Container>
@@ -57,41 +79,36 @@ const PageTemplate: SFC<PageTemplateProps> = ({
                             {InformativeHeader4 && <InformativeHeader4 />}
                         </div>
                     </div>
-                    {/* <div>{InformativeHeader5 && <InformativeHeader5 />}</div>
-            <div>{InformativeHeader6 && <InformativeHeader6 />}</div> */}
                 </S.FlexContainerFirstRow>
                 <S.OperationalRightColumnContainer>
                     {ResponsiveFilterPannel && <ResponsiveFilterPannel />}
                 </S.OperationalRightColumnContainer>
-                <S.FlexContainerSecondRow>
-                    <S.MainColumn isFilterColumnVisible={isFilterColumnVisible}>
-                        <S.MainColumnContent>
-                            {FilterPannel && (
-                                <S.FilterColumn
-                                    isFilterColumnVisible={
-                                        isFilterColumnVisible
-                                    }
+                {MainContent?.length > 1 ? (
+                    <S.AccordionContainer>
+                        {MainContent.map((e, index) => {
+                            return (
+                                <Accordion
+                                    expanded={expanded === `panel${index}`}
+                                    onChange={handleChange(`panel${index}`)}
                                 >
-                                    <div className="toggleIcon">
-                                        <Toggler
-                                            isSecondColumnVisible={
-                                                isFilterColumnVisible
-                                            }
-                                            toggleSecondColumn={
-                                                toggleFilterColumn
-                                            }
-                                        />
-                                    </div>
-                                    <S.FilterColumnContent>
-                                        {FilterPannel && <FilterPannel />}
-                                    </S.FilterColumnContent>
-                                </S.FilterColumn>
-                            )}
-
-                            {MainContent && <MainContent />}
-                        </S.MainColumnContent>
-                    </S.MainColumn>
-                </S.FlexContainerSecondRow>
+                                    <AccordionSummary>
+                                        {e.Title}
+                                    </AccordionSummary>
+                                    <AccordionDetails>
+                                        {renderContent(e.Content)}
+                                    </AccordionDetails>
+                                </Accordion>
+                            );
+                        })}
+                    </S.AccordionContainer>
+                ) : (
+                    MainContent &&
+                    MainContent[0] && (
+                        <S.SingleMainContainer>
+                            {renderContent(MainContent[0].Content)}
+                        </S.SingleMainContainer>
+                    )
+                )}
             </S.FirstColumn>
 
             <S.SecondColumn isSecondColumnVisible={isSecondColumnVisible}>

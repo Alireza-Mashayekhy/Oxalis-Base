@@ -312,3 +312,27 @@ export const IconContainer = styled.div`
     top: 7px; // Adjust as needed
     left: 5px; // Adjust as needed
 `;
+
+export const AccordionContainer = styled.div`
+    display: flex;
+    flex-direction: column;
+    gap: 0.3rem;
+    margin-top: 0.3rem;
+    .css-1808mag-MuiPaper-root-MuiAccordion-root.Mui-expanded {
+        margin: 0px !important;
+    }
+    .css-1808mag-MuiPaper-root-MuiAccordion-root {
+        border-radius: 10px !important;
+        background-color: #e9ebea50 !important;
+        backdrop-filter: blur(10px) !important;
+    }
+`;
+
+export const SingleMainContainer = styled.div`
+    margin-top: 0.3rem;
+    border-radius: 10px !important;
+    background-color: #e9ebea50 !important;
+    backdrop-filter: blur(10px) !important;
+    overflow: hidden;
+    padding: 8px 16px 16px;
+`;

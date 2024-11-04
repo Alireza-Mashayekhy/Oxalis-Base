@@ -68,75 +68,30 @@ const AccodionWrapper: SFC<AccordionTypes> = ({
     );
 
     return (
-        <Accordion
-            expanded={isExpanded}
-            onChange={handleAccordionChange}
-            slotProps={{ transition: { unmountOnExit: true } }}
-            elevation={0}
-            defaultExpanded={defaultExpanded}
-            sx={{
-                backgroundColor: 'transparent',
-                color: colors.white,
-            }}
-        >
-            <AccordionSummary
-                expandIcon={
-                    <PushPinIcon
-                        sx={{
-                            color: `${theme === 'dark' ? darkTheme.textColor : lightTheme.textColor}`,
-                            fontSize: '1rem',
-                        }}
-                    />
-                }
+        <div>
+            <TabWrapper
+                value={value}
+                handleTabChange={handleTabChange}
+                tabs={tabs}
+            />
+            <Typography
                 sx={{
-                    '&.Mui-expanded': {
-                        minHeight: '20px',
-                        '& > .MuiAccordionSummary-content': {
-                            margin: '0',
-                            '&.Mui-expanded': {
-                                margin: '0',
-                            },
-                        },
-                    },
-                    '.MuiAccordionSummary-content': {
-                        margin: '0',
-                        '&.Mui-expanded': {
-                            margin: '0',
-                        },
-                        overflowX: 'auto',
-                    },
+                    position: 'absolute',
+                    left: '35px',
+                    top: '15px',
+                    display: 'flex',
+                    fontFamily: 'IRANSans',
+                    alignItems: 'center',
+                    fontSize: '12px',
+                    justifyContent: 'center',
+                    color: `${theme === 'dark' ? darkTheme.textColor : lightTheme.textColor}`,
                 }}
             >
-                <TabWrapper
-                    value={value}
-                    handleTabChange={handleTabChange}
-                    tabs={tabs}
-                />
-                <Typography
-                    sx={{
-                        position: 'absolute',
-                        left: '35px',
-                        top: '15px',
-                        display: 'flex',
-                        fontFamily: 'IRANSans',
-                        alignItems: 'center',
-                        fontSize: '12px',
-                        justifyContent: 'center',
-                        color: `${theme === 'dark' ? darkTheme.textColor : lightTheme.textColor}`,
-                    }}
-                >
-                    {title}
-                </Typography>
-            </AccordionSummary>
+                {title}
+            </Typography>
 
-            <AccordionDetails
-                sx={{
-                    padding: 0,
-                }}
-            >
-                <TabPanel tabDetails={tabDetailsChildren} value={value} />
-            </AccordionDetails>
-        </Accordion>
+            <TabPanel tabDetails={tabDetailsChildren} value={value} />
+        </div>
     );
 };
 

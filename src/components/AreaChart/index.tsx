@@ -39,6 +39,7 @@ const AreaChart: React.FC<AreaChartProps> = ({
         },
         colors: datasets.map((dataset) => dataset.color || '#00E396'), // رنگ‌ها برای هر داده
         xaxis: {
+            show: withoutItems ? false : true,
             categories: labels,
             labels: {
                 show: withoutItems ? false : true,
@@ -49,9 +50,11 @@ const AreaChart: React.FC<AreaChartProps> = ({
             },
             axisBorder: {
                 color: '#444444',
+                show: withoutItems ? false : true,
             },
             axisTicks: {
                 color: '#444444',
+                show: withoutItems ? false : true,
             },
         },
         yaxis: {

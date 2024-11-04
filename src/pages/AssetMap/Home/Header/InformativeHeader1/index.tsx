@@ -83,18 +83,20 @@ const InformativeHeader1: SFC = () => {
             </S.HeaderContainer>
 
             <S.BodyContainer>
-                <Label
-                    className="absolute top-[20%] !text-base z-10 left-10"
-                    fontWeight={fonts.weight.semiBold}
-                >
-                    4.436B
-                </Label>
-                <Label
-                    className={`absolute ${percentage > 0 ? '!text-green-600' : '!text-red-600'} bottom-[40%] z-10 left-10 flex items-center`}
-                >
-                    {percentage}%
-                    <S.Icon path={mdiSwapVertical} size="18px" />
-                </Label>
+                <div className="absolute top-[20%] z-10 left-5 flex flex-col items-end">
+                    <Label
+                        className=" !text-lg "
+                        fontWeight={fonts.weight.semiBold}
+                    >
+                        4.436B
+                    </Label>
+                    <Label
+                        className={` !text-base ${percentage > 0 ? '!text-green-600' : '!text-red-600'}  flex items-center`}
+                    >
+                        {percentage}%
+                        <S.Icon path={mdiSwapVertical} size="18px" />
+                    </Label>
+                </div>
                 <div className="w-[70%]">
                     <AreaChart
                         withoutItems
