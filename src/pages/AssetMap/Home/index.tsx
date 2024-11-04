@@ -18,6 +18,7 @@ const MainContainer: SFC = () => {
         {
             Title: '1',
             Content: <GeneralStatus />,
+            FilterPannel: FilterPannel,
         },
         {
             Title: '2',

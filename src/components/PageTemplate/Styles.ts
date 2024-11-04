@@ -101,7 +101,7 @@ export const FilterColumn = styled.div.withConfig({
 })<{ isFilterColumnVisible: boolean }>`
     position: absolute;
     right: 0px;
-    top: 0px;
+    top: 50px;
     z-index: 10;
     background-color: #e9ebea50;
     backdrop-filter: blur(10px);
@@ -325,6 +325,9 @@ export const AccordionContainer = styled.div`
         border-radius: 10px !important;
         background-color: #e9ebea50 !important;
         backdrop-filter: blur(10px) !important;
+    }
+    .css-7iurs7-MuiAccordionSummary-content {
+        margin-right: 30px !important;
     }
 `;
 

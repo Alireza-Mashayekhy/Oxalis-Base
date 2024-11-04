@@ -54,7 +54,6 @@ const PageTemplate: SFC<PageTemplateProps> = ({
         (event: React.SyntheticEvent, isExpanded: boolean) => {
             setExpanded(panel);
         };
-
     const renderContent = (content: JSX.Element | SFC | undefined) => {
         if (typeof content === 'function') {
             const ContentComponent = content;
@@ -62,7 +61,6 @@ const PageTemplate: SFC<PageTemplateProps> = ({
         }
         return content;
     };
-
     return (
         <S.Container>
             <S.FirstColumn>
@@ -87,17 +85,42 @@ const PageTemplate: SFC<PageTemplateProps> = ({
                     <S.AccordionContainer>
                         {MainContent.map((e, index) => {
                             return (
-                                <Accordion
-                                    expanded={expanded === `panel${index}`}
-                                    onChange={handleChange(`panel${index}`)}
-                                >
-                                    <AccordionSummary>
-                                        {e.Title}
-                                    </AccordionSummary>
-                                    <AccordionDetails>
-                                        {renderContent(e.Content)}
-                                    </AccordionDetails>
-                                </Accordion>
+                                <div className="relative overflow-hidden">
+                                    <Accordion
+                                        expanded={expanded === `panel${index}`}
+                                        onChange={handleChange(`panel${index}`)}
+                                    >
+                                        <AccordionSummary>
+                                            {e.Title}
+                                        </AccordionSummary>
+                                        <AccordionDetails>
+                                            {renderContent(e.Content)}
+                                        </AccordionDetails>
+                                    </Accordion>
+                                    {e.FilterPannel && (
+                                        <S.FilterColumn
+                                            isFilterColumnVisible={
+                                                isFilterColumnVisible
+                                            }
+                                        >
+                                            <div className="toggleIcon">
+                                                <Toggler
+                                                    isSecondColumnVisible={
+                                                        isFilterColumnVisible
+                                                    }
+                                                    toggleSecondColumn={
+                                                        toggleFilterColumn
+                                                    }
+                                                />
+                                            </div>
+                                            <S.FilterColumnContent>
+                                                {e.FilterPannel && (
+                                                    <e.FilterPannel />
+                                                )}
+                                            </S.FilterColumnContent>
+                                        </S.FilterColumn>
+                                    )}
+                                </div>
                             );
                         })}
                     </S.AccordionContainer>
@@ -110,7 +133,35 @@ const PageTemplate: SFC<PageTemplateProps> = ({
                     )
                 )}
             </S.FirstColumn>
+            {/* <S.FlexContainerSecondRow>
+                    <S.MainColumn isFilterColumnVisible={isFilterColumnVisible}>
+                        <S.MainColumnContent>
+                            {FilterPannel && (
+                                <S.FilterColumn
+                                    isFilterColumnVisible={
+                                        isFilterColumnVisible
+                                    }
+                                >
+                                    <div className="toggleIcon">
+                                        <Toggler
+                                            isSecondColumnVisible={
+                                                isFilterColumnVisible
+                                            }
+                                            toggleSecondColumn={
+                                                toggleFilterColumn
+                                            }
+                                        />
+                                    </div>
+                                    <S.FilterColumnContent>
+                                        {FilterPannel && <FilterPannel />}
+                                    </S.FilterColumnContent>
+                                </S.FilterColumn>
+                            )}
 
+                            {MainContent && <MainContent />}
+                        </S.MainColumnContent>
+                    </S.MainColumn>
+                </S.FlexContainerSecondRow> */}
             <S.SecondColumn isSecondColumnVisible={isSecondColumnVisible}>
                 {/* 5 */}
                 <NewsFeedColumn />
