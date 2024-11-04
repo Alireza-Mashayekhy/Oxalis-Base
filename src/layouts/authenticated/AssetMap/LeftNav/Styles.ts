@@ -117,15 +117,14 @@ export const BackToTodayButton = styled.div`
 
 export const Container = styled.div<{ $status: Boolean }>`
     position: absolute;
+    display: flex;
+    align-items: center;
     left: 0;
     top: 0;
     border-radius: 0px 20px 20px 0px;
-    padding: 20px;
-    background-color: #e9ebea50;
-    backdrop-filter: blur(10px);
     height: calc(100% - 20px);
     transition: all 0.5s;
-    transform: translateX(${({ $status }) => ($status ? '-10%' : '-105%')});
+    transform: translateX(${({ $status }) => ($status ? '-10%' : '-89%')});
     svg {
         transition: all 0.5s;
         transform: rotate(${({ $status }) => ($status ? '180deg' : '0')});
@@ -137,11 +136,7 @@ export const LeftNavIcon = styled(UIcon)`
 `;
 
 export const IconContainer = styled.div`
-    position: absolute;
     background-color: #e9ebea50;
-    right: 0;
-    top: 50%;
-    transform: translate(100%, -50%);
     backdrop-filter: blur(10px);
     border-radius: 0px 10px 10px 0px;
     cursor: pointer;
@@ -149,4 +144,15 @@ export const IconContainer = styled.div`
     display: flex;
     align-items: center;
     justify-content: center;
+    position: relative;
+    right: 1.1px;
+    z-index: 2;
+`;
+
+export const CalendarContainer = styled.div`
+    background-color: #e9ebea50;
+    padding: 20px;
+    backdrop-filter: blur(10px);
+    border-radius: 0px 10px 10px 0px;
+    height: 100%;
 `;

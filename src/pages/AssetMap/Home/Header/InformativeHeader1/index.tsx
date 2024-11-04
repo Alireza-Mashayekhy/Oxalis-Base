@@ -15,6 +15,8 @@ import {
 } from '@/utils/headersFunctions';
 import { setSelectedAssets } from '@/redux/store/allassets';
 import LineChart from '@/components/chart';
+import AreaChart from '@/components/AreaChart';
+import { mdiSwapVertical } from '@mdi/js';
 
 const options: string[] = [
     'سهامی',
@@ -27,6 +29,7 @@ const options: string[] = [
 const InformativeHeader1: SFC = () => {
     const [anchorEl, setAnchorEl] = useState(null);
     const [selectedIndex, setSelectedIndex] = useState(0);
+    const [percentage, setPercentage] = useState(12);
     const data: Data[] = useSelector(getData);
     const allassets: AllAssets[] = useSelector(getAllAssets).allAssets;
     const selectedFund: AllAssets =
@@ -80,27 +83,25 @@ const InformativeHeader1: SFC = () => {
             </S.HeaderContainer>
 
             <S.BodyContainer>
-                <div>
-                    <Label fontWeight={fonts.weight.semiBold}>4.436B</Label>
-                    <Label>
-                        12%
-                        <StraightOutlinedIcon
-                            style={{
-                                verticalAlign: 'middle',
-                                fontSize: 'inherit',
-                                fontWeight: `${fonts.weight.semiBold}`,
-                                color: `${colors.palette.green[500]}`,
-                            }}
-                        />
-                    </Label>
-                </div>
-
-                <S.ChartContainer>
-                    <LineChart
-                        labels={['test']}
+                <Label
+                    className="absolute top-[20%] !text-base z-10 left-10"
+                    fontWeight={fonts.weight.semiBold}
+                >
+                    4.436B
+                </Label>
+                <Label
+                    className={`absolute ${percentage > 0 ? '!text-green-600' : '!text-red-600'} bottom-[40%] z-10 left-10 flex items-center`}
+                >
+                    {percentage}%
+                    <S.Icon path={mdiSwapVertical} size="18px" />
+                </Label>
+                <div className="w-[70%]">
+                    <AreaChart
+                        withoutItems
+                        labels={['test', 'test2']}
                         datasets={[{ name: 'test', data: [2, 3] }]}
                     />
-                </S.ChartContainer>
+                </div>
             </S.BodyContainer>
         </S.Container>
     );

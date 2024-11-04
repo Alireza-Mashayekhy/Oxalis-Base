@@ -12,12 +12,14 @@ interface AreaChartProps {
     datasets: Dataset[];
     labels: string[];
     selectedHeight?: string;
+    withoutItems?: boolean;
 }
 
 const AreaChart: React.FC<AreaChartProps> = ({
     datasets,
     labels,
     selectedHeight,
+    withoutItems,
 }) => {
     const theme = useSelector(getTheme);
 
@@ -26,16 +28,20 @@ const AreaChart: React.FC<AreaChartProps> = ({
             type: 'area' as 'area',
             background: 'transparent',
             toolbar: {
-                show: true,
+                show: withoutItems ? false : true,
                 tools: {
                     download: true,
                 },
             },
         },
+        dataLabels: {
+            enabled: false, // غیرفعال کردن نمایش اعداد روی نمودار
+        },
         colors: datasets.map((dataset) => dataset.color || '#00E396'), // رنگ‌ها برای هر داده
         xaxis: {
             categories: labels,
             labels: {
+                show: withoutItems ? false : true,
                 style: {
                     colors: '#000000',
                     fontFamily: 'IranSans',
@@ -49,6 +55,7 @@ const AreaChart: React.FC<AreaChartProps> = ({
             },
         },
         yaxis: {
+            show: withoutItems ? false : true,
             labels: {
                 formatter: (value) => {
                     return value.toLocaleString('fa-IR');
@@ -60,6 +67,7 @@ const AreaChart: React.FC<AreaChartProps> = ({
             },
         },
         grid: {
+            show: withoutItems ? false : true,
             borderColor: '#444444',
         },
         legend: {
@@ -71,6 +79,7 @@ const AreaChart: React.FC<AreaChartProps> = ({
             },
         },
         tooltip: {
+            enabled: withoutItems ? false : true,
             theme: theme,
             style: {
                 fontSize: '14px',
@@ -82,15 +91,15 @@ const AreaChart: React.FC<AreaChartProps> = ({
             },
         },
         stroke: {
-            curve: 'smooth' as 'smooth', // اصلاح مقدار تایپ شده برای نمای مساحتی نرم‌تر
+            curve: 'smooth' as 'smooth',
         },
         fill: {
             type: 'gradient',
             gradient: {
-                shadeIntensity: 1,
-                opacityFrom: 0.7,
+                shadeIntensity: 0.5,
+                opacityFrom: 0.9,
                 opacityTo: 0.2,
-                stops: [0, 90, 100],
+                stops: [0, 99, 100],
             },
         },
     };
@@ -106,13 +115,13 @@ const AreaChart: React.FC<AreaChartProps> = ({
                 width: '100%',
                 height: '100%',
             }}
-            className="flex justify-center pr-5"
+            className="flex justify-center"
         >
             <div
                 style={{
                     position: 'relative',
                     width: '100%',
-                    height: selectedHeight || '400px',
+                    height: selectedHeight || 'auto',
                 }}
             >
                 <S.ChartStyle

@@ -159,14 +159,16 @@ const LeftNav: SFC = () => {
 
     return (
         <S.Container $status={isNavOpen}>
-            <CalendarComponent
-                changeDate={(date) => {
-                    setDate(date), setCalendarModal(false);
-                }}
-            />
             <S.IconContainer onClick={() => setNavStatus((prev) => !prev)}>
                 <S.LeftNavIcon path={mdiChevronRight} size="20px" />
             </S.IconContainer>
+            <S.CalendarContainer>
+                <CalendarComponent
+                    changeDate={(date) => {
+                        setDate(date), setCalendarModal(false);
+                    }}
+                />
+            </S.CalendarContainer>
         </S.Container>
     );
 };
