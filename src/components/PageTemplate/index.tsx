@@ -5,11 +5,6 @@ import Toggler from '@/components/Toggler';
 import NewsFeedColumn from '../LeftPannel';
 import { Accordion, AccordionDetails, AccordionSummary } from '@mui/material';
 
-interface TopBarProps {
-    isSecondColumnVisible: boolean;
-    toggleSecondColumn: () => void;
-}
-
 interface ContentType {
     Title: string;
     FilterPannel?: SFC;
@@ -17,25 +12,21 @@ interface ContentType {
 }
 
 interface PageTemplateProps {
-    TopBar?: SFC<TopBarProps>;
     InformativeHeader1?: SFC;
     InformativeHeader2?: SFC;
     InformativeHeader3?: SFC;
     InformativeHeader4?: SFC;
     InformativeHeader5?: SFC;
     InformativeHeader6?: SFC;
-    FilterPannel?: SFC;
     ResponsiveFilterPannel?: SFC;
     MainContent?: ContentType[];
 }
 
 const PageTemplate: SFC<PageTemplateProps> = ({
-    TopBar,
     InformativeHeader1,
     InformativeHeader2,
     InformativeHeader3,
     InformativeHeader4,
-    FilterPannel,
     ResponsiveFilterPannel,
     MainContent,
 }) => {
@@ -133,35 +124,6 @@ const PageTemplate: SFC<PageTemplateProps> = ({
                     )
                 )}
             </S.FirstColumn>
-            {/* <S.FlexContainerSecondRow>
-                    <S.MainColumn isFilterColumnVisible={isFilterColumnVisible}>
-                        <S.MainColumnContent>
-                            {FilterPannel && (
-                                <S.FilterColumn
-                                    isFilterColumnVisible={
-                                        isFilterColumnVisible
-                                    }
-                                >
-                                    <div className="toggleIcon">
-                                        <Toggler
-                                            isSecondColumnVisible={
-                                                isFilterColumnVisible
-                                            }
-                                            toggleSecondColumn={
-                                                toggleFilterColumn
-                                            }
-                                        />
-                                    </div>
-                                    <S.FilterColumnContent>
-                                        {FilterPannel && <FilterPannel />}
-                                    </S.FilterColumnContent>
-                                </S.FilterColumn>
-                            )}
-
-                            {MainContent && <MainContent />}
-                        </S.MainColumnContent>
-                    </S.MainColumn>
-                </S.FlexContainerSecondRow> */}
             <S.SecondColumn isSecondColumnVisible={isSecondColumnVisible}>
                 {/* 5 */}
                 <NewsFeedColumn />

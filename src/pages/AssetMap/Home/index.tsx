@@ -1,5 +1,4 @@
 import { SFC } from '@/types';
-import TopBar from './TopBar';
 import FilterPannel from './FiltersColumn/FilterPannel/index';
 import InformativeHeader1 from './Header/InformativeHeader1';
 import InformativeHeader2 from './Header/InformativeHeader2';
@@ -29,16 +28,15 @@ const MainContainer: SFC = () => {
             Content: <EnvironmentLawsAndIssues />,
         },
     ];
+
     return (
         <PageTemplate
-            TopBar={TopBar}
             InformativeHeader1={InformativeHeader1}
             InformativeHeader2={InformativeHeader2}
             InformativeHeader3={InformativeHeader3}
             InformativeHeader4={InformativeHeader4}
             InformativeHeader5={InformativeHeader5}
             InformativeHeader6={InformativeHeader6}
-            FilterPannel={FilterPannel}
             ResponsiveFilterPannel={ResponsiveFilterPannel}
             MainContent={Contents}
         />

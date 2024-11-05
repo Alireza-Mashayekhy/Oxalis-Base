@@ -51,29 +51,6 @@ export const SecondColumn = styled.div.withConfig({
     }
 `;
 
-export const ColumnHeader = styled.div`
-    min-height: 2.5vh;
-    padding: 2px 5px;
-    margin: 0;
-    display: flex;
-    align-items: center;
-    justify-content: flex-end; // Add this to align content to the right
-    position: absolute;
-    top: 0;
-    left: 0;
-    right: 0;
-    z-index: 100;
-`;
-
-export const TogglerWrapper = styled.div`
-    position: absolute;
-    right: 5px; // Changed from left to right
-    top: 50%;
-    transform: translateY(-50%);
-    z-index: 101;
-    pointer-events: auto;
-`;
-
 export const FilterColumnContent = styled.div`
     margin-top: 2.5vh;
     height: calc(100% - 2.5vh);
@@ -84,16 +61,6 @@ export const FilterColumnContent = styled.div`
     * {
         white-space: nowrap !important;
     }
-`;
-
-export const MainColumnContent = styled.div`
-    margin-top: 2.5vh;
-    height: calc(100% - 2.5vh);
-    overflow-y: auto;
-    position: relative;
-    z-index: 1;
-    padding-top: 20px;
-    ${narrowScroll}
 `;
 
 export const FilterColumn = styled.div.withConfig({
@@ -144,73 +111,6 @@ export const FilterColumn = styled.div.withConfig({
         transform: translateX(-100%);
         padding: 3px;
         cursor: pointer;
-    }
-`;
-
-export const MainColumn = styled.div.withConfig({
-    shouldForwardProp: (prop) => !['isFilterColumnVisible'].includes(prop),
-})<{ isFilterColumnVisible: boolean }>`
-    position: relative;
-    background-color: #e9ebea50;
-    backdrop-filter: blur(10px);
-    border-radius: 10px;
-    flex: 1;
-    transition: all 0.5s ease;
-    overflow: hidden;
-    isolation: isolate;
-    color: ${({ theme }) => theme.textColor};
-    margin: 0 0.1rem;
-    overflow-y: auto;
-    ${narrowScroll}
-
-    @media (min-width: ${breakpoints.mobile}) and (max-width: ${breakpoints.tablet}) {
-        display: block;
-        flex-basis: ${({ isFilterColumnVisible }) =>
-            isFilterColumnVisible ? 'calc(66% - 0.1rem)' : '100%'};
-        margin: 0 0.1rem;
-        min-height: calc(100vh - 20vh);
-    }
-
-    @media (min-width: ${breakpoints.tablet}) {
-        display: block;
-        flex-basis: ${({ isFilterColumnVisible }) =>
-            isFilterColumnVisible ? 'calc(75% - 0.1rem)' : '100%'};
-        margin: 0 0.1rem;
-        min-height: calc(100vh - 30vh);
-    }
-`;
-
-export const FlexContainerSecondRow = styled.div`
-    display: flex;
-    margin-top: 0.1rem;
-    align-items: stretch;
-    justify-content: flex-start;
-    overflow: hidden;
-    width: 100%;
-    height: 100%;
-    position: relative;
-    gap: 0.1rem;
-
-    @media (min-width: ${breakpoints.tablet}) {
-        margin-top: 0.3rem;
-        gap: 0.3rem;
-    }
-`;
-export const TopRow = styled.div`
-    background-color: ${({ theme }) => theme.secondary};
-    color: ${({ theme }) => theme.textColor};
-    min-height: 5vh;
-    padding: 5px 10px;
-    margin: 0.3rem 0;
-    display: flex;
-    align-items: center;
-    gap: 2rem;
-
-    @media (max-width: ${breakpoints.tablet}) {
-        margin: 0 0.1rem 0.1rem 0.1rem;
-    }
-    @media (max-width: ${breakpoints.mobile}) {
-        gap: 1rem;
     }
 `;
 
@@ -292,19 +192,10 @@ export const FlexContainerFirstRow = styled.div`
 export const OperationalRightColumnContainer = styled.div`
     width: 100%;
     min-height: 2.5rem;
-    // display: flex;
     margin: 0 0.1rem 0.1rem 0.1rem;
-    // margin: 0.1rem 0.1rem 0 0.1rem;
-    // align-items: stretch;
-    // justify-content: center;
     @media (min-width: ${breakpoints.mobile}) {
         display: none;
     }
-
-    // > div {
-    //   flex-basis: 100%;
-    //   margin-bottom: 0.1rem;
-    // }
 `;
 
 export const IconContainer = styled.div`
