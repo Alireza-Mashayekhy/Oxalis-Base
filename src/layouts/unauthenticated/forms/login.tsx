@@ -55,7 +55,7 @@ const Login: SFC = () => {
                 toast.error('نام کاربری یا رمز عبور اشتباه است.');
             } else {
                 toast.error(
-                    'مشکلی در ورود به وجود آماده است. لطفا مجددا تلاش کنید.'
+                    'مشکلی در ورود به وجود آمده است. لطفا مجدداً تلاش کنید.'
                 );
             }
         }
@@ -138,7 +138,7 @@ const Login: SFC = () => {
                                             checked={values.rememberMe}
                                         />
                                         <label htmlFor="rememberMe">
-                                            من را به خاطر بسپار
+                                            مرا به خاطر بسپار
                                         </label>
                                     </S.CheckboxContainer>
                                     <S.Button

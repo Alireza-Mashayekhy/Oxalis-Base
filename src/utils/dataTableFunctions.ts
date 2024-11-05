@@ -240,6 +240,7 @@ export const createTreeTableDataWithWeight = (data: Data[]): TreeNode[] => {
         // Aggregate DAY_VALUE and calculate weighted EFFECTIVE_YIELD at each level
         const dayValue = parseFloat(item.DAY_VALUE) || 0;
         const effectiveYield = parseFloat(item.EFFECTIVE_YIELD) || 0;
+
         ventureTypeNode.data.DAY_VALUE += dayValue;
         ventureNameNode.data.DAY_VALUE += dayValue;
         assetTypeNode.data.DAY_VALUE += dayValue;
@@ -258,7 +259,7 @@ export const createTreeTableDataWithWeight = (data: Data[]): TreeNode[] => {
         const { VENTURE_TYPE, VENTURE_NAME, ASSET_TYPE, ...remainingFields } =
             item;
         assetTypeNode.children.push({
-            key: `${assetTypeKey}_${item._id}`,
+            key: `${assetTypeKey}_${item._id}`, // Ensure _id is unique across all items
             data: remainingFields,
         });
     });
@@ -285,6 +286,7 @@ export const createTreeTableDataWithWeight = (data: Data[]): TreeNode[] => {
 
     return Array.from(treeData.values());
 };
+
 // export const createCashFlowTreeTableData = (
 //   data: CashFlowFrame[]
 // ): TreeNode[] => {

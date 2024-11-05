@@ -4,45 +4,90 @@ import { useSelector } from 'react-redux';
 import { getData } from '@/selectors/state';
 import {
     createTreeTableDataWithWeight,
-    numberBodyTemplateForTreeTable,
     roundedNumberBodyTemplateForTreeTable,
 } from '@/utils/dataTableFunctions';
-import { Column } from 'primereact/column';
-import NoDataFoundTemplate from '@/components/NoDataFound';
-import { useEffect, useState } from 'react';
-import { TreeNode } from 'primereact/treenode';
+import { useEffect, useLayoutEffect, useState } from 'react';
+import CustomTreeTable from '@/components/TreeTable';
 
-const treeTableData = [
-    { field: 'TITLE', header: 'عنوان', body: '', width: '15%' },
-    { field: 'DESCRIPTION', header: 'شرح', body: '', width: '35%' },
-    {
-        field: 'EFFECTIVE_YIELD',
-        header: 'سود‌موثر‌خرید',
-        width: '10%',
-        body: roundedNumberBodyTemplateForTreeTable,
-    },
-    {
-        field: 'EFFECTIVE_YIELD',
-        header: 'سود موثر',
-        width: '10%',
-        body: roundedNumberBodyTemplateForTreeTable,
-    },
-];
+interface DdnHistoryNode {
+    key: string;
+    data: {
+        [key: string]: any;
+    };
+    children?: DdnHistoryNode[];
+}
 
 const GeneralStatusDataGrid: SFC = () => {
     const data = useSelector(getData);
-    // const organizedData = createTreeTableData(data);
-    // const organizedData = createTreeTableDataWithWeight(data);
-    const [nodes, setNodes] = useState<TreeNode[]>([]);
+    const [nodes, setNodes] = useState<DdnHistoryNode[]>([]);
 
     useEffect(() => {
         setNodes(createTreeTableDataWithWeight(data));
-    }, []);
+    }, [data]);
+
+    // useLayoutEffect(() => {
+    //     const toggleElements = document.querySelectorAll(
+    //         '.p-treetable-toggler'
+    //     );
+    //     if (toggleElements.length) {
+    //         toggleElements.forEach((e) => {
+    //             const computedStyle = getComputedStyle(e);
+    //             const leftMargin = computedStyle.marginLeft;
+    //             const leftMarginValue = parseFloat(leftMargin);
+    //             e.style.marginRight = `${leftMarginValue}px`;
+    //         });
+    //     }
+    // }, [nodes]);
+
+    const columns = [
+        {
+            field: 'name',
+            header: '',
+            expander: true,
+            align: 'right',
+            width: '15%',
+        },
+        {
+            field: 'DAY_VALUE',
+            header: 'ارزش روز (میلیون‌ ریال)',
+            sortable: true,
+            width: '15%',
+        },
+        {
+            field: 'TITLE',
+            header: 'عنوان',
+            body: '',
+            width: '15%',
+            sortable: true,
+        },
+        {
+            field: 'DESCRIPTION',
+            header: 'شرح',
+            body: '',
+            width: '35%',
+            sortable: true,
+        },
+        {
+            field: 'EFFECTIVE_YIELD',
+            header: 'سود‌موثر‌خرید',
+            width: '10%',
+            body: roundedNumberBodyTemplateForTreeTable,
+            sortable: true,
+        },
+        {
+            field: 'EFFECTIVE_YIELD',
+            header: 'سود موثر',
+            width: '10%',
+            body: roundedNumberBodyTemplateForTreeTable,
+            sortable: true,
+        },
+    ];
 
     return (
         <>
             <S.Container>
-                {nodes.length > 0 ? (
+                <CustomTreeTable columns={columns} data={nodes} />
+                {/* {nodes.length > 0 ? (
                     <S.TableContainer>
                         <S.StyledTreeTable
                             value={nodes}
@@ -81,7 +126,7 @@ const GeneralStatusDataGrid: SFC = () => {
                     </S.TableContainer>
                 ) : (
                     <NoDataFoundTemplate />
-                )}
+                )} */}
             </S.Container>
         </>
     );
