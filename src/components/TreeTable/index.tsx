@@ -6,6 +6,7 @@ import { Column } from 'primereact/column';
 import { Button } from 'primereact/button';
 import { useSelector } from 'react-redux';
 import { getTheme } from '@/redux/selectors';
+import { PriceFormatter } from '@/utils/priceFormatter';
 
 interface DdnHistoryNode {
     key: string;
@@ -23,6 +24,7 @@ interface ColumnField {
     sortable?: boolean;
     expander?: boolean;
     body?: any;
+    numberFormatter?: boolean;
 }
 
 interface TreeTableProps {
@@ -33,7 +35,6 @@ interface TreeTableProps {
     onDownloadClick?: (nationalId: string) => void;
     onChangeStatusClick?: (nationalId: string) => void;
     onDeleteClick?: (nationalId: string) => void;
-    upload?: boolean;
     scrollHeight?: string;
 }
 
@@ -45,7 +46,6 @@ const CustomTreeTable: FC<TreeTableProps> = ({
     onDownloadClick,
     onChangeStatusClick,
     onDeleteClick,
-    upload,
     scrollHeight,
 }) => {
     const theme = useSelector(getTheme);
@@ -163,7 +163,18 @@ const CustomTreeTable: FC<TreeTableProps> = ({
                             | 'center',
                     }}
                     body={(node) =>
-                        col.body || renderBodyTemplate(node, col.field)
+                        col.body
+                            ? col.numberFormatter
+                                ? PriceFormatter(col.body(node, col).toString())
+                                : col.body(node, col)
+                            : col.numberFormatter
+                              ? PriceFormatter(
+                                    renderBodyTemplate(
+                                        node,
+                                        col.field
+                                    ).toString()
+                                )
+                              : renderBodyTemplate(node, col.field)
                     }
                 />
             ))}

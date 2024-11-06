@@ -25,19 +25,10 @@ const GeneralStatusDataGrid: SFC = () => {
         setNodes(createTreeTableDataWithWeight(data));
     }, [data]);
 
-    // useLayoutEffect(() => {
-    //     const toggleElements = document.querySelectorAll(
-    //         '.p-treetable-toggler'
-    //     );
-    //     if (toggleElements.length) {
-    //         toggleElements.forEach((e) => {
-    //             const computedStyle = getComputedStyle(e);
-    //             const leftMargin = computedStyle.marginLeft;
-    //             const leftMarginValue = parseFloat(leftMargin);
-    //             e.style.marginRight = `${leftMarginValue}px`;
-    //         });
-    //     }
-    // }, [nodes]);
+    const formatDayValue = (data, col) => {
+        const field = data.data[col.field] / 1000000;
+        return field.toFixed(1);
+    };
 
     const columns = [
         {
@@ -52,6 +43,8 @@ const GeneralStatusDataGrid: SFC = () => {
             header: 'ارزش روز (میلیون‌ ریال)',
             sortable: true,
             width: '15%',
+            numberFormatter: true,
+            body: formatDayValue,
         },
         {
             field: 'TITLE',
@@ -71,6 +64,7 @@ const GeneralStatusDataGrid: SFC = () => {
             field: 'EFFECTIVE_YIELD',
             header: 'سود‌موثر‌خرید',
             width: '10%',
+            numberFormatter: true,
             body: roundedNumberBodyTemplateForTreeTable,
             sortable: true,
         },
@@ -78,6 +72,7 @@ const GeneralStatusDataGrid: SFC = () => {
             field: 'EFFECTIVE_YIELD',
             header: 'سود موثر',
             width: '10%',
+            numberFormatter: true,
             body: roundedNumberBodyTemplateForTreeTable,
             sortable: true,
         },
@@ -87,46 +82,6 @@ const GeneralStatusDataGrid: SFC = () => {
         <>
             <S.Container>
                 <CustomTreeTable columns={columns} data={nodes} />
-                {/* {nodes.length > 0 ? (
-                    <S.TableContainer>
-                        <S.StyledTreeTable
-                            value={nodes}
-                            scrollable
-                            scrollHeight="400px"
-                            style={{ minWidth: '50rem' }}
-                            // emptyMessage="داده‌ای برای نمایش وجود ندارد"
-                        >
-                            <Column
-                                className="name-column"
-                                field="name"
-                                header=""
-                                expander
-                                // style={{ width: "max-content" }}
-                                style={{ width: '15%' }}
-                            ></Column>
-                            <Column
-                                field="DAY_VALUE"
-                                className="day-column"
-                                header="ارزش روز (میلیون‌ ریال)"
-                                body={numberBodyTemplateForTreeTable}
-                                style={{ width: '15%' }}
-                                sortable
-                            ></Column>
-                            {treeTableData.map((col, index) => (
-                                <Column
-                                    key={index}
-                                    field={col.field}
-                                    header={col.header}
-                                    body={col.body}
-                                    style={{ width: `${col.width}` }}
-                                    sortable
-                                />
-                            ))}
-                        </S.StyledTreeTable>
-                    </S.TableContainer>
-                ) : (
-                    <NoDataFoundTemplate />
-                )} */}
             </S.Container>
         </>
     );
