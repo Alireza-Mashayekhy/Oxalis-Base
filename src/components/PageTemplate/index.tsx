@@ -85,7 +85,7 @@ const PageTemplate: SFC<PageTemplateProps> = ({
                                         onChange={handleChange(`panel${index}`)}
                                     >
                                         <AccordionSummary>
-                                            {e.Title}
+                                            <S.Title>{e.Title}</S.Title>
                                         </AccordionSummary>
                                         <AccordionDetails>
                                             {renderContent(e.Content)}

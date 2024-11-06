@@ -5,13 +5,9 @@ import { narrowScroll, primeReactTreeTableStyle } from '@/styles/mixins';
 export const Container = styled.div`
     height: 400px;
     overflow-y: hidden;
-    // overflow-x: auto;
-    // ${narrowScroll};
 `;
 
 export const TableContainer = styled.div`
-    // width: max-content;
-    margin: 5px auto;
     color: ${({ theme }) => theme.textColor};
 `;
 
@@ -22,6 +18,7 @@ export const StyledTreeTable = styled(TreeTable)`
 export const SearchContainer = styled.div`
     width: 20%;
     position: absolute;
-    top: 10px;
-    left: 40px;
+    top: 5px;
+    left: 0px;
+    z-index: 5;
 `;

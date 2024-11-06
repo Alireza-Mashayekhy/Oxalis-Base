@@ -114,6 +114,11 @@ export const FilterColumn = styled.div.withConfig({
     }
 `;
 
+export const Title = styled.span`
+    font-family: IranSansFaNum !important;
+    font-weight: 900;
+`;
+
 export const FlexContainerFirstRow = styled.div`
     display: flex;
     width: 100%;

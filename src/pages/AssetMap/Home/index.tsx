@@ -15,7 +15,7 @@ import EnvironmentLawsAndIssues from './MainContent/Part3';
 const MainContainer: SFC = () => {
     const Contents = [
         {
-            Title: 'گزارش دارایی ها',
+            Title: 'گزارش دارایی‌ها',
             Content: <GeneralStatus />,
             FilterPannel: FilterPannel,
         },

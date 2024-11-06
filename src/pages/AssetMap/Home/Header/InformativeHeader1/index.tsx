@@ -64,7 +64,10 @@ const InformativeHeader1: SFC = () => {
     return (
         <S.Container>
             <S.HeaderContainer>
-                <Label fontWeight={fonts.weight.semiBold}>
+                <Label
+                    fontWeight={fonts.weight.semiBold}
+                    className="!text-xl z-[2]"
+                >
                     {selectedFund?.fund}
                 </Label>
                 <S.MenuContainer>
@@ -83,25 +86,33 @@ const InformativeHeader1: SFC = () => {
             </S.HeaderContainer>
 
             <S.BodyContainer>
-                <div className="absolute top-[20%] z-10 left-5 flex flex-col items-end">
+                <div className="absolute top-[10%] z-10 left-5 flex flex-col items-center">
                     <Label
                         className=" !text-lg "
                         fontWeight={fonts.weight.semiBold}
                     >
-                        4.436B
+                        4.436
                     </Label>
                     <Label
-                        className={` !text-base ${percentage > 0 ? '!text-green-600' : '!text-red-600'}  flex items-center`}
+                        className=" !text-sm "
+                        fontWeight={fonts.weight.semiBold}
+                    >
+                        میلیارد ریال
+                    </Label>
+                    <Label
+                        fontWeight={fonts.weight.semiBold}
+                        className={` !text-lg ${percentage > 0 ? '!text-green-600' : '!text-red-600'}  flex items-center`}
                     >
                         {percentage}%
                         <S.Icon path={mdiSwapVertical} size="18px" />
                     </Label>
                 </div>
-                <div className="w-[70%]">
+                <div className="h-full w-[80%] absolute -top-4 ">
                     <AreaChart
                         withoutItems
                         labels={['test', 'test2']}
                         datasets={[{ name: 'test', data: [2, 3] }]}
+                        selectedHeight="100%"
                     />
                 </div>
             </S.BodyContainer>

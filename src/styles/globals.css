@@ -10,6 +10,13 @@
     font-display: swap;
 }
 
+@font-face {
+    font-family: 'IranSansFaNum';
+    src: url('./fonts/iranSans/ttf/IRANSans_FaNum_Black.ttf') format('truetype');
+    font-weight: 900;
+    font-style: normal;
+}
+
 * {
     box-sizing: border-box;
 }

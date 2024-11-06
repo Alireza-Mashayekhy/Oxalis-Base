@@ -166,6 +166,14 @@ export const primeReactTreeTableStyle = css`
     .p-icon {
         color: ${({ theme }) => theme.primary} !important;
     }
+    .p-treetable .p-treetable-tbody > tr {
+        background-color: transparent !important;
+        background: transparent !important;
+    }
+    .p-treetable-tbody > tr {
+        background-color: transparent !important;
+        background: transparent !important;
+    }
     .p-treetable-tbody > tr > td {
         border-bottom: 1px solid #dee2e6;
         color: ${({ theme }) => theme.primary} !important;

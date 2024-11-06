@@ -24,7 +24,7 @@ export const StyledTab = styled(Tab).withConfig({
 
     && {
         color: ${({ theme, color }) => color || theme.textColor};
-        font-size: ${fonts.size.xs};
+        font-size: ${fonts.size.m};
         font-weight: ${fonts.weight.semiBold};
         font-family: ${fonts.family.default};
     }
