@@ -68,7 +68,7 @@ export const FilterColumn = styled.div.withConfig({
 })<{ isFilterColumnVisible: boolean }>`
     position: absolute;
     right: 0px;
-    top: 50px;
+    top: 80px;
     z-index: 10;
     background-color: #e9ebea50;
     backdrop-filter: blur(10px);
@@ -219,6 +219,16 @@ export const AccordionContainer = styled.div`
     }
     .css-7iurs7-MuiAccordionSummary-content {
         margin-right: 30px !important;
+    }
+    .css-7iurs7-MuiAccordionSummary-content.Mui-expanded {
+        justify-content: center !important;
+        margin: 20px !important;
+        font-size: 20px;
+    }
+    .css-7iurs7-MuiAccordionSummary-content {
+        justify-content: center !important;
+        margin: 20px !important;
+        font-size: 20px;
     }
 `;
 
