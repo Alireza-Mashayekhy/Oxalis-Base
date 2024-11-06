@@ -153,25 +153,24 @@ export const primeReactDataTableStyle = css`
 
 export const primeReactTreeTableStyle = css`
     /* table header style */
+    .p-treetable-scrollable-header {
+        background-color: #ffffff55;
+    }
     .p-treetable-thead > tr > th {
-        background-color: ${({ theme }) => theme.hover} !important;
-        color: ${({ theme }) => theme.textColor} !important;
+        background-color: transparent;
+        color: ${({ theme }) => theme.primary} !important;
         padding: 10px;
         font-size: 16px !important;
         white-space: nowrap;
     }
-    /* align table header in the center */
-    .p-treetable-thead > tr > th > .p-column-header-content {
-        justify-content: center !important;
-    }
     /* table body style */
     .p-icon {
-        color: ${({ theme }) => theme.textColor} !important;
+        color: ${({ theme }) => theme.primary} !important;
     }
     .p-treetable-tbody > tr > td {
         border-bottom: 1px solid #dee2e6;
-        color: ${({ theme }) => theme.textColor} !important;
-        background-color: ${({ theme }) => theme.secondary} !important;
+        color: ${({ theme }) => theme.primary} !important;
+        background-color: transparent;
         font-size: 16px !important;
         font-weight: 400;
         white-space: nowrap;
@@ -179,7 +178,7 @@ export const primeReactTreeTableStyle = css`
     }
 
     .p-treetable-tbody > tr.p-row-odd > td {
-        background-color: ${({ theme }) => theme.strippedRow} !important;
+        background-color: transparent;
     }
     /* scroll style */
     .p-treetable-wrapper {
@@ -196,15 +195,15 @@ export const primeReactTreeTableStyle = css`
     }
 
     .p-treetable-tbody .p-row-odd {
-        background-color: ${({ theme }) => theme.strippedRow} !important;
+        background-color: transparent;
     }
 
     .p-treetable-tbody > tr:nth-child(odd) {
-        background-color: ${({ theme }) => theme.strippedRow} !important;
+        background-color: transparent;
     }
     /* style for grouped row */
     .p-treetable-tbody .p-rowgroup-header > td {
-        background-color: ${({ theme }) => theme.primary} !important;
+        background-color: transparent;
         padding: 10px;
     }
 
@@ -212,26 +211,26 @@ export const primeReactTreeTableStyle = css`
     .p-treetable-tbody .p-rowgroup-header > td > span {
         display: inline-flex;
         margin-right: 0.5rem;
-        color: ${({ theme }) => theme.textColor} !important;
+        color: ${({ theme }) => theme.primary} !important;
     }
     /* style for expander icon */
     .p-treetable-tbody .p-rowgroup-header > td > button {
-        color: ${({ theme }) => theme.textColor} !important;
+        color: ${({ theme }) => theme.primary} !important;
         transform: rotate(180deg);
     }
     .p-paginator {
-        background-color: ${({ theme }) => theme.primary} !important;
+        background-color: transparent;
     }
     .p-paginator-element {
-        color: ${({ theme }) => theme.textColor} !important;
+        color: ${({ theme }) => theme.primary} !important;
     }
     .p-dropdown {
         background-color: ${({ theme }) => theme.secondary} !important;
         .p-dropdown-label {
-            color: ${({ theme }) => theme.textColor} !important;
+            color: ${({ theme }) => theme.primary} !important;
         }
         .p-dropdown-trigger {
-            color: ${({ theme }) => theme.textColor} !important;
+            color: ${({ theme }) => theme.primary} !important;
         }
     }
 `;
