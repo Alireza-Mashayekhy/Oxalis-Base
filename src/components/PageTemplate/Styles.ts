@@ -68,7 +68,7 @@ export const FilterColumn = styled.div.withConfig({
 })<{ isFilterColumnVisible: boolean }>`
     position: absolute;
     right: 0px;
-    top: 80px;
+    top: 30px;
     z-index: 10;
     background-color: #e9ebea50;
     backdrop-filter: blur(10px);

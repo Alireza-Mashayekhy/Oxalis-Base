@@ -75,6 +75,9 @@ const PageTemplate: SFC<PageTemplateProps> = ({
                 {MainContent?.length > 1 ? (
                     <S.AccordionContainer>
                         {MainContent.map((e, index) => {
+                            const isAccordionOpen =
+                                expanded === `panel${index}`;
+
                             return (
                                 <div className="relative overflow-hidden">
                                     <Accordion
@@ -88,7 +91,7 @@ const PageTemplate: SFC<PageTemplateProps> = ({
                                             {renderContent(e.Content)}
                                         </AccordionDetails>
                                     </Accordion>
-                                    {e.FilterPannel && (
+                                    {e.FilterPannel && isAccordionOpen && (
                                         <S.FilterColumn
                                             isFilterColumnVisible={
                                                 isFilterColumnVisible

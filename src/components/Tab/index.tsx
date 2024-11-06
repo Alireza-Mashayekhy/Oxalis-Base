@@ -19,7 +19,7 @@ const TabWrapper: React.FC<TabProps> = (props) => {
     const { value, handleTabChange, tabs, orientation = 'horizontal' } = props;
 
     return (
-        <Tabs
+        <S.StyledTabs
             orientation={orientation}
             value={value}
             onChange={handleTabChange}
@@ -42,7 +42,7 @@ const TabWrapper: React.FC<TabProps> = (props) => {
                     }}
                 />
             ))}
-        </Tabs>
+        </S.StyledTabs>
     );
 };
 

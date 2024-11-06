@@ -35,10 +35,6 @@ a {
     }
 }
 
-.p-treetable-toggler {
-    rotate: 180deg;
-}
-
 .p-paginator {
     direction: ltr;
 }

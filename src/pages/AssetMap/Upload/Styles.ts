@@ -4,7 +4,7 @@ import { Button, ButtonProps, SvgIconProps } from '@mui/material';
 import {
     muiButtonStyle,
     narrowScroll,
-    primeReactTREETableStyle,
+    primeReactTreeTableStyle,
 } from '@/styles/mixins';
 import UIcon from '@mdi/react';
 import CloudUploadTwoToneIcon from '@mui/icons-material/CloudUploadTwoTone';
@@ -35,7 +35,7 @@ export const Container = styled.div.withConfig({
     margin: 1rem auto 2rem auto;
     width: 95%;
     border-radius: 5px;
-    background-color: ;
+    background-color:;
     @media (min-width: ${breakpoints.tablet}) {
         height: 95%;
     }
@@ -146,7 +146,7 @@ export const TableContainer = styled.div`
 `;
 
 export const StyledTreeTable = styled(TreeTable)`
-    ${primeReactTREETableStyle};
+    ${primeReactTreeTableStyle};
 `;
 
 export const Icon = styled(UIcon)`

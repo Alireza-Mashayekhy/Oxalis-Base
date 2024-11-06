@@ -12,6 +12,7 @@ const darkTheme = {
 };
 const lightTheme = {
     primary: '#FFFFFF', //white
+    primaryOpacity: '#ffffff55',
     secondary: '#E9EBEA', //gray
     secondaryOpacity: '#E9EBEA88', //gray
 

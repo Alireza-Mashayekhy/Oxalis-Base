@@ -132,7 +132,6 @@ export const primeReactDataTableStyle = css`
     /* style for expander icon */
     .p-datatable-tbody .p-rowgroup-header > td > button {
         color: ${({ theme }) => theme.textColor} !important;
-        transform: rotate(180deg);
     }
     .p-paginator {
         background-color: ${({ theme }) => theme.primary} !important;
@@ -154,10 +153,10 @@ export const primeReactDataTableStyle = css`
 export const primeReactTreeTableStyle = css`
     /* table header style */
     .p-treetable-scrollable-header {
-        background-color: #ffffff55;
+        background-color: ${({ theme }) => theme.primaryOpacity} !important;
     }
     .p-treetable-thead > tr > th {
-        background-color: transparent;
+        background-color: transparent !important;
         color: ${({ theme }) => theme.primary} !important;
         padding: 10px;
         font-size: 16px !important;
@@ -170,15 +169,19 @@ export const primeReactTreeTableStyle = css`
     .p-treetable-tbody > tr > td {
         border-bottom: 1px solid #dee2e6;
         color: ${({ theme }) => theme.primary} !important;
-        background-color: transparent;
+        background-color: transparent !important;
         font-size: 16px !important;
         font-weight: 400;
         white-space: nowrap;
         padding: 5px;
     }
 
+    .p-treetable-toggler {
+        transform: rotate(180deg);
+    }
+
     .p-treetable-tbody > tr.p-row-odd > td {
-        background-color: transparent;
+        background-color: transparent !important;
     }
     /* scroll style */
     .p-treetable-wrapper {
@@ -195,15 +198,15 @@ export const primeReactTreeTableStyle = css`
     }
 
     .p-treetable-tbody .p-row-odd {
-        background-color: transparent;
+        background-color: transparent !important;
     }
 
     .p-treetable-tbody > tr:nth-child(odd) {
-        background-color: transparent;
+        background-color: transparent !important;
     }
     /* style for grouped row */
     .p-treetable-tbody .p-rowgroup-header > td {
-        background-color: transparent;
+        background-color: transparent !important;
         padding: 10px;
     }
 
@@ -216,10 +219,9 @@ export const primeReactTreeTableStyle = css`
     /* style for expander icon */
     .p-treetable-tbody .p-rowgroup-header > td > button {
         color: ${({ theme }) => theme.primary} !important;
-        transform: rotate(180deg);
     }
     .p-paginator {
-        background-color: transparent;
+        background-color: transparent !important;
     }
     .p-paginator-element {
         color: ${({ theme }) => theme.primary} !important;
@@ -233,144 +235,6 @@ export const primeReactTreeTableStyle = css`
             color: ${({ theme }) => theme.primary} !important;
         }
     }
-`;
-
-export const primeReactTREETableStyle = css`
-  /* hidden scroll */
-  /* .p-treetable-scrollable-body {
-    overflow-y: auto;
-    &::-webkit-scrollbar {
-      display: none;
-    }
-    & {
-      -ms-overflow-style: none;
-      scrollbar-width: none;
-    }
-  } */
-
-  /* these are styles for full width */
-  .p-treetable-scrollable-body-table,
-  .p-treetable-scrollable-header-table {
-    width: 100%;
-  }
-  /* these are styles for full width */
-
-  /*these are styles for filter column if used */
-  .p-filter-column .p-column-filter.p-inputtext.p-component {
-    padding: 5px;
-    border-radius: 5px;
-    font-size:16px !important;
-  }
-  .p-filter-column .p-inputtext {
-    width: 100% !important;
-  }
-  /*these are styles for filter column if used */
-
-
-
-  .p-treetable-scrollable-body {
-    ${narrowScroll};
-  }
-  /* header background color */
-  .p-treetable-table {
-    border-collapse: unset;
-    border-spacing: unset;
-  }
-
-  /* header background color */
-  .p-treetable-table .p-treetable-thead {
-    background-color: ${({ theme }) => theme.hover} !important;
-  }
-  /* header background color in scrollable mode*/
-  .p-treetable-scrollable-header .p-treetable-thead {
-    background-color: ${({ theme }) => theme.hover} !important;
-  }
-  /* header style */
-  .p-treetable-table .p-treetable-thead > tr > th {
-    color: ${({ theme }) => theme.textColor} !important;
-    font-size: 16px} !important;
-    font-weight: 600;
-    white-space: nowrap;
-    padding: 10px 5px;
-  }
-  .p-treetable-table .p-treetable-thead > tr {
-    color: ${({ theme }) => theme.textColor} !important;
-    font-size: 24px !important;
-    font-weight: 600;
-    white-space: nowrap;
-    padding: 10px 5px;
-  }
-  /* header style in scrollable mode*/
-  .p-treetable-scrollable-header .p-treetable-thead > tr > th {
-    color: ${({ theme }) => theme.textColor} !important;
-    font-size: 16px !important;
-    font-weight: 600;
-    white-space: nowrap;
-    padding: 10px 5px;
-    text-align: center;
-  }
-  /*these are styles for changing scroll from left to right*/
-  .p-treetable-wrapper {
-    direction: ltr;
-  }
-
-  .p-treetable-scrollable-body-table,
-  .p-treetable-scrollable-header {
-    direction: rtl;
-  }
-  /*these are styles for changing scroll from left to right*/
-
-  
-  /* to remove the space between each field in the header in scrollable mode */
-  .p-treetable-scrollable-header-table {
-    border-collapse: unset;
-    border-spacing: unset;
-  }
-  /* to remove the space between each field in a row in scrollable mode*/
-  .p-treetable-scrollable-body-table {
-    border-collapse: unset;
-    border-spacing: unset;
-  }
-  /* body style */
-  .p-treetable-tbody > tr > td {
-    color: ${({ theme }) => theme.textColor} !important;
-    font-size: 16px !important;
-    font-weight: 600;
-    white-space: nowrap;
-    text-align: center;
-    padding: 10px 5px;
-  }
-  .p-treetable-tbody > tr > td:nth-child(1) {
-    text-align: right;
-  }
-
-  .p-treetable-tbody > tr:nth-child(odd) {
-    /* Lighter shade for odd rows */
-    background-color: ${({ theme }) => theme.secondary} !important;
-  }
-  .p-treetable-tbody > tr:nth-child(even) {
-    /* Darker shade for even rows */
-    background-color: ${({ theme }) => theme.strippedRow} !important;
-  }
-  .p-treetable-tbody > tr:hover {
-    /* background-color: ${({ theme }) => theme.secondary} !important; */
-  }
-
-  /* expander style */
-  .p-treetable-toggler.p-link.p-unselectable-text {
-    transform: rotate(180deg);
-    color: ${({ theme }) => theme.textColor} !important;
-    // width: 6px;
-  }
-  .p-treetable-scrollable-header .p-treetable-scrollable-header-box {
-    margin-right: 0.5rem !important; /* Adjust the value to match your scrollbar width */
-  }
-  .p-treetable .p-treetable-emptymessage {
-    text-align: right !important;
-  }
-  /* .p-treetable-table .p-treetable-thead > tr > th.day-column > div > span {
-    margin-left: 15px;
-  } */
 `;
 
 export const inputStyle = css`
