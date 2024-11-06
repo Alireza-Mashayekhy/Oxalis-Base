@@ -1,5 +1,5 @@
 'use client';
-import { FC } from 'react';
+import { FC, useEffect, useState } from 'react';
 import * as S from './Styles';
 import { TreeTable } from 'primereact/treetable';
 import { Column } from 'primereact/column';
@@ -111,12 +111,42 @@ const CustomTreeTable: FC<TreeTableProps> = ({
         }
     };
 
+    const [expandedKeys, setExpandedKeys] = useState({});
+
+    const expandNode = (node, _expandedKeys) => {
+        if (node.children && node.children.length) {
+            _expandedKeys[node.key] = true;
+            node.children.forEach((childNode) => {
+                expandNode(childNode, _expandedKeys);
+            });
+        }
+    };
+
+    useEffect(() => {
+        document.querySelectorAll('.p-treetable-toggler').forEach((e) => {
+            const element = e as HTMLElement;
+            const computedStyle = getComputedStyle(element);
+            const leftMargin = computedStyle.marginLeft;
+            const rightMargin = computedStyle.marginRight;
+
+            const leftMarginValue = parseFloat(leftMargin);
+            const rightMarginValue = parseFloat(rightMargin);
+
+            if (leftMarginValue > rightMarginValue) {
+                element.style.marginRight = `${leftMarginValue}px`;
+                element.style.marginLeft = `8px`;
+            }
+        });
+    }, [expandedKeys]);
+
     return (
         <S.TreeTableStyle
             value={data}
             scrollable
             scrollHeight={scrollHeight || '400px'}
             emptyMessage="داده‌ای برای نمایش وجود ندارد."
+            expandedKeys={expandedKeys}
+            onToggle={(e) => setExpandedKeys(e.value)}
         >
             {columns.map((col, index) => (
                 <Column
