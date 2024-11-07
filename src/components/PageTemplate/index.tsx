@@ -55,20 +55,29 @@ const PageTemplate: SFC<PageTemplateProps> = ({
     return (
         <S.Container>
             <S.FirstColumn>
-                <S.FlexContainerFirstRow>
-                    <div>{InformativeHeader1 && <InformativeHeader1 />}</div>
-                    <div className="other">
+                {InformativeHeader1 ||
+                InformativeHeader2 ||
+                InformativeHeader3 ||
+                InformativeHeader4 ? (
+                    <S.FlexContainerFirstRow>
                         <div>
-                            {InformativeHeader2 && <InformativeHeader2 />}
+                            {InformativeHeader1 && <InformativeHeader1 />}
                         </div>
-                        <div>
-                            {InformativeHeader3 && <InformativeHeader3 />}
+                        <div className="other">
+                            <div>
+                                {InformativeHeader2 && <InformativeHeader2 />}
+                            </div>
+                            <div>
+                                {InformativeHeader3 && <InformativeHeader3 />}
+                            </div>
+                            <div>
+                                {InformativeHeader4 && <InformativeHeader4 />}
+                            </div>
                         </div>
-                        <div>
-                            {InformativeHeader4 && <InformativeHeader4 />}
-                        </div>
-                    </div>
-                </S.FlexContainerFirstRow>
+                    </S.FlexContainerFirstRow>
+                ) : (
+                    ''
+                )}
                 <S.OperationalRightColumnContainer>
                     {ResponsiveFilterPannel && <ResponsiveFilterPannel />}
                 </S.OperationalRightColumnContainer>

@@ -23,22 +23,14 @@ interface ContainerProps {
 export const Container = styled.div.withConfig({
     shouldForwardProp: (prop) => !['borderColor'].includes(prop),
 })<ContainerProps>`
-    border: 1px dashed
-        ${({ theme, borderColor }) => borderColor || theme.border};
-
-    padding: 24px 32px;
     display: flex;
     flex-direction: column;
     align-items: stretch;
-    // justify-content: space-around;
     direction: rtl;
     margin: 1rem auto 2rem auto;
-    width: 95%;
+    width: 100%;
     border-radius: 5px;
-    background-color:;
-    @media (min-width: ${breakpoints.tablet}) {
-        height: 95%;
-    }
+    height: calc(100vh - 180px);
 `;
 
 export const FileTitleContainer = styled.div`
@@ -76,12 +68,9 @@ export const IMG = styled.img`
 `;
 
 export const UploadContainer = styled.div`
-    // flex-grow: 1;
     display: flex;
-    // flex-direction: column;
     align-items: center;
     justify-content: center;
-    // flex-basis: 40%;
     padding-top: 1rem;
 
     > div:nth-child(1) {

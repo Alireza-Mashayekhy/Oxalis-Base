@@ -9,13 +9,14 @@ import { colors } from '@/styles';
 import { getHistory, getTheme } from '@/selectors/state';
 import { TreeNode } from 'primereact/treenode';
 import { Column } from 'primereact/column';
-import NoDataFoundTemplate from '@/components/NoDataFound';
-import { mdiCheck, mdiCheckCircle, mdiClose, mdiCloseCircle } from '@mdi/js';
+import { mdiCheck, mdiClose, mdiCloseCircle } from '@mdi/js';
+import PageTemplate from '@/components/PageTemplate';
 
-const Upload: SFC = () => {
+const UploadMain = () => {
     const theme = useSelector(getTheme);
 
     const historyData = useSelector(getHistory).data;
+    console.log(historyData);
     const [selectedFiles, setSelectedFiles] = useState<FileList | null>(null);
 
     const [nodes, setNodes] = useState<TreeNode[]>([]);
@@ -24,12 +25,12 @@ const Upload: SFC = () => {
     const createTableColumn = () => {
         const columns = [];
         const data = [];
-        historyData.forEach((el) => {
+        historyData?.forEach((el) => {
             if (!columns.includes(el.name)) {
                 columns.push(el.name);
             }
         });
-        historyData.forEach((el) => {
+        historyData?.forEach((el) => {
             el.history_status.forEach((element) => {
                 let haveIt = false;
                 data.forEach((e) => {
@@ -57,7 +58,7 @@ const Upload: SFC = () => {
 
     useEffect(() => {
         if (historyData) {
-            createTableColumn();
+            // createTableColumn();
         }
     }, [historyData]);
 
@@ -98,10 +99,7 @@ const Upload: SFC = () => {
     };
 
     return (
-        <S.Container
-            borderColor={colors.palette.blue[300]}
-            style={{ backgroundColor: `${theme === 'dark' ? '#161415' : ''}` }}
-        >
+        <S.Container borderColor={colors.palette.blue[300]}>
             <S.UploadContainer>
                 <input
                     ref={fileInputRef}
@@ -168,6 +166,16 @@ const Upload: SFC = () => {
             )}
         </S.Container>
     );
+};
+
+const Upload = () => {
+    const Contents = [
+        {
+            Title: '',
+            Content: <UploadMain />,
+        },
+    ];
+    return <PageTemplate MainContent={Contents} />;
 };
 
 export default Upload;
