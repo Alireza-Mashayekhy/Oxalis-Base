@@ -58,7 +58,7 @@ const UploadMain = () => {
 
     useEffect(() => {
         if (historyData) {
-            // createTableColumn();
+            createTableColumn();
         }
     }, [historyData]);
 
