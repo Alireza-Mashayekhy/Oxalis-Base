@@ -107,7 +107,7 @@ const InformativeHeader1: SFC = () => {
                         <S.Icon path={mdiSwapVertical} size="18px" />
                     </Label>
                 </div>
-                <div className="h-full w-[80%] absolute -top-4 ">
+                <div className="w-[80%] ">
                     <AreaChart
                         withoutItems
                         labels={['test', 'test2']}
