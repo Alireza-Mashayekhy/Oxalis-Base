@@ -45,7 +45,7 @@ const Login: SFC = () => {
             }
 
             formikHelpers.resetForm();
-            toast.success('خوش آمدید.');
+            //toast.success('خوش آمدید.');
 
             window.dispatchEvent(new Event('storage')); // این رویداد ساختگی storage برای تریگر شدن اثرات استفاده می‌شود
 
