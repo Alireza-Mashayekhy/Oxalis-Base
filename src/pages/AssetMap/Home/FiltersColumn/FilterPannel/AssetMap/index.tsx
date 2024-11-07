@@ -18,6 +18,7 @@ interface filterData {
 }
 import { Label } from '@/components/Label';
 import { AppDispatch, SFC } from '@/types';
+import { Dropdown } from 'primereact/dropdown';
 
 interface FilterPannelInterface {
     isResponsive?: boolean;
@@ -72,19 +73,19 @@ const AssetMapFilterPannel: SFC<FilterPannelInterface> = ({
         <S.Container>
             <Label>فیلترها</Label>
             <S.SelectContainer>
-                <Label padding="5px 10px">نوع صندوق</Label>
-                <CustomSelectComponent
-                    selectedValue={ventureTypeValue}
-                    handleChange={(e: SelectChangeEvent<string>) => {
+                <S.DropdownStyle
+                    value={ventureTypeValue}
+                    onChange={(e) => {
                         setVentureTypeValue(e.target.value as string);
                         setVentureName(
                             createDataForVentureNameFilter(data, e.target.value)
                         );
                     }}
-                    fullWidth={true}
-                    padding="5px"
-                    placeholder=""
                     options={ventureType}
+                    filter
+                    showClear
+                    className="w-full"
+                    placeholder="نوع صندوق"
                 />
             </S.SelectContainer>
             <S.SelectContainer>

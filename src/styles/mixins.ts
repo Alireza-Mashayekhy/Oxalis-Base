@@ -272,3 +272,19 @@ export const inputTextStyle = css`
         opacity: 1;
     }
 `;
+
+export const primeDropdownStyle = css`
+    background-color: transparent !important;
+    border: 0px solid hsla(0, 0%, 100%, 0.3);
+    border-bottom: 1px solid ${({ theme }) => theme.primary} !important;
+    border-radius: 0px !important;
+    box-shadow: none !important;
+    .p-dropdown-label {
+        padding: 5px 40px 5px 20px !important;
+        font-size: 16px !important;
+        color: ${({ theme }) => theme.primary} !important;
+    }
+    .p-dropdown-clear-icon {
+        right: 1rem !important;
+    }
+`;
