@@ -60,18 +60,6 @@ const AssetMapFilterPannel: SFC<FilterPannelInterface> = ({
     handleApplyFilters();
   }, [ventureTypeValue, ventureNameValue, assetTypeValue]);
 
-  const handleResetFilters = () => {
-    setVentureTypeValue("");
-    setVentureNameValue("");
-    setAssetTypeValue("");
-    dispatch(fetchData());
-
-    // to close the accordion in responsive mode as the filter is on an accordion
-    if (isResponsive) {
-      handleAccordionCloseInResponsiveMode();
-    }
-  };
-
   return (
     <S.Container>
       <Label>فیلترها</Label>
@@ -124,55 +112,6 @@ const AssetMapFilterPannel: SFC<FilterPannelInterface> = ({
           placeholder="نوع دارایی"
         />
       </S.SelectContainer>
-      {/* <S.ButtonContainer>
-                <div style={{}}>
-                    <ButtonWrapper
-                        borderRadius="5px"
-                        height="30px"
-                        borderColor="#4788fd"
-                        backgroundColor="#4788fd"
-                        variant="outlined"
-                        fullWidth={true}
-                        fontSize="12px"
-                        onClick={handleApplyFilters}
-                    >
-                        <Typography
-                            component="span"
-                            sx={{
-                                color: 'white',
-                                pr: 1,
-                                fontSize: '12px',
-                                fontFamily: 'IRANSans',
-                            }}
-                        >
-                            اعمال فیلتر‌ها
-                        </Typography>
-                    </ButtonWrapper>
-                </div>
-                <div style={{ margin: '1rem 0px ' }}>
-                    <ButtonWrapper
-                        borderRadius="5px"
-                        height="30px"
-                        borderColor="#4788fd"
-                        variant="outlined"
-                        fullWidth={true}
-                        fontSize="12px"
-                        onClick={handleResetFilters}
-                    >
-                        <Typography
-                            component="span"
-                            sx={{
-                                color: '#4788fd',
-                                pr: 1,
-                                fontSize: '12px',
-                                fontFamily: 'IRANSans',
-                            }}
-                        >
-                            بازتعریف
-                        </Typography>
-                    </ButtonWrapper>
-                </div>
-            </S.ButtonContainer> */}
     </S.Container>
   );
 };
