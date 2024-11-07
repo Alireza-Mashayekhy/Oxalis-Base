@@ -103,7 +103,7 @@ export const FilterColumn = styled.div.withConfig({
         // min-height: calc(100vh - 30vh);
     }
     .toggleIcon {
-        background-color: #e9ebea85;
+        background-color: #e9ebea50;
         backdrop-filter: blur(10px);
         border-radius: 10px 0px 0px 10px;
         position: absolute;
