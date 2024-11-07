@@ -45,6 +45,7 @@ const GeneralStatusDataGrid: SFC = () => {
             width: '15%',
             numberFormatter: true,
             body: formatDayValue,
+            align: 'right',
         },
         {
             field: 'TITLE',
