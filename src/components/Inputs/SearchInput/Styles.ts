@@ -5,11 +5,14 @@ export const StyledInput = styled.input`
     width: 100%;
     padding: 5px;
     font-family: ${fonts.family.default};
-    border-radius: 5px;
-    border: 1px solid ${({ theme }) => theme.border};
-    background-color: ${({ theme }) => theme.secondary};
-    color: ${({ theme }) => theme.textColor} !important;
+    border: 0px solid ${({ theme }) => theme.primary};
+    border-bottom: 1px solid ${({ theme }) => theme.primary};
+    background-color: transparent;
+    color: ${({ theme }) => theme.primary} !important;
     &::placeholder {
-        color: #888888;
+        color: #ffffffbb;
+    }
+    &:focus {
+        outline: none;
     }
 `;
