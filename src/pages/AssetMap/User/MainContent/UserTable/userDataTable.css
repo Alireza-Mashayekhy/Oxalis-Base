@@ -14,15 +14,6 @@
   padding: 5px 50px !important;
 }
 
-.p-dropdown-panel .p-dropdown-items .p-dropdown-item.p-highlight.p-focus {
-  background-color: #4788fd; /* Your desired background color */
-}
-.p-dropdown-panel .p-dropdown-items {
-  background-color: #1c1c1e; /* Your desired background color */
-  color: #ffffff;
-  text-align: right;
-  justify-content: center;
-  font-family: "IRANSans" !important;
-}
+
 
 

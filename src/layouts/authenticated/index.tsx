@@ -49,8 +49,7 @@ const Authenticated: SFC = () => {
     }, [dispatch]);
 
     const renderMain = () => {
-        console.log(location.pathname === '/');
-        if (location.pathname === '/') {
+        if (location.pathname === '/home') {
             return (
                 <S.Area>
                     <MainNav />

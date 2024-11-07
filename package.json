@@ -24,6 +24,7 @@
     "highcharts": "^11.4.8",
     "highcharts-react-official": "^3.2.1",
     "moment-jalaali": "^0.10.1",
+    "prettier": "^3.3.3",
     "primeicons": "^7.0.0",
     "primereact": "^10.8.4",
     "react": "^18.3.1",

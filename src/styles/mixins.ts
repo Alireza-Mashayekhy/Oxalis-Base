@@ -276,13 +276,16 @@ export const inputTextStyle = css`
 export const primeDropdownStyle = css`
     background-color: transparent !important;
     border: 0px solid hsla(0, 0%, 100%, 0.3);
-    border-bottom: 1px solid ${({ theme }) => theme.primary} !important;
+    border-bottom: 1px solid ${({ theme }) => theme.textColor} !important;
     border-radius: 0px !important;
     box-shadow: none !important;
+    svg {
+        color: ${({ theme }) => theme.textColor} !important;
+    }
     .p-dropdown-label {
         padding: 5px 40px 5px 20px !important;
         font-size: 16px !important;
-        color: ${({ theme }) => theme.primary} !important;
+        color: ${({ theme }) => theme.textColor} !important;
     }
     .p-dropdown-clear-icon {
         right: 1rem !important;

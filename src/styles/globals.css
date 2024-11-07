@@ -131,6 +131,47 @@ a {
 .p-autocomplete-panel .p-autocomplete-items .p-autocomplete-item {
     color: #a7a7a7;
 }
+
+.p-dropdown-panel .p-dropdown-header .p-dropdown-filter {
+    margin-right: 0px !important;
+}
+
+.p-dropdown-filter-container .p-inputtext {
+    background-color: transparent !important;
+    border: none !important;
+    border-bottom: 1px solid black !important;
+    color: black !important;
+    border-radius: 0px !important;
+    outline: none !important;
+    box-shadow: none !important;
+    padding: 8px !important;
+    padding-right: 30px !important;
+    font-size: 16px !important;
+}
+
+.p-dropdown-filter-container svg {
+    color: black !important;
+    right: .5rem !important;
+}
+
+.p-dropdown-panel{
+    background-color: #ffffff44 !important;
+    backdrop-filter: blur(20px);
+}
+
+.p-dropdown-panel .p-dropdown-header {
+    background-color: transparent !important;
+}
+
+.p-dropdown-panel .p-dropdown-items .p-dropdown-item:not(.p-highlight):not(.p-disabled).p-focus {
+    color: black !important;
+    background-color: #ffffffaa !important;
+}
+
 .p-dropdown-panel .p-dropdown-items .p-dropdown-item {
-    color: #a7a7a7;
+    color: black !important;
+}
+
+.p-dropdown-empty-message{
+    color: black !important;
 }
