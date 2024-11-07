@@ -238,10 +238,10 @@ export const AccordionContainer = styled.div`
 `;
 
 export const SingleMainContainer = styled.div`
-    margin-top: 0.3rem;
     border-radius: 10px !important;
     background-color: #e9ebea50 !important;
     backdrop-filter: blur(10px) !important;
     overflow: hidden;
     padding: 8px 16px 16px;
+    height: 100%;
 `;

@@ -20,6 +20,8 @@ import { fetchCashFlowFrame } from '@/dispatchers/cashflowFrame';
 import { fetchBankPerFund } from '@/dispatchers/bankperfund';
 import { fetchAllAssets } from '@/dispatchers/allassets';
 import { getHistory } from '@/dispatchers/assetUpload';
+import MainsArea from './Default/MainArea';
+import MainNav from './Default/Nav';
 
 const Authenticated: SFC = () => {
     const location = useLocation();
@@ -47,7 +49,15 @@ const Authenticated: SFC = () => {
     }, [dispatch]);
 
     const renderMain = () => {
-        if (location.pathname.includes('/proma')) {
+        console.log(location.pathname === '/');
+        if (location.pathname === '/') {
+            return (
+                <S.Area>
+                    <MainNav />
+                    <MainsArea />
+                </S.Area>
+            );
+        } else if (location.pathname.includes('/proma')) {
             return (
                 <S.Area>
                     <Nav />
