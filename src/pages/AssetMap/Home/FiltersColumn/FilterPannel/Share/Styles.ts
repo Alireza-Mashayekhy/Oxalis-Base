@@ -1,6 +1,8 @@
 import styled from "styled-components";
 import UButton from "@/components/Button";
 import { breakpoints } from "@/styles";
+import { Dropdown } from "primereact/dropdown";
+import { primeDropdownStyle } from "@/styles/mixins";
 
 export const Container = styled.div`
   padding: 10px 5px;
@@ -27,4 +29,8 @@ export const ButtonContainer = styled.div`
 
 export const SelectContainer = styled.div`
   margin: 1.5rem 0;
+`;
+
+export const DropdownStyle = styled(Dropdown)`
+  ${primeDropdownStyle}
 `;

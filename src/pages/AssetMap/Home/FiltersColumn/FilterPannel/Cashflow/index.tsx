@@ -1,174 +1,180 @@
-import * as S from './Styles';
-import { useState, FC } from 'react';
-import { SelectChangeEvent, Typography } from '@mui/material';
-import CustomSelectComponent from '@/components/Select';
-import ButtonWrapper from '@/components/ButtonWrapper';
-import { useDispatch, useSelector } from 'react-redux';
-import { fetchCashFlowFrame } from '@/dispatchers/cashflowFrame';
-import { getCashFlowFrame } from '@/selectors/state';
+import * as S from "./Styles";
+import { useState, FC, useEffect } from "react";
+import { SelectChangeEvent, Typography } from "@mui/material";
+import CustomSelectComponent from "@/components/Select";
+import ButtonWrapper from "@/components/ButtonWrapper";
+import { useDispatch, useSelector } from "react-redux";
+import { fetchCashFlowFrame } from "@/dispatchers/cashflowFrame";
+import { getCashFlowFrame } from "@/selectors/state";
 import {
-    createDataForAssetTypeFilter,
-    createDataForVentureNameFilter,
-    createDataForVentureTypeFilter,
-} from '@/utils/FrameFunctions/cashflowFrame';
+  createDataForAssetTypeFilter,
+  createDataForVentureNameFilter,
+  createDataForVentureTypeFilter,
+} from "@/utils/FrameFunctions/cashflowFrame";
 
 interface filterData {
-    value: string;
-    label: string;
+  value: string;
+  label: string;
 }
-import { Label } from '@/components/Label';
-import { AppDispatch, SFC } from '@/types';
+import { Label } from "@/components/Label";
+import { AppDispatch, SFC } from "@/types";
 
 interface FilterPannelInterface {
-    isResponsive?: boolean;
-    handleAccordionCloseInResponsiveMode?: () => void;
+  isResponsive?: boolean;
+  handleAccordionCloseInResponsiveMode?: () => void;
 }
 
 const CashflowFilterPannel: SFC<FilterPannelInterface> = ({
-    isResponsive,
-    handleAccordionCloseInResponsiveMode,
+  isResponsive,
+  handleAccordionCloseInResponsiveMode,
 }) => {
-    const dispatch = useDispatch<AppDispatch>();
-    const data = useSelector(getCashFlowFrame);
+  const dispatch = useDispatch<AppDispatch>();
+  const data = useSelector(getCashFlowFrame);
 
-    const ventureType = createDataForVentureTypeFilter(data);
-    const [ventureTypeValue, setVentureTypeValue] = useState<string>('');
-    const [ventureNameValue, setVentureNameValue] = useState<string>('');
-    const [assetTypeValue, setAssetTypeValue] = useState<string>('');
+  const ventureType = createDataForVentureTypeFilter(data);
+  const [ventureTypeValue, setVentureTypeValue] = useState<string>();
+  const [ventureNameValue, setVentureNameValue] = useState<string>();
+  const [assetTypeValue, setAssetTypeValue] = useState<string>();
 
-    const [ventureName, setVentureName] = useState<filterData[]>([
-        { value: '', label: '' },
-    ]);
-    const [assetType, setAssetType] = useState<filterData[]>([
-        { value: '', label: '' },
-    ]);
+  const [ventureName, setVentureName] = useState<filterData[]>([
+    { value: "", label: "" },
+  ]);
+  const [assetType, setAssetType] = useState<filterData[]>([
+    { value: "", label: "" },
+  ]);
 
-    const handleApplyFilters = () => {
-        const filters: Record<string, any> = {};
-        if (ventureTypeValue) filters['VENTURE_TYPE'] = ventureTypeValue;
-        if (ventureNameValue) filters['VENTURE_NAME'] = ventureNameValue;
-        if (assetTypeValue) filters['ASSET_TYPE'] = assetTypeValue;
-        dispatch(fetchCashFlowFrame(filters));
+  const handleApplyFilters = () => {
+    const filters: Record<string, any> = {};
+    if (ventureTypeValue) filters["VENTURE_TYPE"] = ventureTypeValue;
+    if (ventureNameValue) filters["VENTURE_NAME"] = ventureNameValue;
+    if (assetTypeValue) filters["ASSET_TYPE"] = assetTypeValue;
+    dispatch(fetchCashFlowFrame(filters));
 
-        // to close the accordion in responsive mode as the filter is on an accordion
-        if (isResponsive) {
-            handleAccordionCloseInResponsiveMode();
-        }
-    };
+    // to close the accordion in responsive mode as the filter is on an accordion
+    if (isResponsive) {
+      handleAccordionCloseInResponsiveMode();
+    }
+  };
 
-    const handleResetFilters = () => {
-        setVentureTypeValue('');
-        setVentureNameValue('');
-        setAssetTypeValue('');
-        dispatch(fetchCashFlowFrame());
+  useEffect(() => {
+    handleApplyFilters();
+  }, [ventureTypeValue, ventureNameValue, assetTypeValue]);
 
-        // to close the accordion in responsive mode as the filter is on an accordion
-        if (isResponsive) {
-            handleAccordionCloseInResponsiveMode();
-        }
-    };
+  const handleResetFilters = () => {
+    setVentureTypeValue("");
+    setVentureNameValue("");
+    setAssetTypeValue("");
+    dispatch(fetchCashFlowFrame());
 
-    return (
-        <S.Container>
-            <Label>فیلتر جریان‌ نقدی</Label>
-            <S.SelectContainer>
-                <Label padding="5px 10px">نوع صندوق</Label>
-                <CustomSelectComponent
-                    selectedValue={ventureTypeValue}
-                    handleChange={(e: SelectChangeEvent<string>) => {
-                        setVentureTypeValue(e.target.value as string);
-                        setVentureName(
-                            createDataForVentureNameFilter(data, e.target.value)
-                        );
-                    }}
-                    fullWidth={true}
-                    padding="5px"
-                    placeholder=""
-                    options={ventureType}
-                />
-            </S.SelectContainer>
-            <S.SelectContainer>
-                <Label padding="5px 10px">نام صندوق</Label>
-                <CustomSelectComponent
-                    selectedValue={ventureNameValue}
-                    handleChange={(e: SelectChangeEvent<string>) => {
-                        setVentureNameValue(e.target.value as string);
-                        setAssetType(
-                            createDataForAssetTypeFilter(
-                                data,
-                                ventureTypeValue,
-                                e.target.value
-                            )
-                        );
-                    }}
-                    fullWidth={true}
-                    padding="5px"
-                    placeholder="همه موارد"
-                    options={ventureName}
-                />
-            </S.SelectContainer>
-            <Label padding="5px 10px">تاریخ</Label>
-            <CustomSelectComponent
-                selectedValue={assetTypeValue}
-                handleChange={(e: SelectChangeEvent<string>) =>
-                    setAssetTypeValue(e.target.value as string)
-                }
-                fullWidth={true}
-                padding="5px"
-                placeholder="همه موارد"
-                options={assetType}
-            />
-            <S.ButtonContainer>
-                <div style={{}}>
-                    <ButtonWrapper
-                        borderRadius="5px"
-                        height="30px"
-                        borderColor="#4788fd"
-                        backgroundColor="#4788fd"
-                        variant="outlined"
-                        fullWidth={true}
-                        fontSize="12px"
-                        onClick={handleApplyFilters}
-                    >
-                        <Typography
-                            component="span"
-                            sx={{
-                                color: 'white',
-                                pr: 1,
-                                fontSize: '12px',
-                                fontFamily: 'IRANSans',
-                            }}
-                        >
-                            اعمال فیلتر‌ها
-                        </Typography>
-                    </ButtonWrapper>
-                </div>
-                <div style={{ margin: '1rem 0px ' }}>
-                    <ButtonWrapper
-                        borderRadius="5px"
-                        height="30px"
-                        borderColor="#4788fd"
-                        variant="outlined"
-                        fullWidth={true}
-                        fontSize="12px"
-                        onClick={handleResetFilters}
-                    >
-                        <Typography
-                            component="span"
-                            sx={{
-                                color: '#4788fd',
-                                pr: 1,
-                                fontSize: '12px',
-                                fontFamily: 'IRANSans',
-                            }}
-                        >
-                            بازتعریف
-                        </Typography>
-                    </ButtonWrapper>
-                </div>
-            </S.ButtonContainer>
-        </S.Container>
-    );
+    // to close the accordion in responsive mode as the filter is on an accordion
+    if (isResponsive) {
+      handleAccordionCloseInResponsiveMode();
+    }
+  };
+
+  return (
+    <S.Container>
+      <Label>فیلتر جریان‌ نقدی</Label>
+      <S.SelectContainer>
+        <S.DropdownStyle
+          value={ventureTypeValue}
+          onChange={(e) => {
+            setVentureTypeValue(e.target.value as string);
+            setVentureName(
+              createDataForVentureNameFilter(data, e.target.value)
+            );
+          }}
+          options={ventureType}
+          filter
+          showClear
+          className="w-full"
+          placeholder="نوع صندوق"
+        />
+      </S.SelectContainer>
+      <S.SelectContainer>
+        <S.DropdownStyle
+          value={ventureNameValue}
+          onChange={(e) => {
+            setVentureNameValue(e.target.value as string);
+            setAssetType(
+              createDataForAssetTypeFilter(
+                data,
+                ventureTypeValue,
+                e.target.value
+              )
+            );
+          }}
+          options={ventureName}
+          filter
+          showClear
+          className="w-full"
+          placeholder="نام صندوق"
+        />
+      </S.SelectContainer>
+      <S.SelectContainer>
+        <S.DropdownStyle
+          value={assetTypeValue}
+          onChange={(e) => {
+            setAssetTypeValue(e.target.value as string);
+          }}
+          options={assetType}
+          filter
+          showClear
+          className="w-full"
+          placeholder="تاریخ"
+        />
+      </S.SelectContainer>
+      {/* <S.ButtonContainer>
+        <div style={{}}>
+          <ButtonWrapper
+            borderRadius="5px"
+            height="30px"
+            borderColor="#4788fd"
+            backgroundColor="#4788fd"
+            variant="outlined"
+            fullWidth={true}
+            fontSize="12px"
+            onClick={handleApplyFilters}
+          >
+            <Typography
+              component="span"
+              sx={{
+                color: "white",
+                pr: 1,
+                fontSize: "12px",
+                fontFamily: "IRANSans",
+              }}
+            >
+              اعمال فیلتر‌ها
+            </Typography>
+          </ButtonWrapper>
+        </div>
+        <div style={{ margin: "1rem 0px " }}>
+          <ButtonWrapper
+            borderRadius="5px"
+            height="30px"
+            borderColor="#4788fd"
+            variant="outlined"
+            fullWidth={true}
+            fontSize="12px"
+            onClick={handleResetFilters}
+          >
+            <Typography
+              component="span"
+              sx={{
+                color: "#4788fd",
+                pr: 1,
+                fontSize: "12px",
+                fontFamily: "IRANSans",
+              }}
+            >
+              بازتعریف
+            </Typography>
+          </ButtonWrapper>
+        </div>
+      </S.ButtonContainer> */}
+    </S.Container>
+  );
 };
 
 export default CashflowFilterPannel;
