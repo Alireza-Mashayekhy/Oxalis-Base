@@ -5,8 +5,7 @@ import { Dropdown } from "primereact/dropdown";
 import { primeDropdownStyle } from "@/styles/mixins";
 
 export const Container = styled.div`
-  padding: 10px 5px;
-  // margin-top: 5px;
+  padding: 10px 20px;
   position: relative; /* This allows absolute positioning for its children */
   height: 100%; /* Ensure the component has a defined height */
   overflow: hidden;

@@ -29,7 +29,8 @@ const ShareFilterPannel: SFC<FilterPannelInterface> = ({
   handleAccordionCloseInResponsiveMode,
 }) => {
   const dispatch = useDispatch<AppDispatch>();
-  const data = useSelector(getShareFrame);
+  const data = useSelector(getShareFrame)?.data;
+  const filterList = useSelector(getShareFrame)?.filters;
 
   const shareOptions = createDataForShareFilter(data);
   const [ventureTypeValue, setVentureTypeValue] = useState<string>();
@@ -58,26 +59,19 @@ const ShareFilterPannel: SFC<FilterPannelInterface> = ({
   };
 
   useEffect(() => {
+    if (filterList) {
+      setVentureTypeValue(filterList?.VENTURE_TYPE);
+      setVentureNameValue(filterList?.VENTURE_NAME);
+      setshareValue(filterList?.SYMBOL);
+    }
+  }, [filterList]);
+
+  useEffect(() => {
     handleApplyFilters();
   }, [ventureTypeValue, ventureNameValue, shareValue]);
 
-  const handleResetFilters = () => {
-    setVentureTypeValue("");
-    setVentureNameValue("");
-    setshareValue("");
-    dispatch(fetchShareFrame());
-    setVentureName([]);
-    setVentureType([]);
-
-    // to close the accordion in responsive mode as the filter is on an accordion
-    if (isResponsive) {
-      handleAccordionCloseInResponsiveMode();
-    }
-  };
-
   return (
     <S.Container>
-      <Label>فیلتر سهام</Label>
       <S.SelectContainer>
         <S.DropdownStyle
           value={shareValue}

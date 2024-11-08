@@ -1,4 +1,4 @@
-import { SFC } from "@/types";
+import { AppDispatch, SFC } from "@/types";
 import * as S from "./Styles";
 import { useSelector } from "react-redux";
 import { getShareFrame } from "@/selectors/state";
@@ -14,6 +14,9 @@ import { useEffect, useState } from "react";
 import { TreeNode } from "primereact/treenode";
 import NoDataFoundTemplate from "@/components/NoDataFound";
 import CustomTreeTable from "@/components/TreeTable";
+import { Chip } from "primereact/chip";
+import { fetchShareFrame } from "@/dispatchers/shareFrame";
+import { useDispatch } from "react-redux";
 
 // because I need to return jsx and i needed a .tsx file not .ts
 const numberBodyTemplateForTreeTableWithGreenAndRedColor = (
@@ -93,10 +96,11 @@ interface DdnHistoryNode {
 }
 
 const ShareDataGrid: SFC = () => {
-  const data = useSelector(getShareFrame);
-
+  const data = useSelector(getShareFrame)?.data;
+  const filtersList = useSelector(getShareFrame)?.filters;
   const [searchInput, setSearchInput] = useState("");
   const [nodes, setNodes] = useState<DdnHistoryNode[]>([]);
+  const dispatch = useDispatch<AppDispatch>();
 
   useEffect(() => {
     setNodes(createShareTreeTableData(data));
@@ -119,18 +123,28 @@ const ShareDataGrid: SFC = () => {
     }
   };
 
+  const removeItem = (e) => {
+    const newFilters = { ...filtersList };
+    delete newFilters[e];
+    dispatch(fetchShareFrame(newFilters));
+  };
+
   return (
     <>
       <S.Container>
         <CustomTreeTable columns={treeTableData} data={nodes} />
       </S.Container>
       <S.SearchContainer>
-        <SearchInput
-          placeholder="جستجو نام نماد..."
-          value={searchInput}
-          handleChange={handleChange}
-          handleKeyDown={handleKeyDown}
-        />
+        {filtersList &&
+          Object.keys(filtersList)?.map((e) => {
+            return (
+              <Chip
+                label={filtersList[e]}
+                removable
+                onRemove={() => removeItem(e)}
+              />
+            );
+          })}
       </S.SearchContainer>
     </>
   );
