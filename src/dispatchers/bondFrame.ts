@@ -1,5 +1,5 @@
 import { AppDispatch } from '@/types';
-import { setBondFrame } from '@/redux/store/bondFrame';
+import { setBondFrame, setFilters } from '@/redux/store/bondFrame';
 import * as api from '@/api/bondFrame';
 
 export const fetchBondFrame =
@@ -8,6 +8,7 @@ export const fetchBondFrame =
             const data = await api.getData(filters);
 
             dispatch(setBondFrame(data));
+            dispatch(setFilters(filters));
         } catch (error) {
             console.error(error);
             // Handle error if needed

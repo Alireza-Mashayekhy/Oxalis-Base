@@ -8,6 +8,7 @@ const MainsArea: SFC = ({ className }) => {
         <S.Container className={className}>
             <Routes>
                 <Route path="/home" element={<MainPage />} />
+                <Route path="/" element={<MainPage />} />
             </Routes>
         </S.Container>
     );

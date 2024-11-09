@@ -1,5 +1,5 @@
 import { AppDispatch } from '@/types';
-import { setcashflowFrame } from '@/redux/store/cashflowFrame';
+import { setcashflowFrame, setFilters } from '@/redux/store/cashflowFrame';
 import * as api from '@/api/cashflowFrame';
 
 export const fetchCashFlowFrame =
@@ -7,6 +7,7 @@ export const fetchCashFlowFrame =
         try {
             const data = await api.getData(filters);
             dispatch(setcashflowFrame(data));
+            dispatch(setFilters(filters));
         } catch (error) {
             console.error(error);
             // Handle error if needed

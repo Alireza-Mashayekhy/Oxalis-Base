@@ -151,10 +151,10 @@ a {
 
 .p-dropdown-filter-container svg {
     color: black !important;
-    right: .5rem !important;
+    right: 0.5rem !important;
 }
 
-.p-dropdown-panel{
+.p-dropdown-panel {
     background-color: #ffffff44 !important;
     backdrop-filter: blur(20px);
 }
@@ -163,7 +163,9 @@ a {
     background-color: transparent !important;
 }
 
-.p-dropdown-panel .p-dropdown-items .p-dropdown-item:not(.p-highlight):not(.p-disabled).p-focus {
+.p-dropdown-panel
+    .p-dropdown-items
+    .p-dropdown-item:not(.p-highlight):not(.p-disabled).p-focus {
     color: black !important;
     background-color: #ffffffaa !important;
 }
@@ -172,11 +174,17 @@ a {
     color: black !important;
 }
 
-.p-dropdown-empty-message{
+.p-dropdown-empty-message {
     color: black !important;
 }
 
-.p-chip-remove-icon{
+.p-chip-remove-icon {
     margin-left: 0px !important;
-    margin-right: .5rem !important;
+    margin-right: 0.5rem !important;
+}
+
+.css-16yb58i-MuiButtonBase-root-MuiChip-root .MuiChip-deleteIcon {
+    margin-right: 0px !important;
+    margin-left: 0.5rem !important;
+    color: white !important;
 }
