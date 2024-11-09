@@ -108,6 +108,13 @@ export const FlexContainerFirstRow = styled.div`
         flex-wrap: wrap;
     }
 
+    .css-7iurs7-MuiAccordionSummary-content.Mui-expanded {
+        margin: 10px 0px !important;
+    }
+    .css-jineix-MuiButtonBase-root-MuiAccordionSummary-root.Mui-expanded {
+        min-height: 0px;
+    }
+
     > div:nth-child(1) {
         background-color: #e9ebea50;
         backdrop-filter: blur(10px);
@@ -115,29 +122,24 @@ export const FlexContainerFirstRow = styled.div`
         flex-basis: 100%;
         margin: 0 0.1rem 0 0.1em;
         color: ${({ theme }) => theme.textColor};
-        min-height: 5rem;
         // overflow:auto;
 
         @media (min-width: ${breakpoints.mini}) and (max-width: ${breakpoints.mobile}) {
             flex-basis: calc(50% - 0.2rem);
-            min-height: 10rem;
         }
 
         @media (min-width: ${breakpoints.mobile}) and (max-width: ${breakpoints.tablet}) {
             flex-basis: calc(33% - 0.1rem);
-            min-height: 7rem;
         }
 
         @media (min-width: ${breakpoints.tablet}) {
             flex-basis: calc(25% - 0.2rem);
             // flex-basis: 25%;
             margin-left: 0.3rem;
-            min-height: 10rem;
         }
     }
 
     .other {
-        display: flex;
         width: 100%;
         justify-content: center;
         border-radius: 10px;

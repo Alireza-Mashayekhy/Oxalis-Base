@@ -39,6 +39,7 @@ const PageTemplate: SFC<PageTemplateProps> = ({
         setIsFilterColumnVisible(!isFilterColumnVisible);
     };
     const [expanded, setExpanded] = useState<string | false>('panel0');
+    const [headerExpanded, setHeaderExpanded] = useState('');
 
     const handleChange =
         (panel: string) =>
@@ -60,20 +61,53 @@ const PageTemplate: SFC<PageTemplateProps> = ({
                 InformativeHeader3 ||
                 InformativeHeader4 ? (
                     <S.FlexContainerFirstRow>
-                        <div>
-                            {InformativeHeader1 && <InformativeHeader1 />}
-                        </div>
-                        <div className="other">
-                            <div>
-                                {InformativeHeader2 && <InformativeHeader2 />}
-                            </div>
-                            <div>
-                                {InformativeHeader3 && <InformativeHeader3 />}
-                            </div>
-                            <div>
-                                {InformativeHeader4 && <InformativeHeader4 />}
-                            </div>
-                        </div>
+                        <Accordion
+                            expanded={headerExpanded === `headerPanel`}
+                            onChange={() =>
+                                headerExpanded === `headerPanel`
+                                    ? setHeaderExpanded(``)
+                                    : setHeaderExpanded(`headerPanel`)
+                            }
+                        >
+                            <AccordionSummary>
+                                <S.Title>روند صندوق ها</S.Title>
+                            </AccordionSummary>
+                            <AccordionDetails>
+                                {InformativeHeader1 && <InformativeHeader1 />}
+                            </AccordionDetails>
+                        </Accordion>
+                        <Accordion
+                            expanded={headerExpanded === `headerPanel`}
+                            onChange={() =>
+                                headerExpanded === `headerPanel`
+                                    ? setHeaderExpanded(``)
+                                    : setHeaderExpanded(`headerPanel`)
+                            }
+                            className="other !m-0"
+                        >
+                            <AccordionSummary>
+                                <S.Title>روند صندوق ها</S.Title>
+                            </AccordionSummary>
+                            <AccordionDetails>
+                                <div className="flex">
+                                    <div>
+                                        {InformativeHeader2 && (
+                                            <InformativeHeader2 />
+                                        )}
+                                    </div>
+                                    <div>
+                                        {InformativeHeader3 && (
+                                            <InformativeHeader3 />
+                                        )}
+                                    </div>
+                                    <div>
+                                        {InformativeHeader4 && (
+                                            <InformativeHeader4 />
+                                        )}
+                                    </div>
+                                </div>
+                            </AccordionDetails>
+                        </Accordion>
                     </S.FlexContainerFirstRow>
                 ) : (
                     ''
