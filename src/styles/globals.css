@@ -175,3 +175,8 @@ a {
 .p-dropdown-empty-message{
     color: black !important;
 }
+
+.p-chip-remove-icon{
+    margin-left: 0px !important;
+    margin-right: .5rem !important;
+}

@@ -1,4 +1,4 @@
-import { SFC } from "@/types";
+import { AppDispatch, SFC } from "@/types";
 import * as S from "./Styles";
 import { useSelector } from "react-redux";
 import { getDepositeFrame } from "@/selectors/state";
@@ -10,6 +10,9 @@ import {
 import { useEffect, useState } from "react";
 import { TreeNode } from "primereact/treenode";
 import CustomTreeTable from "@/components/TreeTable";
+import { Chip } from "primereact/chip";
+import { useDispatch } from "react-redux";
+import { fetchDepositeFrame } from "@/dispatchers/depositeFrame";
 
 const treeTableData = [
   {
@@ -56,18 +59,35 @@ interface DdnHistoryNode {
 }
 
 const DepositeDataGrid: SFC = () => {
-  const data = useSelector(getDepositeFrame);
+  const data = useSelector(getDepositeFrame)?.data;
+  const filtersList = useSelector(getDepositeFrame)?.filters;
+  console.log("filtersList", filtersList);
   const [nodes, setNodes] = useState<DdnHistoryNode[]>([]);
+  const dispatch = useDispatch<AppDispatch>();
 
   useEffect(() => {
     setNodes(createDepositeTreeTableDataWithExpansion(data));
   }, [data]);
+
+  const removeItem = (e) => {
+    const newFilters = { ...filtersList };
+    delete newFilters[e];
+    dispatch(fetchDepositeFrame(newFilters));
+  };
 
   return (
     <>
       <S.Container>
         <CustomTreeTable columns={treeTableData} data={nodes} />
       </S.Container>
+      <S.ChipsContainer>
+        {filtersList &&
+          Object.keys(filtersList)?.map((e) => {
+            return (
+              <Chip label={filtersList[e]} onClick={() => removeItem(e)} />
+            );
+          })}
+      </S.ChipsContainer>
     </>
   );
 };

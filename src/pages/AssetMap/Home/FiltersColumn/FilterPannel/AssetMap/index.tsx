@@ -30,7 +30,8 @@ const AssetMapFilterPannel: SFC<FilterPannelInterface> = ({
   handleAccordionCloseInResponsiveMode,
 }) => {
   const dispatch = useDispatch<AppDispatch>();
-  const data = useSelector(getData);
+  const data = useSelector(getData)?.data;
+  const filterList = useSelector(getData)?.filters;
 
   const ventureType = createDataForVentureTypeFilter(data);
   const [ventureTypeValue, setVentureTypeValue] = useState<string>();
@@ -57,12 +58,19 @@ const AssetMapFilterPannel: SFC<FilterPannelInterface> = ({
   };
 
   useEffect(() => {
+    if (filterList) {
+      setVentureTypeValue(filterList?.VENTURE_TYPE);
+      setVentureNameValue(filterList?.VENTURE_NAME);
+      setAssetTypeValue(filterList?.ASSET_TYPE);
+    }
+  }, [filterList]);
+
+  useEffect(() => {
     handleApplyFilters();
   }, [ventureTypeValue, ventureNameValue, assetTypeValue]);
 
   return (
     <S.Container>
-      <Label>فیلترها</Label>
       <S.SelectContainer>
         <S.DropdownStyle
           value={ventureTypeValue}

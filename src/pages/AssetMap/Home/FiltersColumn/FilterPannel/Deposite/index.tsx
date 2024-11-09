@@ -32,7 +32,8 @@ const DepositeFilterPannel: SFC<FilterPannelInterface> = ({
   handleAccordionCloseInResponsiveMode,
 }) => {
   const dispatch = useDispatch<AppDispatch>();
-  const data = useSelector(getDepositeFrame);
+  const data = useSelector(getDepositeFrame)?.data;
+  const filterList = useSelector(getDepositeFrame)?.filters;
 
   const bankNames = createDataForBankNamesFilter(data);
   const [ventureTypeValue, setVentureTypeValue] = useState<string>();
@@ -62,9 +63,16 @@ const DepositeFilterPannel: SFC<FilterPannelInterface> = ({
     handleApplyFilters();
   }, [ventureTypeValue, ventureNameValue, assetTypeValue]);
 
+  useEffect(() => {
+    if (filterList) {
+      setVentureTypeValue(filterList?.VENTURE_TYPE);
+      setVentureNameValue(filterList?.VENTURE_NAME);
+      setAssetTypeValue(filterList?.BANK);
+    }
+  }, [filterList]);
+
   return (
     <S.Container>
-      <Label>فیلتر سپرده</Label>
       <S.SelectContainer>
         <S.DropdownStyle
           value={assetTypeValue}

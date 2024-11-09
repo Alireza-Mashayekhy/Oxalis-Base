@@ -138,11 +138,7 @@ const ShareDataGrid: SFC = () => {
         {filtersList &&
           Object.keys(filtersList)?.map((e) => {
             return (
-              <Chip
-                label={filtersList[e]}
-                removable
-                onRemove={() => removeItem(e)}
-              />
+              <Chip label={filtersList[e]} onClick={() => removeItem(e)} />
             );
           })}
       </S.SearchContainer>

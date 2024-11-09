@@ -1,17 +1,34 @@
-import { createSlice, PayloadAction } from '@reduxjs/toolkit';
-import { Data } from '@/types';
+import { createSlice } from "@reduxjs/toolkit";
+import { Data } from "@/types";
 
-const initialState: Data[] = [];
+interface DataState {
+  data: Data[];
+  filters: string[];
+}
+
+const initialState: DataState = {
+  data: [],
+  filters: [],
+};
 
 const dataSlice = createSlice({
-  name: 'data',
+  name: "data",
   initialState,
   reducers: {
-    setData: (state, action: PayloadAction<Data[]>) => {
-      return action.payload;
+    setData: (state, action) => {
+      return {
+        ...state,
+        data: action.payload,
+      };
+    },
+    setFilters: (state, action) => {
+      return {
+        ...state,
+        filters: action.payload,
+      };
     },
   },
 });
 
-export const { setData } = dataSlice.actions;
+export const { setData, setFilters } = dataSlice.actions;
 export default dataSlice.reducer;
