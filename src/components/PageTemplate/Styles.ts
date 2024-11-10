@@ -1,6 +1,7 @@
 import styled from 'styled-components';
 import { breakpoints, hiddenScroll } from '@/styles';
 import { narrowScroll } from '@/styles/mixins';
+import { AccordionSummary } from '@mui/material';
 
 export const Container = styled.div`
     width: 100%;
@@ -89,6 +90,15 @@ export const FilterColumn = styled.div.withConfig({
         transform: translateX(-100%);
         padding: 3px;
         cursor: pointer;
+    }
+`;
+
+export const AccordionSummaryStyle = styled(AccordionSummary)<{
+    $isActive: boolean;
+}>`
+    span {
+        display: ${({ $isActive }) =>
+            $isActive ? 'none !important' : 'block !important'};
     }
 `;
 

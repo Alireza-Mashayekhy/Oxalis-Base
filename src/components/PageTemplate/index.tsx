@@ -69,9 +69,11 @@ const PageTemplate: SFC<PageTemplateProps> = ({
                                     : setHeaderExpanded(`headerPanel`)
                             }
                         >
-                            <AccordionSummary>
+                            <S.AccordionSummaryStyle
+                                $isActive={headerExpanded === 'headerPanel'}
+                            >
                                 <S.Title>روند صندوق ها</S.Title>
-                            </AccordionSummary>
+                            </S.AccordionSummaryStyle>
                             <AccordionDetails>
                                 {InformativeHeader1 && <InformativeHeader1 />}
                             </AccordionDetails>
@@ -85,9 +87,11 @@ const PageTemplate: SFC<PageTemplateProps> = ({
                             }
                             className="other !m-0"
                         >
-                            <AccordionSummary>
+                            <S.AccordionSummaryStyle
+                                $isActive={headerExpanded === 'headerPanel'}
+                            >
                                 <S.Title>روند صندوق ها</S.Title>
-                            </AccordionSummary>
+                            </S.AccordionSummaryStyle>
                             <AccordionDetails>
                                 <div className="flex">
                                     <div>
