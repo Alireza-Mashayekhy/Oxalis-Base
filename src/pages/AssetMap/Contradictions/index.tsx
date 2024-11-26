@@ -1,10 +1,15 @@
 import { SFC } from '@/types';
-import TopBar from './TopBar';
 import MainContent from './MainContent';
 import PageTemplate from '@/components/PageTemplate';
 
 const Contradiction: SFC = () => {
-    return <PageTemplate TopBar={TopBar} MainContent={MainContent} />;
+    const Contents = [
+        {
+            Title: '1',
+            Content: <MainContent />,
+        },
+    ];
+    return <PageTemplate MainContent={Contents} />;
 };
 
 export default Contradiction;
