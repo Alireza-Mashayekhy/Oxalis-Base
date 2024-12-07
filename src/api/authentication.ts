@@ -1,12 +1,12 @@
 import { getRefreshToken } from '@/utils/authentication';
 import axios from 'axios';
 
-const BASE_URL = `${import.meta.env.VITE_APP_API_URL}`;
+const BASE_URL = `${import.meta.env.VITE_APP_API_URL_SECOND}/api`;
 
 export const login = async (data) => {
     try {
-        // const response = await axios.post(`${BASE_URL}/auth/token/`, data);
-        const response = await axios.post(`${BASE_URL}/api/login`, data);
+        const response = await axios.post(`${BASE_URL}/auth/token/`, data);
+        // const response = await axios.post(`${BASE_URL}/api/login`, data);
         return response.data;
     } catch (error) {
         console.error(error);
