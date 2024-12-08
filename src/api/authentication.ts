@@ -26,3 +26,23 @@ export const logout = async () => {
         throw error;
     }
 };
+
+export const sendOtp = async (data) => {
+    try {
+        const response = await axios.post(`${BASE_URL}/auth/entry/`, data);
+        return response.data;
+    } catch (error) {
+        console.error(error);
+        throw error;
+    }
+};
+
+export const submitOtp = async (data) => {
+    try {
+        const response = await axios.post(`${BASE_URL}/auth/verify-otp/`, data);
+        return response.data;
+    } catch (error) {
+        console.error(error);
+        throw error;
+    }
+};
