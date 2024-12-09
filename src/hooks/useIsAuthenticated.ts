@@ -2,7 +2,6 @@ import { useState, useEffect } from 'react';
 
 const useIsAuthenticated = (): boolean => {
     const [isAuthenticated, setIsAuthenticated] = useState<boolean>(() => {
-        // Initial check for token in localStorage or sessionStorage
         const token =
             localStorage.getItem('accessToken') ||
             sessionStorage.getItem('accessToken');
@@ -17,12 +16,19 @@ const useIsAuthenticated = (): boolean => {
             setIsAuthenticated(!!token);
         };
 
-        // Listen to storage events
         window.addEventListener('storage', handleStorageChange);
 
-        // Cleanup the event listener on unmount
+        // همچنین تغییرات در همان تب را گوش دهید
+        const intervalId = setInterval(() => {
+            const token =
+                localStorage.getItem('accessToken') ||
+                sessionStorage.getItem('accessToken');
+            setIsAuthenticated(!!token);
+        }, 500);
+
         return () => {
             window.removeEventListener('storage', handleStorageChange);
+            clearInterval(intervalId);
         };
     }, []);
 
