@@ -1,12 +1,14 @@
-import { SFC } from '@/types';
-import * as S from './Styles';
-import { companyNames, yearsValue } from './constantValue';
-import CustomSelectComponent from '@/components/Select';
-import { useState } from 'react';
 import { SelectChangeEvent } from '@mui/material';
-import Toggler from '@/components/Toggler';
+import { useState } from 'react';
+
 import defaultAvatar from '@/assets/default-avatar.png';
+import CustomSelectComponent from '@/components/Select';
+import Toggler from '@/components/Toggler';
 import { colors } from '@/styles';
+import { SFC } from '@/types';
+
+import { companyNames, yearsValue } from './constantValue';
+import * as S from './Styles';
 
 const RightSide: SFC<{
     isSecondColumnVisible: boolean;

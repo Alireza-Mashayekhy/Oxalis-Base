@@ -1,6 +1,8 @@
+import { InputAdornment } from "@mui/material";
+
 import { fonts } from "@/styles";
 import { SFC } from "@/types";
-import { InputAdornment } from "@mui/material";
+
 import * as S from "./Styles";
 
 interface TextFieldProps {

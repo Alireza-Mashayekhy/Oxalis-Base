@@ -1,8 +1,10 @@
-import { SalesData } from '@/types/new_data';
 import './Style.css';
+
 import { useSelector } from 'react-redux';
-import { getSalesData } from '@/selectors/state';
+
 import BubbleChart from '@/components/BubbleChart';
+import { getSalesData } from '@/selectors/state';
+import { SalesData } from '@/types/new_data';
 
 const ApexChart: React.FC = () => {
     const data: SalesData[] = useSelector(getSalesData);

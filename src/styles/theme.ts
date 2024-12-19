@@ -23,4 +23,4 @@ const lightTheme = {
     border: '#7F8C8D',
     hoverText: '#455a64',
 };
-export { lightTheme, darkTheme };
+export { darkTheme,lightTheme };

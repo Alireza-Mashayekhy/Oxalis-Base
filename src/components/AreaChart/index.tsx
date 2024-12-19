@@ -1,5 +1,7 @@
-import { getTheme } from '@/redux/selectors';
 import { useSelector } from 'react-redux';
+
+import { getTheme } from '@/redux/selectors';
+
 import * as S from './Style';
 
 interface Dataset {
@@ -25,7 +27,7 @@ const AreaChart: React.FC<AreaChartProps> = ({
 
     const chartOptions = {
         chart: {
-            type: 'area' as 'area',
+            type: 'area' as const,
             background: 'transparent',
             toolbar: {
                 show: withoutItems ? false : true,
@@ -83,7 +85,7 @@ const AreaChart: React.FC<AreaChartProps> = ({
         },
         tooltip: {
             enabled: withoutItems ? false : true,
-            theme: theme,
+            theme,
             style: {
                 fontSize: '14px',
                 fontFamily: 'IranSans',
@@ -94,7 +96,7 @@ const AreaChart: React.FC<AreaChartProps> = ({
             },
         },
         stroke: {
-            curve: 'smooth' as 'smooth',
+            curve: 'smooth' as const,
         },
         fill: {
             type: 'gradient',

@@ -1,14 +1,15 @@
-import { SFC } from '@/types';
-import * as S from './Styles';
-import defaultAvatar from '@/assets/default-avatar-square.png';
+import { FileUpload } from 'primereact/fileupload'; // Import FileUpload type
 import { useEffect, useRef, useState } from 'react';
-import { updateProfile } from '@/api/customerData';
+import { useDispatch } from 'react-redux';
 import { useNavigate } from 'react-router-dom';
 import { toast } from 'react-toastify';
-import { FileUpload } from 'primereact/fileupload'; // Import FileUpload type
+
+import { updateProfile } from '@/api/customerData';
+import defaultAvatar from '@/assets/default-avatar-square.png';
+import { SFC } from '@/types';
 import { getUserData } from '@/utils/authentication';
-import { updateUserData } from '@/dispatchers/authentication';
-import { useDispatch } from 'react-redux';
+
+import * as S from './Styles';
 // import { setUserData } from '@/redux/store/authentication.ts';
 
 export interface SettingModalProps {
@@ -106,12 +107,12 @@ const SettingModal: SFC<SettingModalProps> = ({ visible, setVisibleProp }) => {
                 label="انصراف"
                 onClick={() => setVisibleProp(false)}
                 autoFocus
-            ></S.FooterButton>
+             />
             <S.FooterButton
                 label="ذخیره"
                 onClick={() => save()}
                 autoFocus
-            ></S.FooterButton>
+             />
         </S.FooterContainer>
     );
 

@@ -1,13 +1,11 @@
-import { getTabIndex } from '@/selectors/state';
-import { SFC } from '@/types';
 import { useSelector } from 'react-redux';
-import ShareFilterPannel from './Share';
+
+import { getAccordionTitle } from '@/selectors/state';
+
 import AssetMapFilterPannel from './AssetMap';
 import BondFilterPannel from './Bond';
 import CashflowFilterPannel from './Cashflow';
-import { getAccordionTitle } from '@/selectors/state';
 
-import { useEffect } from 'react';
 
 const FilterPannel: React.FC = () => {
     const accorionState = useSelector(getAccordionTitle);

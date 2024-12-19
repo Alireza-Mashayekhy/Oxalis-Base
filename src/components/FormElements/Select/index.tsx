@@ -1,3 +1,4 @@
+import { Field, FieldInputProps } from 'formik';
 import {
     ChangeEvent,
     FocusEvent,
@@ -5,10 +6,10 @@ import {
     ReactNode,
     useCallback,
 } from 'react';
-import { Field, FieldInputProps } from 'formik';
+
+import { SelectOption } from '@/types/generic';
 
 import * as S from './Styles';
-import { SelectOption } from '@/types/generic';
 
 export interface SelectProps {
     className?: string;

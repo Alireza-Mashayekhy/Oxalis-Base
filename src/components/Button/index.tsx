@@ -2,6 +2,7 @@ import { useMemo } from 'react';
 
 import Loader from '@/components/Loader';
 import { SFC } from '@/types';
+
 import * as S from './Styles';
 import { ButtonColor, ButtonType } from './types';
 

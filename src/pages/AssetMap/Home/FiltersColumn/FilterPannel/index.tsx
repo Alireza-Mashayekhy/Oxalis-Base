@@ -1,11 +1,13 @@
+import { useSelector } from "react-redux";
+
 import { getTabIndex } from "@/selectors/state";
 import { SFC } from "@/types";
-import { useSelector } from "react-redux";
-import ShareFilterPannel from "./Share";
+
 import AssetMapFilterPannel from "./AssetMap";
 import BondFilterPannel from "./Bond";
-import DepositeFilterPannel from "./Deposite";
 import CashflowFilterPannel from "./Cashflow";
+import DepositeFilterPannel from "./Deposite";
+import ShareFilterPannel from "./Share";
 
 const FilterPannel: SFC = () => {
   const activeIndex = useSelector(getTabIndex);

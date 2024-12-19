@@ -1,11 +1,13 @@
-import { SFC } from "@/types";
 import { useEffect, useState } from "react";
-import * as S from "./Styles";
+
 import BondPaperTypesButtons from "@/components/BondPaperTypesButtons";
-import InputOptions from "./InputOptions";
-import OptionsTable from "./Table";
-import OptionsDialog from "./Dialog";
 import DialogWrapper from "@/components/DialogModalWrapper";
+import { SFC } from "@/types";
+
+import OptionsDialog from "./Dialog";
+import InputOptions from "./InputOptions";
+import * as S from "./Styles";
+import OptionsTable from "./Table";
 
 const btnLabels = [
   { label: "Conversion", index: 0, action: "" },

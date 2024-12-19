@@ -1,10 +1,11 @@
+import DoneAllOutlined from "@mui/icons-material/DoneAllOutlined";
+import { useState } from "react";
+
 import DialogWrapper from "@/components/DialogModalWrapper";
 import { SFC } from "@/types";
-import DoneAllOutlined from "@mui/icons-material/DoneAllOutlined";
 
-import { useState } from "react";
-import * as S from "./Styles";
 import HorizontalStepper from "./Dialog";
+import * as S from "./Styles";
 
 interface PerfectMatch {
   open: boolean;

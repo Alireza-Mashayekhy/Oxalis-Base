@@ -1,12 +1,13 @@
-import { SFC } from "@/types";
-import * as S from "./Styles";
+import { SyntheticEvent, useState } from "react";
+import { v4 as uuidv4 } from "uuid";
+
 import TabWrapper from "@/components/Tab";
 import TabPanel from "@/components/TabPanel";
-import { SyntheticEvent, useState } from "react";
+import { SFC } from "@/types";
 
 import BankAccount from "./BankAccount/index";
-import { v4 as uuidv4 } from "uuid";
 import BondsData from "./BondsData";
+import * as S from "./Styles";
 
 const MainContent: SFC = () => {
   const [value, setValue] = useState(0);

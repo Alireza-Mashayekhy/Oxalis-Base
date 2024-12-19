@@ -1,13 +1,13 @@
-import { AppDispatch, Stock } from '@/types';
+import { toast } from 'react-toastify';
 
 import * as api from '@/api/stock';
-import { toast } from 'react-toastify';
 import {
     setStockData,
     stockFailure,
     stockRequest,
     stockSuccess,
 } from '@/redux/store/stockData';
+import { AppDispatch, Stock } from '@/types';
 
 export const fetchStockData = () => async (dispatch: AppDispatch) => {
     dispatch(stockRequest());

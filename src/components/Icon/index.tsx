@@ -1,5 +1,5 @@
-import { forwardRef, HTMLAttributes } from 'react';
 import MdiIcon from '@mdi/react';
+import { forwardRef, HTMLAttributes } from 'react';
 
 import * as S from './Styles';
 

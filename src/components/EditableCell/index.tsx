@@ -1,9 +1,11 @@
-import { SFC } from "@/types";
-import * as S from "./Styles";
-import { useState } from "react";
-import { InputNumberChangeEvent } from "primereact/inputnumber";
 import { ColumnEditorOptions } from "primereact/column";
+import { InputNumberChangeEvent } from "primereact/inputnumber";
 import { TreeNode } from "primereact/treenode";
+import { useState } from "react";
+
+import { SFC } from "@/types";
+
+import * as S from "./Styles";
 
 interface EditableCellProps {
   options: ColumnEditorOptions;

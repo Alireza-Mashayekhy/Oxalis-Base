@@ -1,15 +1,17 @@
-import { SFC } from '@/types';
-import * as S from './Styles';
-import SearchIcon from '@mui/icons-material/Search';
 import BugReportIcon from '@mui/icons-material/BugReport';
-import NotificationsIcon from '@mui/icons-material/Notifications';
+import DarkModeOutlinedIcon from '@mui/icons-material/DarkModeOutlined';
 import HelpIcon from '@mui/icons-material/Help';
 import LightModeIcon from '@mui/icons-material/LightMode';
-import DarkModeOutlinedIcon from '@mui/icons-material/DarkModeOutlined';
-import FocusableIcon from '../../FocusableIcon';
+import NotificationsIcon from '@mui/icons-material/Notifications';
+import SearchIcon from '@mui/icons-material/Search';
 import { useDispatch, useSelector } from 'react-redux';
+
 import { setTheme } from '@/redux/store/theme';
 import { getTheme } from '@/selectors/state';
+import { SFC } from '@/types';
+
+import FocusableIcon from '../../FocusableIcon';
+import * as S from './Styles';
 
 const iconList = [
     { name: 'BugReportIcon', icon: BugReportIcon },

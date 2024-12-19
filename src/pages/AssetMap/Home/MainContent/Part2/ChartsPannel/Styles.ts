@@ -1,6 +1,7 @@
-import styled from "styled-components";
-import { breakpoints, colors } from "@/styles";
 import { Tab, Tabs } from "@mui/material";
+import styled from "styled-components";
+
+import { breakpoints, colors } from "@/styles";
 
 export const H4 = styled.h4`
   text-align: center;

@@ -1,27 +1,27 @@
-import { AppDispatch } from '@/types';
-import { setHrData } from '@/redux/store/chartsData';
 import {
-    getHRData,
-    getHR3monthsData,
-    getFinanceData,
     getFinance3monthsData,
-    getSalesData,
-    getSales3monthsData,
-    getManData,
+    getFinanceData,
+    getHR3monthsData,
+    getHRData,
     getMan3monthsData,
+    getManData,
+    getSales3monthsData,
+    getSalesData,
 } from '@/api/new_data';
-import {
-    HRData,
-    FinancialData,
-    SalesData,
-    ManufacturingData,
-} from '@/types/new_data';
-import { setFinanceData } from '@/redux/store/financeData';
+import { setHrData } from '@/redux/store/chartsData';
 import { setFilteredData } from '@/redux/store/FilterData';
-import { setSalesFilteredData } from '@/redux/store/salesFilter';
-import { setSalesData } from '@/redux/store/salesData';
+import { setFinanceData } from '@/redux/store/financeData';
 import { setManData } from '@/redux/store/manufacturingData';
 import { setmanufacturingFilterData } from '@/redux/store/ManufacturingFilter';
+import { setSalesData } from '@/redux/store/salesData';
+import { setSalesFilteredData } from '@/redux/store/salesFilter';
+import { AppDispatch } from '@/types';
+import {
+    FinancialData,
+    HRData,
+    ManufacturingData,
+    SalesData,
+} from '@/types/new_data';
 export const fetchHrData = () => async (dispatch: AppDispatch) => {
     try {
         const hrData: HRData[] = await getHRData();

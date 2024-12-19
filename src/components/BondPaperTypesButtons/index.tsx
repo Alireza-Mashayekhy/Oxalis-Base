@@ -1,6 +1,8 @@
-import { SFC } from "@/types";
-import * as S from "./Styles";
 import { v4 as uuidv4 } from "uuid";
+
+import { SFC } from "@/types";
+
+import * as S from "./Styles";
 
 interface StockTypeBtn {
   selectedButtons: boolean[];

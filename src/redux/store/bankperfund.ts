@@ -1,4 +1,5 @@
 import { createSlice, PayloadAction } from '@reduxjs/toolkit';
+
 import { BankPerFund } from '@/types';
 
 const initialState: BankPerFund[] = [];

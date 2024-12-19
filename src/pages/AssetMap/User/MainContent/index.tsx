@@ -1,9 +1,11 @@
-import { AppDispatch, RootState, SFC } from '@/types';
-import UserTable from './UserTable';
-import { useDispatch, useSelector } from 'react-redux';
 import { useEffect } from 'react';
-import { getUserList } from '@/selectors/state'; // Import your getUsers selector
+import { useDispatch, useSelector } from 'react-redux';
+
 import { deleteUser, getAllUsers } from '@/dispatchers/user'; // Import your user dispatcher functions
+import { getUserList } from '@/selectors/state'; // Import your getUsers selector
+import { AppDispatch, RootState, SFC } from '@/types';
+
+import UserTable from './UserTable';
 
 const MainContent: SFC = () => {
     const dispatch = useDispatch<AppDispatch>();

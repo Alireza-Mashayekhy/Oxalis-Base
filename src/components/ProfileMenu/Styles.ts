@@ -1,7 +1,7 @@
-import styled from 'styled-components';
+import UIcon from '@mdi/react';
 import { Button } from 'primereact/button';
 import { Menu } from 'primereact/menu';
-import UIcon from '@mdi/react';
+import styled from 'styled-components';
 
 export const Container = styled.div`
     display: flex;

@@ -1,9 +1,10 @@
 import { SFC } from "@/types";
-import * as S from "./Styles";
+
 import SpecificationOfTheBonds from "./SpecificationOfTheBonds";
-import YTMHistory from "./YTMHistory";
+import * as S from "./Styles";
 import TradingHistory from "./TradingHistory";
 import TrandingInformation from "./TradingInformation";
+import YTMHistory from "./YTMHistory";
 
 interface FixedIncomeFundMarket {
   selectedRow: any;

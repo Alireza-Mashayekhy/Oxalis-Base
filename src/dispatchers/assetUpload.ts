@@ -1,14 +1,15 @@
+import { toast } from 'react-toastify';
+
 import { uploadFiles as _uploadFiles } from '@/api/assetUpload';
 import { getHistory as _getHistory } from '@/api/assetUpload';
-import { AppDispatch } from '@/types';
 import {
-    uploadFileRequest,
-    uploadFileSuccess,
-    uploadFileFailure,
     setFileUploadTpe,
     setHistory,
+    uploadFileFailure,
+    uploadFileRequest,
+    uploadFileSuccess,
 } from '@/redux/store/assetUpload';
-import { toast } from 'react-toastify';
+import { AppDispatch } from '@/types';
 
 export const uploadFiles =
     (files: FileList) => async (dispatch: AppDispatch) => {

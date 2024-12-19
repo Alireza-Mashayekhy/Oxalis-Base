@@ -1,5 +1,6 @@
-import styled from "styled-components";
 import { InputTextarea } from "primereact/inputtextarea";
+import styled from "styled-components";
+
 import { fonts } from "@/styles";
 
 

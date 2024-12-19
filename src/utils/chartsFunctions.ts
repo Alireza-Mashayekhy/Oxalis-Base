@@ -1,9 +1,9 @@
-import { AllAssets, BankPerFund, Data } from "@/types";
+import { AllAssets, BankPerFund, Data } from '@/types';
 
 export const dailyValueBaseOnVentureType = (data: Data[]) => {
   const formattedData = data.reduce((accumulator, current) => {
-    const fundName = current["VENTURE_TYPE"];
-    const assetValue = current["DAY_VALUE"];
+    const fundName = current['VENTURE_TYPE'];
+    const assetValue = current['DAY_VALUE'];
     let fund = accumulator.find((item) => item.name === fundName);
     if (!fund) {
       fund = { name: fundName, value: 0 };
@@ -17,8 +17,8 @@ export const dailyValueBaseOnVentureType = (data: Data[]) => {
 
 const dailyValueBaseOnNameOfFund = (data) => {
   const formattedData = data.reduce((accumulator, current) => {
-    const fundName = current["نام صندوق"];
-    const assetValue = current["ارزش روز\r\n(ریال)"];
+    const fundName = current['نام صندوق'];
+    const assetValue = current['ارزش روز\r\n(ریال)'];
 
     // پیدا کردن شیء در accumulator با نام صندوق موجود
     let fund = accumulator.find((item) => item.name === fundName);
@@ -37,7 +37,7 @@ const dailyValueBaseOnNameOfFund = (data) => {
   return formattedData;
 };
 export const filterBaseOnVentureName = (data: Data[], fundName: string) => {
-  const filteredData = data.filter((data) => data["VENTURE_TYPE"] === fundName);
+  const filteredData = data.filter((data) => data['VENTURE_TYPE'] === fundName);
 
   const prepareDataForChart = dailyValueBaseOnVentureName(filteredData);
 
@@ -45,8 +45,8 @@ export const filterBaseOnVentureName = (data: Data[], fundName: string) => {
 };
 const dailyValueBaseOnVentureName = (data: Data[]) => {
   const formattedData = data.reduce((accumulator, current) => {
-    const fundName = current["VENTURE_NAME"];
-    const assetValue = current["DAY_VALUE"];
+    const fundName = current['VENTURE_NAME'];
+    const assetValue = current['DAY_VALUE'];
 
     let fund = accumulator.find((item) => item.name === fundName);
     if (!fund) {
@@ -63,7 +63,7 @@ const sortAndColored = (data) => {
   const range1 = { min: 0, max: 1000000000000 }; // Values under 1 million
   const range2 = { min: 1000000000000, max: 25000000000000 }; // Values between 1 to 4 million
   const range3 = { min: 25000000000000, max: Infinity }; // Values bigger than 3 million
-  const colors = ["#4dbaa3", "#ee930e", "#f55074"];
+  const colors = ['#4dbaa3', '#ee930e', '#f55074'];
   const getRangeIndex = (value) => {
     if (value >= range1.min && value <= range1.max) return 0;
     if (value >= range2.min && value <= range2.max) return 1;
@@ -78,25 +78,21 @@ const sortAndColored = (data) => {
 };
 
 const filterBaseOnFundType = (data, filterItems) => {
-  const filteredData = data.filter((data) =>
-    filterItems.includes(data["نوع صندوق"])
-  );
+  const filteredData = data.filter((data) => filterItems.includes(data['نوع صندوق']));
   const result = dailyValueBaseOnNameOfFund(filteredData);
 
   return result;
 };
 
 const filterBaseOnTypefAssets = (data, filterItems) => {
-  const filteredData = data.filter(
-    (data) => data["نوع دارایی"] === filterItems
-  );
+  const filteredData = data.filter((data) => data['نوع دارایی'] === filterItems);
 
   const result = dailyValueBaseOnNameOfFund(filteredData);
 
   return result;
 };
 const filterBaseOnFundName = (data, fundName) => {
-  const filteredData = data.filter((data) => data["نام صندوق"] === fundName);
+  const filteredData = data.filter((data) => data['نام صندوق'] === fundName);
   //  without normalization
   // const result = dailyValueBaseOnBankDeposite(filteredData);
   // return result;
@@ -107,9 +103,7 @@ const filterBaseOnFundName = (data, fundName) => {
   return result;
 };
 const filterBaseOnBankDeposite = (data) => {
-  const filteredData = data.filter(
-    (data) => data["نوع دارایی"] === "سپرده بانکی"
-  );
+  const filteredData = data.filter((data) => data['نوع دارایی'] === 'سپرده بانکی');
 
   const prepareDataForChart = dailyValueBaseOnBankDeposite(filteredData);
   const result = makeNormalizedData(prepareDataForChart);
@@ -119,8 +113,8 @@ const filterBaseOnBankDeposite = (data) => {
 
 const dailyValueBaseOnBankDeposite = (data) => {
   const formattedData = data.reduce((accumulator, current) => {
-    const fundName = current["نام صندوق"];
-    const assetValue = current["ارزش روز\r\n(ریال)"];
+    const fundName = current['نام صندوق'];
+    const assetValue = current['ارزش روز\r\n(ریال)'];
 
     // پیدا کردن شیء در accumulator با نام صندوق موجود
     let fund = accumulator.find((item) => item.name === fundName);
@@ -130,13 +124,13 @@ const dailyValueBaseOnBankDeposite = (data) => {
       fund = { name: fundName, shortTerm: 0, longTerm: 0, checking: 0 };
       accumulator.push(fund);
     }
-    if (current["نوع حساب/ طرف قرارداد"] === "کوتاه مدت") {
+    if (current['نوع حساب/ طرف قرارداد'] === 'کوتاه مدت') {
       fund.shortTerm += assetValue;
     }
-    if (current["نوع حساب/ طرف قرارداد"] === "بلند مدت") {
+    if (current['نوع حساب/ طرف قرارداد'] === 'بلند مدت') {
       fund.longTerm += assetValue;
     }
-    if (current["نوع حساب/ طرف قرارداد"] === "جاری") {
+    if (current['نوع حساب/ طرف قرارداد'] === 'جاری') {
       fund.checking += assetValue;
     }
     return accumulator;
@@ -156,32 +150,32 @@ const makeNormalizedData = (data) => {
       ...item,
       shortTermN: Number(((item.shortTerm / total) * 100).toFixed(4)),
       longTermN: Number(((item.longTerm / total) * 100).toFixed(4)),
-      checkingN: Number(((item.checking / total) * 100).toFixed(4)),
+      checkingN: Number(((item.checking / total) * 100).toFixed(4))
       // tooltipValue: { sh, lh, ch },
     };
   });
   return normalizedData;
 };
 const colors = [
-  "#8301b9",
-  "#7438cb",
-  "#6453df",
-  "#5069e7",
-  "#387df6",
-  "#238dfb",
-  "#1f9dff",
-  "#0FA3FF",
-  "#0C8EFF",
-  "#0A74FF",
-  "#8A2BE2",
-  "#9370DB",
-  "#7B68EE",
-  "#6A5ACD",
-  "#5A9BD5",
-  "#4B8CD5",
-  "#3C7DD5",
-  "#2D6ED5",
-  "#1E5FD5",
+  '#8301b9',
+  '#7438cb',
+  '#6453df',
+  '#5069e7',
+  '#387df6',
+  '#238dfb',
+  '#1f9dff',
+  '#0FA3FF',
+  '#0C8EFF',
+  '#0A74FF',
+  '#8A2BE2',
+  '#9370DB',
+  '#7B68EE',
+  '#6A5ACD',
+  '#5A9BD5',
+  '#4B8CD5',
+  '#3C7DD5',
+  '#2D6ED5',
+  '#1E5FD5'
 ];
 const filterBasedOnVentureNameAndConvertingStringValueToNumber = (
   data: AllAssets[] | BankPerFund[],
@@ -192,12 +186,12 @@ const filterBasedOnVentureNameAndConvertingStringValueToNumber = (
     .map((item: AllAssets | BankPerFund) => ({
       ...item,
       value: parseFloat(item.value),
-      allowable: parseFloat(item.allowable),
+      allowable: parseFloat(item.allowable)
     }))
     .sort((a, b) => a.value - b.value)
     .map((item, index) => ({
       ...item,
-      color: colors[index],
+      color: colors[index]
     }));
   return result;
 };
@@ -210,22 +204,21 @@ const filterBasedOnVentureNameAndConvertingStringValueToNumberWithoutSorting = (
     .map((item: AllAssets | BankPerFund) => ({
       ...item,
       value: parseFloat(item.value),
-      allowable: parseFloat(item.allowable),
+      allowable: parseFloat(item.allowable)
     }))
     .map((item, index) => ({
       ...item,
-      color: colors[index],
+      color: colors[index]
     }));
   return result;
 };
 
 export {
   dailyValueBaseOnNameOfFund,
-  filterBaseOnFundType,
-  filterBaseOnTypefAssets,
-  filterBaseOnFundName,
-  filterBaseOnBankDeposite,
-  sortAndColored,
   filterBasedOnVentureNameAndConvertingStringValueToNumber,
   filterBasedOnVentureNameAndConvertingStringValueToNumberWithoutSorting,
-};
+  filterBaseOnBankDeposite,
+  filterBaseOnFundName,
+  filterBaseOnFundType,
+  filterBaseOnTypefAssets,
+  sortAndColored};

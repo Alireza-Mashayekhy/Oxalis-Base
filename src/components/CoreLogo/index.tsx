@@ -1,5 +1,6 @@
 import Coin from '@/assets/core.svg';
 import {SFC} from '@/types';
+
 import * as S from './Styles';
 
 export interface CoreLogoProps {

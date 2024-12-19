@@ -1,7 +1,8 @@
-import { breakpoints, fonts } from "@/styles";
-import { muiButtonStyle } from "@/styles/mixins";
 import { Button } from "@mui/material";
 import styled from "styled-components";
+
+import { breakpoints, fonts } from "@/styles";
+import { muiButtonStyle } from "@/styles/mixins";
 
 export const StyedButton = styled(Button)`
   ${muiButtonStyle};

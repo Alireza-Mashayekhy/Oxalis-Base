@@ -1,8 +1,10 @@
-import { SFC } from '@/types';
-import * as S from './Styles';
 import { mdiCog } from '@mdi/js';
 import { useState } from 'react';
+
+import { SFC } from '@/types';
+
 import SettingModal from './SettingModal';
+import * as S from './Styles';
 
 const ProfileMenu: SFC = () => {
     const [settingModalVisible, setSettingModalVisible] = useState(false);

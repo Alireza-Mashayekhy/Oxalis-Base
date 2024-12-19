@@ -1,16 +1,18 @@
+import { mdiCheck, mdiClose } from '@mdi/js';
+import { Column } from 'primereact/column';
+import { TreeNode } from 'primereact/treenode';
 import { useEffect, useRef } from 'react';
-import { AppDispatch, SFC } from '@/types';
-import * as S from './Styles';
 import { useState } from 'react';
 import { useDispatch, useSelector } from 'react-redux';
+
+import PageTemplate from '@/components/PageTemplate';
 import { uploadFiles } from '@/dispatchers/assetUpload';
 import { useFileUpload } from '@/hooks';
-import { colors } from '@/styles';
 import { getHistory, getTheme } from '@/selectors/state';
-import { TreeNode } from 'primereact/treenode';
-import { Column } from 'primereact/column';
-import { mdiCheck, mdiClose, mdiCloseCircle } from '@mdi/js';
-import PageTemplate from '@/components/PageTemplate';
+import { colors } from '@/styles';
+import { AppDispatch } from '@/types';
+
+import * as S from './Styles';
 
 const UploadMain = () => {
     const theme = useSelector(getTheme);
@@ -129,7 +131,7 @@ const UploadMain = () => {
 
                 {error && <S.Span>Error: {error}</S.Span>}
             </S.UploadContainer>
-            <S.TextContainer></S.TextContainer>
+            <S.TextContainer />
             {nodes.length > 0 ? (
                 <S.TableContainer>
                     <S.StyledTreeTable
@@ -145,7 +147,7 @@ const UploadMain = () => {
                             header="تاریخ"
                             expander
                             style={{ textAlign: 'center', width: '200px' }}
-                        ></Column>
+                         />
                         {tableColumns.map((col, index) => (
                             <Column
                                 key={index}

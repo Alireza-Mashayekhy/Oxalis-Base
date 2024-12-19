@@ -1,21 +1,15 @@
-import { useEffect, useState } from 'react';
-import { SFC, UserReadSerializer, RootState } from '@/types';
-import * as S from './Styles';
-import EditIcon from '@mui/icons-material/Edit';
-import DeleteIcon from '@mui/icons-material/Delete';
 import BeenhereIcon from '@mui/icons-material/Beenhere';
-import { jsonUsers } from '../../users';
-import Menu from '@mui/material/Menu';
-import MenuItem from '@mui/material/MenuItem';
-import Table from '@/components/DataTable';
-import { Select } from '@/components/FormElements';
-import { colors } from '@/styles';
-import { DataTable } from 'primereact/datatable';
-import { useSelector, useDispatch } from 'react-redux';
-import { Dropdown } from 'primereact/dropdown';
-import { getUserList } from '@/selectors/state';
+import DeleteIcon from '@mui/icons-material/Delete';
+import EditIcon from '@mui/icons-material/Edit';
 import { Column } from 'primereact/column';
+import { useState } from 'react';
+
 import CustomSelectComponent from '@/components/Select';
+import { colors } from '@/styles';
+import {SFC, UserReadSerializer } from '@/types';
+
+import { jsonUsers } from '../../users';
+import * as S from './Styles';
 // import "./userDataTable.css";
 
 interface UserTableProps {

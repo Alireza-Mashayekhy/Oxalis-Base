@@ -1,11 +1,13 @@
-import { SalesData } from '@/types/new_data';
-import { useSelector } from 'react-redux';
-import { getSalesData, getSalesFilterData } from '@/selectors/state';
-import { darkTheme, lightTheme } from '@/styles/theme';
-import { getTheme } from '@/selectors/state';
 import '../style.css';
-import { RootState } from '@/types';
+
+import { useSelector } from 'react-redux';
+
 import PieChart from '@/components/PieChart';
+import { getSalesData, getSalesFilterData } from '@/selectors/state';
+import { getTheme } from '@/selectors/state';
+import { darkTheme, lightTheme } from '@/styles/theme';
+import { RootState } from '@/types';
+import { SalesData } from '@/types/new_data';
 const PRODUCT_COLORS = {
     محصول_1: '#00c49f',
     محصول_2: '#f44f73',

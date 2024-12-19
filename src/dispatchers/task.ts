@@ -1,17 +1,18 @@
 import { Dispatch } from 'redux';
+
 import {
     createTask as apiCreateTask,
     deleteTask as apiDeleteTask,
     getAllTasks as apiGetAllTasks,
     updateTaskStatus as apiUpdateTaskStatus,
 } from '@/api/task'; // Import API functions for tasks
-import { CreateTaskPayload, Task, TaskStatus } from '@/types';
 import {
     addTask,
     removeTask,
     setTasks,
     updateTaskStatus as updateTaskStatusAction,
 } from '@/redux/store/task'; // Import store actions for tasks
+import { CreateTaskPayload, Task, TaskStatus } from '@/types';
 
 export const createTask =
     (taskData: CreateTaskPayload) => async (dispatch: Dispatch) => {
@@ -37,8 +38,8 @@ export const updateTaskStatus =
 
             const taskUpdatePayload = {
                 taskId: updatedTask.id, // فرض بر این است که taskId در updatedTask وجود دارد
-                userId: userId, // userId ورودی
-                status: status, // status ورودی
+                userId, // userId ورودی
+                status, // status ورودی
             };
 
             dispatch(updateTaskStatusAction(taskUpdatePayload)); // Dispatch action to update the task status in the store

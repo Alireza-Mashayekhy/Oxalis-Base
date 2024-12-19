@@ -1,14 +1,13 @@
-import { SFC } from '@/types';
-import * as S from './Styles';
-import { colors } from '@/styles';
-import { useEffect, useRef, useState } from 'react';
-import DialogWrapper from '@/components/DialogModalWrapper';
-import Comments from '@/components/Comments';
 import ArrowDownwardIcon from '@mui/icons-material/ArrowDownward';
-import PrimeTextArea from '@/components/TextArea';
 import DeleteIcon from '@mui/icons-material/Delete';
+import { Menu } from 'primereact/menu';
+import { MenuItem } from 'primereact/menuitem';
+import { useEffect, useRef, useState } from 'react';
 import { useDispatch, useSelector } from 'react-redux';
-import { getProjectManagment } from '@/selectors/state';
+
+import Comments from '@/components/Comments';
+import DialogWrapper from '@/components/DialogModalWrapper';
+import PrimeTextArea from '@/components/TextArea';
 import PrimeTooltip from '@/components/Tooltips';
 import {
     addComment,
@@ -16,10 +15,13 @@ import {
     deleteFile,
     toggleCompleteStatus,
 } from '@/redux/store/projectManagmentTest';
-import { Menu } from 'primereact/menu';
-import { MenuItem } from 'primereact/menuitem';
+import { getProjectManagment } from '@/selectors/state';
+import { colors } from '@/styles';
+import { SFC } from '@/types';
 import { PeopleTask } from '@/types/projectManagment';
+
 import PersonTask from './PersonTask';
+import * as S from './Styles';
 
 const ProjectModel: SFC = () => {
     const data = useSelector(getProjectManagment);
@@ -173,12 +175,12 @@ const ProjectModel: SFC = () => {
                     </div>
                 </S.ProjectDescriptionFlex>
                 <S.PeopleContainerFlex>
-                    <div></div>
+                    <div />
                     <div>
                         <S.Span>افراد</S.Span>
                     </div>
-                    <div></div>
-                    <div></div>
+                    <div />
+                    <div />
                     <div>
                         <S.Span>بارگذاری</S.Span>
                     </div>

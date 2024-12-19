@@ -1,15 +1,17 @@
-import { SFC } from '@/types';
-import * as S from './Styles';
-import Toggler from '@/components/Toggler';
-import logoBlack from '@/assets/logoblack.png';
-import logoWhite from '@/assets/logoWhite.png';
-import { useSelector } from 'react-redux';
-import { getTheme } from '@/selectors/state';
 import { mdiCalendar, mdiUpdate } from '@mdi/js';
-import DialogWrapper from '@/components/DialogModalWrapper';
 import { useEffect, useState } from 'react';
+import { useSelector } from 'react-redux';
+
 import { getCalendar } from '@/api/calendar';
 import defaultAvatar from '@/assets/default-avatar.png';
+import logoBlack from '@/assets/logoblack.png';
+import logoWhite from '@/assets/logoWhite.png';
+import DialogWrapper from '@/components/DialogModalWrapper';
+import Toggler from '@/components/Toggler';
+import { getTheme } from '@/selectors/state';
+import { SFC } from '@/types';
+
+import * as S from './Styles';
 
 interface CalendarItem {
     date: string;

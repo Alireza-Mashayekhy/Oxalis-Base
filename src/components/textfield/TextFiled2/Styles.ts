@@ -1,6 +1,7 @@
-import { colors, fonts } from '@/styles';
 import { TextField as UTextField } from '@mui/material';
 import styled from 'styled-components';
+
+import { colors, fonts } from '@/styles';
 
 export const Span = styled.span`
     && {

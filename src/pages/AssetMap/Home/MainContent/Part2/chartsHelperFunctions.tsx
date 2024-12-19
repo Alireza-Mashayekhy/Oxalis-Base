@@ -1,6 +1,7 @@
-import * as S from "./Styles";
 import SquareIcon from "@mui/icons-material/Square";
 import React from "react";
+
+import * as S from "./Styles";
 
 export const CustomTooltip = ({ active, payload }) => {
   if (active && payload && payload.length) {

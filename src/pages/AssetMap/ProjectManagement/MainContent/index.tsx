@@ -1,9 +1,11 @@
-import AccodionWrapper from "@/components/AccordionWrapper";
-import { SFC } from "@/types";
 import { useState } from "react";
 import { v4 as uuidv4 } from "uuid";
-import * as S from "./Styles";
+
+import AccodionWrapper from "@/components/AccordionWrapper";
+import { SFC } from "@/types";
+
 import CreateProject from "./CreateProject";
+import * as S from "./Styles";
 import ViewProject from "./ViewProject";
 
 const tabs = [

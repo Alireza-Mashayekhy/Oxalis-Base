@@ -1,11 +1,13 @@
-import { SFC } from '@/types';
-import * as S from './Styles';
-import profileLight from '@/assets/profileLight.png';
-import profileDark from '@/assets/profile.png';
-import pattern from '@/assets/back-pattern.png';
-import { getUserData } from '@/utils/authentication.ts';
 import { useSelector } from 'react-redux';
+
+import pattern from '@/assets/back-pattern.png';
+import profileDark from '@/assets/profile.png';
+import profileLight from '@/assets/profileLight.png';
 import { getTheme } from '@/redux/selectors';
+import { SFC } from '@/types';
+import { getUserData } from '@/utils/authentication.ts';
+
+import * as S from './Styles';
 
 const Profile: SFC = () => {
     const currentDate = new Date();

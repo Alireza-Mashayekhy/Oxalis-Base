@@ -1,5 +1,6 @@
-import styled from 'styled-components';
 import { TreeTable } from 'primereact/treetable';
+import styled from 'styled-components';
+
 import { narrowScroll, primeReactTreeTableStyle } from '@/styles/mixins';
 
 export const Container = styled.div`

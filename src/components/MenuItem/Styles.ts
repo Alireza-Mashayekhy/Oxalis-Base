@@ -1,8 +1,8 @@
+import UIcon from '@mdi/react';
 import { Link as ULink } from 'react-router-dom';
 import styled, { css } from 'styled-components';
-import UIcon from '@mdi/react';
 
-import { breakpoints, colors, fonts } from '@/styles';
+import { breakpoints, fonts } from '@/styles';
 
 const HEIGHT = 48;
 

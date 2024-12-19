@@ -1,5 +1,6 @@
 import axios from 'axios';
-import { SalesData ,ManufacturingData ,FinancialData,HRData} from '@/types';
+
+import { FinancialData,HRData,ManufacturingData ,SalesData } from '@/types';
 
 const BASE_SALES_URL = `${import.meta.env.VITE_APP_API_URL}/api/sales-data`;
 const BASE_HR_URL = `${import.meta.env.VITE_APP_API_URL}/api/hr-data`;

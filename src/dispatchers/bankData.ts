@@ -1,4 +1,6 @@
-import { AppDispatch } from '@/types';
+import { toast } from 'react-toastify';
+
+import * as api from '@/api/bankData';
 import {
     setBankData,
     updateBankData,
@@ -6,9 +8,8 @@ import {
     uploadBankRequest,
     uploadBankSuccess,
 } from '@/redux/store/bankData';
-import * as api from '@/api/bankData';
+import { AppDispatch } from '@/types';
 import { BankData } from '@/types';
-import { toast } from 'react-toastify';
 
 export const fetchBankData =
     (filters?: Record<string, any>) => async (dispatch: AppDispatch) => {

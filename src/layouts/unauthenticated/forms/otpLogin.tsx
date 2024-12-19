@@ -1,17 +1,19 @@
-import { useState, useMemo, useEffect, InputHTMLAttributes } from 'react';
+import PersonIcon from '@mui/icons-material/Person';
+import { Form, Formik } from 'formik';
+import { InputOtp, InputOtpProps } from 'primereact/inputotp';
+import {useEffect, useMemo, useState } from 'react';
 import { useDispatch } from 'react-redux';
 import { useNavigate } from 'react-router-dom';
-import { ButtonType } from '@/components/Button';
-import { Form, Formik } from 'formik';
-import yup from '@/utils/yup';
-import { AppDispatch, SFC } from '@/types';
-import * as S from './OtpStyles';
-import logowhite from '@/assets/logoWhite.png';
 import { toast } from 'react-toastify';
-import { colors } from '@/styles';
-import PersonIcon from '@mui/icons-material/Person';
-import { InputOtp, InputOtpProps } from 'primereact/inputotp';
+
 import { sendOtp, submitOtp } from '@/api/authentication';
+import logowhite from '@/assets/logoWhite.png';
+import { ButtonType } from '@/components/Button';
+import { colors } from '@/styles';
+import { AppDispatch, SFC } from '@/types';
+import yup from '@/utils/yup';
+
+import * as S from './OtpStyles';
 
 interface CustomInputProps extends InputOtpProps {
     events: React.HTMLAttributes<HTMLInputElement>;
@@ -68,7 +70,7 @@ const Login: SFC = () => {
             setOtpSubmitting(true);
             const data = {
                 code: code || otp,
-                phone: phone,
+                phone,
             };
             const res = await submitOtp(data);
             localStorage.setItem('accessToken', res.access);

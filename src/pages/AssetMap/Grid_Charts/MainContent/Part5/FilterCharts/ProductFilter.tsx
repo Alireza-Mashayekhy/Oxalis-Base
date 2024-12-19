@@ -1,7 +1,9 @@
-import { useDispatch, useSelector } from 'react-redux';
-import { toggleproduct, resetFilters } from '@/redux/store/productFilterMan';
-import { getManData } from '@/selectors/state';
 import './style.css';
+
+import { useDispatch, useSelector } from 'react-redux';
+
+import { resetFilters,toggleproduct } from '@/redux/store/productFilterMan';
+import { getManData } from '@/selectors/state';
 import { RootState } from '@/types';
 
 const ProductFilter: React.FC = () => {

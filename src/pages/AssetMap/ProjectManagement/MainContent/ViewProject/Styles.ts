@@ -1,5 +1,6 @@
-import { narrowScroll } from "@/styles/mixins";
 import styled from "styled-components";
+
+import { narrowScroll } from "@/styles/mixins";
 
 export const Container = styled.div`
   overflow-y: auto;

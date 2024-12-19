@@ -1,13 +1,13 @@
-import { AppDispatch, Fee } from '@/types';
+import { toast } from 'react-toastify';
 
 import * as api from '@/api/fee';
-import { toast } from 'react-toastify';
 import {
-    setFeeData,
     feeFailure,
     feeRequest,
     feeSuccess,
+    setFeeData,
 } from '@/redux/store/feeData';
+import { AppDispatch, Fee } from '@/types';
 
 export const fetchFeeData = () => async (dispatch: AppDispatch) => {
     dispatch(feeRequest());

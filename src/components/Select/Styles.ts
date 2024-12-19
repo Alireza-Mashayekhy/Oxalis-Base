@@ -1,9 +1,10 @@
-import styled from 'styled-components';
-import Select from '@mui/material/Select';
 import MenuItem from '@mui/material/MenuItem';
-import { StyledMenuItemProps, StyledSelectProps } from './types';
+import Select from '@mui/material/Select';
+import styled from 'styled-components';
+
 import { colors } from '@/styles';
-import { narrowScroll } from '@/styles/mixins';
+
+import { StyledMenuItemProps, StyledSelectProps } from './types';
 
 export const StyledSelect = styled(Select).withConfig({
     shouldForwardProp: (prop) =>

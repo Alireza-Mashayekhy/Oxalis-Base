@@ -1,9 +1,11 @@
-import { SFC } from '@/types';
 import { Column } from 'primereact/column';
-import { optionsData } from './OptionData';
-import { headerGroup } from './TableHeaders';
-import * as S from './Styles';
+
+import { SFC } from '@/types';
 import { numberBodyTemplate } from '@/utils/primeReactDataTable';
+
+import { optionsData } from './OptionData';
+import * as S from './Styles';
+import { headerGroup } from './TableHeaders';
 
 // تعریف Interface برای Props
 interface OptionsTableProps {

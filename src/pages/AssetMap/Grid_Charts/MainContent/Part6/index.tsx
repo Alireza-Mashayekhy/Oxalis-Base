@@ -1,9 +1,11 @@
 import { useState } from 'react';
+import { v4 as uuidv4 } from 'uuid';
+
+import AccodionWrapper from '@/components/AccordionWrapper';
 import { SFC } from '@/types';
+
 import GeneralStatusTrendReview from './PerformanceLineChart';
 import ProfitLinChart from './ProfitLineChart';
-import AccodionWrapper from '@/components/AccordionWrapper';
-import { v4 as uuidv4 } from 'uuid';
 
 const EnvironmentLawsAndIssuespart6: SFC = () => {
     const [value, setValue] = useState(0);

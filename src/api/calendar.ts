@@ -1,5 +1,6 @@
-import { CalendarResponse } from '@/types';
 import axios from 'axios';
+
+import { CalendarResponse } from '@/types';
 
 const BASE_URL = `${
     import.meta.env.VITE_APP_API_URL_SECOND

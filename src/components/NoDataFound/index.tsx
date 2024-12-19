@@ -1,5 +1,6 @@
-import { SFC } from "@/types";
 import NoData from "@/assets/NoData1.png";
+import { SFC } from "@/types";
+
 import * as S from "./Styles";
 
 const NoDataFoundTemplate: SFC = () => {

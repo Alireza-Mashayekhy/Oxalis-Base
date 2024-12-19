@@ -1,10 +1,12 @@
 import { useState } from 'react';
+import { v4 as uuidv4 } from 'uuid';
+
+import AccodionWrapper from '@/components/AccordionWrapper';
 import { SFC } from '@/types';
+
+import ApexGoupedBarChart from './GroupedBarChart';
 import ScatterHrChart from './ScatterHrChart';
 import ApexBarChart from './VerticalBarHrChart';
-import AccodionWrapper from '@/components/AccordionWrapper';
-import ApexGoupedBarChart from './GroupedBarChart';
-import { v4 as uuidv4 } from 'uuid';
 
 const EnvironmentLawsAndIssues: SFC = () => {
     const [value, setValue] = useState(0);

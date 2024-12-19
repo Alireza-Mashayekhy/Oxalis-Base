@@ -1,9 +1,10 @@
-import { SalesData } from '@/types/new_data';
 import { useSelector } from 'react-redux';
-import { getSalesData } from '@/selectors/state';
-import { darkTheme, lightTheme } from '@/styles/theme';
-import { getTheme } from '@/selectors/state';
+
 import PieChart from '@/components/PieChart';
+import { getSalesData } from '@/selectors/state';
+import { getTheme } from '@/selectors/state';
+import { darkTheme, lightTheme } from '@/styles/theme';
+import { SalesData } from '@/types/new_data';
 
 const PRODUCT_COLORS = {
     محصول_1: '#00c49f',

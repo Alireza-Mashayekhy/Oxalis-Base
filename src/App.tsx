@@ -1,19 +1,20 @@
-import { Flip, ToastContainer } from 'react-toastify';
 import 'react-toastify/dist/ReactToastify.css';
-import { ThemeProvider } from 'styled-components';
-import { lightTheme } from './styles/theme';
 import 'primereact/resources/primereact.min.css';
 import 'primeicons/primeicons.css';
 import './styles/globals.css';
-import { PrimeReactProvider } from 'primereact/api';
 import 'primereact/resources/themes/mdc-dark-indigo/theme.css';
-import { useSelector } from 'react-redux';
-import { getTheme } from './redux/selectors';
-import Authenticated from './layouts/authenticated';
+
+import { PrimeReactProvider } from 'primereact/api';
+import { Flip, ToastContainer } from 'react-toastify';
+import { ThemeProvider } from 'styled-components';
+
 import GlobalStyle from '@/styles/components/GlobalStyle';
 import PrimeReactStyle from '@/styles/components/PrimeReactStyle';
+
 import { useIsAuthenticated } from './hooks';
+import Authenticated from './layouts/authenticated';
 import Unauthenticated from './layouts/unauthenticated';
+import { lightTheme } from './styles/theme';
 
 const App = () => {
     const isAuthenticated = useIsAuthenticated();

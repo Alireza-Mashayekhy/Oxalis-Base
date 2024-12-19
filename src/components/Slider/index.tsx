@@ -1,7 +1,8 @@
-import { Swiper, SwiperSlide } from 'swiper/react';
 import 'swiper/swiper-bundle.css';
-import { SliderSwiper, StyledSlide, ImgSlide, TitleSlide } from './Styles';
-import { Pagination, Autoplay, EffectFade } from 'swiper/modules';
+
+import { Autoplay, EffectFade,Pagination } from 'swiper/modules';
+
+import { SliderSwiper, StyledSlide, TitleSlide } from './Styles';
 // import Slide1 from '../../assets/ImgSlides/slide1.png';
 // import Slide2 from '../../assets/ImgSlides/slide2.png';
 // import Slide3 from '../../assets/ImgSlides/slide3.png';

@@ -1,8 +1,10 @@
-import { useState, useEffect } from 'react';
-import { useSelector } from 'react-redux';
-import { getHrData } from '@/selectors/state';
 import './Style.css';
+
+import { useEffect,useState } from 'react';
+import { useSelector } from 'react-redux';
+
 import BarChart from '@/components/BarChart';
+import { getHrData } from '@/selectors/state';
 
 interface DepartmentSalary {
     department: string;
@@ -74,7 +76,7 @@ const ApexBarChart = () => {
             <div id="chart">
                 <BarChart labels={[]} datasets={series} />
             </div>
-            <div id="html-dist"></div>
+            <div id="html-dist" />
         </div>
     );
 };

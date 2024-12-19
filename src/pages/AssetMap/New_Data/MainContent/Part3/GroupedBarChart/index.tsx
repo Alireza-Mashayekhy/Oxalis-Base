@@ -1,8 +1,10 @@
-import { useState, useEffect } from 'react';
-import { getHRData } from '@/api/new_data';
-import { HRData } from '@/types/new_data';
 import './Style.css';
+
+import { useEffect,useState } from 'react';
+
+import { getHRData } from '@/api/new_data';
 import BarChart from '@/components/BarChart';
+import { HRData } from '@/types/new_data';
 
 interface Series {
     name: string;
@@ -55,7 +57,7 @@ const ApexChart: React.FC = () => {
             <div id="chart">
                 <BarChart labels={[]} datasets={seriesData} />
             </div>
-            <div id="html-dist"></div>
+            <div id="html-dist" />
         </div>
     );
 };

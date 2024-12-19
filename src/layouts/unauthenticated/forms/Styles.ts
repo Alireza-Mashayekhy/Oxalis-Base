@@ -1,9 +1,9 @@
 import { Link as ULink } from 'react-router-dom';
 import styled from 'styled-components';
 
+import loginImg from '@/assets/login.jpg';
 import UButton from '@/components/Button';
 import { colors, fonts } from '@/styles';
-import loginImg from '@/assets/login.jpg';
 
 export const Button = styled(UButton)`
     width: 100%;

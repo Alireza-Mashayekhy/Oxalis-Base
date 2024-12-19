@@ -1,6 +1,7 @@
-import { breakpoints, fonts } from "@/styles";
 import { Tooltip } from "@mui/material";
 import styled from "styled-components";
+
+import { breakpoints, fonts } from "@/styles";
 
 export const Container = styled.div`
   width: 100%;

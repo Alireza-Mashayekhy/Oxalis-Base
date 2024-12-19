@@ -1,6 +1,7 @@
+import { useSelector } from 'react-redux';
+
 import { getTheme } from '@/redux/selectors';
 
-import { useSelector } from 'react-redux';
 import * as S from './Style';
 interface Dataset {
     name: string;
@@ -22,7 +23,7 @@ const LineChart: React.FC<LineChartProps> = ({
     const theme = useSelector(getTheme);
     const chartOptions = {
         chart: {
-            type: 'line' as 'line',
+            type: 'line' as const,
             height: 400,
             background: 'transparent',
             zoom: {
@@ -69,10 +70,10 @@ const LineChart: React.FC<LineChartProps> = ({
             show: false,
         },
         stroke: {
-            curve: 'straight' as 'straight', // اصلاح مقدار تایپ شده
+            curve: 'straight' as const, // اصلاح مقدار تایپ شده
         },
         tooltip: {
-            theme: theme,
+            theme,
             style: {
                 fontSize: '14px',
                 fontFamily: 'IranSans',

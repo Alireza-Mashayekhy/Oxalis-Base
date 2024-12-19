@@ -1,9 +1,10 @@
-import styled from "styled-components";
-import Dialog from "@mui/material/Dialog";
-import { narrowScroll } from "@/styles/mixins";
-import { DialogContent, DialogTitle } from "@mui/material";
 import CancelPresentationOutlinedIcon from "@mui/icons-material/CancelPresentationOutlined";
+import { DialogContent, DialogTitle } from "@mui/material";
+import Dialog from "@mui/material/Dialog";
+import styled from "styled-components";
+
 import { fonts } from "@/styles";
+import { narrowScroll } from "@/styles/mixins";
 
 export const StyledDialog = styled(Dialog)`
   & .MuiPaper-root {

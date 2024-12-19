@@ -1,10 +1,12 @@
-import { useState, useEffect } from 'react';
+import { useEffect,useState } from 'react';
 import { useSelector } from 'react-redux';
+
+import BubbleChart from '@/components/BubbleChart';
+import { selectFilteredJobTitles } from '@/redux/store/jobTitleFilterHr';
 import { getHrData } from '@/selectors/state';
 import { HRData } from '@/types/new_data';
-import { selectFilteredJobTitles } from '@/redux/store/jobTitleFilterHr';
+
 import { fixedJobTitles } from '../Filter_jobTitle/FilterConstants';
-import BubbleChart from '@/components/BubbleChart';
 
 type SeriesData = {
     name: string;

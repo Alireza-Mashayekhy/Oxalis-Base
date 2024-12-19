@@ -1,9 +1,9 @@
 import { useEffect, useState } from 'react';
-import DatePicker, { DateObject } from 'react-multi-date-picker';
-import persian from 'react-date-object/calendars/persian';
-import persian_fa from 'react-date-object/locales/persian_fa';
 import gregorian from 'react-date-object/calendars/gregorian';
+import persian from 'react-date-object/calendars/persian';
 import gregorian_fa from 'react-date-object/locales/gregorian_fa';
+import persian_fa from 'react-date-object/locales/persian_fa';
+import DatePicker, { DateObject } from 'react-multi-date-picker';
 import DatePanel from 'react-multi-date-picker/plugins/date_panel';
 
 export const convert = ({ startDate, endDate }) => {

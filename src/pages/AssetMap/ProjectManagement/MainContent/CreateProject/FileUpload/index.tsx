@@ -1,15 +1,12 @@
-import PrimeTextArea from '@/components/TextArea';
-import { SFC } from '@/types';
-import * as S from './Styles';
-import { DateObject } from 'react-multi-date-picker';
 // import PersianDatePicker from "@/components/datePicker";
 import { useEffect, useState } from 'react';
-import CheckIcon from '@mui/icons-material/Check';
-import CloudUploadIcon from '@mui/icons-material/CloudUpload';
-import { colors } from '@/styles';
-import UploadComponent from '@/components/UploadComponent';
+import { DateObject } from 'react-multi-date-picker';
 import { useDispatch } from 'react-redux';
+
 import { setProjectState } from '@/redux/store/projectManagmentTest';
+import { SFC } from '@/types';
+
+import * as S from './Styles';
 
 interface FileUploadInterface {
     open: boolean;
@@ -169,7 +166,7 @@ const FileUpload: SFC<FileUploadInterface> = ({
     };
 
     const handleAllDataFiles = (e: React.ChangeEvent<HTMLInputElement>) => {
-        const files = e.target.files;
+        const {files} = e.target;
         setForAllData((prevData) => ({
             ...prevData,
             file: [...prevData.file, ...Array.from(files)],
@@ -216,9 +213,9 @@ const FileUpload: SFC<FileUploadInterface> = ({
         console.log(subject);
         console.log(title);
         const projectDate = {
-            subject: subject,
-            title: title,
-            projectDescription: projectDescription,
+            subject,
+            title,
+            projectDescription,
             projectDueDate: dueDate.unix,
             peopleTasks: peopleData,
         };

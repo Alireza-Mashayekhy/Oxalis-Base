@@ -1,4 +1,4 @@
-import { configureStore, combineReducers } from '@reduxjs/toolkit';
+import { combineReducers,configureStore } from '@reduxjs/toolkit';
 import {
     FLUSH,
     PAUSE,
@@ -10,47 +10,48 @@ import {
     REHYDRATE,
 } from 'redux-persist';
 import storage from 'redux-persist/lib/storage';
-import themeSlice from '../slice/themeSlice';
-import uploadReducer from '@/redux/store/uploadData';
-import stockReducer from '@/redux/store/stockData';
+
 import customersReducer from '@/redux/store/customersData';
 import feeReducer from '@/redux/store/feeData';
 import investmentReducer from '@/redux/store/investmentData';
-import authentication from './authentication';
-import usersReducer from './users';
+import stockReducer from '@/redux/store/stockData';
+import uploadReducer from '@/redux/store/uploadData';
+
+import themeSlice from '../slice/themeSlice';
+import accordionReducer from './accordionTitle';
 import { LOGOUT_USER } from './actions';
 import allassetsReducer from './allassets';
+import assetUploadReducer from './assetUpload';
+import authentication from './authentication';
 import bankDataReducer from './bankData';
 import bankperfundReducer from './bankperfund';
 import bondDataReducer from './bondData';
 import bondFrameReducer from './bondFrame';
 import cashflowFrameReducer from './cashflowFrame';
+import changeTabReducer from './changeTab';
+import hrReducer from './chartsData';
+import citiesFilterManReducer from './citiesFilterMan';
+import citiesFilterReducer from './citiesFilterSales';
 import counterReducer from './counter';
 import dataReducer from './data';
 import depositeReducer from './depositeFrame';
 import eventReducer from './event';
+import filterDataReducer from './FilterData';
+import financeDataReducer from './financeData';
+import jobTitleFilterReducer from './jobTitleFilterHr';
+import manufacturingDataDataReducer from './manufacturingData';
+import manufacturingFilterDataReducer from './ManufacturingFilter';
+import productsFilterManReducer from './productFilterMan';
+import productsFilterReducer from './productsFilterSales';
+import projectManagmentTestReducer from './projectManagmentTest';
+import salesDataReducer from './salesData';
+import salesFilterDataReducer from './salesFilter';
 import selfReducer from './self';
 import shareFrameReducer from './shareFrame';
 import taskReducer from './task';
 import userReducer from './user';
 import userListReducer from './userList';
-import assetUploadReducer from './assetUpload';
-import themeReducer from './theme';
-import changeTabReducer from './changeTab';
-import projectManagmentTestReducer from './projectManagmentTest';
-import hrReducer from './chartsData';
-import salesDataReducer from './salesData';
-import financeDataReducer from './financeData';
-import manufacturingDataDataReducer from './manufacturingData';
-import filterDataReducer from './FilterData';
-import salesFilterDataReducer from './salesFilter';
-import manufacturingFilterDataReducer from './ManufacturingFilter';
-import accordionReducer from './accordionTitle';
-import jobTitleFilterReducer from './jobTitleFilterHr';
-import citiesFilterReducer from './citiesFilterSales';
-import citiesFilterManReducer from './citiesFilterMan';
-import productsFilterReducer from './productsFilterSales';
-import productsFilterManReducer from './productFilterMan';
+import usersReducer from './users';
 
 const rootReducer = combineReducers({
     theme: themeSlice,
@@ -58,7 +59,7 @@ const rootReducer = combineReducers({
     stockData: stockReducer,
     customersData: customersReducer,
     feeData: feeReducer,
-    authentication: authentication,
+    authentication,
     users: usersReducer,
     investment: investmentReducer,
     allassets: allassetsReducer,

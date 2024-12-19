@@ -1,9 +1,10 @@
 import { useEffect, useState } from 'react';
-import { ManufacturingData } from '@/types/new_data';
 import { useSelector } from 'react-redux';
+
+import AreaChart from '@/components/AreaChart';
 import { getManData, getManFilterData } from '@/selectors/state';
 import { RootState } from '@/types';
-import AreaChart from '@/components/AreaChart';
+import { ManufacturingData } from '@/types/new_data';
 
 const StackedAreaChart: React.FC = () => {
     const data: ManufacturingData[] = useSelector(getManData);
@@ -116,7 +117,7 @@ const StackedAreaChart: React.FC = () => {
                                 display: 'inline-block',
                                 marginLeft: '3px',
                             }}
-                        ></span>
+                         />
                         <span style={{ color: '#585757', fontSize: '12px' }}>
                             {city}
                         </span>

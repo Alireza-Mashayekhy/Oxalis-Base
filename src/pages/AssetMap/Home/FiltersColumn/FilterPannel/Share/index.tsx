@@ -1,9 +1,6 @@
-import * as S from './Styles';
-import { useState, FC, useEffect } from 'react';
-import { SelectChangeEvent, Typography } from '@mui/material';
-import CustomSelectComponent from '@/components/Select';
-import ButtonWrapper from '@/components/ButtonWrapper';
+import { useEffect,useState } from 'react';
 import { useDispatch, useSelector } from 'react-redux';
+
 import { fetchShareFrame } from '@/dispatchers/shareFrame';
 import { getShareFrame } from '@/selectors/state';
 import {
@@ -12,11 +9,12 @@ import {
     createDataForVentureTypeFilter,
 } from '@/utils/FrameFunctions/sharesFrame';
 
+import * as S from './Styles';
+
 interface filterData {
     value: string;
     label: string;
 }
-import { Label } from '@/components/Label';
 import { AppDispatch, SFC } from '@/types';
 
 interface FilterPannelInterface {

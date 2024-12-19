@@ -1,22 +1,24 @@
-import { AppDispatch, SFC } from '@/types';
 import { useEffect } from 'react';
-import * as S from './Styles';
+import { useDispatch,useSelector } from 'react-redux';
+
+import LoadingComponent from '@/components/Loading';
+import {
+    fetchFinanceData,
+    fetchHrData,
+    fetchManData,
+    fetchSalesData,
+} from '@/dispatchers/chartsData';
+import { getAllAssets } from '@/selectors/state';
+import { AppDispatch, SFC } from '@/types';
+
 import EnvironmentLawsAndIssues from './Part3';
 import EnvironmentLawsAndIssuespart4 from './Part4';
 import EnvironmentLawsAndIssuespart5 from './Part5';
 import EnvironmentLawsAndIssuespart6 from './Part6';
-import { useSelector, useDispatch } from 'react-redux';
-import { getAllAssets } from '@/selectors/state';
-import LoadingComponent from '@/components/Loading';
-import {
-    fetchHrData,
-    fetchFinanceData,
-    fetchSalesData,
-    fetchManData,
-} from '@/dispatchers/chartsData';
+import * as S from './Styles';
 
 const MainContent: SFC = () => {
-    const loading = useSelector(getAllAssets).loading;
+    const {loading} = useSelector(getAllAssets);
     const dispatch = useDispatch<AppDispatch>();
 
     useEffect(() => {

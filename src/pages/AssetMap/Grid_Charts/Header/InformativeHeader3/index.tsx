@@ -1,8 +1,10 @@
-import { AllAssets, SFC } from "@/types";
-import { colors } from "@/styles";
-import InformativeHeaderPattern from "../InformativeHeaderPattern";
 import { useSelector } from "react-redux";
+
 import { getAllAssets } from "@/selectors/state";
+import { colors } from "@/styles";
+import { AllAssets, SFC } from "@/types";
+
+import InformativeHeaderPattern from "../InformativeHeaderPattern";
 
 const InformativeHeader3: SFC = () => {
   const selectedFund: AllAssets = useSelector(getAllAssets)?.selectedAsset?.[1];

@@ -1,16 +1,15 @@
-import { useEffect, useState, useCallback } from 'react';
-import { DatePicker } from 'zaman';
-import { PrimeReactProvider } from 'primereact/api';
-import { Dialog } from 'primereact/dialog';
-import { Button } from 'primereact/button';
-import LineChart from '@/components/chart';
-import { ProgressSpinner } from 'primereact/progressspinner';
-import UserTable from '@/components/DataTable';
 // import api from "@/services/api";
 import moment from 'moment-jalaali';
-import { TreeTable } from 'primereact/treetable';
+import { PrimeReactProvider } from 'primereact/api';
+import { Button } from 'primereact/button';
 import { Column } from 'primereact/column';
-import * as S from './Styles';
+import { ProgressSpinner } from 'primereact/progressspinner';
+import { useCallback,useEffect, useState } from 'react';
+import { useSelector } from 'react-redux';
+import { useDispatch } from 'react-redux';
+import { toast } from 'react-toastify';
+import { DatePicker } from 'zaman';
+
 import {
     exportShareholder,
     getExportSummery,
@@ -18,13 +17,14 @@ import {
     getShareholders,
     getSummery,
 } from '@/api/investment';
-import { toast } from 'react-toastify';
-import { useSelector } from 'react-redux';
+import LineChart from '@/components/chart';
+import UserTable from '@/components/DataTable';
 import { getTheme } from '@/redux/selectors';
-import { getInvestment } from '@/selectors/state';
 import { setSummery, setTree } from '@/redux/store/investmentData';
-import { useDispatch } from 'react-redux';
+import { getInvestment } from '@/selectors/state';
 import { AppDispatch } from '@/types';
+
+import * as S from './Styles';
 
 interface FundSummary {
     id: number;
@@ -200,7 +200,7 @@ const Investment = () => {
         };
         try {
             const summaryResponse = await getSummery(summaryParams);
-            let summaryData = summaryResponse as FundSummary[];
+            const summaryData = summaryResponse as FundSummary[];
             const shareholderResponse =
                 await getShareholders(shareholderParams);
 
@@ -341,7 +341,7 @@ const Investment = () => {
     };
 
     const findNodeByKey = (nodes: TreeNode[], key: string): TreeNode | null => {
-        for (let node of nodes) {
+        for (const node of nodes) {
             if (node.key === key) return node;
             if (node.children) {
                 const found = findNodeByKey(node.children, key);
@@ -379,7 +379,7 @@ const Investment = () => {
     };
 
     const handleRowClick = async (event: any) => {
-        const node = event.node;
+        const {node} = event;
         if (node.data.type === 'history') {
             const [, fundId] = node.key.split('-');
             console.log(summaryData);

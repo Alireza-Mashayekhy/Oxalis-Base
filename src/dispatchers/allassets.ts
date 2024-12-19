@@ -1,6 +1,6 @@
-import { AppDispatch } from '@/types';
-import { setAllAssetesLoading, setAllAssets } from '@/redux/store/allassets';
 import * as api from '@/api/allassets';
+import { setAllAssetesLoading, setAllAssets } from '@/redux/store/allassets';
+import { AppDispatch } from '@/types';
 
 export const fetchAllAssets =
     (filters?: Record<string, any>) => async (dispatch: AppDispatch) => {

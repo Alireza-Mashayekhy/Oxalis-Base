@@ -1,7 +1,7 @@
-import styled from "styled-components";
-import { breakpoints } from "@/styles";
 import UIcon from "@mdi/react";
-import { narrowScroll } from "@/styles/mixins";
+import styled from "styled-components";
+
+import { breakpoints } from "@/styles";
 
 export const Gap = styled.div`
   width: 0;
@@ -111,7 +111,7 @@ export const BackToTodayButton = styled.div`
   }
 `;
 
-export const Container = styled.div<{ $status: Boolean }>`
+export const Container = styled.div<{ $status: boolean }>`
   position: absolute;
   display: flex;
   align-items: center;

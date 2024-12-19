@@ -1,9 +1,11 @@
-import { SalesData } from '@/types/new_data';
 import './Style.css';
+
 import { useSelector } from 'react-redux';
+
+import LineChart from '@/components/chart';
 import { getSalesData } from '@/selectors/state';
 import { RootState } from '@/types';
-import LineChart from '@/components/chart';
+import { SalesData } from '@/types/new_data';
 
 const PRODUCT_COLORS = {
     محصول_1: '#00c49f',

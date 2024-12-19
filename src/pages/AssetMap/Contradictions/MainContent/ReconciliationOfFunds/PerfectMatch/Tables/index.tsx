@@ -1,7 +1,8 @@
-import { SFC } from "@/types";
-import * as S from "./Styles";
-import { PerfectMatch } from "../../contradictData";
 import PrimeReactTable from "@/components/DataTable/PrimeReactTable";
+import { SFC } from "@/types";
+
+import { PerfectMatch } from "../../contradictData";
+import * as S from "./Styles";
 
 
 const PerfectMatchTables: SFC = () => {

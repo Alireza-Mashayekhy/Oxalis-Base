@@ -1,6 +1,7 @@
 import { useDispatch } from 'react-redux';
+
 import { deleteTask } from '@/dispatchers/task'; // Import deleteTask dispatcher
-import { Task, SFC, AppDispatch } from '@/types'; // Import Task type
+import { AppDispatch,SFC, Task } from '@/types'; // Import Task type
 
 interface TaskManagementProps {
     task: Task;

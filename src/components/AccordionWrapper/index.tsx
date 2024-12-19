@@ -1,20 +1,16 @@
-import { SyntheticEvent, useEffect, useState } from 'react';
-import { SFC } from '@/types';
 import {
-    AccordionSummary,
-    AccordionDetails,
-    Accordion,
     Typography,
 } from '@mui/material';
+import { SyntheticEvent, useState } from 'react';
+import { useDispatch,useSelector } from 'react-redux';
+import { v4 as uuidv4 } from 'uuid';
+
 import TabWrapper from '@/components/Tab';
 import TabPanel from '@/components/TabPanel';
-import PushPinIcon from '@mui/icons-material/PushPin';
-import { colors } from '@/styles';
-import { v4 as uuidv4 } from 'uuid';
-import { getTheme } from '@/selectors/state';
-import { useSelector, useDispatch } from 'react-redux';
-import { darkTheme, lightTheme } from '@/styles/theme';
 import { setAccordionState } from '@/redux/store/accordionTitle';
+import { getTheme } from '@/selectors/state';
+import { darkTheme, lightTheme } from '@/styles/theme';
+import { SFC } from '@/types';
 
 interface AccordionTypes {
     value: number;

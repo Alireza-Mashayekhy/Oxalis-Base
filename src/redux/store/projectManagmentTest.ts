@@ -1,5 +1,6 @@
-import { ProjectState } from "@/types/projectManagment";
 import { createSlice, PayloadAction } from "@reduxjs/toolkit";
+
+import { ProjectState } from "@/types/projectManagment";
 
 const initialState: ProjectState = {
   subject: "",

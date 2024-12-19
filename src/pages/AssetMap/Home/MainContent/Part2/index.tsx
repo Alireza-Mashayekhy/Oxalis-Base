@@ -1,7 +1,9 @@
 import { useState } from "react";
-import { SFC } from "@/types";
-import AccodionWrapper from "@/components/AccordionWrapper";
 import { v4 as uuidv4 } from "uuid";
+
+import AccodionWrapper from "@/components/AccordionWrapper";
+import { SFC } from "@/types";
+
 import ChartsContent from "./ChartsPannel";
 
 

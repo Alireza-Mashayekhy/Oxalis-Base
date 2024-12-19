@@ -1,9 +1,11 @@
-import { useState } from 'react';
-import { SFC } from '@/types';
-import * as S from './Styles';
-import Toggler from '@/components/Toggler';
-import NewsFeedColumn from '../LeftPannel';
 import { Accordion, AccordionDetails, AccordionSummary } from '@mui/material';
+import { useState } from 'react';
+
+import Toggler from '@/components/Toggler';
+import { SFC } from '@/types';
+
+import NewsFeedColumn from '../LeftPannel';
+import * as S from './Styles';
 
 interface ContentType {
     Title: string;

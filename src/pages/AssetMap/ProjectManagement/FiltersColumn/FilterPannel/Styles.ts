@@ -1,7 +1,7 @@
+import { Button as UButton } from "@mui/material";
 import styled from "styled-components";
 
 import { breakpoints, colors } from "@/styles";
-import { Button as UButton } from "@mui/material";
 import { muiButtonStyle, narrowScroll } from "@/styles/mixins";
 
 export const Container = styled.div`

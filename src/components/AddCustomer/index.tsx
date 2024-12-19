@@ -1,9 +1,10 @@
-import { SFC } from "@/types";
-import * as S from "./Styles";
 import { mdiPlus } from "@mdi/js";
-import { AddLabel } from "./Styles";
 import { useState } from "react";
+
+import { SFC } from "@/types";
+
 import AddModal from "./AddModal";
+import * as S from "./Styles";
 
 const AddCustomer: SFC = () => {
   const [addModalVisible, setAddModalVisible] = useState(false);

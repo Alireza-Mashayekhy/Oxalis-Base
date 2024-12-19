@@ -1,12 +1,14 @@
-import { SelectChangeEvent, Typography } from "@mui/material";
-import { useMemo, useState } from "react";
-import { colors } from "@/styles";
-import * as S from "./Styles";
+import { SelectChangeEvent } from "@mui/material";
 import { Form, Formik } from "formik";
-import yup from "@/utils/yup";
+import { useMemo, useState } from "react";
+
 import { ButtonType } from "@/components/Button";
 import { Select } from "@/components/FormElements";
+import { colors } from "@/styles";
 import { SFC } from "@/types";
+import yup from "@/utils/yup";
+
+import * as S from "./Styles";
 
 interface User {
   userName: string;

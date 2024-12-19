@@ -1,9 +1,11 @@
-import { useEffect, useState } from 'react';
-import { SFC } from '@/types';
-import jsonData from '../../Part1/chartData.json';
-import { filterBaseOnBankDeposite } from '@/utils/chartsFunctions';
 import { Box, Paper, Typography } from '@mui/material';
+import { useEffect, useState } from 'react';
+
 import BarChart from '@/components/BarChart';
+import { SFC } from '@/types';
+import { filterBaseOnBankDeposite } from '@/utils/chartsFunctions';
+
+import jsonData from '../../Part1/chartData.json';
 
 const EnvironmentLawsAndIssuesChart: SFC = () => {
     const [chartData, setChartData] = useState([]);

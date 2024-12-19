@@ -1,5 +1,6 @@
-import { SFC } from "@/types";
 import { MultiSelect, MultiSelectChangeEvent } from "primereact/multiselect";
+
+import { SFC } from "@/types";
 interface PMultiSelect {
   value: string[];
   onChange: (e: MultiSelectChangeEvent) => void;

@@ -1,8 +1,8 @@
-import styled from 'styled-components';
 import CloudUploadTwoToneIcon from '@mui/icons-material/CloudUploadTwoTone';
 import { Button, ButtonProps, SvgIconProps } from '@mui/material';
+import styled from 'styled-components';
+
 import { muiButtonStyle } from '@/styles/mixins';
-import { breakpoints } from '@/styles';
 
 interface CustomIconProps extends SvgIconProps {
     fontColor?: string; // Define the custom prop

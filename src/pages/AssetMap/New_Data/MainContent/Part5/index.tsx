@@ -1,12 +1,14 @@
-import { useState, SyntheticEvent } from 'react';
+import { SyntheticEvent,useState } from 'react';
+import { v4 as uuidv4 } from 'uuid';
+
+import AccodionWrapper from '@/components/AccordionWrapper';
 import { SFC } from '@/types';
+
+import MapChart from './GeoChart';
+import GroupedBarChart from './HeatmapChart';
 import ScatterHrChart from './LineChart1';
 import HeatMapChart from './LineChart2';
 import GeneralStatusTrendReview from './LineChat3';
-import AccodionWrapper from '@/components/AccordionWrapper';
-import GroupedBarChart from './HeatmapChart';
-import MapChart from './GeoChart';
-import { v4 as uuidv4 } from 'uuid';
 
 const EnvironmentLawsAndIssuespart5: SFC = () => {
     const [value, setValue] = useState(0);

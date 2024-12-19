@@ -1,16 +1,18 @@
-import { AppDispatch, SFC } from '@/types';
-import * as S from './Styles';
+import { Chip } from '@mui/material';
+import { useEffect, useState } from 'react';
 import { useSelector } from 'react-redux';
+import { useDispatch } from 'react-redux';
+
+import CustomTreeTable from '@/components/TreeTable';
+import { fetchData } from '@/dispatchers/data';
 import { getData } from '@/selectors/state';
+import { AppDispatch, SFC } from '@/types';
 import {
     createTreeTableDataWithWeight,
     roundedNumberBodyTemplateForTreeTable,
 } from '@/utils/dataTableFunctions';
-import { useEffect, useLayoutEffect, useState } from 'react';
-import CustomTreeTable from '@/components/TreeTable';
-import { fetchData } from '@/dispatchers/data';
-import { useDispatch } from 'react-redux';
-import { Chip } from '@mui/material';
+
+import * as S from './Styles';
 
 interface DdnHistoryNode {
     key: string;

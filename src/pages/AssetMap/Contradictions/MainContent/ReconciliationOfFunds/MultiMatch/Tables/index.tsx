@@ -1,7 +1,8 @@
-import { SFC } from "@/types";
-import * as S from "./Styles";
-import { MultiMatch } from "../../contradictData";
 import PrimeReactTable from "@/components/DataTable/PrimeReactTable";
+import { SFC } from "@/types";
+
+import { MultiMatch } from "../../contradictData";
+import * as S from "./Styles";
 
 const MultiMatchTables: SFC = () => {
   const usedData = MultiMatch.slice(0, 1);

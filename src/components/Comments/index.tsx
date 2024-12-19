@@ -1,6 +1,7 @@
 import { SFC } from "@/types";
-import * as S from "./Styles";
+
 import PrimeTextArea from "../TextArea";
+import * as S from "./Styles";
 
 interface CommentsInterface {
   value: string;

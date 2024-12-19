@@ -1,8 +1,10 @@
-import { SFC } from "@/types";
-import * as S from "./Styles";
-import { fonts } from "@/styles";
-import { Label } from "@/components/Label";
 import { LinearProgress } from "@mui/material";
+
+import { Label } from "@/components/Label";
+import { fonts } from "@/styles";
+import { SFC } from "@/types";
+
+import * as S from "./Styles";
 
 const InformativeHeaderPattern: SFC<{
   title: string;

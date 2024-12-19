@@ -1,22 +1,24 @@
-import * as S from './Styles';
-import DataTable from '@/components/DataTable';
-import { useSelector } from 'react-redux';
-import { getCustomersData, getStockData } from '@/selectors/state';
+import { Button } from 'primereact/button';
+import { ProgressSpinner } from 'primereact/progressspinner';
 import { useEffect, useState } from 'react';
+import { useSelector } from 'react-redux';
+import { useDispatch } from 'react-redux';
+import { toast } from 'react-toastify';
+
 import {
     exportDdn,
     exportDdnHistories,
     getDdnDetail,
     getDdnHistories,
 } from '@/api/ddnHistories';
-import { Button } from 'primereact/button';
-import { ProgressSpinner } from 'primereact/progressspinner';
 import LineChart from '@/components/chart';
-import { getTheme } from '@/redux/selectors';
+import DataTable from '@/components/DataTable';
 import { fetchCustomersData } from '@/dispatchers/customers';
-import { useDispatch } from 'react-redux';
+import { getTheme } from '@/redux/selectors';
+import { getCustomersData, getStockData } from '@/selectors/state';
 import { AppDispatch } from '@/types';
-import { toast } from 'react-toastify';
+
+import * as S from './Styles';
 interface TickerItem {
     ticker: string;
 }
@@ -299,13 +301,13 @@ const MainContent = () => {
     }, []);
 
     const searchTicker = (event: { query: string }) => {
-        let query = event.query;
-        let filtered = tickerData.filter((item) => item.ticker.includes(query));
+        const {query} = event;
+        const filtered = tickerData.filter((item) => item.ticker.includes(query));
         setFilteredTickers(filtered);
     };
     const searchLastname = (event: { query: string }) => {
-        let query = event.query;
-        let filtered = customers.last_names.filter((item) =>
+        const {query} = event;
+        const filtered = customers.last_names.filter((item) =>
             item?.includes(query)
         );
         setFilteredLastname(filtered);
@@ -374,15 +376,15 @@ const MainContent = () => {
     };
 
     const searchNationalId = (event: { query: string }) => {
-        let query = event.query;
-        let filtered = customers.national_ids.filter((item) =>
+        const {query} = event;
+        const filtered = customers.national_ids.filter((item) =>
             item?.includes(query)
         );
         setFilteredNationalId(filtered);
     };
     const searchStockId = (event: { query: string }) => {
-        let query = event.query;
-        let filtered = customers.stock_ids.filter((item) =>
+        const {query} = event;
+        const filtered = customers.stock_ids.filter((item) =>
             item?.includes(query)
         );
         setFilteredStockId(filtered);
@@ -423,7 +425,7 @@ const MainContent = () => {
 
             setChartData({
                 labels: chartData[maxDatesDataset.name].dates.reverse(),
-                datasets: datasets,
+                datasets,
             });
         }
 
@@ -561,7 +563,7 @@ const MainContent = () => {
                             onDetailsClick={handleDetailsClick}
                             pagination
                             showRows
-                            scrollHeight={tableHeight + 'px'}
+                            scrollHeight={`${tableHeight  }px`}
                         />
                     </div>
                 )}

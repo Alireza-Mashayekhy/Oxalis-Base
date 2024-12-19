@@ -1,25 +1,20 @@
-import * as S from './Styles';
-import { useState, FC, useEffect } from 'react';
-import { SelectChangeEvent, Typography } from '@mui/material';
-import CustomSelectComponent from '@/components/Select';
-import ButtonWrapper from '@/components/ButtonWrapper';
+import { useEffect,useState } from 'react';
 import { useDispatch, useSelector } from 'react-redux';
+
 import { fetchDepositeFrame } from '@/dispatchers/depositeFrame';
 import { getDepositeFrame } from '@/selectors/state';
 import {
-    createDataForAssetTypeFilter,
     createDataForBankNamesFilter,
-    createDataForVentureNameFilter,
     createDataForVentureNameFilterBasedOnventureType,
-    createDataForVentureTypeFilter,
     createDataForVentureTypeFilterBasedOnBanks,
 } from '@/utils/FrameFunctions/depositeFrame';
+
+import * as S from './Styles';
 
 interface filterData {
     value: string;
     label: string;
 }
-import { Label } from '@/components/Label';
 import { AppDispatch, SFC } from '@/types';
 
 interface FilterPannelInterface {

@@ -1,10 +1,12 @@
-import { SFC } from "@/types";
-import * as S from "./Styles";
-import { oraghfixData } from "./oraghFixedIncome";
 import { useState } from "react";
-import DialogWrapper from "@/components/DialogModalWrapper";
-import FixedIncomeFundMarketDialog from "../Dialog";
+
 import PrimeReactTable from "@/components/DataTable/PrimeReactTable";
+import DialogWrapper from "@/components/DialogModalWrapper";
+import { SFC } from "@/types";
+
+import FixedIncomeFundMarketDialog from "../Dialog";
+import { oraghfixData } from "./oraghFixedIncome";
+import * as S from "./Styles";
 
 const tableContent = [
   { header: "نماد", field: "symbol" },
@@ -51,14 +53,14 @@ const StockPaperTable: SFC = () => {
         open={open}
         handleClose={handleClose}
         title={
-          selectedRow?.symbol +
-          "-" +
+          `${selectedRow?.symbol 
+          }-${ 
           new Date().toLocaleDateString("fa-IR", {
             month: "long",
             year: "numeric",
             day: "numeric",
             calendar: "persian",
-          })
+          })}`
         }
         body={
           <FixedIncomeFundMarketDialog

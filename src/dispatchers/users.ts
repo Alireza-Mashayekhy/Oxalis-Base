@@ -1,13 +1,13 @@
-import { AppDispatch, Users } from '@/types';
+import { toast } from 'react-toastify';
 
 import * as api from '@/api/users';
-import { toast } from 'react-toastify';
 import {
     setUsersData,
     usersFailure,
     usersRequest,
     usersSuccess,
 } from '@/redux/store/users';
+import { AppDispatch, Users } from '@/types';
 
 export const fetchUsersList = () => async (dispatch: AppDispatch) => {
     dispatch(usersRequest());

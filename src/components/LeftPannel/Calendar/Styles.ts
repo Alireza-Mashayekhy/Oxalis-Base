@@ -1,6 +1,7 @@
-import styled from "styled-components";
-import { breakpoints, fonts } from "@/styles";
 import { Calendar } from "react-multi-date-picker";
+import styled from "styled-components";
+
+import { breakpoints, fonts } from "@/styles";
 
 export const CalendarContainer = styled.div`
   text-align: center;

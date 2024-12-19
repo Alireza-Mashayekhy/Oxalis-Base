@@ -1,8 +1,8 @@
-import { useEffect } from 'react';
-import { useSelector, useDispatch } from 'react-redux';
+import { useDispatch,useSelector } from 'react-redux';
+
 import { updateTaskStatus } from '@/dispatchers/task';
-import { RootState, TaskStatus, SFC, AppDispatch } from '@/types';
 import { getSelf } from '@/selectors/state';
+import { AppDispatch,RootState, SFC, TaskStatus } from '@/types';
 const AssignedTasks: SFC = () => {
     const dispatch = useDispatch<AppDispatch>();
     const currentUser = useSelector(getSelf).id;

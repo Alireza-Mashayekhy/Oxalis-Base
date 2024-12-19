@@ -1,6 +1,7 @@
-import { SFC } from '@/types';
-import { data } from '../TradingHistory/data';
 import LineChart from '@/components/chart';
+import { SFC } from '@/types';
+
+import { data } from '../TradingHistory/data';
 
 const YTMHistory: SFC = () => {
     const sortedData = data.sort(

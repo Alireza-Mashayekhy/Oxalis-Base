@@ -1,4 +1,5 @@
 import axios from 'axios';
+
 import { Data } from '@/types';
 
 const BASE_URL = `${import.meta.env.VITE_APP_API_URL}/api/data`;

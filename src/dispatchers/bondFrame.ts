@@ -1,6 +1,6 @@
-import { AppDispatch } from '@/types';
-import { setBondFrame, setFilters } from '@/redux/store/bondFrame';
 import * as api from '@/api/bondFrame';
+import { setBondFrame, setFilters } from '@/redux/store/bondFrame';
+import { AppDispatch } from '@/types';
 
 export const fetchBondFrame =
     (filters?: Record<string, any>) => async (dispatch: AppDispatch) => {

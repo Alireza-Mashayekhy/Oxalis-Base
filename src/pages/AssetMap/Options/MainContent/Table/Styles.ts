@@ -1,7 +1,8 @@
-import styled from "styled-components";
 import { DataTable } from "primereact/datatable";
-import { primeReactDataTableStyle } from "@/styles/mixins";
+import styled from "styled-components";
+
 import { breakpoints } from "@/styles";
+import { primeReactDataTableStyle } from "@/styles/mixins";
 
 export const TableContainer = styled.div`
   height: 50vh;

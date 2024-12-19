@@ -1,6 +1,6 @@
-import { AppDispatch } from '@/types';
-import { setFinanceData } from '@/redux/store/financeData';
 import { getFinanceData } from '@/api/new_data';
+import { setFinanceData } from '@/redux/store/financeData';
+import { AppDispatch } from '@/types';
 import { FinancialData } from '@/types/new_data';
 
 export const fetchFinanceData = () => async (dispatch: AppDispatch) => {

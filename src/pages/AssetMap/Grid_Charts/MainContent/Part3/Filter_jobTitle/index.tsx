@@ -1,7 +1,9 @@
-import { useSelector, useDispatch } from 'react-redux';
-import { toggleJobTitle, resetFilters } from '@/redux/store/jobTitleFilterHr';
-import { getHrData } from '@/selectors/state';
 import './style.css';
+
+import { useDispatch,useSelector } from 'react-redux';
+
+import { resetFilters,toggleJobTitle } from '@/redux/store/jobTitleFilterHr';
+import { getHrData } from '@/selectors/state';
 import { RootState } from '@/types';
 
 const JobTitleFilter: React.FC = () => {

@@ -1,5 +1,6 @@
-import { hiddenScroll } from '@/styles';
 import styled from 'styled-components';
+
+import { hiddenScroll } from '@/styles';
 
 export const Container = styled.div`
     height: calc(100% - 20px);

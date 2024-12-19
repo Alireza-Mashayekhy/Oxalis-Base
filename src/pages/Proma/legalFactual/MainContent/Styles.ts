@@ -1,9 +1,10 @@
+import { AutoComplete } from 'primereact/autocomplete';
+import { Dialog } from 'primereact/dialog';
+import { TreeTable } from 'primereact/treetable';
+import styled from 'styled-components';
+
 import { inputStyle } from '@/styles';
 import { primeReactTreeTableStyle } from '@/styles/mixins';
-import { AutoComplete } from 'primereact/autocomplete';
-import styled from 'styled-components';
-import { TreeTable } from 'primereact/treetable';
-import { Dialog } from 'primereact/dialog';
 
 export const Container = styled.div`
     padding: 10px;

@@ -1,15 +1,16 @@
 import { Route, Routes } from 'react-router-dom';
-import { SFC } from '@/types';
-import * as S from './Styles';
 
-import HomePage from '@/pages/Proma/Home';
-import UploadPage from '@/pages/Proma/Upload';
-import RecordsPage from '@/pages/Proma/Records';
-import Statistics from '@/pages/Proma/Statistics';
 import Fee from '@/pages/Proma/Fee';
-import UsersPage from '@/pages/Proma/Users';
+import HomePage from '@/pages/Proma/Home';
 import Investment from '@/pages/Proma/investment/MainContent';
 import LegalFactual from '@/pages/Proma/legalFactual';
+import RecordsPage from '@/pages/Proma/Records';
+import Statistics from '@/pages/Proma/Statistics';
+import UploadPage from '@/pages/Proma/Upload';
+import UsersPage from '@/pages/Proma/Users';
+import { SFC } from '@/types';
+
+import * as S from './Styles';
 
 const MainArea: SFC = ({ className }) => {
     return (

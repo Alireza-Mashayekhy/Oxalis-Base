@@ -1,11 +1,13 @@
-import { useState, useEffect } from 'react';
-import ReactApexChart from 'react-apexcharts';
-import { useSelector } from 'react-redux';
-import { getHrData } from '@/selectors/state';
-import { selectFilteredJobTitles } from '@/redux/store/jobTitleFilterHr';
-import { fixedDepartments } from '../Filter_jobTitle/FilterConstants';
 import './Style.css';
+
+import { useEffect,useState } from 'react';
+import { useSelector } from 'react-redux';
+
 import BarChart from '@/components/BarChart';
+import { selectFilteredJobTitles } from '@/redux/store/jobTitleFilterHr';
+import { getHrData } from '@/selectors/state';
+
+import { fixedDepartments } from '../Filter_jobTitle/FilterConstants';
 
 interface DepartmentSalary {
     department: string;
@@ -95,7 +97,7 @@ const ApexBarChart1401 = () => {
                 </h5>
                 <BarChart labels={[]} datasets={series} />
             </div>
-            <div id="html-dist"></div>
+            <div id="html-dist" />
         </div>
     );
 };

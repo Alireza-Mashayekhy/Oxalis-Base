@@ -1,5 +1,6 @@
 import { useSelector } from 'react-redux';
-import { Task, SFC, RootState } from '@/types'; // Import Task type
+
+import { RootState,SFC, Task } from '@/types'; // Import Task type
 const TaskListComponent: SFC = () => {
     const tasks = useSelector((state: RootState) => state.tasks); // Get tasks from store
 

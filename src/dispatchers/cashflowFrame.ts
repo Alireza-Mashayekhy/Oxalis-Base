@@ -1,6 +1,6 @@
-import { AppDispatch } from '@/types';
-import { setcashflowFrame, setFilters } from '@/redux/store/cashflowFrame';
 import * as api from '@/api/cashflowFrame';
+import { setcashflowFrame, setFilters } from '@/redux/store/cashflowFrame';
+import { AppDispatch } from '@/types';
 
 export const fetchCashFlowFrame =
     (filters?: Record<string, any>) => async (dispatch: AppDispatch) => {

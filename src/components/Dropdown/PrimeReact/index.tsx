@@ -1,5 +1,6 @@
-import { SFC } from "@/types";
 import { Dropdown, DropdownChangeEvent } from "primereact/dropdown";
+
+import { SFC } from "@/types";
 
 interface PrimeDropdown {
   value: string;

@@ -1,17 +1,11 @@
-import { SFC } from "@/types";
-import * as S from "./Styles";
-import { useState } from "react";
-import PrimeMultiSelect from "@/components/MultiSelect";
-import PeopleIcon from "@mui/icons-material/People";
-// import PersianDatePicker from "@/components/datePicker";
-import { colors } from "@/styles";
-import SaveOutlinedIcon from "@mui/icons-material/SaveOutlined";
-import { Dropdown, DropdownChangeEvent } from "primereact/dropdown";
+import { DropdownChangeEvent } from "primereact/dropdown";
 import { MultiSelectChangeEvent } from "primereact/multiselect";
+import { useState } from "react";
 import { DateObject } from "react-multi-date-picker";
-import PrimeTextArea from "@/components/TextArea";
-import DialogWrapper from "@/components/DialogModalWrapper";
-import FileUpload from "./FileUpload";
+
+// import PersianDatePicker from "@/components/datePicker";
+import { SFC } from "@/types";
+
 
 const subjectOptions = [
   { label: "مالی", value: "1" },

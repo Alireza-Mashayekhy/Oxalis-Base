@@ -1,4 +1,5 @@
 import axios from 'axios';
+
 import { BondFrame } from '@/types';
 
 const BASE_URL = `${import.meta.env.VITE_APP_API_URL}/api/cashflow_frame`;

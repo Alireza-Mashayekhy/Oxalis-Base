@@ -1,4 +1,5 @@
 import { SFC } from "@/types";
+
 import GaugeChart from "./GaugeChart";
 import LineChartDisplay from "./LineChart";
 

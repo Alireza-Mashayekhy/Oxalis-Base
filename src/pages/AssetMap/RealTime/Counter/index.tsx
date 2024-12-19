@@ -1,7 +1,8 @@
 import { useDispatch, useSelector } from 'react-redux';
-import { incrementCounter, decrementCounter } from '@/dispatchers/counter';
+
+import { decrementCounter,incrementCounter } from '@/dispatchers/counter';
+import { getSelf } from '@/selectors/state';
 import { AppDispatch, RootState, SFC } from '@/types';
-import { getSelf, getUsers } from '@/selectors/state';
 
 interface CounterProps {
     id: string;
@@ -10,7 +11,7 @@ interface CounterProps {
 const Counter: SFC<CounterProps> = ({ id }) => {
     const dispatch = useDispatch<AppDispatch>();
     const counter = useSelector((state: RootState) => state.counter[id]);
-    const username = useSelector(getSelf).username;
+    const {username} = useSelector(getSelf);
 
     if (!counter) {
         return <div>Counter not found</div>;

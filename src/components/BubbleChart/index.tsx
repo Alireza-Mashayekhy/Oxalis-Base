@@ -1,5 +1,7 @@
-import { getTheme } from '@/redux/selectors';
 import { useSelector } from 'react-redux';
+
+import { getTheme } from '@/redux/selectors';
+
 import * as S from './Style';
 
 interface BubbleDataPoint {
@@ -27,7 +29,7 @@ const BubbleChart: React.FC<BubbleChartProps> = ({
 
     const chartOptions = {
         chart: {
-            type: 'bubble' as 'bubble',
+            type: 'bubble' as const,
             background: 'transparent',
             toolbar: {
                 show: true,
@@ -88,7 +90,7 @@ const BubbleChart: React.FC<BubbleChartProps> = ({
             },
         },
         tooltip: {
-            theme: theme,
+            theme,
             style: {
                 fontSize: '14px',
                 fontFamily: 'IranSans',

@@ -1,7 +1,9 @@
-import { SFC } from "@/types";
-import * as S from "./Styles";
 import { useState } from "react";
+
+import { SFC } from "@/types";
+
 import CashFlowBtn from "./CashFlowBtn";
+import * as S from "./Styles";
 import SuggestionBtn from "./SuggestionBtn";
 
 const CashFlowCalculation: SFC = () => {

@@ -1,7 +1,8 @@
-import { breakpoints, colors, fonts } from "@/styles";
 import { Button as UButton } from "@mui/material";
-import { Input as UInput } from "@/components/FormElements";
 import styled from "styled-components";
+
+import { Input as UInput } from "@/components/FormElements";
+import { breakpoints, colors, fonts } from "@/styles";
 import { muiButtonStyle } from "@/styles/mixins";
 
 export const OuterFlexContainer = styled.div`

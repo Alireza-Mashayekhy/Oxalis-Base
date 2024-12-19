@@ -1,4 +1,5 @@
 import styled from "styled-components";
+
 import { breakpoints, fonts } from "@/styles";
 
 export const FlexItem = styled.div`

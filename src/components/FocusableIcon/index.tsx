@@ -1,4 +1,5 @@
 import IconButton from '@mui/material/IconButton';
+
 import { colors } from '@/styles';
 import { darkTheme, lightTheme } from '@/styles/theme';
 
@@ -33,10 +34,10 @@ const FocusableIcon: React.FC<FocusableIconProps> = ({
                     theme === 'dark'
                         ? darkTheme.textColor
                         : lightTheme.textColor,
-                py: py,
-                pl: pl,
-                pr: pr,
-                px: px,
+                py,
+                pl,
+                pr,
+                px,
                 '&:focus': {
                     backgroundColor:
                         theme === 'dark'

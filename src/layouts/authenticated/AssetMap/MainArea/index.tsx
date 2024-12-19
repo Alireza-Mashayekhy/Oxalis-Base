@@ -1,5 +1,10 @@
 import { Route, Routes } from 'react-router-dom';
 
+import Contradiction from '@/pages/AssetMap/Contradictions';
+import CounterManagement from '@/pages/AssetMap/CounterManagement';
+import DataEntry from '@/pages/AssetMap/DataEntry';
+import FixedIncomeFund from '@/pages/AssetMap/FixedIncomeFund';
+import GridData from '@/pages/AssetMap/Grid_Charts';
 // import Art from 'pages/Art';
 // import Contributions from 'pages/Contributions';
 // import Cores from 'pages/Cores';
@@ -13,18 +18,14 @@ import { Route, Routes } from 'react-router-dom';
 // import Shop from 'pages/Shop';
 // import Wallets from 'pages/Wallets';
 import Home from '@/pages/AssetMap/Home';
-import Upload from '@/pages/AssetMap/Upload';
-import DataEntry from '@/pages/AssetMap/DataEntry';
-import User from '@/pages/AssetMap/User';
+import NewData from '@/pages/AssetMap/New_Data';
+import Options from '@/pages/AssetMap/Options';
 import TaskPage from '@/pages/AssetMap/ProjectManagement';
 import RealTime from '@/pages/AssetMap/RealTime';
-import CounterManagement from '@/pages/AssetMap/CounterManagement';
-import Contradiction from '@/pages/AssetMap/Contradictions';
-import Options from '@/pages/AssetMap/Options';
-import FixedIncomeFund from '@/pages/AssetMap/FixedIncomeFund';
-import NewData from '@/pages/AssetMap/New_Data';
-import GridData from '@/pages/AssetMap/Grid_Charts';
+import Upload from '@/pages/AssetMap/Upload';
+import User from '@/pages/AssetMap/User';
 import { SFC } from '@/types';
+
 import * as S from './Styles';
 
 const MainArea: SFC = ({ className }) => {

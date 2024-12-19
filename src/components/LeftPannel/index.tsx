@@ -1,9 +1,10 @@
 import { SFC } from "@/types";
-import * as S from "./Styles";
-import NewsFeedTitles from "./NewsFeedTitles";
-import NewsFeedBtn from "./NewsFeedBtn";
-import Header from "./Header";
+
 import CalendarDisplay from "./Calendar";
+import Header from "./Header";
+import NewsFeedBtn from "./NewsFeedBtn";
+import NewsFeedTitles from "./NewsFeedTitles";
+import * as S from "./Styles";
 
 const NewsFeedColumn: SFC = () => {
   return (

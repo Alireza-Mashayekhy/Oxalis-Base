@@ -1,12 +1,14 @@
-import * as S from './Styles';
 import {
     Table,
     TableBody,
+    TableContainer,
     TableHead,
     TableRow,
-    TableContainer,
 } from '@mui/material';
+
 import { fonts } from '@/styles';
+
+import * as S from './Styles';
 
 interface MaterialTable<T> {
     headers: { label: string }[];

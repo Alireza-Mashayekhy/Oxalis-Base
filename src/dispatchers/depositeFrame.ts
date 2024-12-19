@@ -1,6 +1,6 @@
-import { AppDispatch } from "@/types";
-import { setDepositeFrame, setFilters } from "@/redux/store/depositeFrame";
 import * as api from "@/api/depositeFrame";
+import { setDepositeFrame, setFilters } from "@/redux/store/depositeFrame";
+import { AppDispatch } from "@/types";
 
 export const fetchDepositeFrame =
   (filters?: Record<string, any>) => async (dispatch: AppDispatch) => {

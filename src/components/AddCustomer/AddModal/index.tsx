@@ -1,11 +1,13 @@
-import { AppDispatch, SFC } from '@/types';
-import * as S from './Styles';
 import { useEffect, useState } from 'react';
-import { addCustomer, getCustomersData, getTickers } from '@/api/customerData';
-import { toast } from 'react-toastify';
 import { useDispatch } from 'react-redux';
 import { useSelector } from 'react-redux';
+import { toast } from 'react-toastify';
+
+import { addCustomer, getCustomersData, getTickers } from '@/api/customerData';
 import { getTheme } from '@/redux/selectors';
+import { AppDispatch, SFC } from '@/types';
+
+import * as S from './Styles';
 
 export interface AddCustomerModalProps {
     visible: boolean;
@@ -89,12 +91,12 @@ const AddModal: SFC<AddCustomerModalProps> = ({ visible, setVisibleProp }) => {
                 label="انصراف"
                 onClick={() => setVisibleProp(false)}
                 autoFocus
-            ></S.FooterButton>
+             />
             <S.FooterButton
                 label="ذخیره"
                 onClick={() => add()}
                 autoFocus
-            ></S.FooterButton>
+             />
         </S.FooterContainer>
     );
 
@@ -189,12 +191,12 @@ const AddModal: SFC<AddCustomerModalProps> = ({ visible, setVisibleProp }) => {
                         label="انصراف"
                         onClick={() => setVisibleProp(false)}
                         autoFocus
-                    ></S.FooterButton>
+                     />
                     <S.FooterButton
                         label="ذخیره"
                         onClick={() => add()}
                         autoFocus
-                    ></S.FooterButton>
+                     />
                 </S.FooterContainer>
             </S.InputsContainer>
         </S.Container>

@@ -1,11 +1,12 @@
-import * as S from './Styles';
+import { mdiChevronLeft } from '@mdi/js';
+import { useSelector } from 'react-redux';
+import { useNavigate } from 'react-router-dom';
+
 import logoblack from '@/assets/logoWhite.png';
 import logoWhite from '@/assets/logoWhite.png';
-import { useSelector } from 'react-redux';
 import { getTheme } from '@/redux/selectors';
-import { Menubar } from 'primereact/menubar';
-import { useNavigate } from 'react-router-dom';
-import { mdiChevronDown, mdiChevronLeft } from '@mdi/js';
+
+import * as S from './Styles';
 
 const TopBar = () => {
     const theme = useSelector(getTheme);

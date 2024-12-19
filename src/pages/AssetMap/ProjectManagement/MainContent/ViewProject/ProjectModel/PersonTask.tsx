@@ -1,14 +1,16 @@
-import { RefObject } from "react";
-import * as S from "./Styles";
 import CloudDownloadIcon from "@mui/icons-material/CloudDownload";
-import InsertDriveFileIcon from "@mui/icons-material/InsertDriveFile";
 import CommentIcon from "@mui/icons-material/Comment";
 import DoneIcon from "@mui/icons-material/Done";
+import InsertDriveFileIcon from "@mui/icons-material/InsertDriveFile";
+import { Menu } from "primereact/menu";
+import { MenuItem } from "primereact/menuitem";
+import { RefObject } from "react";
+
 import UploadComponent from "@/components/UploadComponent";
 import { colors } from "@/styles";
-import { MenuItem } from "primereact/menuitem";
-import { Menu } from "primereact/menu";
 import { SFC } from "@/types";
+
+import * as S from "./Styles";
 
 type PersonTaskProps = {
   ppl: {
@@ -54,7 +56,7 @@ const PersonTask: SFC<PersonTaskProps> = ({
               : colors.chartsColor.orange
           }`,
         }}
-      ></div>
+       />
       <div
         className="person-name"
         data-pr-tooltip={`${ppl.task}`}

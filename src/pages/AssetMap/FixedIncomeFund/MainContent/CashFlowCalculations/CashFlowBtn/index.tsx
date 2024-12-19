@@ -1,19 +1,19 @@
-import { SFC } from '@/types';
-import * as S from './Styles';
-import CustomSelectComponent from '@/components/Select';
-import { getSymbols } from '@/utils/fixedIncomFunctions';
-import { useEffect, useState } from 'react';
-
 import { Divider, SelectChangeEvent } from '@mui/material';
-import CashFlowDialog from './Dialog';
-import officeWhite from '@/assets/officeWhite.png';
-import officeBlack from '@/assets/officeBlack.png';
+import { useEffect, useState } from 'react';
+import { useSelector } from 'react-redux';
+
 import disketteBlack from '@/assets/disketteBlack.png';
 import disketteWhite from '@/assets/disketteWhite.png';
-
-import { useSelector } from 'react-redux';
+import officeBlack from '@/assets/officeBlack.png';
+import officeWhite from '@/assets/officeWhite.png';
+import CustomSelectComponent from '@/components/Select';
 import { getTheme } from '@/selectors/state';
+import { SFC } from '@/types';
+import { getSymbols } from '@/utils/fixedIncomFunctions';
+
 import { oraghfixData } from '../../Watcher/Table/oraghFixedIncome';
+import CashFlowDialog from './Dialog';
+import * as S from './Styles';
 
 type symbolState = {
     label: string;

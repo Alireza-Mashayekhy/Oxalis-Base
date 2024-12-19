@@ -1,7 +1,7 @@
-import * as S from './styles';
 import { Button } from '@mui/material';
-
 import styled from 'styled-components';
+
+import * as S from './styles';
 
 const StyledButton = styled(Button)`
     ${S.button1}; // Apply the CSS module using styled-components

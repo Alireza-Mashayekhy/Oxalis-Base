@@ -1,7 +1,8 @@
+import axios from 'axios';
+
 import { logout } from '@/dispatchers/authentication';
 import { AppDispatch } from '@/types';
 import { authorizationHeaders, getAccess } from '@/utils/authentication';
-import axios from 'axios';
 
 const BASE_URL = `${import.meta.env.VITE_APP_API_URL}/auth`;
 

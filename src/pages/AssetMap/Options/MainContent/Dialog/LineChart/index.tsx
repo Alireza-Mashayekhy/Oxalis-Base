@@ -1,6 +1,6 @@
-import { SFC } from '@/types';
-import ChartsTooltip from '@/components/ChartsTooltip';
 import LineChart from '@/components/chart';
+import ChartsTooltip from '@/components/ChartsTooltip';
+import { SFC } from '@/types';
 
 const LineChartDisplay: SFC = ({ selectedRow }) => {
     return (

@@ -1,11 +1,12 @@
-import React, { useState, useEffect } from 'react';
-import { HRData } from '@/types/new_data';
-import { SFC } from '@/types';
+import React, { useEffect,useState } from 'react';
 import { useDispatch, useSelector } from 'react-redux';
-import { getHrData } from '@/selectors/state';
-import { darkTheme, lightTheme } from '@/styles/theme';
-import { getTheme } from '@/selectors/state';
+
 import LineChart from '@/components/chart';
+import { getHrData } from '@/selectors/state';
+import { getTheme } from '@/selectors/state';
+import { darkTheme, lightTheme } from '@/styles/theme';
+import { SFC } from '@/types';
+import { HRData } from '@/types/new_data';
 
 const radi = [
     { radii: 4, label: '30 ' },

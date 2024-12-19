@@ -1,20 +1,21 @@
-import { getAllAssets, getBankperfunde } from '@/selectors/state';
-import { AllAssets, BankPerFund, SFC } from '@/types';
-import * as S from './Styles';
+import BarChartIcon from '@mui/icons-material/BarChart';
+import PieChartIcon from '@mui/icons-material/PieChart';
+import SquareIcon from '@mui/icons-material/Square';
+import { IconButton, Tooltip as UTooltip,useMediaQuery } from '@mui/material';
 import { useSelector } from 'react-redux';
 
-import PieChartIcon from '@mui/icons-material/PieChart';
-import BarChartIcon from '@mui/icons-material/BarChart';
-import { IconButton, useMediaQuery, Tooltip as UTooltip } from '@mui/material';
-import { breakpoints, colors, fonts } from '@/styles';
+import BarChart from '@/components/BarChart';
+import ChartsTooltip from '@/components/ChartsTooltip';
+import PieChart from '@/components/PieChart';
+import { getAllAssets, getBankperfunde } from '@/selectors/state';
+import { breakpoints, colors } from '@/styles';
+import { AllAssets, BankPerFund, SFC } from '@/types';
 import {
     filterBasedOnVentureNameAndConvertingStringValueToNumber,
     filterBasedOnVentureNameAndConvertingStringValueToNumberWithoutSorting,
 } from '@/utils/chartsFunctions';
-import ChartsTooltip from '@/components/ChartsTooltip';
-import SquareIcon from '@mui/icons-material/Square';
-import PieChart from '@/components/PieChart';
-import BarChart from '@/components/BarChart';
+
+import * as S from './Styles';
 interface Chart1Props {
     fundName: string;
     showBarChart: boolean;

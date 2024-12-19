@@ -1,7 +1,9 @@
-import { SFC } from "@/types";
-import * as S from "./Styles";
 import persian from "react-date-object/calendars/persian";
 import persian_fa from "react-date-object/locales/persian_fa";
+
+import { SFC } from "@/types";
+
+import * as S from "./Styles";
 
 
 const CalendarDisplay: SFC = () => {

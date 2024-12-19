@@ -1,10 +1,11 @@
+import axios from 'axios';
+
 import { logout } from '@/dispatchers/authentication';
 import {
     authorizationFormHeaders,
     authorizationHeaders,
     getAccess,
 } from '@/utils/authentication';
-import axios, { AxiosError } from 'axios';
 
 const BASE_URL = `${import.meta.env.VITE_APP_API_URL}`;
 
@@ -61,7 +62,7 @@ export const removeCustomerApi = async ({
                     Authorization: getAccess(),
                 },
                 params: {
-                    ticker: ticker,
+                    ticker,
                 },
             }
         );

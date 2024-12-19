@@ -1,4 +1,5 @@
 import { createSlice, PayloadAction } from '@reduxjs/toolkit';
+
 import { Event } from '@/types';
 
 const initialState: Event[] = [];

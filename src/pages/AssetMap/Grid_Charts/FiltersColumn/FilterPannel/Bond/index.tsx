@@ -1,17 +1,19 @@
-import { useState, useMemo, useEffect } from 'react';
+import '../../style.css';
+
 import { Typography } from '@mui/material';
+import moment from 'moment-jalaali';
+import { useEffect,useMemo, useState } from 'react';
 import { useDispatch, useSelector } from 'react-redux';
-import { getSalesData, getSalesFilterData } from '@/selectors/state';
-import { setSalesData } from '@/redux/store/salesData';
+
+import ButtonWrapper from '@/components/ButtonWrapper';
+import { MyDatePickerRange } from '@/components/Calendar/index';
+import { Label } from '@/components/Label';
 import { setSalesFilteredData } from '@/redux/store/salesFilter';
+import { getSalesData, getSalesFilterData } from '@/selectors/state';
 import { SFC } from '@/types';
 import { SalesData } from '@/types/new_data';
-import { MyDatePickerRange } from '@/components/Calendar/index';
-import moment from 'moment-jalaali';
+
 import * as S from './Styles';
-import { Label } from '@/components/Label';
-import ButtonWrapper from '@/components/ButtonWrapper';
-import '../../style.css';
 
 interface FilterPannelInterface {
     isResponsive?: boolean;

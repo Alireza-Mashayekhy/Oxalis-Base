@@ -1,10 +1,12 @@
-import { useSelector } from "react-redux";
-import { StyledMenuItem, StyledSelect } from "./Styles";
-import { CustomSelectComponentProps } from "./types";
 import ArrowDropDownIcon from "@mui/icons-material/ArrowDropDown";
 import { FormControl } from "@mui/material";
+import { useSelector } from "react-redux";
+
 import { getTheme } from "@/selectors/state";
 import { darkTheme, lightTheme } from "@/styles/theme";
+
+import { StyledMenuItem, StyledSelect } from "./Styles";
+import { CustomSelectComponentProps } from "./types";
 
 const CustomSelectComponent: React.FC<CustomSelectComponentProps> = ({
   borderWidth,

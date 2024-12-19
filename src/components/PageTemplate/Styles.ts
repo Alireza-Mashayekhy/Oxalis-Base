@@ -1,7 +1,8 @@
+import { AccordionSummary } from '@mui/material';
 import styled from 'styled-components';
+
 import { breakpoints, hiddenScroll } from '@/styles';
 import { narrowScroll } from '@/styles/mixins';
-import { AccordionSummary } from '@mui/material';
 
 export const Container = styled.div`
     width: 100%;

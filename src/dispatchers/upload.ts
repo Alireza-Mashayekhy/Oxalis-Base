@@ -1,13 +1,14 @@
-import { AppDispatch } from '@/types';
+import { toast } from 'react-toastify';
+
+import * as api from '@/api/upload';
 import {
     setUploadData,
     uploadFailure,
     uploadRequest,
     uploadSuccess,
 } from '@/redux/store/uploadData';
-import * as api from '@/api/upload';
+import { AppDispatch } from '@/types';
 import { UploadStatus } from '@/types';
-import { toast } from 'react-toastify';
 
 export const fetchUploadData = () => async (dispatch: AppDispatch) => {
     dispatch(uploadRequest());

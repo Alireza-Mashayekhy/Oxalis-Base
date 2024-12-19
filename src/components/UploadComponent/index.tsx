@@ -1,5 +1,7 @@
-import { SFC } from "@/types";
 import { useRef } from "react";
+
+import { SFC } from "@/types";
+
 import * as S from "./Styles";
 
 interface upload {
@@ -17,7 +19,7 @@ const UploadComponent: SFC<upload> = ({ uploadText, setSelectedFiles }) => {
   };
 
   const handleFileChange = (event: React.ChangeEvent<HTMLInputElement>) => {
-    const files = event.target.files;
+    const {files} = event.target;
     if (files && files.length > 0) {
       setSelectedFiles(event);
     }

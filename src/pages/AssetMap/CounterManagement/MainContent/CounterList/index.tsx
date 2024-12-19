@@ -1,13 +1,15 @@
-import { useState, useEffect } from 'react';
+import { useEffect,useState } from 'react';
 import { useDispatch, useSelector } from 'react-redux';
-import { AppDispatch, RootState } from '@/types';
+
 import {
-    loadCounters,
     addNewCounter,
+    loadCounters,
     modifyCounter,
     removeCounter,
 } from '@/dispatchers/counter';
+import { AppDispatch, RootState } from '@/types';
 import { Counter } from '@/types';
+
 import Modal from '../../Modal';
 
 const CounterList: React.FC = () => {

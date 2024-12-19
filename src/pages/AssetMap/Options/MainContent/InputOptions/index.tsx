@@ -1,10 +1,12 @@
-import { SFC } from "@/types";
-import * as S from "./Styles";
-import { useState } from "react";
-import TextField_n2 from "@/components/textfield/TextFiled2";
-import CustomSelectComponent from "@/components/Select";
 import { SelectChangeEvent } from "@mui/material";
+import { useState } from "react";
+
+import CustomSelectComponent from "@/components/Select";
+import TextField_n2 from "@/components/textfield/TextFiled2";
+import { SFC } from "@/types";
+
 import { riskOptions } from "./riskOptions";
+import * as S from "./Styles";
 
 const InputOptions: SFC = () => {
   const [minInvertigation, setMinInvestigation] = useState<number>(0);

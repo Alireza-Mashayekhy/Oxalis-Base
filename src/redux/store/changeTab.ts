@@ -1,5 +1,6 @@
-import { ChangeTabs } from "@/types/changeTabHome";
 import { createSlice, PayloadAction } from "@reduxjs/toolkit";
+
+import { ChangeTabs } from "@/types/changeTabHome";
 
 const initialState: ChangeTabs = { activeTabIndex: 0 };
 

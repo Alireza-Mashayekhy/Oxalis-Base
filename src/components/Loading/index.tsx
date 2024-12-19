@@ -1,7 +1,9 @@
-import { SFC } from "@/types";
-import * as S from "./Styles";
 import { ProgressSpinner } from "primereact/progressspinner";
+
 import logoPath from "@/assets/logoblack.png";
+import { SFC } from "@/types";
+
+import * as S from "./Styles";
 
 const LoadingComponent: SFC = () => {
   return (

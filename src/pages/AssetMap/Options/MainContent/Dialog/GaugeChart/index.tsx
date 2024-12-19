@@ -1,6 +1,7 @@
-import { SFC } from '@/types';
-import * as S from './Styles';
 import PieChart from '@/components/PieChart';
+import { SFC } from '@/types';
+
+import * as S from './Styles';
 
 const data: { name: string; value: number }[] = [
     { name: 'Active', value: 500 },
@@ -23,7 +24,7 @@ const GaugeChart: SFC = () => {
                     سنجه ریسک
                 </S.StyledText>
                 <S.StyledText x={cx} y={centerY + 30}>
-                    {`${'%' + ' ' + 12}`}
+                    {`${`%` + ` ${  12}`}`}
                 </S.StyledText>
             </g>
         );

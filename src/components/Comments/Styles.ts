@@ -1,8 +1,9 @@
-import styled from "styled-components";
 import { Button as UButton } from "@mui/material";
-import { muiButtonStyle } from "@/styles/mixins";
 import { InputTextarea } from "primereact/inputtextarea";
+import styled from "styled-components";
+
 import { fonts } from "@/styles";
+import { muiButtonStyle } from "@/styles/mixins";
 
 export const Container = styled.div`
   direction: rtl;

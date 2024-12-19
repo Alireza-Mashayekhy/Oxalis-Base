@@ -1,6 +1,7 @@
+import styled from "styled-components";
+
 import { breakpoints, fonts } from "@/styles";
 import { narrowScroll } from "@/styles/mixins";
-import styled from "styled-components";
 
 export const Container = styled.div`
   width: 100%;

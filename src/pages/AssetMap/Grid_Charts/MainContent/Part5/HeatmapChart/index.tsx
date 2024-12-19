@@ -1,9 +1,10 @@
 import { useEffect, useState } from 'react';
 import { useSelector } from 'react-redux';
-import { getManData, getManFilterData } from '@/selectors/state';
-import { ManufacturingData } from '@/types/new_data';
-import { RootState } from '@/types';
+
 import HeatmapChart from '@/components/HeatmapChart';
+import { getManData, getManFilterData } from '@/selectors/state';
+import { RootState } from '@/types';
+import { ManufacturingData } from '@/types/new_data';
 
 const ApexChart = () => {
     const data: ManufacturingData[] = useSelector(getManData);

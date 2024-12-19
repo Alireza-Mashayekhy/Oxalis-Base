@@ -1,5 +1,6 @@
 import styled from "styled-components";
-import { colors, fonts } from "@/styles";
+
+import { fonts } from "@/styles";
 
 export const P = styled.p`
   font-weight: ${fonts.weight.semiBold};

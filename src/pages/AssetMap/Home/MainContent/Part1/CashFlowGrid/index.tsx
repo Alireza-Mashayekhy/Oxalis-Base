@@ -1,17 +1,18 @@
-import { AppDispatch, SFC } from '@/types';
-import * as S from './Styles';
+import { Chip } from '@mui/material';
+import { useEffect, useState } from 'react';
 import { useSelector } from 'react-redux';
+import { useDispatch } from 'react-redux';
+
+import CustomTreeTable from '@/components/TreeTable';
+import { fetchCashFlowFrame } from '@/dispatchers/cashflowFrame';
 import { getCashFlowFrame } from '@/selectors/state';
+import { AppDispatch, SFC } from '@/types';
 import {
     createCashFlowTreeTableData,
     numberBodyTemplateForTreeTable,
 } from '@/utils/dataTableFunctions';
-import { useEffect, useState } from 'react';
-import { TreeNode } from 'primereact/treenode';
-import CustomTreeTable from '@/components/TreeTable';
-import { useDispatch } from 'react-redux';
-import { fetchCashFlowFrame } from '@/dispatchers/cashflowFrame';
-import { Chip } from '@mui/material';
+
+import * as S from './Styles';
 
 const treeTableData = [
     {

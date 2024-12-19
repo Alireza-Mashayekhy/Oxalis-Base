@@ -1,6 +1,7 @@
-import { colors, fonts } from "@/styles";
 import { Menu } from "@mui/material";
 import styled from "styled-components";
+
+import { colors, fonts } from "@/styles";
 
 export const StyledMenu = styled(Menu)`
   & .MuiPaper-root {

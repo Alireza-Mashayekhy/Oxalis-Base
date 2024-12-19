@@ -1,8 +1,9 @@
-import ApexGoupedBarChart1402 from './chart1402';
-import ApexGoupedBarChart1401 from './chart1401';
-import ApexGoupedBarChart1403 from './chart1403';
-import JobTitleFilter from '../Filter_jobTitle/index';
 import '../style.css';
+
+import JobTitleFilter from '../Filter_jobTitle/index';
+import ApexGoupedBarChart1401 from './chart1401';
+import ApexGoupedBarChart1402 from './chart1402';
+import ApexGoupedBarChart1403 from './chart1403';
 
 const ApexGoupedBarChart = () => {
     return (

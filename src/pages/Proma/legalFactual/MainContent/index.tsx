@@ -1,17 +1,18 @@
-import { useEffect, useState } from 'react';
-import { DatePicker } from 'zaman';
 import { PrimeReactProvider } from 'primereact/api';
 import { Button } from 'primereact/button';
 import { ProgressSpinner } from 'primereact/progressspinner';
-import moment from 'moment-jalaali';
-import * as S from './Styles';
-import { toast } from 'react-toastify';
+import { useEffect, useState } from 'react';
 import { useSelector } from 'react-redux';
-import { getTheme } from '@/redux/selectors';
-import DataTable from '@/components/DataTable';
-import { getStockData } from '@/selectors/state';
+import { toast } from 'react-toastify';
+import { DatePicker } from 'zaman';
+
 import { exportILStatus, getChartILStatus, getILStatus } from '@/api/ilstatus';
 import LineChart from '@/components/chart';
+import DataTable from '@/components/DataTable';
+import { getTheme } from '@/redux/selectors';
+import { getStockData } from '@/selectors/state';
+
+import * as S from './Styles';
 
 interface TickerItem {
     ticker: string;
@@ -73,8 +74,8 @@ const Investment = () => {
         );
     }, []);
     const searchTicker = (event: { query: string }) => {
-        let query = event.query;
-        let filtered = tickerData.filter((item) => item.ticker.includes(query));
+        const {query} = event;
+        const filtered = tickerData.filter((item) => item.ticker.includes(query));
         setFilteredTickers(filtered);
     };
 
@@ -289,7 +290,7 @@ const Investment = () => {
                                     columnFields={columnFields}
                                     totalRecords={iLStatusData.length}
                                     pagination
-                                    scrollHeight={tableHeight + 'px'}
+                                    scrollHeight={`${tableHeight  }px`}
                                 />
                             )}
                         </>

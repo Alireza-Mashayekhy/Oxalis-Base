@@ -1,9 +1,9 @@
-import { SFC } from '@/types';
-import * as S from './Styles';
-import PushPinIcon from '@mui/icons-material/PushPin';
-import PushPinOutlinedIcon from '@mui/icons-material/PushPinOutlined';
-import UIcon from '@mdi/react';
 import { mdiTuneVertical } from '@mdi/js';
+import UIcon from '@mdi/react';
+
+import { SFC } from '@/types';
+
+import * as S from './Styles';
 
 const Toggler: SFC<{
     isSecondColumnVisible: boolean;

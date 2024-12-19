@@ -1,5 +1,6 @@
-import { fonts } from "@/styles";
 import styled from "styled-components";
+
+import { fonts } from "@/styles";
 
 // Define your styled text component
 export const StyledText = styled.text`

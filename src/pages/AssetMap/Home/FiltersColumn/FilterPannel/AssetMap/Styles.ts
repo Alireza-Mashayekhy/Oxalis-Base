@@ -1,7 +1,8 @@
+import { Dropdown } from 'primereact/dropdown';
 import styled from 'styled-components';
+
 import UButton from '@/components/Button';
 import { breakpoints } from '@/styles';
-import { Dropdown } from 'primereact/dropdown';
 import { primeDropdownStyle } from '@/styles/mixins';
 
 export const Container = styled.div`

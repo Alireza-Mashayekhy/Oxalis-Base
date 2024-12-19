@@ -1,8 +1,10 @@
-import { getTheme } from "@/selectors/state";
-import * as S from "./Styles";
-import { SFC } from "@/types";
 import { MenuItem } from "@mui/material";
 import { useSelector } from "react-redux";
+
+import { getTheme } from "@/selectors/state";
+import { SFC } from "@/types";
+
+import * as S from "./Styles";
 
 interface DotsMenuProps {
   options: string[];

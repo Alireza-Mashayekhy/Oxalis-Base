@@ -1,5 +1,5 @@
-import styled from "styled-components";
 import { InputNumber } from "primereact/inputnumber";
+import styled from "styled-components";
 
 
 export const StyledInputNumber = styled(InputNumber)`

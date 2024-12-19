@@ -1,5 +1,7 @@
-import { getTheme } from '@/redux/selectors';
 import { useSelector } from 'react-redux';
+
+import { getTheme } from '@/redux/selectors';
+
 import * as S from './Style';
 
 interface HeatmapDataPoint {
@@ -31,7 +33,7 @@ const HeatmapChart: React.FC<HeatmapChartProps> = ({
 
     const chartOptions = {
         chart: {
-            type: 'heatmap' as 'heatmap',
+            type: 'heatmap' as const,
             background: 'transparent',
             toolbar: {
                 show: true,
@@ -91,7 +93,7 @@ const HeatmapChart: React.FC<HeatmapChartProps> = ({
             },
         },
         tooltip: {
-            theme: theme,
+            theme,
             style: {
                 fontSize: '14px',
                 fontFamily: 'IranSans',

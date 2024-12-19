@@ -1,6 +1,7 @@
 import { createSlice, PayloadAction } from '@reduxjs/toolkit';
-import { UploadStatus } from '@/types';
+
 import { UPLOAD } from '@/constants/store';
+import { UploadStatus } from '@/types';
 
 const initialState: UploadStatus = {
     data: [],

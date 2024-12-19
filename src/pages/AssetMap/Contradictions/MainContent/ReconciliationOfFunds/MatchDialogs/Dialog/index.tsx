@@ -1,12 +1,14 @@
 import Box from "@mui/material/Box";
 import Typography from "@mui/material/Typography";
-import * as S from "./Styles";
+
 import { fonts } from "@/styles";
 import { SFC } from "@/types";
-import PerfectMatchTables from "../../PerfectMatch/Tables";
+
+import MultiMatchTables from "../../MultiMatch/Tables";
 import NonMatchBankTables from "../../NonMatchBank/Tables";
 import NonMatchRiyanTables from "../../NonMatchRiyan/Tables";
-import MultiMatchTables from "../../MultiMatch/Tables";
+import PerfectMatchTables from "../../PerfectMatch/Tables";
+import * as S from "./Styles";
 
 interface Stepper {
   totalSteps: number;

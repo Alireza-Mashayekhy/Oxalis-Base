@@ -1,12 +1,15 @@
+import './Style.css';
+
 import { useSelector } from 'react-redux';
-import { getHrData } from '@/selectors/state';
+
+import BarChart from '@/components/BarChart';
 import { selectFilteredJobTitles } from '@/redux/store/jobTitleFilterHr';
+import { getHrData } from '@/selectors/state';
+
 import {
     fixedDepartments,
     fixedJobTitles,
 } from '../Filter_jobTitle/FilterConstants';
-import './Style.css';
-import BarChart from '@/components/BarChart';
 
 const ApexGoupedBarChart1401: React.FC = () => {
     const hrData = useSelector(getHrData);
@@ -71,7 +74,7 @@ const ApexGoupedBarChart1401: React.FC = () => {
                 </h5>
                 <BarChart labels={fixedJobTitles} datasets={seriesData} />
             </div>
-            <div id="html-dist"></div>
+            <div id="html-dist" />
         </div>
     );
 };

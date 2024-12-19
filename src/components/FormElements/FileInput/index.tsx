@@ -1,5 +1,5 @@
-import {ChangeEvent, FC} from 'react';
 import {ErrorMessage, FieldProps, useField} from 'formik';
+import {ChangeEvent, FC} from 'react';
 
 import * as S from './Styles';
 
@@ -9,7 +9,7 @@ const FileInput: FC<FieldProps<File | null> & {onChange: (event: ChangeEvent<HTM
   onChange,
   ...props
 }) => {
-  // eslint-disable-next-line @typescript-eslint/no-unused-vars
+   
   const [_, __, helpers] = useField<File | null>(field.name);
 
   const handleChange = (event: ChangeEvent<HTMLInputElement>) => {

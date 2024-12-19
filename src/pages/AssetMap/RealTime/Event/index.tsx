@@ -1,5 +1,6 @@
 import { useEffect } from 'react';
 import { useDispatch, useSelector } from 'react-redux';
+
 import { fetchEvents } from '@/dispatchers/counter';
 import { AppDispatch, RootState, SFC } from '@/types';
 

@@ -1,27 +1,29 @@
-import { AppDispatch, SFC } from '@/types';
-import Nav from './Proma/Nav';
-import MainArea from './Proma/MainArea';
-import AssetMapNav from './AssetMap/Nav';
-import AssetMapMainArea from './AssetMap/MainArea';
-import * as S from './Styles';
-import TopBar from './TopBar';
-import background from '@/assets/background.jpg';
-import { useLocation } from 'react-router-dom';
-import LeftNav from './AssetMap/LeftNav';
-import { useDispatch } from 'react-redux';
 import { useEffect } from 'react';
+import { useDispatch } from 'react-redux';
+import { useLocation } from 'react-router-dom';
+
+import background from '@/assets/background.jpg';
+import { fetchAllAssets } from '@/dispatchers/allassets';
+import { getHistory } from '@/dispatchers/assetUpload';
 import { fetchBankData } from '@/dispatchers/bankData';
+import { fetchBankPerFund } from '@/dispatchers/bankperfund';
 import { fetchBondsData } from '@/dispatchers/bondData';
+import { fetchBondFrame } from '@/dispatchers/bondFrame';
+import { fetchCashFlowFrame } from '@/dispatchers/cashflowFrame';
 import { fetchData } from '@/dispatchers/data';
 import { fetchDepositeFrame } from '@/dispatchers/depositeFrame';
 import { fetchShareFrame } from '@/dispatchers/shareFrame';
-import { fetchBondFrame } from '@/dispatchers/bondFrame';
-import { fetchCashFlowFrame } from '@/dispatchers/cashflowFrame';
-import { fetchBankPerFund } from '@/dispatchers/bankperfund';
-import { fetchAllAssets } from '@/dispatchers/allassets';
-import { getHistory } from '@/dispatchers/assetUpload';
+import { AppDispatch, SFC } from '@/types';
+
+import LeftNav from './AssetMap/LeftNav';
+import AssetMapMainArea from './AssetMap/MainArea';
+import AssetMapNav from './AssetMap/Nav';
 import MainsArea from './Default/MainArea';
 import MainNav from './Default/Nav';
+import MainArea from './Proma/MainArea';
+import Nav from './Proma/Nav';
+import * as S from './Styles';
+import TopBar from './TopBar';
 
 const Authenticated: SFC = () => {
     const location = useLocation();

@@ -1,10 +1,11 @@
 'use client';
-import { FC } from 'react';
-import * as S from '@/styles/Styles';
-import { Column } from 'primereact/column';
 import { Button } from 'primereact/button';
+import { Column } from 'primereact/column';
+import { FC } from 'react';
 import { useSelector } from 'react-redux';
+
 import { getTheme } from '@/redux/selectors';
+import * as S from '@/styles/Styles';
 
 interface DdnHistory {
     national_id: string;
@@ -79,14 +80,14 @@ const DataTable: FC<UserTableProps | any> = ({
                             color: theme === 'dark' ? '#ffffff' : '#000000',
                             fontSize: '22px',
                         }}
-                    ></i>
+                     />
                 );
             } else {
                 return (
                     <i
                         className="pi pi-times"
                         style={{ color: '#b61616', fontSize: '22px' }}
-                    ></i>
+                     />
                 );
             }
         }
@@ -162,7 +163,7 @@ const DataTable: FC<UserTableProps | any> = ({
                             fontSize: '22px',
                         }}
                         onClick={() => onChangeStatusClick(rowData)}
-                    ></i>
+                     />
                 );
             } else {
                 return (
@@ -170,7 +171,7 @@ const DataTable: FC<UserTableProps | any> = ({
                         className="pi pi-times cursor-pointer"
                         style={{ color: '#b61616', fontSize: '22px' }}
                         onClick={() => onChangeStatusClick(rowData)}
-                    ></i>
+                     />
                 );
             }
         }

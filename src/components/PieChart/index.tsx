@@ -1,5 +1,7 @@
-import { getTheme } from '@/redux/selectors';
 import { useSelector } from 'react-redux';
+
+import { getTheme } from '@/redux/selectors';
+
 import * as S from './Style';
 
 interface Dataset {
@@ -18,13 +20,13 @@ const PieChart: React.FC<PieChartProps> = ({ datasets, selectedHeight }) => {
 
     const chartOptions = {
         chart: {
-            type: 'pie' as 'pie',
+            type: 'pie' as const,
             background: 'transparent',
         },
         colors: datasets.map((dataset) => dataset.color || '#00E396'), // رنگ‌ها برای هر داده
         labels: datasets.map((dataset) => dataset.name), // نام هر بخش از نمودار دایره‌ای
         tooltip: {
-            theme: theme,
+            theme,
             style: {
                 fontSize: '14px',
                 fontFamily: 'IranSans',

@@ -1,24 +1,21 @@
-import { useEffect, useState } from 'react';
-import DatePicker, { DateObject } from 'react-multi-date-picker';
-import type { Value } from 'react-multi-date-picker';
-import persian from 'react-date-object/calendars/persian';
-import persian_fa from 'react-date-object/locales/persian_fa';
-import gregorian from 'react-date-object/calendars/gregorian';
-import gregorian_fa from 'react-date-object/locales/gregorian_fa';
 import 'react-multi-date-picker/styles/layouts/mobile.css';
+
+import { useEffect, useState } from 'react';
+import gregorian from 'react-date-object/calendars/gregorian';
+import persian from 'react-date-object/calendars/persian';
+import gregorian_fa from 'react-date-object/locales/gregorian_fa';
+import persian_fa from 'react-date-object/locales/persian_fa';
+import DatePicker, { DateObject } from 'react-multi-date-picker';
 import DatePanel from 'react-multi-date-picker/plugins/date_panel';
-
-// ---------------------------------------------------------------------- //
-//                            import types                                //
-// ---------------------------------------------------------------------- //
-
-import { DatePickerConvert, DatePickerType } from './types';
 
 // ---------------------------------------------------------------------- //
 //                            import style                                //
 // ---------------------------------------------------------------------- //
-
-import { RtlDiv, FullWidthDiv, MyInputDiv, StyledDatePicker } from './Styles';
+import { FullWidthDiv, MyInputDiv, RtlDiv, StyledDatePicker } from './Styles';
+// ---------------------------------------------------------------------- //
+//                            import types                                //
+// ---------------------------------------------------------------------- //
+import { DatePickerType } from './types';
 
 export const convert = ({
     startDate,
@@ -110,8 +107,8 @@ export function MyDatePickerRange({
                         className="rmdp-mobile"
                         range
                         mapDays={({ date }) => {
-                            let props: { className?: string } = {};
-                            let isWeekend = date.weekDay.index === 6;
+                            const props: { className?: string } = {};
+                            const isWeekend = date.weekDay.index === 6;
 
                             if (isWeekend) {
                                 props.className = 'highlight highlight-red';

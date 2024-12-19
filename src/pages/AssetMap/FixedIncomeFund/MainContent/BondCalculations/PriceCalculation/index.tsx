@@ -1,9 +1,9 @@
-import { SFC } from "@/types";
-import * as S from "./Styles";
 import { useState } from "react";
+
 // import { DateObject } from "react-multi-date-picker";
 // import PersianDatePicker from "@/components/datePicker";
-import TextField_n2 from "@/components/textfield/TextFiled2";
+import { SFC } from "@/types";
+
 
 const PriceCalculations: SFC = () => {
   // this state can change when the whole front logic developed

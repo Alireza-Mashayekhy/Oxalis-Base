@@ -1,8 +1,9 @@
-import { SFC } from "@/types";
-import * as S from "./Styles";
 import { ChangeEvent, useState } from "react";
-import TextField_n2 from "@/components/textfield/TextFiled2";
 import { DateObject } from "react-multi-date-picker";
+
+import { SFC } from "@/types";
+
+import * as S from "./Styles";
 // import PersianDatePicker from "@/components/datePicker";
 
 const goldenObjects = [

@@ -1,6 +1,6 @@
-import { SFC } from '@/types';
-import TopBar from './TopBar';
 import PageTemplate from '@/components/PageTemplate';
+import { SFC } from '@/types';
+
 
 const CounterManagement: SFC = () => {
     return (

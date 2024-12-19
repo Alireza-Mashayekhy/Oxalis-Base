@@ -1,6 +1,6 @@
-import { AppDispatch } from '@/types';
-import { setBankPerFund } from '@/redux/store/bankperfund';
 import * as api from '@/api/bankperfund';
+import { setBankPerFund } from '@/redux/store/bankperfund';
+import { AppDispatch } from '@/types';
 
 export const fetchBankPerFund =
     (filters?: Record<string, any>) => async (dispatch: AppDispatch) => {

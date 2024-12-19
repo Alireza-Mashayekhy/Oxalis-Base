@@ -1,4 +1,6 @@
-import { AppDispatch } from '@/types';
+import { toast } from 'react-toastify';
+
+import * as api from '@/api/bondData';
 import {
     setBondsData,
     updateBondData,
@@ -6,9 +8,8 @@ import {
     uploadBondRequest,
     uploadBondSuccess,
 } from '@/redux/store/bondData';
-import * as api from '@/api/bondData';
+import { AppDispatch } from '@/types';
 import { BondData } from '@/types';
-import { toast } from 'react-toastify';
 
 export const fetchBondsData =
     (filters?: Record<string, any>) => async (dispatch: AppDispatch) => {

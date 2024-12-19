@@ -1,12 +1,14 @@
-import { SFC } from "@/types";
-import * as S from "./Styles";
-import officeWhite from "@/assets/officeWhite.png";
-import officeBlack from "@/assets/officeBlack.png";
-import { getTheme } from "@/selectors/state";
-import { useSelector } from "react-redux";
 import { useState } from "react";
+import { useSelector } from "react-redux";
 import { useNavigate } from "react-router-dom";
+
+import officeBlack from "@/assets/officeBlack.png";
+import officeWhite from "@/assets/officeWhite.png";
+import { getTheme } from "@/selectors/state";
+import { SFC } from "@/types";
+
 import MatchDialog from "./MatchDialogs";
+import * as S from "./Styles";
 
 const ReconciliationOfFunds: SFC = () => {
   const theme = useSelector(getTheme);
@@ -39,7 +41,7 @@ const ReconciliationOfFunds: SFC = () => {
   return (
     <>
       <S.Container>
-        <div></div>
+        <div />
         <div>
           <S.ButtonStyle
             isSelected={selectedButton === "PerfectMatch"}

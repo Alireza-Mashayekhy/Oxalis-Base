@@ -1,11 +1,13 @@
-import { SFC } from "@/types";
-import * as S from "./Styles";
-import DialogWrapper from "@/components/DialogModalWrapper";
-import PrimeReactTable from "@/components/DataTable/PrimeReactTable";
-import officeWhite from "@/assets/officeWhite.png";
-import officeBlack from "@/assets/officeBlack.png";
 import { useSelector } from "react-redux";
+
+import officeBlack from "@/assets/officeBlack.png";
+import officeWhite from "@/assets/officeWhite.png";
+import PrimeReactTable from "@/components/DataTable/PrimeReactTable";
+import DialogWrapper from "@/components/DialogModalWrapper";
 import { getTheme } from "@/selectors/state";
+import { SFC } from "@/types";
+
+import * as S from "./Styles";
 
 interface CashFlow {
   open: boolean;
@@ -62,7 +64,7 @@ const DialogBody = () => {
           withRowNumber={false}
         />
       </div>
-      <div></div>
+      <div />
     </S.Container>
   );
 };

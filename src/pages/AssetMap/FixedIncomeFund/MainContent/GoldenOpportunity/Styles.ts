@@ -1,8 +1,9 @@
-import { muiButtonStyle } from "@/styles/mixins";
+import NotificationsActiveIcon from "@mui/icons-material/NotificationsActive";
 import { Button as UButton } from "@mui/material";
 import styled from "styled-components";
-import NotificationsActiveIcon from "@mui/icons-material/NotificationsActive";
+
 import { breakpoints, colors, fonts } from "@/styles";
+import { muiButtonStyle } from "@/styles/mixins";
 
 export const Container = styled.div`
   width: 100%;

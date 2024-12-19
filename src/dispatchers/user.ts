@@ -1,19 +1,16 @@
 import {
     createUser as _createUser,
-    getUser as _getUser,
-    updateUser as _updateUser,
     deleteUser as _deleteUser,
     getAllUsers as _getAllUsers,
+    getUser as _getUser,
 } from '@/api/user';
-import { setAuthentication } from '@/redux/store/authentication';
-import { setSelf } from '@/redux/store/self';
 import { setUser } from '@/redux/store/user';
 import {
+    getAllUsersFailure,
     getAllUsersRequest,
     getAllUsersSuccess,
-    getAllUsersFailure,
 } from '@/redux/store/userList';
-import { AppDispatch, CreateUserRequest, UserReadSerializer } from '@/types';
+import { AppDispatch, CreateUserRequest } from '@/types';
 
 // Action to create a new user
 export const createUser =

@@ -1,5 +1,6 @@
 import styled from "styled-components";
-import { colors, hiddenScroll } from "@/styles";
+
+import { hiddenScroll } from "@/styles";
 
 export const FlexContainer = styled.div`
   display: flex;

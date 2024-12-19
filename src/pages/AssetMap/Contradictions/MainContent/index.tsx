@@ -1,8 +1,10 @@
+import { useState } from "react";
+import { v4 as uuidv4 } from "uuid";
+
 import AccodionWrapper from "@/components/AccordionWrapper";
 import { SFC } from "@/types";
-import { useState } from "react";
+
 import ReconciliationOfFunds from "./ReconciliationOfFunds";
-import { v4 as uuidv4 } from "uuid";
 import * as S from "./Styles";
 const tabs = [
   { label: "مغایرت گیری صندوق‌های صدور و ابطال", value: 0, id: uuidv4() },

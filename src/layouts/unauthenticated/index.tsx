@@ -1,8 +1,9 @@
 import { Route, Routes } from 'react-router-dom';
 
 import { SFC } from '@/types';
-import * as S from './styles';
+
 import Login from './forms/otpLogin';
+import * as S from './styles';
 
 const Unauthenticated: SFC = ({ className }) => {
     return (

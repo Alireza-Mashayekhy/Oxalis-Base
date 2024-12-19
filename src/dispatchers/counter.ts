@@ -1,21 +1,21 @@
-import { AppDispatch, RootState } from '@/types';
 import {
-    setCounters,
+    createCounter,
+    deleteCounter,
+    fetchCounters,
+    updateCounter,
+} from '@/api/counter';
+import { getEvents,logEvent } from '@/api/event';
+import {
     addCounter,
-    updateCounter as updateCounterAction,
+    decrement,
     deleteCounter as deleteCounterAction,
     increment,
-    decrement,
+    setCounters,
+    updateCounter as updateCounterAction,
 } from '@/redux/store/counter';
-import { logEvent, getEvents } from '@/api/event';
 import { addEvent, setEvents } from '@/redux/store/event';
-import { Event, Counter } from '@/types';
-import {
-    fetchCounters,
-    createCounter,
-    updateCounter,
-    deleteCounter,
-} from '@/api/counter';
+import { AppDispatch, RootState } from '@/types';
+import {Event } from '@/types';
 
 export const loadCounters = () => async (dispatch: AppDispatch) => {
     const counters = await fetchCounters();

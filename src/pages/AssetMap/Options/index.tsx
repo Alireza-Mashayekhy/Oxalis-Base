@@ -1,6 +1,7 @@
-import { SFC } from '@/types';
-import MainContent from './MainContent';
 import PageTemplate from '@/components/PageTemplate';
+import { SFC } from '@/types';
+
+import MainContent from './MainContent';
 
 const Options: SFC = () => {
     const Contents = [

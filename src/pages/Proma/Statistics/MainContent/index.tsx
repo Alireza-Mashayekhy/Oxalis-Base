@@ -1,17 +1,19 @@
-import { SFC } from '@/types';
-import * as S from './Styles';
+import moment from 'moment-jalaali';
 import { Button } from 'primereact/button';
-import { DatePicker } from 'zaman';
-import { useEffect, useState } from 'react';
-import { exportStatistics, getStatistics } from '@/api/statistics';
-import { toast } from 'react-toastify';
-import { useSelector } from 'react-redux';
-import { getStockData } from '@/selectors/state';
-import { TabPanel, TabView } from 'primereact/tabview';
 import { ProgressSpinner } from 'primereact/progressspinner';
+import { TabPanel, TabView } from 'primereact/tabview';
+import { useEffect, useState } from 'react';
+import { useSelector } from 'react-redux';
+import { toast } from 'react-toastify';
+import { DatePicker } from 'zaman';
+
+import { exportStatistics, getStatistics } from '@/api/statistics';
 import DataTable from '@/components/DataTable';
 import { getTheme } from '@/redux/selectors';
-import moment from 'moment-jalaali';
+import { getStockData } from '@/selectors/state';
+import { SFC } from '@/types';
+
+import * as S from './Styles';
 
 interface Ticker {
     ticker: string;
@@ -93,8 +95,8 @@ const MainContent: SFC = () => {
     }, []);
 
     const searchTicker = (event: { query: string }) => {
-        let query = event.query;
-        let filtered = tickerData.filter((item) => item.ticker.includes(query));
+        const {query} = event;
+        const filtered = tickerData.filter((item) => item.ticker.includes(query));
         setFilteredTickers(filtered);
     };
 
@@ -106,13 +108,13 @@ const MainContent: SFC = () => {
     const [investorType, setInvestorType] = useState(investorTypeList[2]);
 
     const searchInvestor = (event: { query: string }) => {
-        let query = event.query;
+        const {query} = event;
         const items = [
             { name: 'حقیقی', code: 'I' },
             { name: 'حقوقی', code: 'L' },
             { name: 'همه', code: '' },
         ];
-        let filtered = items.filter((item) => item.name.includes(query));
+        const filtered = items.filter((item) => item.name.includes(query));
         setFilteredInvestor(filtered);
     };
 
@@ -244,7 +246,7 @@ const MainContent: SFC = () => {
                         columnFields={changeColumnFields}
                         totalRecords={data?.count || 0}
                         pagination
-                        scrollHeight={tableHeight + 'px'}
+                        scrollHeight={`${tableHeight  }px`}
                     />
                 )}
             </div>
@@ -311,7 +313,7 @@ const MainContent: SFC = () => {
                                     className="absolute left-5 aspect-square h-8 w-8 max-w-8 min-w-0 p-0 justify-center"
                                     text
                                 >
-                                    <i className="pi pi-times"></i>
+                                    <i className="pi pi-times" />
                                 </Button>
                             </div>
 

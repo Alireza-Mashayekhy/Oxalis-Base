@@ -1,8 +1,8 @@
-import { AppDispatch } from '@/types';
+import { toast } from 'react-toastify';
 
 import * as api from '@/api/investment';
-import { toast } from 'react-toastify';
-import { setSummery, setShareholders } from '@/redux/store/investmentData';
+import { setShareholders } from '@/redux/store/investmentData';
+import { AppDispatch } from '@/types';
 
 interface Summery {
     id: number;

@@ -1,13 +1,14 @@
+import PageTemplate from '@/components/PageTemplate';
 import { SFC } from '@/types';
+
 import FilterPannel from './FiltersColumn/FilterPannel/index';
+import ResponsiveFilterPannel from './FiltersColumn/ResponsiveFilterPannel';
 import InformativeHeader1 from './Header/InformativeHeader1';
 import InformativeHeader2 from './Header/InformativeHeader2';
 import InformativeHeader3 from './Header/InformativeHeader3';
 import InformativeHeader4 from './Header/InformativeHeader4';
 import InformativeHeader5 from './Header/InformativeHeader5';
-import ResponsiveFilterPannel from './FiltersColumn/ResponsiveFilterPannel';
 import InformativeHeader6 from './Header/InformativeHeader6';
-import PageTemplate from '@/components/PageTemplate';
 import GeneralStatus from './MainContent/Part1';
 import OrderStatus from './MainContent/Part2';
 import EnvironmentLawsAndIssues from './MainContent/Part3';
@@ -17,7 +18,7 @@ const MainContainer: SFC = () => {
         {
             Title: 'گزارش دارایی‌ها',
             Content: <GeneralStatus />,
-            FilterPannel: FilterPannel,
+            FilterPannel,
         },
         {
             Title: '2',

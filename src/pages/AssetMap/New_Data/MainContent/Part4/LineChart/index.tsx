@@ -1,7 +1,8 @@
-import { SalesData } from '@/types/new_data';
 import { useSelector } from 'react-redux';
-import { getSalesData, getSalesFilterData } from '@/selectors/state';
+
 import LineChart from '@/components/chart';
+import { getSalesData, getSalesFilterData } from '@/selectors/state';
+import { SalesData } from '@/types/new_data';
 
 interface DataPoint {
     date: string;
@@ -74,7 +75,7 @@ const GeneralStatusTrendReview: React.FC = () => {
                                 backgroundColor: colors[index % colors.length],
                                 marginLeft: '5px',
                             }}
-                        ></div>
+                         />
                         <span
                             style={{
                                 fontSize: '14px',

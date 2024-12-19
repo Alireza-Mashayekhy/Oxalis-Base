@@ -1,16 +1,19 @@
-import { useState, SyntheticEvent } from 'react';
+import './style.css';
+
+import { Grid } from '@mui/material';
+import { SyntheticEvent,useState } from 'react';
+import { v4 as uuidv4 } from 'uuid';
+
+import AccodionWrapper from '@/components/AccordionWrapper';
 import { SFC } from '@/types';
+
+import CityFilter from './FilterCharts/CityFilter';
+import ProductFilter from './FilterCharts/ProductFilter';
+import MapChart from './GeoChart/index';
+import GroupedBarChart from './HeatmapChart';
 import ScatterHrChart from './LineChart1';
 import HeatMapChart from './LineChart2';
 import GeneralStatusTrendReview from './LineChat3';
-import AccodionWrapper from '@/components/AccordionWrapper';
-import GroupedBarChart from './HeatmapChart';
-import { v4 as uuidv4 } from 'uuid';
-import ProductFilter from './FilterCharts/ProductFilter';
-import CityFilter from './FilterCharts/CityFilter';
-import MapChart from './GeoChart/index';
-import './style.css';
-import { Grid } from '@mui/material';
 
 const EnvironmentLawsAndIssuespart5: SFC = () => {
     const [value, setValue] = useState(0);

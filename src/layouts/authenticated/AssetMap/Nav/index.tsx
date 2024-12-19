@@ -1,24 +1,25 @@
-import { useDispatch } from 'react-redux';
-import { useNavigate } from 'react-router-dom';
 import {
-    mdiHomeAnalytics,
-    mdiFileUploadOutline,
     mdiAccountGroup,
+    mdiAlphabeticalVariantOff,
+    mdiButtonPointer,
+    mdiChartBar,
+    mdiChartBellCurveCumulative,
+    mdiCounter,
     mdiExitToApp,
     mdiFileTree,
-    mdiButtonPointer,
-    mdiCounter,
-    mdiAlphabeticalVariantOff,
-    mdiStairsUp,
+    mdiFileUploadOutline,
+    mdiHomeAnalytics,
     mdiKeyboardSettingsOutline,
-    mdiChartBellCurveCumulative,
-    mdiChartBar,
+    mdiStairsUp,
 } from '@mdi/js';
+import { useDispatch } from 'react-redux';
+import { useNavigate } from 'react-router-dom';
 
-import { AppDispatch, SFC } from '@/types';
-import { logout } from '@/dispatchers/authentication';
 import MenuButton from '@/components/MenuItem/MenuButton';
 import MenuLink from '@/components/MenuItem/MenuLink';
+import { logout } from '@/dispatchers/authentication';
+import { AppDispatch, SFC } from '@/types';
+
 import * as S from './Styles';
 
 const Nav: SFC = ({ className }) => {

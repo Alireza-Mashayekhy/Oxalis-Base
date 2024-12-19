@@ -1,6 +1,7 @@
-import styled from 'styled-components';
-import { breakpoints } from '@/styles';
 import UIcon from '@mdi/react';
+import styled from 'styled-components';
+
+import { breakpoints } from '@/styles';
 
 export const Gap = styled.div`
     width: 0;

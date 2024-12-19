@@ -1,6 +1,7 @@
-import { SFC } from '@/types';
-import CreateUser from './FilterPannel/CreateUser/index';
 import PageTemplate from '@/components/PageTemplate';
+import { SFC } from '@/types';
+
+import CreateUser from './FilterPannel/CreateUser/index';
 import MainContent from './MainContent';
 
 const User: SFC = () => {

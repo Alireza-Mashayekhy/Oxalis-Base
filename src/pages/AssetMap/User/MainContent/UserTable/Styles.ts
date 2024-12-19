@@ -1,6 +1,6 @@
-import styled from "styled-components";
-import { colors, fonts } from "@/styles";
 import { DataTable } from "primereact/datatable";
+import styled from "styled-components";
+
 import { narrowScroll, primeReactDataTableStyle } from "@/styles/mixins";
 
 export const TableContainer = styled.div`

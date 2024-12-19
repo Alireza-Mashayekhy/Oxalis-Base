@@ -1,9 +1,9 @@
-import { inputStyle } from '@/styles';
-import { inputTextStyle } from '@/styles/mixins';
 import { Dialog } from 'primereact/dialog';
 import { FloatLabel } from 'primereact/floatlabel';
 import { InputText } from 'primereact/inputtext';
 import styled from 'styled-components';
+
+import { inputTextStyle } from '@/styles/mixins';
 
 export const Container = styled.div`
     padding: 20px;

@@ -1,12 +1,14 @@
-import { AllAssets, SFC } from "@/types";
-import { useSelector } from "react-redux";
-import { getAllAssets } from "@/selectors/state";
 import { Box, Typography, useMediaQuery } from "@mui/material";
 import { useState } from "react";
-import { getFundNameFromAllAssets } from "@/utils/headersFunctions";
-import * as S from "./Styles";
-import Chart1 from "./Chart1";
+import { useSelector } from "react-redux";
+
+import { getAllAssets } from "@/selectors/state";
 import { breakpoints } from "@/styles";
+import { AllAssets, SFC } from "@/types";
+import { getFundNameFromAllAssets } from "@/utils/headersFunctions";
+
+import Chart1 from "./Chart1";
+import * as S from "./Styles";
 
 interface TabPanelProps {
   children?: React.ReactNode;

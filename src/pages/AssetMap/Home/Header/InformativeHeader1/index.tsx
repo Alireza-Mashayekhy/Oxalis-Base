@@ -1,22 +1,22 @@
-import { AllAssets, SFC } from "@/types";
-import * as S from "./Styles";
-import { colors, fonts } from "@/styles";
-import { Label } from "@/components/Label";
+import { mdiSwapVertical } from "@mdi/js";
 import MoreVertOutlinedIcon from "@mui/icons-material/MoreVertOutlined";
-import StraightOutlinedIcon from "@mui/icons-material/StraightOutlined";
-import { useDispatch, useSelector } from "react-redux";
-import { getAllAssets, getData, getTheme } from "@/selectors/state";
 import { useState } from "react";
-import { Data } from "@/types";
+import { useDispatch, useSelector } from "react-redux";
+
 import DotsMenu from "@/components/3DotsMenu";
+import AreaChart from "@/components/AreaChart";
+import { Label } from "@/components/Label";
+import { setSelectedAssets } from "@/redux/store/allassets";
+import { getAllAssets, getData, getTheme } from "@/selectors/state";
+import { fonts } from "@/styles";
+import { AllAssets, SFC } from "@/types";
+import { Data } from "@/types";
 import {
   getFundNameFromAllAssets,
   getSelectedFundNameData,
 } from "@/utils/headersFunctions";
-import { setSelectedAssets } from "@/redux/store/allassets";
-import LineChart from "@/components/chart";
-import AreaChart from "@/components/AreaChart";
-import { mdiSwapVertical } from "@mdi/js";
+
+import * as S from "./Styles";
 
 const options: string[] = [
   "سهامی",

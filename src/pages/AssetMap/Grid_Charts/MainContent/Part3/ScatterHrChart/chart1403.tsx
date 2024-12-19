@@ -1,9 +1,11 @@
-import { useState, useEffect } from 'react';
+import { useEffect,useState } from 'react';
 import { useSelector } from 'react-redux';
-import { getHrData } from '@/selectors/state';
-import { selectFilteredJobTitles } from '@/redux/store/jobTitleFilterHr';
-import { fixedJobTitles } from '../Filter_jobTitle/FilterConstants';
+
 import BubbleChart from '@/components/BubbleChart';
+import { selectFilteredJobTitles } from '@/redux/store/jobTitleFilterHr';
+import { getHrData } from '@/selectors/state';
+
+import { fixedJobTitles } from '../Filter_jobTitle/FilterConstants';
 
 const getFillColor = (job_title) => {
     switch (job_title) {

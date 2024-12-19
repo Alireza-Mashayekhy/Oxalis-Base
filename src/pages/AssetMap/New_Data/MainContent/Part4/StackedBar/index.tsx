@@ -1,8 +1,9 @@
 import { useEffect, useState } from 'react';
-import { SalesData } from '@/types/new_data';
 import { useSelector } from 'react-redux';
-import { getSalesData, getSalesFilterData } from '@/selectors/state';
+
 import BarChart from '@/components/BarChart';
+import { getSalesData, getSalesFilterData } from '@/selectors/state';
+import { SalesData } from '@/types/new_data';
 
 const CustomLegend = (props) => {
     const { payload } = props;

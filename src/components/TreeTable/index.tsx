@@ -1,12 +1,13 @@
 'use client';
-import { FC, useEffect, useState } from 'react';
-import * as S from './Styles';
-import { TreeTable } from 'primereact/treetable';
-import { Column } from 'primereact/column';
 import { Button } from 'primereact/button';
+import { Column } from 'primereact/column';
+import { FC, useEffect, useState } from 'react';
 import { useSelector } from 'react-redux';
+
 import { getTheme } from '@/redux/selectors';
 import { PriceFormatter } from '@/utils/priceFormatter';
+
+import * as S from './Styles';
 
 interface DdnHistoryNode {
     key: string;
@@ -67,7 +68,7 @@ const CustomTreeTable: FC<TreeTableProps> = ({
                     onChangeStatusClick &&
                     onChangeStatusClick(node.data.national_id)
                 }
-            ></i>
+             />
         );
     };
 

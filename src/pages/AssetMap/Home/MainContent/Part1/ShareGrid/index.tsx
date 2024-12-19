@@ -1,19 +1,21 @@
-import { AppDispatch, SFC } from '@/types';
-import * as S from './Styles';
+import { Chip } from '@mui/material';
+import { ColumnBodyOptions } from 'primereact/column';
+import { useEffect, useState } from 'react';
 import { useSelector } from 'react-redux';
+import { useDispatch } from 'react-redux';
+
+import CustomTreeTable from '@/components/TreeTable';
+import { fetchShareFrame } from '@/dispatchers/shareFrame';
 import { getShareFrame } from '@/selectors/state';
+import { colors } from '@/styles';
+import { AppDispatch, SFC } from '@/types';
 import {
     createShareTreeTableData,
     numberBodyTemplateForTreeTable,
     searchData,
 } from '@/utils/dataTableFunctions';
-import { ColumnBodyOptions } from 'primereact/column';
-import { colors } from '@/styles';
-import { useEffect, useState } from 'react';
-import CustomTreeTable from '@/components/TreeTable';
-import { fetchShareFrame } from '@/dispatchers/shareFrame';
-import { useDispatch } from 'react-redux';
-import { Chip } from '@mui/material';
+
+import * as S from './Styles';
 
 // because I need to return jsx and i needed a .tsx file not .ts
 const numberBodyTemplateForTreeTableWithGreenAndRedColor = (

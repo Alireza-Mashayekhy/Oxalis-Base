@@ -1,5 +1,6 @@
 import styled from 'styled-components';
-import {breakpoints} from '@/styles';
+
+import { breakpoints } from '@/styles';
 
 interface RowProps {
   $horizontalGap?: string;
@@ -12,7 +13,7 @@ export const Row = styled.div<RowProps>`
   gap: ${(props) => props.$verticalGap || '16px'} ${(props) => props.$horizontalGap || '16px'};
 `;
 
-export const Col = styled.div<{size: number}>`
+export const Col = styled.div<{ size: number }>`
   grid-column: span ${(props) => props.size};
 
   @media (max-width: ${breakpoints.tablet}) {

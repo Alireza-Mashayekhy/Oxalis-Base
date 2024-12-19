@@ -1,5 +1,6 @@
 import axios from 'axios';
-import { Task, TaskStatus, CreateTaskPayload } from '@/types';
+
+import { CreateTaskPayload,Task, TaskStatus } from '@/types';
 
 const BASE_URL = `${import.meta.env.VITE_APP_API_URL}/api/tasks`;
 

@@ -1,10 +1,12 @@
 import { useEffect } from 'react';
 import { useDispatch, useSelector } from 'react-redux';
-import { AppDispatch, RootState } from '@/types';
+
 import { loadCounters } from '@/dispatchers/counter';
+import { AppDispatch, RootState } from '@/types';
+import { SFC } from '@/types';
+
 import Counter from './Counter';
 import EventLog from './Event';
-import { SFC } from '@/types';
 
 const RealTime: SFC = () => {
     const dispatch = useDispatch<AppDispatch>();

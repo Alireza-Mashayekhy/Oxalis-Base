@@ -1,5 +1,7 @@
-import { getTheme } from '@/redux/selectors';
 import { useSelector } from 'react-redux';
+
+import { getTheme } from '@/redux/selectors';
+
 import * as S from './Style';
 
 interface Dataset {
@@ -23,7 +25,7 @@ const BarChart: React.FC<BarChartProps> = ({
 
     const chartOptions = {
         chart: {
-            type: 'bar' as 'bar',
+            type: 'bar' as const,
             background: 'transparent',
             toolbar: {
                 show: true,
@@ -71,7 +73,7 @@ const BarChart: React.FC<BarChartProps> = ({
             },
         },
         tooltip: {
-            theme: theme,
+            theme,
             style: {
                 fontSize: '14px',
                 fontFamily: 'IranSans',

@@ -1,6 +1,7 @@
 import { SFC } from "@/types";
-import * as S from "./Styles";
+
 import ProjectModel from "./ProjectModel";
+import * as S from "./Styles";
 
 const ViewProject: SFC = () => {
   return (

@@ -1,6 +1,7 @@
+import styled from "styled-components";
+
 import { breakpoints } from "@/styles";
 import { narrowScroll } from "@/styles/mixins";
-import styled from "styled-components";
 
 export const TableContainer = styled.div`
   ${narrowScroll};

@@ -1,20 +1,21 @@
+import PageTemplate from '@/components/PageTemplate';
 import { SFC } from '@/types';
+
 import FilterPannel from './FiltersColumn/FilterPannel/index';
-import MainContent from './MainContent/index';
 import InformativeHeader1 from './Header/InformativeHeader1';
 import InformativeHeader2 from './Header/InformativeHeader2';
 import InformativeHeader3 from './Header/InformativeHeader3';
 import InformativeHeader4 from './Header/InformativeHeader4';
 import InformativeHeader5 from './Header/InformativeHeader5';
 import InformativeHeader6 from './Header/InformativeHeader6';
-import PageTemplate from '@/components/PageTemplate';
+import MainContent from './MainContent/index';
 
 const NewData: SFC = () => {
     const Contents = [
         {
             Title: '1',
             Content: <MainContent />,
-            FilterPannel: FilterPannel,
+            FilterPannel,
         },
     ];
 

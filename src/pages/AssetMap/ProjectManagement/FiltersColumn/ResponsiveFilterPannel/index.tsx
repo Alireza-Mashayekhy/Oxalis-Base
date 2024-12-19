@@ -1,17 +1,19 @@
-import { breakpoints } from "@/styles";
-import { SFC } from "@/types";
+import KeyboardDoubleArrowDownOutlinedIcon from "@mui/icons-material/KeyboardDoubleArrowDownOutlined";
 import {
   Accordion,
   AccordionDetails,
   AccordionSummary,
   useMediaQuery,
 } from "@mui/material";
-import KeyboardDoubleArrowDownOutlinedIcon from "@mui/icons-material/KeyboardDoubleArrowDownOutlined";
-import FilterPannel from "../FilterPannel";
 import { useState } from "react";
 import { useSelector } from "react-redux";
+
 import { getTheme } from "@/selectors/state";
+import { breakpoints } from "@/styles";
 import { darkTheme, lightTheme } from "@/styles/theme";
+import { SFC } from "@/types";
+
+import FilterPannel from "../FilterPannel";
 
 const ResponsiveFilterPannel: SFC = () => {
   const [expanded, setExpanded] = useState(null);

@@ -1,14 +1,16 @@
-import { SFC } from '@/types';
-import GeneralStatusDataGrid from './DataGrid';
-import ShareDataGrid from './ShareGrid';
+import { useDispatch, useSelector } from 'react-redux';
 import { v4 as uuidv4 } from 'uuid';
+
 import AccodionWrapper from '@/components/AccordionWrapper';
-import DepositeDataGrid from './DepositeGrid';
+import { setActiveTab } from '@/redux/store/changeTab';
+import { getTabIndex } from '@/selectors/state';
+import { SFC } from '@/types';
+
 import BondDataGrid from './BondGrid';
 import CashFlowGrid from './CashFlowGrid';
-import { useDispatch, useSelector } from 'react-redux';
-import { getTabIndex } from '@/selectors/state';
-import { setActiveTab } from '@/redux/store/changeTab';
+import GeneralStatusDataGrid from './DataGrid';
+import DepositeDataGrid from './DepositeGrid';
+import ShareDataGrid from './ShareGrid';
 import * as S from './Styles';
 
 const GeneralStatus: SFC = () => {

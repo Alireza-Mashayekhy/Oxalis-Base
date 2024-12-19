@@ -1,5 +1,6 @@
 import styled from "styled-components";
-import {  fonts, breakpoints } from "@/styles";
+
+import {  breakpoints,fonts } from "@/styles";
 
 // export const Label = styled(Typography).withConfig({
 //   shouldForwardProp: (prop) =>

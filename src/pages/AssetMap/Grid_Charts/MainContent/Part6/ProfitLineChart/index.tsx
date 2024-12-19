@@ -1,7 +1,8 @@
-import { FinancialData } from '@/types/new_data';
 import { useSelector } from 'react-redux';
-import { getFinanceData, getFilterData } from '@/selectors/state';
+
 import LineChart from '@/components/chart';
+import { getFilterData,getFinanceData } from '@/selectors/state';
+import { FinancialData } from '@/types/new_data';
 
 interface DataPoint {
     date: string;

@@ -1,9 +1,9 @@
 import { css } from "styled-components";
+
 // export const button1 = css`
 //     width: 100%;
 //     background: rgb(66, 8, 160) !important;
 //   }`;
-
 import { fonts } from "@/styles";
 
 

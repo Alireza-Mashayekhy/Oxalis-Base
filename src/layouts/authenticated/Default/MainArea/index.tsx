@@ -1,7 +1,9 @@
 import { Route, Routes } from 'react-router-dom';
-import { SFC } from '@/types';
-import * as S from './Styles';
+
 import { MainPage } from '@/pages/MainPage';
+import { SFC } from '@/types';
+
+import * as S from './Styles';
 
 const MainsArea: SFC = ({ className }) => {
     return (

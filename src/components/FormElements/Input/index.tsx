@@ -2,6 +2,7 @@
 import {ChangeEvent , useState} from 'react';
 
 import {SFC} from '@/types';
+
 import * as S from './Styles';
 
 export interface InputProps {

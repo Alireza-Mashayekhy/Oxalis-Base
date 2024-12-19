@@ -1,4 +1,5 @@
 import { createSlice , PayloadAction} from '@reduxjs/toolkit';
+
 import {ManufacturingData} from '@/types/new_data';
 
 const initialState: ManufacturingData[] = [];

@@ -1,20 +1,22 @@
-import { AppDispatch, SFC } from '@/types';
 import { Column, ColumnEditorOptions } from 'primereact/column';
-import { useEffect, useState } from 'react';
-import { useSelector, useDispatch } from 'react-redux';
-import { getBankData } from '@/selectors/state';
-import * as S from './Styles';
-import { updateBankDataBatch } from '@/dispatchers/bankData';
 import { TreeNode } from 'primereact/treenode';
+import { useEffect, useState } from 'react';
+import { useDispatch,useSelector } from 'react-redux';
+
 import SendDataButton from '@/components/Button/sendDataButton';
+import EditableCell from '@/components/EditableCell';
 import SearchInput from '@/components/Inputs/SearchInput';
+import NoDataFoundTemplate from '@/components/NoDataFound';
+import { updateBankDataBatch } from '@/dispatchers/bankData';
+import { getBankData } from '@/selectors/state';
+import { AppDispatch, SFC } from '@/types';
 import {
     flattenTreeData,
     searchBankDataTable,
     transformBankData,
 } from '@/utils/dataEntry';
-import NoDataFoundTemplate from '@/components/NoDataFound';
-import EditableCell from '@/components/EditableCell';
+
+import * as S from './Styles';
 
 const columns = [
     {
@@ -56,7 +58,7 @@ const columns = [
 
 const BankAccount: SFC = () => {
     const bankData = useSelector(getBankData).data;
-    const loading = useSelector(getBankData).loading;
+    const {loading} = useSelector(getBankData);
     const dispatch = useDispatch<AppDispatch>();
 
     const [searchInput, setSearchInput] = useState('');
@@ -112,7 +114,7 @@ const BankAccount: SFC = () => {
                                 header="صندوق"
                                 expander
                                 style={{ width: '20%', minWidth: '8rem' }}
-                            ></Column>
+                             />
                             {columns.map((col, index) => (
                                 <Column
                                     key={index}

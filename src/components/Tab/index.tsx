@@ -1,5 +1,5 @@
+
 import * as S from './Styles';
-import { Tabs } from '@mui/material';
 
 interface TabProps {
     value: number;

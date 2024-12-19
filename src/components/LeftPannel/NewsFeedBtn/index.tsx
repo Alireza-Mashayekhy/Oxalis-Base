@@ -1,8 +1,9 @@
-import { SFC } from "@/types";
-import * as S from "./Styles";
 import ButtonWrapper from "@/components/ButtonWrapper";
-import { fonts } from "@/styles";
 import { Label } from "@/components/Label";
+import { fonts } from "@/styles";
+import { SFC } from "@/types";
+
+import * as S from "./Styles";
 
 const newsCategoryLbl = [
   { id: "2", label: "اخبار" },

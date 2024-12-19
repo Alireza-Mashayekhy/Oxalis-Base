@@ -1,4 +1,5 @@
 import { SFC } from "@/types";
+
 import * as S from "./Styles";
 
 const bondsTitlesFirstColumn = [
@@ -55,7 +56,7 @@ const SpecificationOfTheBonds: SFC = ({ selectedRow }) => {
                   {(item.type === "number" &&
                     selectedRow[item.name]?.toLocaleString()) ||
                     (item.type === "percent" &&
-                      selectedRow[item.name] + " " + "درصد") ||
+                      `${selectedRow[item.name]  } ` + `درصد`) ||
                     selectedRow[item.name]}
                 </div>
               </S.EachRowFlexContainer>

@@ -1,6 +1,7 @@
 // import { DataTableSelectionSingleChangeEvent } from "primereact/datatable";
-import * as S from "./Styles";
 import { Column, ColumnBodyOptions } from "primereact/column";
+
+import * as S from "./Styles";
 
 interface DataTableSelectionSingleChangeEvent<T> {
   originalEvent: React.SyntheticEvent<Element, Event>;

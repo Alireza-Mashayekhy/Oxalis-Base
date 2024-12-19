@@ -1,5 +1,6 @@
-import { getRefreshToken } from '@/utils/authentication';
 import axios from 'axios';
+
+import { getRefreshToken } from '@/utils/authentication';
 
 const BASE_URL = `${import.meta.env.VITE_APP_API_URL_SECOND}/api`;
 

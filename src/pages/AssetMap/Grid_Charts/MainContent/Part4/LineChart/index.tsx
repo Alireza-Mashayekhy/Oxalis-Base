@@ -1,13 +1,15 @@
-import { SalesData } from '@/types/new_data';
-import { useSelector } from 'react-redux';
 import '../style.css';
+
+import { useSelector } from 'react-redux';
+
+import LineChart from '@/components/chart';
 import {
     getSalesData,
     getSalesFilterData,
     getSelectedCitiesSales,
 } from '@/selectors/state';
 import { RootState } from '@/types';
-import LineChart from '@/components/chart';
+import { SalesData } from '@/types/new_data';
 
 const GeneralStatusTrendReview: React.FC = () => {
     const data: SalesData[] = useSelector(getSalesData);
@@ -75,7 +77,7 @@ const GeneralStatusTrendReview: React.FC = () => {
                                 backgroundColor: colorMap[city],
                                 marginLeft: '5px',
                             }}
-                        ></div>
+                         />
                         <span
                             style={{
                                 fontSize: '14px',

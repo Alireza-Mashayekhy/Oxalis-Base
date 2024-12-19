@@ -1,5 +1,6 @@
-import { fonts } from "@/styles";
 import styled from "styled-components";
+
+import { fonts } from "@/styles";
 
 export const Container = styled.div`
   padding: 10px 20px;

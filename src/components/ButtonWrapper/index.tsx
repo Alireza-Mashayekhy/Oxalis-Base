@@ -1,6 +1,7 @@
-import { fonts } from '@/styles';
 import Button from '@mui/material/Button';
 import { styled } from '@mui/material/styles';
+
+import { fonts } from '@/styles';
 
 interface CustomButtonProps {
     width?: string;
@@ -60,8 +61,8 @@ const CustomButton = styled(Button, {
         marginBottom,
         // variant,
     }) => ({
-        width: width,
-        height: height,
+        width,
+        height,
         fontSize: fontSize || '14px',
         backgroundColor: backgroundColor || 'transparent',
         color: color || 'white',

@@ -1,6 +1,7 @@
-import { fonts } from "@/styles";
 import { TableCell } from "@mui/material";
 import styled from "styled-components";
+
+import { fonts } from "@/styles";
 
 
 const StyledColumn = styled(TableCell)`

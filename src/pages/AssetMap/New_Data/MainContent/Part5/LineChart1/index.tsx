@@ -1,8 +1,9 @@
 import { useEffect, useState } from 'react';
-import { ManufacturingData } from '@/types/new_data';
 import { useSelector } from 'react-redux';
-import { getManData, getManFilterData } from '@/selectors/state';
+
 import LineChart from '@/components/chart';
+import { getManData, getManFilterData } from '@/selectors/state';
+import { ManufacturingData } from '@/types/new_data';
 
 interface DataPoint {
     date: string;

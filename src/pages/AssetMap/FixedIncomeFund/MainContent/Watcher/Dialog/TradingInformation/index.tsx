@@ -1,6 +1,7 @@
-import { SFC } from "@/types";
-import * as S from "./Styles";
 import PrimeReactTable from "@/components/DataTable/PrimeReactTable";
+import { SFC } from "@/types";
+
+import * as S from "./Styles";
 
 const symbolInfofirstColumn = [
   { label: "تعداد معاملات", value: 0, type: "number" },
@@ -49,7 +50,7 @@ const TrandingInformation: SFC = () => {
               <div>
                 {item.type === "number"
                   ? item.value.toLocaleString()
-                  : item.value + " " + "%"}
+                  : `${item.value  } ` + `%`}
               </div>
             </S.EachRowFlexContainer>
           ))}

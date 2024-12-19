@@ -1,7 +1,9 @@
-import * as S from "./Styles";
 import ArrowCircleDownTwoToneIcon from "@mui/icons-material/ArrowCircleDownTwoTone";
-import { fonts } from "@/styles";
+
 import { Label } from "@/components/Label";
+import { fonts } from "@/styles";
+
+import * as S from "./Styles";
 
 interface NewWrapper {
   title: string;

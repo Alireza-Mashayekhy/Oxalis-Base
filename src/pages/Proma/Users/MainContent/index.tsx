@@ -1,11 +1,10 @@
-import { AppDispatch, SFC } from '@/types';
-import * as S from './Styles';
 import { Button } from 'primereact/button';
-import { useEffect, useState } from 'react';
 import { ProgressSpinner } from 'primereact/progressspinner';
-import DataTable from '@/components/DataTable';
+import { useEffect, useState } from 'react';
 import { useSelector } from 'react-redux';
-import { getUsers } from '@/selectors/state';
+import { useDispatch } from 'react-redux';
+import { toast } from 'react-toastify';
+
 import {
     createUsersList,
     deleteUser,
@@ -15,11 +14,14 @@ import {
     getUser,
     getUserDetail,
 } from '@/api/users';
-import { useDispatch } from 'react-redux';
-import { toast } from 'react-toastify';
+import LineChart from '@/components/chart';
+import DataTable from '@/components/DataTable';
 import { fetchUsersList } from '@/dispatchers/users';
 import { getTheme } from '@/redux/selectors';
-import LineChart from '@/components/chart';
+import { getUsers } from '@/selectors/state';
+import { AppDispatch, SFC } from '@/types';
+
+import * as S from './Styles';
 
 const dialogStyle = {
     width: '30vw',
@@ -456,7 +458,7 @@ const MainContent: SFC = () => {
 
                 setDdnHistoryChart({
                     labels: chartData[maxDatesDataset.name].dates.reverse(),
-                    datasets: datasets,
+                    datasets,
                 });
             }
 
@@ -978,7 +980,7 @@ const MainContent: SFC = () => {
                         onEditClick={handleEditClick}
                         onChangeStatusClick={handleChangeStatusClick}
                         pagination
-                        scrollHeight={tableHeight + 'px'}
+                        scrollHeight={`${tableHeight  }px`}
                     />
                 )}
             </S.Container>

@@ -1,6 +1,7 @@
-import { SFC } from "@/types";
-import * as S from "./Styles";
 import Toggler from "@/components/Toggler";
+import { SFC } from "@/types";
+
+import * as S from "./Styles";
 
 const TopBar: SFC<{
   isSecondColumnVisible: boolean;

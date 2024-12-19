@@ -1,11 +1,13 @@
-import { useEffect, useState } from 'react';
+import './style.css';
+
 import Highcharts from 'highcharts';
 import HighchartsMap from 'highcharts/modules/map';
 import HighchartsReact from 'highcharts-react-official';
-import { ManufacturingData } from '@/types/new_data';
+import { useEffect, useState } from 'react';
 import { useSelector } from 'react-redux';
+
 import { getManData, getManFilterData } from '@/selectors/state';
-import './style.css';
+import { ManufacturingData } from '@/types/new_data';
 
 HighchartsMap(Highcharts);
 
@@ -88,7 +90,7 @@ const MapChart = () => {
 
         series: [
             {
-                data: data,
+                data,
                 name: 'مجموع مقادیر',
                 states: {
                     hover: {
@@ -101,7 +103,7 @@ const MapChart = () => {
                         fontFamily: 'IRANSans',
                         fontSize: '12px',
                     },
-                    formatter: function () {
+                    formatter () {
                         const cityNames = {
                             'ir-th': 'تهران',
                             'ir-es': 'اصفهان',
@@ -124,7 +126,7 @@ const MapChart = () => {
                 fontSize: '12px',
                 direction: 'rtl',
             },
-            formatter: function () {
+            formatter () {
                 const cityNames = {
                     'ir-th': 'تهران',
                     'ir-es': 'اصفهان',

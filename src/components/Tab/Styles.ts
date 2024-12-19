@@ -1,7 +1,8 @@
-import styled from 'styled-components';
-import { colors, fonts } from '@/styles';
 import { Tab, Tabs } from '@mui/material';
 import { ComponentProps } from 'react';
+import styled from 'styled-components';
+
+import { colors, fonts } from '@/styles';
 
 interface CustomTabProps extends ComponentProps<typeof Tab> {
     customColor?: string;

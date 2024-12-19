@@ -1,7 +1,8 @@
-import { fonts } from '@/styles';
-import { narrowScroll } from '@/styles/mixins';
 import { DataTable } from 'primereact/datatable';
 import styled from 'styled-components';
+
+import { fonts } from '@/styles';
+import { narrowScroll } from '@/styles/mixins';
 
 export const TableContainer = styled.div`
     padding: 5px 10px;

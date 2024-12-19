@@ -1,10 +1,10 @@
-import styled from 'styled-components';
-import { Dialog } from 'primereact/dialog';
 import { Avatar } from 'primereact/avatar';
+import { Button } from 'primereact/button';
+import { Calendar } from 'primereact/calendar';
+import { Dialog } from 'primereact/dialog';
 import { FileUpload } from 'primereact/fileupload';
 import { InputText } from 'primereact/inputtext';
-import { Calendar } from 'primereact/calendar';
-import { Button } from 'primereact/button';
+import styled from 'styled-components';
 
 export const Container = styled(Dialog)`
     background: ${({ theme }) => theme.strippedRow};

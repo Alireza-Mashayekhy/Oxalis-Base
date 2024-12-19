@@ -1,11 +1,13 @@
 import { useState } from 'react';
-import { SFC } from '@/types';
-import ScatterHrChart from './StackedBar';
-import HeatMapChart from './BubbleSckatter';
-import GeneralStatusTrendReview from './PieChart';
-import AccodionWrapper from '@/components/AccordionWrapper';
-import GroupedBarChart from './LineChart';
 import { v4 as uuidv4 } from 'uuid';
+
+import AccodionWrapper from '@/components/AccordionWrapper';
+import { SFC } from '@/types';
+
+import HeatMapChart from './BubbleSckatter';
+import GroupedBarChart from './LineChart';
+import GeneralStatusTrendReview from './PieChart';
+import ScatterHrChart from './StackedBar';
 
 const EnvironmentLawsAndIssuespart4: SFC = () => {
     const [value, setValue] = useState(0);

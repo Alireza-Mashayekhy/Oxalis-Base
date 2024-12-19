@@ -1,10 +1,12 @@
-import { useEffect, useState } from 'react';
-import { SalesData } from '@/types/new_data';
-import { useSelector } from 'react-redux';
-import { getSalesData, getSalesFilterData } from '@/selectors/state';
 import '../style.css';
-import { RootState } from '@/types';
+
+import { useEffect, useState } from 'react';
+import { useSelector } from 'react-redux';
+
 import BarChart from '@/components/BarChart';
+import { getSalesData, getSalesFilterData } from '@/selectors/state';
+import { RootState } from '@/types';
+import { SalesData } from '@/types/new_data';
 
 const CustomLegend = (props) => {
     const { payload } = props;

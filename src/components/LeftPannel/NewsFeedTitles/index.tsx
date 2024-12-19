@@ -1,4 +1,5 @@
 import { SFC } from "@/types";
+
 import NewsWrapper from "./NewsWrapper";
 import * as S from "./Styles";
 

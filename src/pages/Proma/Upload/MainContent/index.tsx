@@ -1,14 +1,16 @@
-import { AppDispatch, SFC } from '@/types';
-import * as S from './Styles';
-import DataTable from '@/components/DataTable';
-import { useSelector } from 'react-redux';
-import { getUploadData } from '@/selectors/state';
 import { useEffect, useRef, useState } from 'react';
-import { uploadFile } from '@/api/upload';
-import { toast } from 'react-toastify';
+import { useSelector } from 'react-redux';
 import { useDispatch } from 'react-redux';
+import { toast } from 'react-toastify';
+
+import { uploadFile } from '@/api/upload';
+import DataTable from '@/components/DataTable';
 import { fetchUploadData } from '@/dispatchers/upload';
+import { getUploadData } from '@/selectors/state';
 import { colors } from '@/styles';
+import { AppDispatch, SFC } from '@/types';
+
+import * as S from './Styles';
 
 interface ColumnField {
     field: string;
@@ -142,7 +144,7 @@ const MainContent: SFC = () => {
                     columnFields={columnUploadFields}
                     upload={true}
                     pagination
-                    scrollHeight={tableHeight + 'px'}
+                    scrollHeight={`${tableHeight  }px`}
                 />
             </S.Container>
         </div>

@@ -1,10 +1,12 @@
-import { SFC } from "@/types";
-import * as S from "./Styles";
-import TextField_n2 from "@/components/textfield/TextFiled2";
-import { useState } from "react";
-import SaveOutlinedIcon from "@mui/icons-material/SaveOutlined";
 import DoneAllOutlinedIcon from "@mui/icons-material/DoneAllOutlined";
+import SaveOutlinedIcon from "@mui/icons-material/SaveOutlined";
 import UploadFileOutlinedIcon from "@mui/icons-material/UploadFileOutlined";
+import { useState } from "react";
+
+import TextField_n2 from "@/components/textfield/TextFiled2";
+import { SFC } from "@/types";
+
+import * as S from "./Styles";
 
 const SuggestionBtn: SFC = () => {
   const [investmentText, setInvestmentText] = useState("");

@@ -1,7 +1,8 @@
-import { muiButtonStyle, narrowScroll } from "@/styles/mixins";
+import { Button as UButton,ButtonProps } from "@mui/material";
 import styled from "styled-components";
-import { ButtonProps, Button as UButton } from "@mui/material";
+
 import { colors } from "@/styles";
+import { muiButtonStyle, narrowScroll } from "@/styles/mixins";
 interface CustomButtonProps extends ButtonProps {
   isSelected?: boolean;
 }

@@ -1,12 +1,13 @@
-import { SFC } from '@/types';
-import * as S from './Styles';
-import CustomSelectComponent from '@/components/Select';
 import { Divider, SelectChangeEvent } from '@mui/material';
 import { useEffect, useState } from 'react';
-import { getSymbols } from '@/utils/fixedIncomFunctions';
+
+import CustomSelectComponent from '@/components/Select';
 import { oraghfixData } from '@/pages/AssetMap/FixedIncomeFund/MainContent/Watcher/Table/oraghFixedIncome';
+import { SFC } from '@/types';
+import { getSymbols } from '@/utils/fixedIncomFunctions';
 
 import PriceCalculations from './PriceCalculation';
+import * as S from './Styles';
 import YTMCalculations from './YTMCalculation';
 
 type symbolState = {

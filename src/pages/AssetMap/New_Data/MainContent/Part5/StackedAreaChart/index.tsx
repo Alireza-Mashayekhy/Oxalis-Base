@@ -1,7 +1,8 @@
 import { useEffect, useState } from 'react';
-import { ManufacturingData } from '@/types/new_data';
+
 import { getManData } from '@/api/new_data';
 import AreaChart from '@/components/AreaChart';
+import { ManufacturingData } from '@/types/new_data';
 
 const StackedAreaChart: React.FC = () => {
     const [loading, setLoading] = useState<boolean>(true);

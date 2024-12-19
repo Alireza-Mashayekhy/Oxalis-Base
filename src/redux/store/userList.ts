@@ -1,11 +1,12 @@
 import { createSlice, PayloadAction } from '@reduxjs/toolkit';
-import { UserListState, UserListActionTypes, UserListAction,UserReadSerializer} from '@/types';
-import { getAllUsers as _getAllUsers } from '@/api/user'; // Import your API function
+
+// Import your API function
+import { UserListState, UserReadSerializer } from '@/types';
 
 const initialState: UserListState = {
   users: [],
   loading: false,
-  error: null,
+  error: null
 };
 
 const userList = createSlice({
@@ -23,8 +24,8 @@ const userList = createSlice({
     getAllUsersFailure: (state, action: PayloadAction<string>) => {
       state.loading = false;
       state.error = action.payload;
-    },
-  },
+    }
+  }
 });
 
 export const { getAllUsersRequest, getAllUsersSuccess, getAllUsersFailure } = userList.actions;

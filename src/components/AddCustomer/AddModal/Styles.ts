@@ -1,10 +1,9 @@
-import styled from 'styled-components';
-import UIcon from '@mdi/react';
-import { Button } from 'primereact/button';
-import { Dialog } from 'primereact/dialog';
 import { AutoComplete } from 'primereact/autocomplete';
-import { Dropdown } from 'primereact/dropdown';
+import { Button } from 'primereact/button';
 import { Calendar } from 'primereact/calendar';
+import { Dialog } from 'primereact/dialog';
+import { Dropdown } from 'primereact/dropdown';
+import styled from 'styled-components';
 
 export const Container = styled(Dialog)`
     background: ${({ theme }) => theme.strippedRow};

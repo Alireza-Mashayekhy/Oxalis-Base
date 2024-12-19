@@ -1,7 +1,8 @@
-import { SFC } from "@/types";
-import * as S from "./Styles";
-import { NonMatchesRyan } from "../../contradictData";
 import PrimeReactTable from "@/components/DataTable/PrimeReactTable";
+import { SFC } from "@/types";
+
+import { NonMatchesRyan } from "../../contradictData";
+import * as S from "./Styles";
 
 
 const NonMatchRiyanTables: SFC = () => {

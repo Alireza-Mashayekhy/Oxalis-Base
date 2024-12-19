@@ -1,7 +1,8 @@
-import styled from "styled-components";
 import { Button as UButton } from "@mui/material";
-import { muiButtonStyle } from "@/styles/mixins";
 import CircularProgress from "@mui/material/CircularProgress";
+import styled from "styled-components";
+
+import { muiButtonStyle } from "@/styles/mixins";
 
 export const StyledButton = styled(UButton)`
   ${muiButtonStyle};

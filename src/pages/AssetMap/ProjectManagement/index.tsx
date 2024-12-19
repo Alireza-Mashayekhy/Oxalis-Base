@@ -1,14 +1,15 @@
-import { SFC } from '@/types';
-import MainContent from './MainContent';
-import FilterPannel from './FiltersColumn/FilterPannel';
 import PageTemplate from '@/components/PageTemplate';
+import { SFC } from '@/types';
+
+import FilterPannel from './FiltersColumn/FilterPannel';
+import MainContent from './MainContent';
 
 const Options: SFC = () => {
     const Contents = [
         {
             Title: '1',
             Content: <MainContent />,
-            FilterPannel: FilterPannel,
+            FilterPannel,
         },
     ];
     return (

@@ -1,12 +1,10 @@
 import { useState } from "react";
-import * as S from "./Styles";
-import { Label } from "@/components/Label";
-import PrimeMultiSelect from "@/components/MultiSelect";
-import { MultiSelectChangeEvent } from "primereact/multiselect";
-import { peopleOptions, subjectOptions, titleOptions } from "./filterConstants";
 // import PersianDatePicker from "@/components/datePicker";
 import { DateObject } from "react-multi-date-picker";
+
 import { SFC } from "@/types";
+
+import * as S from "./Styles";
 
 interface FilterPannelInterface {
   isResponsive?: boolean;

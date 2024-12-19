@@ -1,17 +1,18 @@
-import { useMemo } from 'react';
-import { useNavigate } from 'react-router-dom';
-import { ButtonType } from '@/components/Button';
-import { Form, Formik, FormikHelpers } from 'formik';
-import yup from '@/utils/yup';
-import { SFC } from '@/types';
-import * as S from './Styles';
-import logowhite from '@/assets/logoWhite.png';
-import { toast } from 'react-toastify';
-import PersonIcon from '@mui/icons-material/Person';
 import LockIcon from '@mui/icons-material/Lock';
+import PersonIcon from '@mui/icons-material/Person';
+import { Form, Formik, FormikHelpers } from 'formik';
+import { useMemo } from 'react';
 import { useDispatch } from 'react-redux'; // Import useDispatch
-import { setAuthentication } from '@/redux/store/authentication';
+import { useNavigate } from 'react-router-dom';
+import { toast } from 'react-toastify';
+
 import { login } from '@/api/authentication';
+import logowhite from '@/assets/logoWhite.png';
+import { ButtonType } from '@/components/Button';
+import { SFC } from '@/types';
+import yup from '@/utils/yup';
+
+import * as S from './Styles';
 
 const Login: SFC = () => {
     const navigate = useNavigate();

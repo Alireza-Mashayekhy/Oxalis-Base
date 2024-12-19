@@ -1,7 +1,8 @@
+import { Button as MUIButton,ButtonProps } from "@mui/material";
+import styled from "styled-components";
+
 import { breakpoints, colors, fonts } from "@/styles";
 import { muiButtonStyle, narrowScroll } from "@/styles/mixins";
-import { ButtonProps, Button as MUIButton } from "@mui/material";
-import styled from "styled-components";
 
 interface CustomButtonProps extends ButtonProps {
   isSelected?: boolean;

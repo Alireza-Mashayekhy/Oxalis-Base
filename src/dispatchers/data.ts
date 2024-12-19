@@ -1,6 +1,6 @@
-import { AppDispatch } from "@/types";
-import { setData, setFilters } from "@/redux/store/data";
 import * as api from "@/api/data";
+import { setData, setFilters } from "@/redux/store/data";
+import { AppDispatch } from "@/types";
 
 export const fetchData =
   (filters?: Record<string, any>) => async (dispatch: AppDispatch) => {

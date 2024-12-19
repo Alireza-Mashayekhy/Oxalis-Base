@@ -1,21 +1,23 @@
-import { AppDispatch, SFC } from "@/types";
-import { useEffect, useState } from "react";
-import { numberBodyTemplateForTreeTable } from "@/utils/dataTableFunctions";
 import { Column, ColumnEditorOptions } from "primereact/column";
-import * as S from "./Styles";
-import { updateBondDataBatch } from "@/dispatchers/bondData";
-import { useSelector, useDispatch } from "react-redux";
-import { getBondData } from "@/selectors/state";
 import { TreeNode } from "primereact/treenode";
+import { useEffect, useState } from "react";
+import { useDispatch,useSelector } from "react-redux";
+
 import SendDataButton from "@/components/Button/sendDataButton";
+import EditableCell from "@/components/EditableCell";
 import SearchInput from "@/components/Inputs/SearchInput";
+import NoDataFoundTemplate from "@/components/NoDataFound";
+import { updateBondDataBatch } from "@/dispatchers/bondData";
+import { getBondData } from "@/selectors/state";
+import { AppDispatch, SFC } from "@/types";
 import {
   filterBondDataTable,
   flattenTreeData,
   transformBondData,
 } from "@/utils/dataEntry";
-import NoDataFoundTemplate from "@/components/NoDataFound";
-import EditableCell from "@/components/EditableCell";
+import { numberBodyTemplateForTreeTable } from "@/utils/dataTableFunctions";
+
+import * as S from "./Styles";
 
 const columns = [
   {
@@ -52,7 +54,7 @@ const columns = [
 
 const BondsData: SFC = () => {
   const bondData = useSelector(getBondData).data;
-  const loading = useSelector(getBondData).loading;
+  const {loading} = useSelector(getBondData);
   const dispatch = useDispatch<AppDispatch>();
 
   const [searchInput, setSearchInput] = useState("");
@@ -102,7 +104,7 @@ const BondsData: SFC = () => {
                 header="صندوق"
                 expander
                 style={{ width: "20%" }}
-              ></Column>
+               />
               {columns.map((col, index) => (
                 <Column
                   key={index}

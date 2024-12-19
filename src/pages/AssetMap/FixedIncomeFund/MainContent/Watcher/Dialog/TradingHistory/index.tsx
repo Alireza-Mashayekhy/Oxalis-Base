@@ -1,7 +1,8 @@
-import { SFC } from '@/types';
-import * as S from './Styles';
-import { data } from './data';
 import LineChart from '@/components/chart';
+import { SFC } from '@/types';
+
+import { data } from './data';
+import * as S from './Styles';
 
 const TradingHistory: SFC = () => {
     const sortedData = data.sort(

@@ -1,13 +1,13 @@
-import { AppDispatch, Customers } from '@/types';
+import { toast } from 'react-toastify';
 
 import * as api from '@/api/customers';
-import { toast } from 'react-toastify';
 import {
-    setCustomersData,
     customersFailure,
     customersRequest,
     customersSuccess,
+    setCustomersData,
 } from '@/redux/store/customersData';
+import { AppDispatch, Customers } from '@/types';
 
 export const fetchCustomersData = () => async (dispatch: AppDispatch) => {
     dispatch(customersRequest());

@@ -1,5 +1,5 @@
-import styled from "styled-components";
-import { colors } from "@/styles";
 import { AccordionSummary } from "@mui/material";
+import styled from "styled-components";
+
 
 export const StyledAccordionSummary = styled(AccordionSummary)``;

@@ -1,7 +1,9 @@
-import { useDispatch, useSelector } from 'react-redux';
-import { toggleCity, clearCitiesFilter } from '@/redux/store/citiesFilterMan';
-import { getManData } from '@/selectors/state';
 import './style.css';
+
+import { useDispatch, useSelector } from 'react-redux';
+
+import { clearCitiesFilter,toggleCity } from '@/redux/store/citiesFilterMan';
+import { getManData } from '@/selectors/state';
 import { RootState } from '@/types';
 const CityFilter: React.FC = () => {
     const dispatch = useDispatch();

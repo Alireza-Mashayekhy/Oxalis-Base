@@ -4,4 +4,4 @@ import { TOOLBAR_HEIGHT } from '@/styles/constants';
 import fonts from '@/styles/fonts';
 import { hiddenScroll, inputStyle } from '@/styles/mixins';
 
-export { TOOLBAR_HEIGHT, breakpoints, colors, fonts, hiddenScroll, inputStyle };
+export { breakpoints, colors, fonts, hiddenScroll, inputStyle,TOOLBAR_HEIGHT };

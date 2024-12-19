@@ -1,7 +1,8 @@
-import { inputStyle } from '@/styles';
 import { AutoComplete } from 'primereact/autocomplete';
 import { Dialog } from 'primereact/dialog';
 import styled from 'styled-components';
+
+import { inputStyle } from '@/styles';
 
 export const Container = styled.div`
     padding: 20px;

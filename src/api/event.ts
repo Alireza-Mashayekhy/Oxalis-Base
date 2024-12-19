@@ -1,4 +1,5 @@
 import axios from 'axios';
+
 import { Event } from '@/types';
 
 const BASE_URL = `${import.meta.env.VITE_APP_API_URL}/api/events`;

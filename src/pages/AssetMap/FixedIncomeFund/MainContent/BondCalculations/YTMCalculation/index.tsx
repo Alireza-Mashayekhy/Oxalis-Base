@@ -1,9 +1,9 @@
-import { SFC } from "@/types";
-import * as S from "./Styles";
 // import PersianDatePicker from "@/components/datePicker";
 import { useState } from "react";
 import { DateObject } from "react-multi-date-picker";
-import TextField_n2 from "@/components/textfield/TextFiled2";
+
+import { SFC } from "@/types";
+
 
 const YTMCalculations: SFC = () => {
   const [buyDate, setBuyDate] = useState(new DateObject());

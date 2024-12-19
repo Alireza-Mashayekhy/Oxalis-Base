@@ -1,13 +1,15 @@
-import AccodionWrapper from "@/components/AccordionWrapper";
-import { SFC } from "@/types";
 import { useState } from "react";
-import * as S from "./Styles";
+import { v4 as uuidv4 } from "uuid";
+
+import AccodionWrapper from "@/components/AccordionWrapper";
+import BondPaperTypesButtons from "@/components/BondPaperTypesButtons";
+import { SFC } from "@/types";
+
 import BondCalculations from "./BondCalculations";
 import CashFlowCalculation from "./CashFlowCalculations";
 import GoldenOpportunity from "./GoldenOpportunity";
+import * as S from "./Styles";
 import StockPaperTable from "./Watcher/Table";
-import { v4 as uuidv4 } from "uuid";
-import BondPaperTypesButtons from "@/components/BondPaperTypesButtons";
 
 const tabs = [
   { label: "دیده‌بان", value: 0, id: uuidv4() },
